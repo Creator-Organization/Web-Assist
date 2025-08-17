@@ -1,8 +1,12 @@
+// src/components/sections/hero-section.tsx
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Shield, Zap, Users, Code, HeadphonesIcon } from 'lucide-react';
+import { ArrowRight, Play, Sparkles, Shield, Zap, Users, Code, HeadphonesIcon, ChevronDown } from 'lucide-react';
+import { DisplayText, HeadlineText, BodyText } from '@/components/ui/Typography';
+import { AppleButton } from '@/components/ui/AppleButton';
+import { AppleCard } from '@/components/ui/AppleCard';
 
 const valuePropositions = [
   'Security & DDoS Protection',
@@ -20,19 +24,16 @@ export function HeroSection() {
   useEffect(() => {
     const targetText = valuePropositions[currentIndex];
     
-    if (!targetText) return; // Safety check
+    if (!targetText) return;
     
     const timeout = setTimeout(() => {
       if (!isDeleting) {
-        // Typing
         if (currentText.length < targetText.length) {
           setCurrentText(targetText.slice(0, currentText.length + 1));
         } else {
-          // Pause before deleting
           setTimeout(() => setIsDeleting(true), 2000);
         }
       } else {
-        // Deleting
         if (currentText.length > 0) {
           setCurrentText(currentText.slice(0, -1));
         } else {
@@ -44,6 +45,25 @@ export function HeroSection() {
 
     return () => clearTimeout(timeout);
   }, [currentText, currentIndex, isDeleting]);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' }
+    }
+  };
 
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ 
@@ -52,119 +72,163 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-gradient">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-900/20 via-primary-800/10 to-accent-500/20" />
-      
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-white/5 blur-3xl animate-pulse-slow" />
-        <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-accent-500/10 blur-3xl animate-pulse-slow" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background-secondary to-white">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary-500/5 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary-500/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-500/3 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 container-max section-padding text-center text-white">
-        {/* Main heading */}
+      <div className="container-apple relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-6"
+          className="text-center max-w-5xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
-          <h1 className="text-5xl md:text-7xl font-bold mb-4">
-            <span className="block">WebAssist</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-blue-100 font-light max-w-3xl mx-auto">
-            Professional Web Development Services
-          </p>
-        </motion.div>
+          {/* Badge */}
+          <motion.div variants={itemVariants} className="mb-8">
+            <div className="inline-flex items-center gap-2 bg-primary-50 text-primary-600 px-4 py-2 rounded-full text-sm font-medium border border-primary-100">
+              <Sparkles size={16} />
+              Professional Web Development Services in India
+            </div>
+          </motion.div>
 
-        {/* Typing animation section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mb-12"
-        >
-          <div className="text-2xl md:text-3xl font-semibold mb-4">
-            We provide
-          </div>
-          <div className="h-16 flex items-center justify-center">
-            <span className="text-2xl md:text-4xl font-bold text-accent-300">
-              {currentText}
-              <span className="animate-pulse">|</span>
-            </span>
-          </div>
-        </motion.div>
+          {/* Main Headline */}
+          <motion.div variants={itemVariants}>
+            <DisplayText className="mb-6 text-6xl md:text-7xl lg:text-8xl font-bold">
+              <span className="block">WebAssist</span>
+            </DisplayText>
+            <HeadlineText className="mb-6 text-neutral-600 font-normal text-2xl md:text-3xl lg:text-4xl">
+              Professional Web Development Services
+            </HeadlineText>
+          </motion.div>
 
-        {/* Feature icons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12 max-w-4xl mx-auto"
-        >
-          <div className="flex flex-col items-center space-y-2">
-            <Shield className="h-8 w-8 text-accent-300" />
-            <span className="text-sm text-blue-100">Secure</span>
-          </div>
-          <div className="flex flex-col items-center space-y-2">
-            <Zap className="h-8 w-8 text-accent-300" />
-            <span className="text-sm text-blue-100">Fast</span>
-          </div>
-          <div className="flex flex-col items-center space-y-2">
-            <Users className="h-8 w-8 text-accent-300" />
-            <span className="text-sm text-blue-100">Reliable</span>
-          </div>
-          <div className="flex flex-col items-center space-y-2">
-            <Code className="h-8 w-8 text-accent-300" />
-            <span className="text-sm text-blue-100">Modern</span>
-          </div>
-          <div className="flex flex-col items-center space-y-2 col-span-2 md:col-span-1">
-            <HeadphonesIcon className="h-8 w-8 text-accent-300" />
-            <span className="text-sm text-blue-100">Supported</span>
-          </div>
-        </motion.div>
-
-        {/* Call to action buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
-        >
-          <button
-            onClick={scrollToContact}
-            className="w-full sm:w-auto bg-accent-500 hover:bg-accent-600 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-900"
+          {/* Typing Animation Section */}
+          <motion.div
+            variants={itemVariants}
+            className="mb-12"
           >
-            Start Your Project
-          </button>
-          <button
-            onClick={scrollToContact}
-            className="w-full sm:w-auto border-2 border-white/30 hover:border-white/50 hover:bg-white/10 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-primary-900"
-          >
-            Learn More
-          </button>
-        </motion.div>
+            <div className="text-2xl md:text-3xl font-semibold mb-4 text-neutral-700">
+              We provide
+            </div>
+            <div className="h-16 flex items-center justify-center">
+              <span className="text-2xl md:text-4xl font-bold text-accent-500">
+                {currentText}
+                <span className="animate-pulse text-primary-500">|</span>
+              </span>
+            </div>
+          </motion.div>
 
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="flex justify-center"
-        >
-          <button
-            onClick={scrollToContact}
-            className="animate-bounce focus:outline-none group"
-            aria-label="Scroll to contact section"
+          {/* Feature Icons */}
+          <motion.div
+            variants={itemVariants}
+            className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12 max-w-4xl mx-auto"
           >
-            <ChevronDown className="h-8 w-8 text-white/70 group-hover:text-white transition-colors" />
-          </button>
+            <div className="flex flex-col items-center space-y-2">
+              <Shield className="h-8 w-8 text-accent-500" />
+              <span className="text-sm text-neutral-600">Secure</span>
+            </div>
+            <div className="flex flex-col items-center space-y-2">
+              <Zap className="h-8 w-8 text-accent-500" />
+              <span className="text-sm text-neutral-600">Fast</span>
+            </div>
+            <div className="flex flex-col items-center space-y-2">
+              <Users className="h-8 w-8 text-accent-500" />
+              <span className="text-sm text-neutral-600">Reliable</span>
+            </div>
+            <div className="flex flex-col items-center space-y-2">
+              <Code className="h-8 w-8 text-accent-500" />
+              <span className="text-sm text-neutral-600">Modern</span>
+            </div>
+            <div className="flex flex-col items-center space-y-2 col-span-2 md:col-span-1">
+              <HeadphonesIcon className="h-8 w-8 text-accent-500" />
+              <span className="text-sm text-neutral-600">Supported</span>
+            </div>
+          </motion.div>
+
+          {/* Feature Highlights */}
+          <motion.div variants={itemVariants} className="mb-12">
+            <div className="flex flex-wrap justify-center gap-6 text-neutral-600">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-secondary-500 rounded-full" />
+                <span>₹50,000 - ₹5,00,000 Projects</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-primary-500 rounded-full" />
+                <span>2-12 Week Delivery</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-accent-500 rounded-full" />
+                <span>24/7 Support</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* CTA Buttons */}
+          <motion.div variants={itemVariants} className="mb-16">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <AppleButton 
+                variant="primary" 
+                size="lg"
+                onClick={scrollToContact}
+                className="bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 shadow-apple-lg group"
+              >
+                Start Your Project
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </AppleButton>
+              
+              <AppleButton 
+                variant="outline" 
+                size="lg"
+                onClick={scrollToContact}
+                className="group"
+              >
+                <Play size={18} className="group-hover:scale-110 transition-transform" />
+                Learn More
+              </AppleButton>
+            </div>
+          </motion.div>
+
+          {/* Stats Cards */}
+          <motion.div variants={itemVariants}>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              <AppleCard variant="glass" padding="md" className="text-center">
+                <DisplayText className="text-3xl text-primary-600 mb-2">150+</DisplayText>
+                <BodyText className="text-neutral-600">Projects Delivered</BodyText>
+              </AppleCard>
+              
+              <AppleCard variant="glass" padding="md" className="text-center">
+                <DisplayText className="text-3xl text-secondary-600 mb-2">98%</DisplayText>
+                <BodyText className="text-neutral-600">Client Satisfaction</BodyText>
+              </AppleCard>
+              
+              <AppleCard variant="glass" padding="md" className="text-center">
+                <DisplayText className="text-3xl text-accent-600 mb-2">24hr</DisplayText>
+                <BodyText className="text-neutral-600">Response Time</BodyText>
+              </AppleCard>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
 
-      {/* Gradient overlay at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
+      {/* Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.5, duration: 0.6 }}
+      >
+        <div className="flex flex-col items-center gap-2 text-neutral-400">
+          <span className="text-sm">Scroll to explore</span>
+          <motion.div
+            className="w-1 h-8 bg-neutral-300 rounded-full"
+            animate={{ scaleY: [1, 1.5, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+        </div>
+      </motion.div>
     </section>
   );
 }
