@@ -149,8 +149,7 @@ export function generateBusinessStructuredData() {
 
 // Structured data for testimonials
 export function generateTestimonialsStructuredData(testimonials: any[]) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://webassist.com';
-  
+    
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
