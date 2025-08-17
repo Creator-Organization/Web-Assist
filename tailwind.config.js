@@ -8,20 +8,61 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Professional color scheme
+        // Apple-inspired color system
         primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6', // Main blue
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
-          950: '#172554',
+          50: '#E6F2FF',
+          100: '#CCE5FF',
+          200: '#99CCFF',
+          300: '#66B2FF',
+          400: '#3399FF',
+          500: '#007AFF', // Main Apple Blue
+          600: '#0066CC',
+          700: '#004C99',
+          800: '#003366',
+          900: '#001933',
         },
+        secondary: {
+          50: '#E8F5E8',
+          100: '#C3E6C3',
+          200: '#9FD69F',
+          300: '#7AC67A',
+          400: '#55B755',
+          500: '#34C759', // Apple Green
+          600: '#2BA947',
+          700: '#228B35',
+          800: '#196D23',
+          900: '#0F4F11',
+        },
+        accent: {
+          50: '#FFF4E6',
+          100: '#FFE6CC',
+          200: '#FFCC99',
+          300: '#FFB366',
+          400: '#FF9933',
+          500: '#FF9500', // Apple Orange
+          600: '#CC7700',
+          700: '#995A00',
+          800: '#663D00',
+          900: '#331F00',
+        },
+        neutral: {
+          50: '#F5F5F7',
+          100: '#E5E5E7',
+          200: '#D1D1D6',
+          300: '#C7C7CC',
+          400: '#AEAEB2',
+          500: '#8E8E93',
+          600: '#636366',
+          700: '#48484A',
+          800: '#2C2C2E',
+          900: '#1D1D1F', // Apple Dark
+        },
+        background: {
+          DEFAULT: '#FFFFFF',
+          secondary: '#F5F5F7', // Apple Light Gray
+          tertiary: '#FAFAFA',
+        },
+        // Keep existing grays for backward compatibility
         gray: {
           50: '#f8fafc',
           100: '#f1f5f9',
@@ -35,17 +76,15 @@ module.exports = {
           900: '#0f172a',
           950: '#020617',
         },
-        accent: {
-          500: '#06b6d4', // Cyan accent
-          600: '#0891b2',
-        },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
       },
       animation: {
-        'fade-in': 'fadeIn 0.5s ease-in-out',
-        'slide-up': 'slideUp 0.5s ease-out',
+        'fade-in': 'fadeIn 0.6s ease-out',
+        'slide-up': 'slideUp 0.6s ease-out',
+        'scale-in': 'scaleIn 0.4s ease-out',
+        'float': 'float 3s ease-in-out infinite',
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
@@ -54,9 +93,27 @@ module.exports = {
           '100%': { opacity: '1' },
         },
         slideUp: {
-          '0%': { transform: 'translateY(10px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+        scaleIn: {
+          '0%': { opacity: '0', transform: 'scale(0.95)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+      },
+      boxShadow: {
+        'apple': '0 4px 16px rgba(0, 0, 0, 0.1)',
+        'apple-lg': '0 8px 32px rgba(0, 0, 0, 0.12)',
+        'apple-xl': '0 16px 64px rgba(0, 0, 0, 0.15)',
+      },
+      borderRadius: {
+        'apple': '12px',
+        'apple-lg': '16px',
+        'apple-xl': '24px',
       },
       screens: {
         'xs': '475px',
@@ -65,6 +122,9 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'hero-gradient': 'linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #2563eb 100%)',
+        'gradient-primary': 'linear-gradient(135deg, #007AFF 0%, #34C759 100%)',
+        'gradient-secondary': 'linear-gradient(135deg, #34C759 0%, #FF9500 100%)',
+        'gradient-accent': 'linear-gradient(135deg, #FF9500 0%, #007AFF 100%)',
       },
     },
   },
