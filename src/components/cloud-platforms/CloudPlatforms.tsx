@@ -2,8 +2,8 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, ArrowRight, Cloud, Server, Database, Shield } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Shield } from 'lucide-react';
 import { CloudPlatform } from '@/types/phase2';
 import { cloudPlatforms } from '@/data/cloudPlatforms';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
@@ -13,7 +13,6 @@ import { ServiceHighlight } from './ServiceHighlight';
 import { HeadlineText, TitleText, BodyText } from '@/components/ui/Typography';
 import { AppleButton } from '@/components/ui/AppleButton';
 import { AppleCard } from '@/components/ui/AppleCard';
-import { cn } from '@/lib/utils';
 
 interface CloudPlatformsProps {
   onServiceInquiry?: (platform: CloudPlatform, service: string) => void;

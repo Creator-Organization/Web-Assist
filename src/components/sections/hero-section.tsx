@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Play, Sparkles, Shield, Zap, Users, Code, HeadphonesIcon, ChevronDown } from 'lucide-react';
+import { ArrowRight, Play, Sparkles, Shield, Zap, Users, Code, HeadphonesIcon} from 'lucide-react';
 import { DisplayText, HeadlineText, BodyText } from '@/components/ui/Typography';
 import { AppleButton } from '@/components/ui/AppleButton';
 import { AppleCard } from '@/components/ui/AppleCard';
