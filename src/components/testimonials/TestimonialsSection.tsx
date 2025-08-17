@@ -23,7 +23,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
   const sectionRef = useRef<HTMLElement>(null);
   
   // Track section visibility
-  const { isIntersecting, hasIntersected } = useIntersectionObserver(sectionRef);
+  const { hasIntersected } = useIntersectionObserver(sectionRef);
 
   // Track section view when it becomes visible
   useEffect(() => {
