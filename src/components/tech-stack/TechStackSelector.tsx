@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, ArrowRight, Zap } from 'lucide-react';
 import { TechStack } from '@/types/phase2';
-import { techStacks, getRecommendedStack } from '@/data/techStacks';
+import { techStacks} from '@/data/techStacks';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { AnimatedContainer } from '@/components/shared/AnimatedContainer';
 import { StackCard } from './StackCard';
@@ -13,7 +13,6 @@ import { StackComparison } from './StackComparison';
 import { HeadlineText, TitleText, BodyText } from '@/components/ui/Typography';
 import { AppleButton } from '@/components/ui/AppleButton';
 import { AppleCard } from '@/components/ui/AppleCard';
-import { cn } from '@/lib/utils';
 
 interface TechStackSelectorProps {
   onQuoteRequest?: (stack: TechStack) => void;
@@ -24,8 +23,6 @@ export function TechStackSelector({ onQuoteRequest }: TechStackSelectorProps) {
   const [selectedComplexity, setSelectedComplexity] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedStack, setSelectedStack] = useState('react');
-
-  const recommendedStack = getRecommendedStack();
 
   // Simple tech stacks for the main view
   const simpleTechStacks = [
