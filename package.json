@@ -9,7 +9,10 @@
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "db:setup": "node scripts/setup-database.js",
-    "db:test": "node scripts/test-connection.js"
+    "db:test": "node scripts/test-connection.js",
+    "db:testimonials": "node scripts/setup-testimonials.js",
+    "db:fix-testimonials": "node scripts/fix-testimonials.js",
+    "test:phase3": "node scripts/test-phase3.js"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.10",
