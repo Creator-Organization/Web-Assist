@@ -7,9 +7,9 @@
 /* Apple Design System Variables */
 :root {
   /* Colors */
-  --color-primary: #007AFF;
-  --color-secondary: #34C759;
-  --color-accent: #FF9500;
+  --color-primary: #14b8a6;
+  --color-secondary: #22c55e;
+  --color-accent: #f97316;
   --color-neutral: #1D1D1F;
   --color-background: #FFFFFF;
   --color-background-secondary: #F5F5F7;
@@ -282,15 +282,15 @@
 
   /* Apple Gradient System */
   .gradient-primary {
-    background: linear-gradient(135deg, #007AFF 0%, #34C759 100%);
+    background: linear-gradient(135deg, #14b8a6 0%, #22c55e 100%);
   }
 
   .gradient-secondary {
-    background: linear-gradient(135deg, #34C759 0%, #FF9500 100%);
+    background: linear-gradient(135deg, #22c55e 0%, #f97316 100%);
   }
 
   .gradient-accent {
-    background: linear-gradient(135deg, #FF9500 0%, #007AFF 100%);
+    background: linear-gradient(135deg, #f97316 0%, #14b8a6 100%);
   }
 
   /* Legacy gradient utilities - kept for backward compatibility */

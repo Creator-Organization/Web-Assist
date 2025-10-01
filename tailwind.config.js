@@ -8,18 +8,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Apple-inspired color system
+        // Teal-inspired color system
         primary: {
-          50: '#E6F2FF',
-          100: '#CCE5FF',
-          200: '#99CCFF',
-          300: '#66B2FF',
-          400: '#3399FF',
-          500: '#007AFF', // Main Apple Blue
-          600: '#0066CC',
-          700: '#004C99',
-          800: '#003366',
-          900: '#001933',
+          50: '#f0fdfa',
+          100: '#ccfbf1',
+          200: '#99f6e4',
+          300: '#5eead4',
+          400: '#2dd4bf',
+          500: '#14b8a6', // Main Teal
+          600: '#0d9488',
+          700: '#0f766e',
+          800: '#115e59',
+          900: '#134e4a',
         },
         secondary: {
           50: '#E8F5E8',
@@ -27,7 +27,7 @@ module.exports = {
           200: '#9FD69F',
           300: '#7AC67A',
           400: '#55B755',
-          500: '#34C759', // Apple Green
+          500: '#22c55e', // Green
           600: '#2BA947',
           700: '#228B35',
           800: '#196D23',
@@ -39,7 +39,7 @@ module.exports = {
           200: '#FFCC99',
           300: '#FFB366',
           400: '#FF9933',
-          500: '#FF9500', // Apple Orange
+          500: '#f97316', // Orange
           600: '#CC7700',
           700: '#995A00',
           800: '#663D00',
@@ -122,9 +122,9 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'hero-gradient': 'linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #2563eb 100%)',
-        'gradient-primary': 'linear-gradient(135deg, #007AFF 0%, #34C759 100%)',
-        'gradient-secondary': 'linear-gradient(135deg, #34C759 0%, #FF9500 100%)',
-        'gradient-accent': 'linear-gradient(135deg, #FF9500 0%, #007AFF 100%)',
+        'gradient-primary': 'linear-gradient(135deg, #14b8a6 0%, #22c55e 100%)',
+        'gradient-secondary': 'linear-gradient(135deg, #22c55e 0%, #f97316 100%)',
+        'gradient-accent': 'linear-gradient(135deg, #f97316 0%, #14b8a6 100%)',
       },
     },
   },
