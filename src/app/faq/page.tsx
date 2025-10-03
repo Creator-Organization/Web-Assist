@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { HelpCircle, MessageCircle, Clock, CheckCircle, Zap, Shield } from 'lucide-react';
+import { HelpCircle, MessageCircle, Clock } from 'lucide-react';
 import { useState } from 'react';
 
 export default function FAQPage() {

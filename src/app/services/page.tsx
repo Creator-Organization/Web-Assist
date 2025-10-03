@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { TrendingUp, Globe, Database, Cpu, Award, Users, Zap, CheckCircle } from 'lucide-react';
+import { TrendingUp, Globe, Database, Cpu, Award, Zap, CheckCircle } from 'lucide-react';
 
 export default function ServicesPage() {
   const categories = [
