@@ -1,130 +1,149 @@
+import Link from 'next/link';
+
 export default function WordPressPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="bg-primary-600 text-white py-20">
-        <div className="container mx-auto px-4">
-          <h1 className="text-5xl font-bold mb-4">WordPress Development</h1>
-          <p className="text-xl max-w-3xl">
-            Professional WordPress solutions with custom themes, plugins, and complete content management systems
+      <section className="bg-primary-600 text-white py-20 relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 opacity-80 pointer-events-none z-0" />
+        <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
+          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">WordPress Development</h1>
+          <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
+            Custom WordPress solutions with themes, plugins, and complete content management that powers your business
           </p>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-apple-lg shadow-apple p-8 mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">WordPress Services</h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                WordPress is among the most common platforms for content management (CMS) which we also suggest for websites of all types. As social media goes through new domains, we too have set up WordPress to be the easiest and highly extensible platform to support. The various benefits include: Simply managed custom usage of content and most significantly updating of your own site after our delivery and that is how it must be.
+      {/* Image + Text Section */}
+      <section className="py-16 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-6 xl:px-16">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div>
+              <h2 className="text-3xl font-bold mb-4 text-gray-900">World's Most Popular CMS</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                WordPress is the world's most popular content management system, powering over 40% of all websites. Our expert developers create custom WordPress solutions that are secure, scalable, and easy to manage.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                From simple blogs to complex e-commerce platforms, we build WordPress sites that deliver exceptional performance and user experience.
               </p>
             </div>
+            <div className="flex justify-center">
+              <img 
+                src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=600"
+                alt="WordPress Development"
+                className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="space-y-8 mb-8">
-              <div className="bg-white rounded-apple-lg shadow-apple p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Configuration and Installation</h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Are you starting with WordPress, WordPress Multisite, BuddyPress or bbPress? We will set you apart from the rest with new and utmost plugins for your specific requirements directly from the specialists. Our team of experts is ready with all its skills and technology to fetch the best of this field.
-                </p>
+      {/* Checklist Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-6 xl:px-16">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">WordPress Development Services</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-lg p-8 shadow-md">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Core Services</h3>
+                <ul className="space-y-4">
+                  {[
+                    'Custom Theme Development',
+                    'Plugin Development & Customization',
+                    'WooCommerce Integration',
+                    'Website Migration Services',
+                    'Performance Optimization',
+                    'Security Hardening'
+                  ].map((service, i) => (
+                    <li key={i} className="flex items-center">
+                      <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-gray-700">{service}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <div className="bg-white rounded-apple-lg shadow-apple p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Custom Blog Design</h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  In social media, our leadership and experience will make certain that you will have a fresh and prolonged site life. Custom designing is what your site needs and we are here to fulfill your needs with complete satisfaction. You need not bother about anything while dealing with us.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-apple-lg shadow-apple p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Theme Execution & Development</h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  If you already have a design ready with you, but need assistance in setting it up with WordPress, then you are at the right place. Our professionals will handle this quite well up to your expectation and need. Your business success is our success.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-apple-lg shadow-apple p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Plugin Installation and Development</h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  When it is about portfolio sites, podcasting and forums, we frequently have to write custom plugins to facilitate the content management and user experience in exactly the way you require it. You just need to mention your requirement; we will get all available plugins and personalize them for you.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-apple-lg shadow-apple p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">WordPress Migration</h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  If you are prepared for social media and WordPress, but are still using some other technology, blogging platform or have a fundamental HTML site, then we can put you in tandem with the latest trend. You can obtain our various customized WordPress themes.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-apple-lg shadow-apple p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Search Engine Optimization (SEO)</h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Whether it is an existing site or a new one, the whole database, theme and plugins are essential to be updated. The site will be SEO optimized to enlarge ranking of search engine. We also provide SEO services to boost your ranking and conversion rate.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-apple-lg shadow-apple p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Website Optimization</h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Enhance the existence of your present blog — it can't be ignored! Research demonstrates that even an improvement of 500ms in load timing gives way to improvement and conversions up to 20%. We also provide server optimizations to PHP, Apache and MySQL. Acquire more performance from your existing server, no need to waste more cash and energy every month.
-                </p>
+              <div className="bg-white rounded-lg p-8 shadow-md">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Advanced Features</h3>
+                <ul className="space-y-4">
+                  {[
+                    'Multi-site Network Setup',
+                    'API Integration & Development',
+                    'Custom Post Types & Taxonomies',
+                    'Membership Site Development',
+                    'SEO Optimization',
+                    'Ongoing Maintenance & Support'
+                  ].map((feature, i) => (
+                    <li key={i} className="flex items-center">
+                      <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-gray-700">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="bg-white rounded-apple-lg shadow-apple p-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Other WordPress Services</h2>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Custom web-oriented applications through WordPress</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Technical support for WordPress</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">WordPress template or theme formation</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Custom development of WordPress plugin</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Custom design for WordPress theme</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Relocation from another blogging system to WordPress</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Migration of WordPress domain and server</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Implementation of WordPress theme or template</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">WordPress upgrades</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Installation of WordPress Multisite</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">SEO services related to WordPress</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">WordPress Security Audits</span>
-                </li>
-              </ul>
+      {/* Feature Highlights */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6 xl:px-16">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Why Choose WordPress?</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="border-l-4 border-primary-500 pl-6 py-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Easy to Use</h3>
+                <p className="text-gray-700">Intuitive dashboard that anyone can learn quickly</p>
+              </div>
+              <div className="border-l-4 border-primary-500 pl-6 py-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Highly Customizable</h3>
+                <p className="text-gray-700">Thousands of themes and plugins available</p>
+              </div>
+              <div className="border-l-4 border-primary-500 pl-6 py-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">SEO Friendly</h3>
+                <p className="text-gray-700">Built-in features for search engine optimization</p>
+              </div>
+              <div className="border-l-4 border-primary-500 pl-6 py-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Responsive Design</h3>
+                <p className="text-gray-700">Mobile-friendly websites that work on all devices</p>
+              </div>
+              <div className="border-l-4 border-primary-500 pl-6 py-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Secure & Reliable</h3>
+                <p className="text-gray-700">Regular updates and strong security measures</p>
+              </div>
+              <div className="border-l-4 border-primary-500 pl-6 py-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Cost Effective</h3>
+                <p className="text-gray-700">Open source platform with affordable development</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Text + Image Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-6 xl:px-16">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div className="order-2 md:order-1 flex justify-center">
+              <img 
+                src="https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=800&h=600"
+                alt="WordPress Dashboard"
+                className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h2 className="text-3xl font-bold mb-4 text-gray-900">Expert WordPress Solutions</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Our WordPress development team has years of experience creating custom solutions for businesses of all sizes. We follow WordPress coding standards and best practices to ensure your site is secure, fast, and maintainable.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                Whether you need a simple blog, corporate website, or complex e-commerce platform, we have the expertise to bring your vision to life.
+              </p>
             </div>
           </div>
         </div>
@@ -135,11 +154,13 @@ export default function WordPressPage() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">Ready to Build with WordPress?</h2>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Let us create a powerful WordPress solution tailored to your business needs
+            Let us create a powerful WordPress website that grows with your business
           </p>
-          <button className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-apple text-lg font-semibold transition-all duration-200 transform hover:-translate-y-0.5 shadow-apple hover:shadow-apple-lg">
-            Get Started
-          </button>
+          <Link href="/contact">
+            <button className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-apple text-lg font-semibold transition-all duration-200 transform hover:-translate-y-0.5 shadow-apple hover:shadow-apple-lg">
+              Start Your WordPress Project
+            </button>
+          </Link>
         </div>
       </section>
     </div>
