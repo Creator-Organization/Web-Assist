@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Rocket, Users, Award, Clock, Code, Heart, Briefcase, TrendingUp } from 'lucide-react';
+import { Users, Award, Clock, Code, Heart, Briefcase, TrendingUp } from 'lucide-react';
 
 export default function CareersPage() {
   return (

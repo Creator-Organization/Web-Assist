@@ -1,5 +1,5 @@
 import { ContactForm } from '@/components/forms/contact-form';
-import { Mail, Phone, MapPin, Clock, MessageCircle, FileCheck } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle, FileCheck } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ContactPage() {
