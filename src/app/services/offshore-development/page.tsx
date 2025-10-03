@@ -1,74 +1,142 @@
+import Link from 'next/link';
+
 export default function OffshoreDevelopmentPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="bg-primary-600 text-white py-20">
-        <div className="container mx-auto px-4">
-          <h1 className="text-5xl font-bold mb-4">Offshore Development</h1>
-          <p className="text-xl max-w-3xl">
+      <section className="bg-primary-600 text-white py-20 relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 opacity-80 pointer-events-none z-0" />
+        <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
+          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Offshore Development</h1>
+          <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
             Dedicated offshore development teams delivering quality solutions with cost-effective pricing
           </p>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-apple-lg shadow-apple p-8 mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Welcome to WebAssist</h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                WebAssist offers creative technological solutions for your business online. We build the online presence of companies using the latest technology to boost business and generate both brand recall and revenue. We also help remodel existing solutions to make them more attractive and efficient. Our team of innovative and talented developers works in tandem with your needs to produce solutions that will leave an impact on your customers.
+      {/* Image + Text Section */}
+      <section className="py-16 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-6 xl:px-16">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div>
+              <h2 className="text-3xl font-bold mb-4 text-gray-900">Global Development Excellence</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Our team of innovative and talented developers works in tandem with your needs to produce solutions that leave an impact. We streamline development processes and make them efficient for your organization.
               </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                We streamline development processes and make them efficient for your organization. WebAssist ensures quality standards, fast delivery and takes care of compatibility issues. We appreciate that the higher the efficiency of your development team, the higher value it will generate. We ensure that solutions are scalable and maintainable.
+              <p className="text-gray-700 leading-relaxed">
+                WebAssist ensures quality standards, fast delivery and takes care of compatibility issues. We ensure that solutions are scalable and maintainable.
               </p>
             </div>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-white rounded-apple-lg shadow-apple p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">About Us</h2>
-                <p className="text-gray-700 leading-relaxed">
-                  WebAssist, as a company has an impressive list of clients on its roster, which pays testimony to the high quality, timeliness and value of our work. We have the expertise to make your communication and transactions on the internet effective.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-apple-lg shadow-apple p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Mission</h2>
-                <p className="text-gray-700 leading-relaxed">
-                  We aspire to offer next generation technology driven web solutions to our clients that makes an ideal component of their business. Our criterion of working sets us apart from the crowd of web solution providers. We focus our goals based on client's business strategies and their work processes, and map them according to our work model. This provides greater transparency in work and timely completion of the projects to client's satisfaction.
-                </p>
-              </div>
+            <div className="flex justify-center">
+              <img 
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600"
+                alt="Offshore Development Team"
+                className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
+              />
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="bg-white rounded-apple-lg shadow-apple p-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Offshore Development Services</h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-gray-50 p-6 rounded-apple">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Dedicated Teams</h3>
-                  <p className="text-gray-700">Experienced developers working exclusively on your projects</p>
+      {/* Benefits Timeline */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-6 xl:px-16">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Why Choose Offshore Development?</h2>
+            <div className="space-y-8">
+              {[
+                { step: '01', title: 'Cost Efficiency', desc: 'High-quality development at competitive offshore rates without compromising quality' },
+                { step: '02', title: 'Time Zone Advantage', desc: 'Round-the-clock development cycles for faster delivery and continuous progress' },
+                { step: '03', title: 'Scalability', desc: 'Easily scale your team up or down based on project needs and requirements' },
+                { step: '04', title: 'Expert Resources', desc: 'Access to skilled developers and specialized technical expertise' }
+              ].map(({ step, title, desc }, i) => (
+                <div key={i} className="flex gap-6 items-start">
+                  <div className="flex-shrink-0 w-16 h-16 bg-primary-500 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                    {step}
+                  </div>
+                  <div className="flex-1 bg-white rounded-lg p-6 shadow-md">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
+                    <p className="text-gray-700">{desc}</p>
+                  </div>
                 </div>
-                <div className="bg-gray-50 p-6 rounded-apple">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Cost Efficiency</h3>
-                  <p className="text-gray-700">High-quality development at competitive offshore rates</p>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Text + Image Section (Reversed) */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6 xl:px-16">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div className="order-2 md:order-1 flex justify-center">
+              <img 
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=600"
+                alt="Remote Team Collaboration"
+                className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h2 className="text-3xl font-bold mb-4 text-gray-900">Dedicated Teams</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                We provide dedicated developers who work exclusively on your projects as an extension of your in-house team. Our transparent communication ensures you're always in the loop.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                With our proven track record and impressive client roster, we deliver high quality, timely solutions that drive business value.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Grid */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-6 xl:px-16">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Offshore Development Services</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { title: 'Dedicated Teams', desc: 'Experienced developers working exclusively on your projects' },
+                { title: 'Cost Efficiency', desc: 'High-quality development at competitive offshore rates' },
+                { title: 'Time Zone Advantage', desc: 'Round-the-clock development cycles for faster delivery' },
+                { title: 'Scalability', desc: 'Easily scale your team up or down based on needs' },
+                { title: 'Quality Assurance', desc: 'Rigorous testing and quality control processes' },
+                { title: 'Transparent Communication', desc: 'Regular updates and clear project management' }
+              ].map(({ title, desc }, i) => (
+                <div key={i} className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                  <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
+                  <p className="text-gray-700">{desc}</p>
                 </div>
-                <div className="bg-gray-50 p-6 rounded-apple">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Time Zone Advantage</h3>
-                  <p className="text-gray-700">Round-the-clock development cycles for faster delivery</p>
-                </div>
-                <div className="bg-gray-50 p-6 rounded-apple">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Scalability</h3>
-                  <p className="text-gray-700">Easily scale your team up or down based on project needs</p>
-                </div>
-                <div className="bg-gray-50 p-6 rounded-apple">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Quality Assurance</h3>
-                  <p className="text-gray-700">Rigorous testing and quality control processes</p>
-                </div>
-                <div className="bg-gray-50 p-6 rounded-apple">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Transparent Communication</h3>
-                  <p className="text-gray-700">Regular updates and clear project management</p>
-                </div>
-              </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Image + Text Section (Final) */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6 xl:px-16">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div>
+              <h2 className="text-3xl font-bold mb-4 text-gray-900">Our Mission</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                We aspire to offer next generation technology driven web solutions that make an ideal component of client's business. Our criterion of working sets us apart from the crowd of solution providers.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                We focus our goals based on client's business strategies and work processes, mapping them according to our work model for greater transparency and timely project completion.
+              </p>
+            </div>
+            <div className="flex justify-center">
+              <img 
+                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600"
+                alt="Global Team Success"
+                className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
+              />
             </div>
           </div>
         </div>
@@ -81,9 +149,11 @@ export default function OffshoreDevelopmentPage() {
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Let us provide dedicated developers who work as an extension of your team
           </p>
-          <button className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-apple text-lg font-semibold transition-all duration-200 transform hover:-translate-y-0.5 shadow-apple hover:shadow-apple-lg">
-            Get Started
-          </button>
+          <Link href="/contact">
+            <button className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-apple text-lg font-semibold transition-all duration-200 transform hover:-translate-y-0.5 shadow-apple hover:shadow-apple-lg">
+              Get Started
+            </button>
+          </Link>
         </div>
       </section>
     </div>

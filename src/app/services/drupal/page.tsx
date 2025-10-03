@@ -1,111 +1,148 @@
+import Link from 'next/link';
+
 export default function DrupalPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="bg-primary-600 text-white py-20">
-        <div className="container mx-auto px-4">
-          <h1 className="text-5xl font-bold mb-4">Drupal Development</h1>
-          <p className="text-xl max-w-3xl">
+      <section className="bg-primary-600 text-white py-20 relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 opacity-80 pointer-events-none z-0" />
+        <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
+          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Drupal Development</h1>
+          <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
             Enterprise-level Drupal CMS development with custom modules, themes, and powerful content management solutions
           </p>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-apple-lg shadow-apple p-8 mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Drupal Services</h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Drupal is one of the most popular free and open source Content Management Systems (CMS) built with PHP. It has been used in creating many types of websites, from personal blogs to large political and corporate web portals.
+      {/* Image + Text Section */}
+      <section className="py-16 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-6 xl:px-16">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div>
+              <h2 className="text-3xl font-bold mb-4 text-gray-900">Enterprise-Grade CMS</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Drupal is one of the most popular free and open source Content Management Systems built with PHP. It's used to create websites from personal blogs to large political and corporate web portals.
               </p>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                The normal release of Drupal, recognized as 'Drupal core', includes all the essential features available in most CMS platforms. It provides the capability to register and maintain personal user accounts, RSS feeds, administration menus, customizable layouts, logging, flexible account privileges, forums, blogging systems and options to create interactive community websites or brochure sites.
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Drupal has the natural ability by design to let custom behavior and new features be inserted by third parties. On this basis, Drupal is sometimes described as a "Content Management Framework". While Drupal provides developers a unique programming interface, no programming skills are required for basic website settings and administration.
+              <p className="text-gray-700 leading-relaxed">
+                No programming skills are required for basic website settings and administration, while developers enjoy a unique programming interface for advanced customization.
               </p>
             </div>
-
-            <div className="bg-white rounded-apple-lg shadow-apple p-8 mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Core Modules</h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Drupal core comprises modules that can be enabled by administrators to expand website utilities. The distribution of core Drupal provides numerous features including:
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Access logging and statistics</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Advanced search functions</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Throttling features and caching for better performance under load</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Forums, comments and polls</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Descriptive and clean URLs</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Multiple layers of menu system</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Multi-site support</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">User data management and editing</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Feed aggregator and RSS feeds</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Security and update announcements</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">User profiles</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Access control options (IP addresses, user roles, email)</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Workflow tools (Actions and Triggers)</span>
-                </li>
-              </ul>
+            <div className="flex justify-center">
+              <img 
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600"
+                alt="Drupal Development"
+                className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
+              />
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="bg-white rounded-apple-lg shadow-apple p-8 mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Extensibility</h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Drupal core is designed to be modular. The design allows third parties to provide themes and modules to expand or replace Drupal's default activities without modifying core code.
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Additional Drupal modules provide a range of features including custom content listings and types, image galleries, WYSIWYG editors, third-party integration tools, private messaging and much more. The official Drupal website maintains a catalog of free modules contributed by the community.
-              </p>
+      {/* Checklist Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-6 xl:px-16">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Core Drupal Features</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-lg p-8 shadow-md">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Content Management</h3>
+                <ul className="space-y-4">
+                  {[
+                    'Advanced Search Functions',
+                    'User Data Management',
+                    'Multi-site Support',
+                    'Feed Aggregator & RSS',
+                    'Forums, Comments & Polls',
+                    'User Profiles & Access Control'
+                  ].map((service, i) => (
+                    <li key={i} className="flex items-center">
+                      <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-gray-700">{service}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg p-8 shadow-md">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Technical Features</h3>
+                <ul className="space-y-4">
+                  {[
+                    'Performance Caching & Throttling',
+                    'Descriptive & Clean URLs',
+                    'Multiple Menu System Layers',
+                    'Security & Update Announcements',
+                    'Workflow Tools (Actions & Triggers)',
+                    'Access Logging & Statistics'
+                  ].map((feature, i) => (
+                    <li key={i} className="flex items-center">
+                      <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-gray-700">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="bg-white rounded-apple-lg shadow-apple p-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Drupal Services</h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                WebAssist is an innovator in the open source area, successfully providing Drupal services and solutions to clients worldwide. Our theoretical, practical and efficient services leverage open source technologies, software, and solutions to assist businesses across various industries. Having deep expertise in delivering a comprehensive range of Drupal services, solutions and managing outsourced product development, we have established ourselves as a reputed company in Drupal application development.
+      {/* Feature Highlights */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6 xl:px-16">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Why Choose Drupal?</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="border-l-4 border-primary-500 pl-6 py-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Highly Extensible</h3>
+                <p className="text-gray-700">Modular design allows unlimited customization</p>
+              </div>
+              <div className="border-l-4 border-primary-500 pl-6 py-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Enterprise Ready</h3>
+                <p className="text-gray-700">Powers major corporate and government sites</p>
+              </div>
+              <div className="border-l-4 border-primary-500 pl-6 py-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Robust Security</h3>
+                <p className="text-gray-700">Regular security updates and strong protection</p>
+              </div>
+              <div className="border-l-4 border-primary-500 pl-6 py-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Scalable Architecture</h3>
+                <p className="text-gray-700">Handles high traffic and complex requirements</p>
+              </div>
+              <div className="border-l-4 border-primary-500 pl-6 py-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">API-First Approach</h3>
+                <p className="text-gray-700">Perfect for headless and decoupled applications</p>
+              </div>
+              <div className="border-l-4 border-primary-500 pl-6 py-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Active Community</h3>
+                <p className="text-gray-700">Thousands of contributed modules available</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Text + Image Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-6 xl:px-16">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div className="order-2 md:order-1 flex justify-center">
+              <img 
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600"
+                alt="Drupal Solutions"
+                className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h2 className="text-3xl font-bold mb-4 text-gray-900">Our Drupal Expertise</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                WebAssist is an innovator in the open source area, successfully providing Drupal services and solutions to clients worldwide. We leverage open source technologies to assist businesses across various industries.
               </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                We provide progressive Drupal solutions, including Drupal web applications, design services, software development, social media integration and Drupal migration. As an advanced Drupal software and development organization, we have successfully worked with clients in the fields of Drupal software development, training services and consulting.
+              <p className="text-gray-700 leading-relaxed">
+                We provide progressive Drupal solutions including web applications, design services, software development, social media integration and Drupal migration.
               </p>
             </div>
           </div>
@@ -119,9 +156,11 @@ export default function DrupalPage() {
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Let us build a powerful Drupal solution that scales with your business
           </p>
-          <button className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-apple text-lg font-semibold transition-all duration-200 transform hover:-translate-y-0.5 shadow-apple hover:shadow-apple-lg">
-            Get Started with Drupal
-          </button>
+          <Link href="/contact">
+            <button className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-apple text-lg font-semibold transition-all duration-200 transform hover:-translate-y-0.5 shadow-apple hover:shadow-apple-lg">
+              Get Started with Drupal
+            </button>
+          </Link>
         </div>
       </section>
     </div>

@@ -1,101 +1,149 @@
+import Link from 'next/link';
+
 export default function JoomlaPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="bg-primary-600 text-white py-20">
-        <div className="container mx-auto px-4">
-          <h1 className="text-5xl font-bold mb-4">Joomla Development</h1>
-          <p className="text-xl max-w-3xl">
+      <section className="bg-primary-600 text-white py-20 relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 opacity-80 pointer-events-none z-0" />
+        <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
+          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Joomla Development</h1>
+          <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
             Professional Joomla CMS development with custom templates, extensions, and complete content management solutions
           </p>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-apple-lg shadow-apple p-8 mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Joomla Services</h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Joomla is one of the most popular content management systems which is open source in nature. Customers who are new to technology but would like the ability to administer everything on their own for their upcoming website development project should definitely opt for our Joomla services.
+      {/* Image + Text Section */}
+      <section className="py-16 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-6 xl:px-16">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div>
+              <h2 className="text-3xl font-bold mb-4 text-gray-900">Powerful & Flexible CMS</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Joomla is one of the most popular content management systems, perfect for customers new to technology who want full control over their website administration. Joomla is used by individuals and corporate organizations for simple installations of intranet and extranet.
               </p>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Joomla services are used by individuals along with corporate organizations for simple installations of intranet and extranet.
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                The various packages offered by us along with the quality of websites we create each month makes our service the best available on the internet today. The designs offered by us are dynamic and database driven. The contents of the website are administered by the most efficient content management system in the market. This support of the content management system helps the user to manage their website like a competent programmer. You can control various activities like publishing and hosting other pages from your website.
+              <p className="text-gray-700 leading-relaxed">
+                Our dynamic, database-driven designs give you the power to manage your website like a competent programmer, controlling publishing, hosting, and all site activities.
               </p>
             </div>
-
-            <div className="bg-white rounded-apple-lg shadow-apple p-8 mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Comprehensive Solutions</h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                We not only cater to the needs of individuals with simple websites but also help large corporate organizations with their complex web designs. Our experts are trained professionals in their fields so they can manage complex tasks with relative ease. We offer several new tools available with Joomla to give your website a new and professional look that will help meet your business goals. These new tools are customized to suit your needs and requirements.
-              </p>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                A professional Joomla look not only helps you to achieve your business goals but also attracts a large number of visitors to the website which also markets your brand name. WebAssist's Joomla services are famous for creating some of the most attractive websites on the market. Moreover, using our Joomla services makes it easy to expand your website to match up with your changing business goals. You can rely on our services for creating a profitable website today!
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Joomla services can be used to turn a website from a simple website to a more complex and attractive one. We have already used the new technology available with Joomla to create more complex websites for large corporate organizations and various industries. The most important feature of Joomla services is its flexibility. The flexibility to expand websites with much ease is one of the reasons which made Joomla popular among developers.
-              </p>
+            <div className="flex justify-center">
+              <img 
+                src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&h=600"
+                alt="Joomla Development"
+                className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
+              />
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="bg-white rounded-apple-lg shadow-apple p-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Joomla Support Services</h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Most Joomla users and developers are not programmers. They do not possess efficient technical skills to handle and manage the whole task on their own. So we provide full support for such users and developers. The services include:
+      {/* Checklist Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-6 xl:px-16">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Joomla Support Services</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-lg p-8 shadow-md">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Installation & Setup</h3>
+                <ul className="space-y-4">
+                  {[
+                    'Complete Joomla Installation',
+                    'Extensions Installation',
+                    'Joomla Upgrades & Security',
+                    'Initial Website Structure Setup',
+                    'Customized Joomla Templates',
+                    'Content Development & Menus'
+                  ].map((service, i) => (
+                    <li key={i} className="flex items-center">
+                      <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-gray-700">{service}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg p-8 shadow-md">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Management & Support</h3>
+                <ul className="space-y-4">
+                  {[
+                    'Content Upload & Management',
+                    'Component Selection & Installation',
+                    'Search Engine Optimization',
+                    'Data Backup & Recovery Plans',
+                    'Employee Training Programs',
+                    'Payment Gateway Integration'
+                  ].map((feature, i) => (
+                    <li key={i} className="flex items-center">
+                      <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-gray-700">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Feature Highlights */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6 xl:px-16">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Why Choose Joomla?</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="border-l-4 border-primary-500 pl-6 py-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Easy Expansion</h3>
+                <p className="text-gray-700">Flexible platform that grows with your business</p>
+              </div>
+              <div className="border-l-4 border-primary-500 pl-6 py-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Professional Quality</h3>
+                <p className="text-gray-700">Create attractive websites that stand out</p>
+              </div>
+              <div className="border-l-4 border-primary-500 pl-6 py-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">User Friendly</h3>
+                <p className="text-gray-700">No programming skills required for administration</p>
+              </div>
+              <div className="border-l-4 border-primary-500 pl-6 py-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Scalable Solutions</h3>
+                <p className="text-gray-700">From simple sites to complex portals</p>
+              </div>
+              <div className="border-l-4 border-primary-500 pl-6 py-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Open Source</h3>
+                <p className="text-gray-700">Cost-effective with no licensing fees</p>
+              </div>
+              <div className="border-l-4 border-primary-500 pl-6 py-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Strong Community</h3>
+                <p className="text-gray-700">Extensive extensions and templates available</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Text + Image Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-6 xl:px-16">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div className="order-2 md:order-1 flex justify-center">
+              <img 
+                src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600"
+                alt="Joomla Features"
+                className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h2 className="text-3xl font-bold mb-4 text-gray-900">Expert Joomla Development</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                We cater to the needs of individuals with simple websites and large corporate organizations with complex web designs. Our trained professionals manage complex tasks with ease, offering new tools customized to your requirements.
               </p>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Complete Joomla installation</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Joomla extensions installation for website expansion</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Joomla upgrades along with security features</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Initial installation and setup of website structure</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Customized Joomla templates to match requirements</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Development of complete structure and content along with menus</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Uploading appropriate content and managing it efficiently</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Selection of appropriate components and installation</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Search engine optimization</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Installation of proper data backup and recovery plans</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Short term training plan for employees to manage the new system</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-3 text-xl">•</span>
-                  <span className="text-lg text-gray-700">Integrating payment gateway with shopping cart</span>
-                </li>
-              </ul>
+              <p className="text-gray-700 leading-relaxed">
+                A professional Joomla website not only helps achieve business goals but also attracts visitors and markets your brand effectively.
+              </p>
             </div>
           </div>
         </div>
@@ -108,9 +156,11 @@ export default function JoomlaPage() {
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Let us build a powerful Joomla website tailored to your business needs
           </p>
-          <button className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-apple text-lg font-semibold transition-all duration-200 transform hover:-translate-y-0.5 shadow-apple hover:shadow-apple-lg">
-            Contact Us
-          </button>
+          <Link href="/contact">
+            <button className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-apple text-lg font-semibold transition-all duration-200 transform hover:-translate-y-0.5 shadow-apple hover:shadow-apple-lg">
+              Contact Us
+            </button>
+          </Link>
         </div>
       </section>
     </div>
