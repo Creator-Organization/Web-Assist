@@ -3,6 +3,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 export default function Header() {
@@ -23,9 +24,14 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <div className="text-2xl font-bold text-white">
-              Web<span className="text-teal-200">Assist</span>
-            </div>
+            <Image
+              src="/images/creatorit-logo1.png"
+              alt="Creator IT Logo"
+              width={140}
+              height={40}
+              priority
+              className="h-auto w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
