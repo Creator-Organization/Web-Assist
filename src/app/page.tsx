@@ -9,11 +9,11 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 opacity-90" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djItaDJ2LTJoLTJ6bTAgNHYyaDJ2LTJoLTJ6bS0yIDJ2LTJoLTJ2Mmgyem0wLTR2LTJoLTJ2Mmgyem00LTR2LTJoLTJ2Mmgyem0wIDR2LTJoLTJ2Mmgyem0wIDR2LTJoLTJ2Mmgyem0wIDR2LTJoLTJ2Mmgyem0tMi00di0yaC0ydjJoMnptMC00di0yaC0ydjJoMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-10" />
         
-        <div className="container mx-auto px-6 xl:px-16 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 xl:px-16 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/20">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full mb-6 border border-white/20">
               <Star className="w-4 h-4 text-yellow-300 fill-yellow-300" />
-              <span className="text-sm">Trusted by 300+ businesses worldwide</span>
+              <span className="text-xs sm:text-sm">Trusted by 300+ businesses worldwide</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -25,16 +25,16 @@ export default function HomePage() {
               From strategy to deployment, we build powerful web experiences that drive growth and deliver measurable results
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link href="/contact">
-                <button className="group bg-white text-primary-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:-translate-y-0.5 shadow-lg flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
+              <Link href="/contact" className="w-full sm:w-auto">
+                <button className="group bg-white text-primary-600 px-6 sm:px-8 py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:-translate-y-0.5 shadow-lg flex items-center justify-center gap-2 w-full">
                   Start Your Project
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </Link>
               
-              <Link href="/services">
-                <button className="bg-primary-700/50 backdrop-blur text-white border-2 border-white/30 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-700/70 transition-all duration-200">
+              <Link href="/services" className="w-full sm:w-auto">
+                <button className="bg-primary-700/50 backdrop-blur text-white border-2 border-white/30 px-6 sm:px-8 py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-primary-700/70 transition-all duration-200 w-full">
                   View Services
                 </button>
               </Link>
@@ -45,8 +45,8 @@ export default function HomePage() {
 
       {/* Trust Bar */}
       <section className="py-4 bg-white border-b">
-        <div className="container mx-auto px-6 xl:px-16">
-          <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-600">
+        <div className="container mx-auto px-4 sm:px-6 xl:px-16">
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-xs sm:text-sm text-gray-600">
             <div className="flex items-center gap-2">
               <Check className="w-4 h-4 text-green-500" />
               <span>500+ Projects Delivered</span>

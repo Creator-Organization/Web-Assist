@@ -9,6 +9,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'WebAssist - Professional Web Development Services',
   description: 'Custom website building, maintenance, and consulting using modern full-stack technologies. Security-focused, reliable, and scalable web solutions.',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
   keywords: [
     'web development',
     'custom websites',

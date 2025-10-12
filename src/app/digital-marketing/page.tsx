@@ -1,5 +1,13 @@
 import Link from 'next/link';
-import { Mail, Search, TrendingUp, FileText, Globe, ClipboardList, Tag, BarChart } from 'lucide-react';
+import Image from 'next/image';
+import { TrendingUp, BarChart } from 'lucide-react';
+import emailMarketingLogo from '../../../Images/Email_Marketing.png';
+import seoServicesLogo from '../../../Images/seo_services.png';
+import searchEngineMarketingLogo from '../../../Images/search_engine_marketing.png';
+import contentMarketingLogo from '../../../Images/content_marketing.png';
+import googleMarketingLogo from '../../../Images/Google_marketing.png';
+import onlineSurveysLogo from '../../../Images/Online_services.png';
+import classifiedServicesLogo from '../../../Images/Classified_Services.png';
 
 export default function DigitalMarketingPage() {
   const services = [
@@ -7,49 +15,49 @@ export default function DigitalMarketingPage() {
       title: 'Email Marketing',
       description: 'Build customer loyalty and enhance brand recognition through targeted email campaigns that convert subscribers into customers',
       href: '/services/email-marketing',
-      icon: <Mail className="w-6 h-6" />,
+      icon: <Image src={emailMarketingLogo} alt="Email Marketing" className="w-12 h-12 object-contain" />,
       image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=800&h=600'
     },
     {
       title: 'SEO Services',
       description: 'Professional search engine optimization to boost your rankings and increase organic traffic with proven strategies',
       href: '/services/seo',
-      icon: <Search className="w-6 h-6" />,
+      icon: <Image src={seoServicesLogo} alt="SEO Services" className="w-12 h-12 object-contain" />,
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600'
     },
     {
       title: 'Search Engine Marketing',
       description: 'Strategic paid search campaigns with Google Ads and performance-driven marketing for immediate results',
       href: '/services/sem',
-      icon: <TrendingUp className="w-6 h-6" />,
+      icon: <Image src={searchEngineMarketingLogo} alt="Search Engine Marketing" className="w-12 h-12 object-contain" />,
       image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600'
     },
     {
       title: 'Content Marketing',
       description: 'Strategic content creation that drives engagement and builds your brand presence across all channels',
       href: '/services/content-marketing',
-      icon: <FileText className="w-6 h-6" />,
+      icon: <Image src={contentMarketingLogo} alt="Content Marketing" className="w-12 h-12 object-contain" />,
       image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&h=600'
     },
     {
       title: 'Google Marketing',
       description: 'Comprehensive Google marketing including Ads, My Business, and search visibility optimization',
       href: '/services/google-marketing',
-      icon: <Globe className="w-6 h-6" />,
+      icon: <Image src={googleMarketingLogo} alt="Google Marketing" className="w-12 h-12 object-contain" />,
       image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&h=600'
     },
     {
       title: 'Online Surveys',
       description: 'Professional survey creation and market research tools for valuable customer insights and data',
       href: '/services/online-surveys',
-      icon: <ClipboardList className="w-6 h-6" />,
+      icon: <Image src={onlineSurveysLogo} alt="Online Surveys" className="w-12 h-12 object-contain" />,
       image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600'
     },
     {
       title: 'Classified Services',
       description: 'Professional classified ad posting and directory listing services to expand your reach',
       href: '/services/classifieds',
-      icon: <Tag className="w-6 h-6" />,
+      icon: <Image src={classifiedServicesLogo} alt="Classified Services" className="w-12 h-12 object-contain" />,
       image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600'
     },
   ];
