@@ -95,6 +95,53 @@
     scroll-behavior: smooth;
   }
 
+  /* Mobile-specific improvements */
+  @media (max-width: 768px) {
+    body {
+      font-size: 16px; /* Prevent zoom on iOS */
+      line-height: 1.6;
+    }
+    
+    /* Improve touch targets */
+    button, a, input, select, textarea {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    /* Better mobile spacing */
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    /* Mobile-optimized text sizes */
+    h1 {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+    
+    h2 {
+      font-size: 1.75rem;
+      line-height: 1.3;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      line-height: 1.4;
+    }
+    
+    /* Mobile-friendly images */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* Prevent horizontal scroll */
+    * {
+      max-width: 100%;
+    }
+  }
+
   /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
@@ -113,25 +160,43 @@
   }
 }
 
-/* Apple Typography System */
+/* Apple Typography System - Mobile Responsive */
 .text-display {
-  font-size: var(--font-size-6xl);
+  font-size: var(--font-size-4xl);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.025em;
 }
 
+@media (min-width: 768px) {
+  .text-display {
+    font-size: var(--font-size-6xl);
+  }
+}
+
 .text-headline {
-  font-size: var(--font-size-4xl);
+  font-size: var(--font-size-3xl);
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
 
+@media (min-width: 768px) {
+  .text-headline {
+    font-size: var(--font-size-4xl);
+  }
+}
+
 .text-title {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-xl);
   font-weight: 600;
   line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+  .text-title {
+    font-size: var(--font-size-2xl);
+  }
 }
 
 .text-body {
@@ -149,21 +214,61 @@
 }
 
 @layer components {
-  /* Apple Button System */
+  /* Apple Button System - Mobile Responsive */
   .btn-primary {
     @apply bg-primary-500 hover:bg-primary-600 text-white font-medium py-3 px-6 rounded-apple transition-all duration-200 shadow-apple hover:shadow-apple-lg transform hover:-translate-y-0.5;
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  @media (max-width: 768px) {
+    .btn-primary {
+      @apply py-4 px-8 text-base;
+      min-height: 52px;
+      width: 100%;
+    }
   }
 
   .btn-secondary {
     @apply bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-3 px-6 rounded-apple transition-all duration-200 shadow-apple hover:shadow-apple-lg transform hover:-translate-y-0.5;
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  @media (max-width: 768px) {
+    .btn-secondary {
+      @apply py-4 px-8 text-base;
+      min-height: 52px;
+      width: 100%;
+    }
   }
 
   .btn-outline {
     @apply border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white font-medium py-3 px-6 rounded-apple transition-all duration-200;
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  @media (max-width: 768px) {
+    .btn-outline {
+      @apply py-4 px-8 text-base;
+      min-height: 52px;
+      width: 100%;
+    }
   }
 
   .btn-ghost {
     @apply text-primary-500 hover:bg-primary-50 py-3 px-6 rounded-apple transition-all duration-200;
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  @media (max-width: 768px) {
+    .btn-ghost {
+      @apply py-4 px-8 text-base;
+      min-height: 52px;
+      width: 100%;
+    }
   }
 
   /* Apple Card System */
@@ -202,17 +307,40 @@
     @apply block text-sm font-medium text-neutral-700 mb-2;
   }
 
-  /* Apple Layout System */
+  /* Apple Layout System - Mobile Responsive */
   .container-apple {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
   .section-apple {
-    @apply py-16 lg:py-24;
+    @apply py-12 md:py-16 lg:py-24;
   }
 
   .section-apple-sm {
-    @apply py-12 lg:py-16;
+    @apply py-8 md:py-12 lg:py-16;
+  }
+
+  /* Mobile-first responsive utilities */
+  .mobile-full-width {
+    @apply w-full;
+  }
+
+  .mobile-text-center {
+    @apply text-center;
+  }
+
+  .mobile-padding {
+    @apply px-4 py-8;
+  }
+
+  @media (min-width: 768px) {
+    .mobile-full-width {
+      @apply w-auto;
+    }
+    
+    .mobile-padding {
+      @apply px-6 py-12;
+    }
   }
 
   /* Legacy card component - updated for Apple style */
