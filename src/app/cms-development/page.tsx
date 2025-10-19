@@ -1,5 +1,10 @@
 import Link from 'next/link';
-import { Database, Settings, Layers, ShoppingBag, Shield, Zap, Users } from 'lucide-react';
+import Image from 'next/image';
+import { Shield, Zap, Users } from 'lucide-react';
+import wordpressLogo from '../../../Images/wordpress_development.png';
+import joomlaLogo from '../../../Images/Jompla_development.png';
+import drupalLogo from '../../../Images/drupal.png';
+import magentoLogo from '../../../Images/Magento.png';
 
 export default function CMSDevelopmentPage() {
   const services = [
@@ -7,28 +12,28 @@ export default function CMSDevelopmentPage() {
       title: 'WordPress Development',
       description: 'Professional WordPress solutions with custom themes, plugins, and complete content management capabilities',
       href: '/services/wordpress',
-      icon: <Database className="w-6 h-6" />,
+      icon: <Image src={wordpressLogo} alt="WordPress Development" className="w-12 h-12 object-contain" />,
       image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=600'
     },
     {
       title: 'Joomla Development',
       description: 'Professional Joomla CMS development with custom templates and powerful extensions',
       href: '/services/joomla',
-      icon: <Settings className="w-6 h-6" />,
+      icon: <Image src={joomlaLogo} alt="Joomla Development" className="w-12 h-12 object-contain" />,
       image: 'https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=800&h=600'
     },
     {
       title: 'Drupal Development',
       description: 'Enterprise-level Drupal CMS with custom modules and themes for complex requirements',
       href: '/services/drupal',
-      icon: <Layers className="w-6 h-6" />,
+      icon: <Image src={drupalLogo} alt="Drupal Development" className="w-12 h-12 object-contain" />,
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600'
     },
     {
       title: 'Magento Development',
       description: 'Powerful Magento e-commerce solutions with complete flexibility and scalability',
       href: '/services/magento',
-      icon: <ShoppingBag className="w-6 h-6" />,
+      icon: <Image src={magentoLogo} alt="Magento Development" className="w-12 h-12 object-contain" />,
       image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600'
     },
   ];
@@ -36,8 +41,8 @@ export default function CMSDevelopmentPage() {
   return (
     <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="bg-primary-600 text-white py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 opacity-80 pointer-events-none z-0" />
+      <section className="relative py-20 hero-gradient text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/10 pointer-events-none z-0" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
           <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">CMS Development</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
