@@ -114,7 +114,7 @@ export default function ContactPage() {
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Call Us</h3>
                 <a href="tel:+911234567890" className="text-primary-600 hover:text-primary-700 font-medium">
-                  +91 (123) 456-7890
+                  +91 9545415111
                 </a>
                 <p className="text-gray-600 text-sm mt-2">Mon-Fri, 9AM-6PM IST</p>
               </div>
@@ -125,7 +125,7 @@ export default function ContactPage() {
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Visit Us</h3>
                 <p className="text-gray-700 font-medium">
-                  Pimpri, Maharashtra<br />India
+                  73 Pannalal Nagar,Ch.Sambhaji Nagar, India<br />India
                 </p>
                 <p className="text-gray-600 text-sm mt-2">By appointment only</p>
               </div>
