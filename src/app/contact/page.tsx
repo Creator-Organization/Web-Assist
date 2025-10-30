@@ -102,8 +102,8 @@ export default function ContactPage() {
                   <Mail className="w-6 h-6 text-primary-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Email Us</h3>
-                <a href="mailto:info@webassist.com" className="text-primary-600 hover:text-primary-700 font-medium">
-                  info@webassist.com
+                <a href="mailto:info@creatorit.com" className="text-primary-600 hover:text-primary-700 font-medium">
+                  info@creatorit.com
                 </a>
                 <p className="text-gray-600 text-sm mt-2">We'll respond within 24 hours</p>
               </div>

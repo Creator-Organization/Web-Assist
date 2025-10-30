@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * WebAssist Phase 3 Testing Script
+ * creatorit Phase 3 Testing Script
  * Tests all Phase 3 features and functionality
  */
 
@@ -66,8 +66,8 @@ async function testHomepage() {
     throw new Error(`Homepage returned ${response.statusCode}`);
   }
   
-  if (!response.data.includes('WebAssist')) {
-    throw new Error('Homepage does not contain WebAssist branding');
+  if (!response.data.includes('creatorit')) {
+    throw new Error('Homepage does not contain creatorit branding');
   }
   
   if (!response.data.includes('testimonials')) {
@@ -191,7 +191,7 @@ async function testAPIRateLimit() {
 
 // Main test runner
 async function runTests() {
-  console.log('🚀 Starting WebAssist Phase 3 Tests\n');
+  console.log('🚀 Starting creatorit Phase 3 Tests\n');
   console.log(`Testing URL: ${BASE_URL}\n`);
   
   // Core functionality tests
@@ -226,7 +226,7 @@ async function runTests() {
   console.log('\n🎉 Phase 3 testing complete!');
   
   if (results.failed === 0) {
-    console.log('🚀 All tests passed! Your WebAssist Phase 3 is ready for production.');
+    console.log('🚀 All tests passed! Your creatorit Phase 3 is ready for production.');
   } else {
     console.log('⚠️  Some tests failed. Please review and fix issues before deploying.');
     process.exit(1);

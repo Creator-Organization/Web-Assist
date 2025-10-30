@@ -1,4 +1,4 @@
--- WebAssist Simple Database Schema
+-- creatorit Simple Database Schema
 -- Create contacts table
 CREATE TABLE IF NOT EXISTS contacts (
   id SERIAL PRIMARY KEY,

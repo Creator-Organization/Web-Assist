@@ -17,7 +17,7 @@ export default function AboutPage() {
     },
     {
       title: 'Partnership',
-      description: 'Explore partnership opportunities with WebAssist',
+      description: 'Explore partnership opportunities with creatorit',
       href: '/about/partners',
       icon: <Handshake className="w-8 h-8" />
     },
@@ -35,7 +35,7 @@ export default function AboutPage() {
       <section className="relative py-20 hero-gradient text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/10 pointer-events-none z-0" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
-          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">About WebAssist</h1>
+          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">About creatorit</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
             Learn more about our company, values, and commitment to excellence
           </p>
@@ -73,7 +73,7 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold mb-4 text-gray-900">Who We Are</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                WebAssist is a leading web development and digital solutions company dedicated to helping businesses succeed online. With years of experience and a team of talented professionals, we deliver high-quality solutions that drive results.
+                creatorit is a leading web development and digital solutions company dedicated to helping businesses succeed online. With years of experience and a team of talented professionals, we deliver high-quality solutions that drive results.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 Our mission is to provide next-generation technology-driven web solutions that become an ideal component of our clients' businesses. We focus on understanding your business strategies and work processes to deliver solutions with greater transparency and timely completion.
@@ -82,7 +82,7 @@ export default function AboutPage() {
             <div className="flex justify-center">
               <img 
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=600"
-                alt="WebAssist Team"
+                alt="creatorit Team"
                 className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
               />
             </div>

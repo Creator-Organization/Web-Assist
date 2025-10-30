@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Database Setup Script for WebAssist
+ * Database Setup Script for creatorit
  * This script sets up the database schema and runs initial migrations
  */
 
@@ -120,12 +120,12 @@ function checkEnvironmentVariables() {
 
 // Main execution
 async function main() {
-  console.log('🚀 Starting WebAssist Database Setup\n');
+  console.log('🚀 Starting creatorit Database Setup\n');
   
   checkEnvironmentVariables();
   await setupDatabase();
   
-  console.log('\n🎉 Setup complete! Your database is ready for WebAssist.');
+  console.log('\n🎉 Setup complete! Your database is ready for creatorit.');
   console.log('\nNext steps:');
   console.log('1. Start your development server: npm run dev');
   console.log('2. Test the contact form on your website');

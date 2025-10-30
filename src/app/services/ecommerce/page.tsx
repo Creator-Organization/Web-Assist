@@ -82,7 +82,7 @@ export default function EcommercePage() {
             <div className="order-1 md:order-2">
               <h2 className="text-3xl font-bold mb-4 text-gray-900">Superior Design Approach</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                WebAssist understands that e-commerce requires superior design to drive customers straight to checkout. We follow best practices to reach maximum consumer outreach and define your marketing goals.
+                creatorit understands that e-commerce requires superior design to drive customers straight to checkout. We follow best practices to reach maximum consumer outreach and define your marketing goals.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 We design your e-commerce site from the ground up - everything from content development to final graphic design layout for consistent branding on every page.

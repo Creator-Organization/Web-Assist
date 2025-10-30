@@ -144,13 +144,13 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Why Choose WebAssist - Enhanced */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
-          <div className="text-center mb-12 md:mb-16">
-            <span className="text-primary-600 font-semibold text-sm uppercase tracking-wide">Why WebAssist</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 mt-2">What Makes Us Different</h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+      {/* Why Choose creatorit - Enhanced */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6 xl:px-16">
+          <div className="text-center mb-16">
+            <span className="text-primary-600 font-semibold text-sm uppercase tracking-wide">Why creatorit</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 mt-2">What Makes Us Different</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               We combine expertise, innovation, and dedication to deliver exceptional results
             </p>
           </div>
@@ -225,9 +225,9 @@ const HomePage = () => {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
-              { name: 'Sarah Johnson', role: 'CEO, TechStart Inc.', text: 'WebAssist transformed our online presence completely. Their attention to detail and commitment to excellence is unmatched. Our conversion rate increased by 250%!' },
+              { name: 'Sarah Johnson', role: 'CEO, TechStart Inc.', text: 'creatorit transformed our online presence completely. Their attention to detail and commitment to excellence is unmatched. Our conversion rate increased by 250%!' },
               { name: 'Michael Chen', role: 'Director, Global Retail Co.', text: 'Professional, reliable, and always delivers on time. The e-commerce platform they built handles thousands of daily transactions flawlessly.' },
-              { name: 'Priya Sharma', role: 'Founder, HealthWell', text: 'From strategy to execution, WebAssist exceeded all expectations. Our website traffic tripled within 3 months of launch!' }
+              { name: 'Priya Sharma', role: 'Founder, HealthWell', text: 'From strategy to execution, creatorit exceeded all expectations. Our website traffic tripled within 3 months of launch!' }
             ].map((testimonial, i) => (
               <div key={i} className="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-shadow">
                 <div className="flex mb-4">
