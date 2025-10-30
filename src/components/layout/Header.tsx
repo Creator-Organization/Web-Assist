@@ -1,106 +1,128 @@
-// src/components/layout/Header.tsx
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+// FIX: Replaced next/link with standard React functional components/HTML <a>
+// import Link from 'next/link';
+// FIX: Replaced next/image with standard HTML <img>
+// import Image from 'next/image';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  // Type fixed to accept string or null for environments that may require explicit type annotation
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null); 
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+    // Reset dropdown when opening/closing mobile menu
+    if (!isMobileMenuOpen) {
+      setActiveDropdown(null);
+    }
   };
 
   const toggleDropdown = (menu: string) => {
     setActiveDropdown(activeDropdown === menu ? null : menu);
   };
 
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setActiveDropdown(null);
+  };
+
+  // Helper component to replace Next.js Link
+  const NavLink = ({ href, children, onClick, className = "" }: { href: string, children: React.ReactNode, onClick?: () => void, className?: string }) => (
+    <a href={href} onClick={onClick} className={className}>
+      {children}
+    </a>
+  );
+
   return (
-    <header className="bg-primary-600 sticky top-0 z-50 shadow-lg">
+    // UPDATED: Changed from a custom hex (#0C122D) to a standard Tailwind deep blue (bg-primary-900)
+    <header className="bg-primary-900 sticky top-0 z-50 shadow-lg border-b border-primary-800">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/images/creatorit-logo1.png"
-              alt="Creator IT Logo"
-              width={140}
-              height={40}
-              priority
-              className="h-auto w-auto"
+          <NavLink href="/" className="flex items-center">
+            {/* FIX: Replaced Next.js Image with standard HTML <img> tag */}
+            {/* NOTE: If the logo image itself is dark, it will need to be replaced with a light version */}
+            <img
+              src="/images/creatorit-logo2.png"
+              alt="Website Logo"
+              style={{ width: '140px', height: '70px' }} // Set explicit size to replace width/height props
+              className="h-auto w-auto" // Tailwind classes might override inline styles, keep both for compatibility
             />
-          </Link>
+          </NavLink>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            <Link href="/" className="text-white hover:text-teal-200 transition-colors duration-200 font-medium">
+          <nav className="hidden xl:flex items-center space-x-8">
+            <NavLink href="/" className="text-blue-100 hover:text-primary-400 transition-colors duration-200 font-medium">
               Home
-            </Link>
+            </NavLink>
 
             {/* Services Dropdown */}
             <div className="relative group">
-              <button className="text-white hover:text-teal-200 transition-colors duration-200 font-medium flex items-center">
+              <button className="text-blue-100 hover:text-primary-400 transition-colors duration-200 font-medium flex items-center">
                 Services
                 <ChevronDown className="ml-1 h-4 w-4" />
               </button>
+              {/* Dropdown Menu (adjusted bg and hover colors for contrast) */}
               <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <Link href="/digital-marketing" className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">
+                <NavLink href="/digital-marketing" className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">
                   Digital Marketing
-                </Link>
-                <Link href="/web-services" className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">
+                </NavLink>
+                <NavLink href="/web-services" className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">
                   Web Services
-                </Link>
-                <Link href="/cms-development" className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">
+                </NavLink>
+                <NavLink href="/cms-development" className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">
                   CMS Development
-                </Link>
-                <Link href="/software-development" className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">
+                </NavLink>
+                <NavLink href="/software-development" className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">
                   Software Development
-                </Link>
+                </NavLink>
               </div>
             </div>
 
             {/* About Dropdown */}
             <div className="relative group">
-              <button className="text-white hover:text-teal-200 transition-colors duration-200 font-medium flex items-center">
+              <button className="text-blue-100 hover:text-primary-400 transition-colors duration-200 font-medium flex items-center">
                 About
                 <ChevronDown className="ml-1 h-4 w-4" />
               </button>
+              {/* Dropdown Menu (adjusted bg and hover colors for contrast) */}
               <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <Link href="/about/why-us" className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">
+                <NavLink href="/about/why-us" className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">
                   Why Us
-                </Link>
-                <Link href="/about/vision" className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">
+                </NavLink>
+                <NavLink href="/about/vision" className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">
                   Vision & Mission
-                </Link>
-                <Link href="/about/partners" className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">
+                </NavLink>
+                <NavLink href="/about/partners" className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">
                   Partners
-                </Link>
-                <Link href="/faq" className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">
+                </NavLink>
+                <NavLink href="/faq" className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">
                   FAQ
-                </Link>
+                </NavLink>
               </div>
             </div>
 
-            <Link href="/clients" className="text-white hover:text-teal-200 transition-colors duration-200 font-medium">
+            <NavLink href="/clients" className="text-blue-100 hover:text-primary-400 transition-colors duration-200 font-medium">
               Clients
-            </Link>
+            </NavLink>
 
-            <Link href="/careers" className="text-white hover:text-teal-200 transition-colors duration-200 font-medium">
+            <NavLink href="/careers" className="text-blue-100 hover:text-primary-400 transition-colors duration-200 font-medium">
               Careers
-            </Link>
+            </NavLink>
 
-            <Link href="/contact" className="text-white hover:text-teal-200 transition-colors duration-200 font-medium">
+            <NavLink href="/contact" className="text-blue-100 hover:text-primary-400 transition-colors duration-200 font-medium">
               Contact
-            </Link>
+            </NavLink>
           </nav>
 
-          {/* Mobile Menu Button */}
+
+          {/* Mobile Menu Button (Icon Color) */}
           <button
             onClick={toggleMobileMenu}
-            className="lg:hidden text-white hover:text-teal-200 transition-colors duration-200"
+            className="xl:hidden text-blue-100 hover:text-primary-400 transition-colors duration-200"
             aria-label="Toggle mobile menu"
           >
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -108,60 +130,60 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu (Background is still white for contrast) */}
       <div
-        className={`lg:hidden fixed top-16 right-0 h-full w-64 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out ${
+        className={`xl:hidden fixed top-16 right-0 h-full w-72 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <nav className="flex flex-col p-4 space-y-2">
-          <Link
+        <nav className="flex flex-col p-6 space-y-3">
+          <NavLink
             href="/"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-gray-700 hover:bg-primary-50 hover:text-primary-600 px-4 py-3 rounded-lg transition-colors"
+            onClick={closeMobileMenu}
+            className="text-gray-700 hover:bg-primary-50 hover:text-primary-600 px-4 py-4 rounded-lg transition-colors text-base font-medium"
           >
             Home
-          </Link>
+          </NavLink>
 
           {/* Services Mobile Dropdown */}
           <div>
             <button
               onClick={() => toggleDropdown('services')}
-              className="w-full text-left text-gray-700 hover:bg-primary-50 hover:text-primary-600 px-4 py-3 rounded-lg transition-colors flex items-center justify-between"
+              className="w-full text-left text-gray-700 hover:bg-primary-50 hover:text-primary-600 px-4 py-4 rounded-lg transition-colors flex items-center justify-between text-base font-medium"
             >
               Services
               <ChevronDown className={`h-4 w-4 transition-transform ${activeDropdown === 'services' ? 'rotate-180' : ''}`} />
             </button>
             {activeDropdown === 'services' && (
               <div className="ml-4 mt-2 space-y-2">
-                <Link
+                <NavLink
                   href="/digital-marketing"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-gray-600 hover:text-primary-600 px-4 py-2 rounded-lg transition-colors"
+                  onClick={closeMobileMenu}
+                  className="block text-gray-600 hover:text-primary-600 px-4 py-3 rounded-lg transition-colors text-sm font-medium"
                 >
                   Digital Marketing
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                   href="/web-services"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-gray-600 hover:text-primary-600 px-4 py-2 rounded-lg transition-colors"
+                  onClick={closeMobileMenu}
+                  className="block text-gray-600 hover:text-primary-600 px-4 py-3 rounded-lg transition-colors text-sm font-medium"
                 >
-                  Web Services
-                </Link>
-                <Link
+                  Developer
+                </NavLink>
+                <NavLink
                   href="/cms-development"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-gray-600 hover:text-primary-600 px-4 py-2 rounded-lg transition-colors"
+                  onClick={closeMobileMenu}
+                  className="block text-gray-600 hover:text-primary-600 px-4 py-3 rounded-lg transition-colors text-sm font-medium"
                 >
                   CMS Development
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                   href="/software-development"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-gray-600 hover:text-primary-600 px-4 py-2 rounded-lg transition-colors"
+                  onClick={closeMobileMenu}
+                  className="block text-gray-600 hover:text-primary-600 px-4 py-3 rounded-lg transition-colors text-sm font-medium"
                 >
                   Software Development
-                </Link>
+                </NavLink>
               </div>
             )}
           </div>
@@ -170,76 +192,76 @@ export default function Header() {
           <div>
             <button
               onClick={() => toggleDropdown('about')}
-              className="w-full text-left text-gray-700 hover:bg-primary-50 hover:text-primary-600 px-4 py-3 rounded-lg transition-colors flex items-center justify-between"
+              className="w-full text-left text-gray-700 hover:bg-primary-50 hover:text-primary-600 px-4 py-4 rounded-lg transition-colors flex items-center justify-between text-base font-medium"
             >
               About
               <ChevronDown className={`h-4 w-4 transition-transform ${activeDropdown === 'about' ? 'rotate-180' : ''}`} />
             </button>
             {activeDropdown === 'about' && (
               <div className="ml-4 mt-2 space-y-2">
-                <Link
+                <NavLink
                   href="/about/why-us"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-gray-600 hover:text-primary-600 px-4 py-2 rounded-lg transition-colors"
+                  onClick={closeMobileMenu}
+                  className="block text-gray-600 hover:text-primary-600 px-4 py-3 rounded-lg transition-colors text-sm font-medium"
                 >
                   Why Us
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                   href="/about/vision"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-gray-600 hover:text-primary-600 px-4 py-2 rounded-lg transition-colors"
+                  onClick={closeMobileMenu}
+                  className="block text-gray-600 hover:text-primary-600 px-4 py-3 rounded-lg transition-colors text-sm font-medium"
                 >
                   Vision & Mission
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                   href="/about/partners"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-gray-600 hover:text-primary-600 px-4 py-2 rounded-lg transition-colors"
+                  onClick={closeMobileMenu}
+                  className="block text-gray-600 hover:text-primary-600 px-4 py-3 rounded-lg transition-colors text-sm font-medium"
                 >
                   Partners
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                   href="/faq"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-gray-600 hover:text-primary-600 px-4 py-2 rounded-lg transition-colors"
+                  onClick={closeMobileMenu}
+                  className="block text-gray-600 hover:text-primary-600 px-4 py-3 rounded-lg transition-colors text-sm font-medium"
                 >
                   FAQ
-                </Link>
+                </NavLink>
               </div>
             )}
           </div>
 
-          <Link
+          <NavLink
             href="/clients"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-gray-700 hover:bg-primary-50 hover:text-primary-600 px-4 py-3 rounded-lg transition-colors"
+            onClick={closeMobileMenu}
+            className="text-gray-700 hover:bg-primary-50 hover:text-primary-600 px-4 py-4 rounded-lg transition-colors text-base font-medium"
           >
             Clients
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             href="/careers"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-gray-700 hover:bg-primary-50 hover:text-primary-600 px-4 py-3 rounded-lg transition-colors"
+            onClick={closeMobileMenu}
+            className="text-gray-700 hover:bg-primary-50 hover:text-primary-600 px-4 py-4 rounded-lg transition-colors text-base font-medium"
           >
             Careers
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             href="/contact"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-gray-700 hover:bg-primary-50 hover:text-primary-600 px-4 py-3 rounded-lg transition-colors"
+            onClick={closeMobileMenu}
+            className="text-gray-700 hover:bg-primary-50 hover:text-primary-600 px-4 py-4 rounded-lg transition-colors text-base font-medium"
           >
             Contact
-          </Link>
+          </NavLink>
         </nav>
       </div>
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div
-          onClick={() => setIsMobileMenuOpen(false)}
-          className="lg:hidden fixed inset-0 bg-black bg-opacity-50 top-16"
+          onClick={closeMobileMenu}
+          className="xl:hidden fixed inset-0 bg-black bg-opacity-50 top-16 z-40"
         />
       )}
     </header>

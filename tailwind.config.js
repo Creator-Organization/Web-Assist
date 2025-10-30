@@ -8,18 +8,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Teal-inspired color system
+        // Blue color system matching Nextwebi design
         primary: {
-          50: '#f0fdfa',
-          100: '#ccfbf1',
-          200: '#99f6e4',
-          300: '#5eead4',
-          400: '#2dd4bf',
-          500: '#14b8a6', // Main Teal
-          600: '#0d9488',
-          700: '#0f766e',
-          800: '#115e59',
-          900: '#134e4a',
+          50: '#eff6ff',
+          100: '#dbeafe',
+          200: '#bfdbfe',
+          300: '#93c5fd',
+          400: '#60a5fa',
+          500: '#3b82f6', // Main Blue
+          600: '#2563eb', // Vibrant Blue for buttons
+          700: '#1d4ed8',
+          800: '#1e3a8a', // Dark Blue for hero background
+          900: '#1e40af',
         },
         secondary: {
           50: '#E8F5E8',

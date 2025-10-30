@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
@@ -6,9 +6,16 @@ import Footer from '@/components/layout/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+}
+
 export const metadata: Metadata = {
-  title: 'WebAssist - Professional Web Development Services',
-  description: 'Custom website building, maintenance, and consulting using modern full-stack technologies. Security-focused, reliable, and scalable web solutions.',
+  title: 'Nextwebi - Professional Web Development Services',
+  description: 'Web Design & Web Application Development Company in Bangalore. Digital transformation, website design, eCommerce, and web application development.',
   keywords: [
     'web development',
     'custom websites',
