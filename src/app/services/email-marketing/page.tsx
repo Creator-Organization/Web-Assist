@@ -28,7 +28,7 @@ export default function EmailMarketingPage() {
                 We help you create personalized email campaigns that resonate with your subscribers and deliver measurable results for your business.
               </p>
               <div className="mt-8 p-4 bg-primary-50 border-l-4 border-primary-500 text-primary-900 rounded shadow">
-                <p className="italic mb-2">"Our email campaigns now have 3x higher engagement rates thanks to creatorit!"</p>
+                <p className="italic mb-2">"Our email campaigns now have 3x higher engagement rates thanks to CreatorIt!"</p>
                 <p className="font-semibold">— Sarah Johnson, Marketing Director</p>
               </div>
             </div>

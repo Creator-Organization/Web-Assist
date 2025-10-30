@@ -39,7 +39,7 @@ function generateContactNotificationEmail(contact: DatabaseContact): EmailTempla
     <body>
       <div class="header">
         <h1 style="margin: 0;">New Contact Form Submission</h1>
-        <p style="margin: 10px 0 0 0;">creatorit Contact Form</p>
+        <p style="margin: 10px 0 0 0;">CreatorIt Contact Form</p>
       </div>
       
       <div class="content">
@@ -90,7 +90,7 @@ function generateContactNotificationEmail(contact: DatabaseContact): EmailTempla
       </div>
 
       <div class="footer">
-        <p>This email was automatically generated from the creatorit contact form.</p>
+        <p>This email was automatically generated from the CreatorIt contact form.</p>
         <p>To respond to this inquiry, reply directly to this email or contact ${contact.name} at ${contact.email}</p>
       </div>
     </body>
@@ -98,7 +98,7 @@ function generateContactNotificationEmail(contact: DatabaseContact): EmailTempla
   `;
 
   const text = `
-New Contact Form Submission - creatorit
+New Contact Form Submission - CreatorIt
 
 Contact Information:
 - Name: ${contact.name}
@@ -139,8 +139,8 @@ export async function sendContactNotification(contact: DatabaseContact): Promise
       return false;
     }
 
-    const fromEmail = process.env.FROM_EMAIL || 'noreply@creatorit.com';
-    const toEmail = process.env.TO_EMAIL || 'contact@creatorit.com';
+    const fromEmail = process.env.FROM_EMAIL || 'noreply@CreatorIt.com';
+    const toEmail = process.env.TO_EMAIL || 'contact@CreatorIt.com';
 
     const emailTemplate = generateContactNotificationEmail(contact);
 
@@ -198,16 +198,16 @@ export async function sendAutoReply(contact: DatabaseContact): Promise<boolean> 
       return false;
     }
 
-    const fromEmail = process.env.FROM_EMAIL || 'noreply@creatorit.com';
+    const fromEmail = process.env.FROM_EMAIL || 'noreply@CreatorIt.com';
 
-    const subject = 'Thank you for contacting creatorit';
+    const subject = 'Thank you for contacting CreatorIt';
     
     const html = `
       <!DOCTYPE html>
       <html>
       <head>
         <meta charset="utf-8">
-        <title>Thank you for contacting creatorit</title>
+        <title>Thank you for contacting CreatorIt</title>
         <style>
           body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }
           .header { background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); color: white; padding: 20px; border-radius: 8px; text-align: center; }
@@ -224,7 +224,7 @@ export async function sendAutoReply(contact: DatabaseContact): Promise<boolean> 
         <div class="content">
           <p>Hello ${contact.name},</p>
           
-          <p>Thank you for reaching out to creatorit! We've received your inquiry about your <strong>${contact.projectType.toLowerCase()}</strong> project.</p>
+          <p>Thank you for reaching out to CreatorIt! We've received your inquiry about your <strong>${contact.projectType.toLowerCase()}</strong> project.</p>
           
           <p>Here's what happens next:</p>
           <ul>
@@ -238,11 +238,11 @@ export async function sendAutoReply(contact: DatabaseContact): Promise<boolean> 
           <p>If you have any urgent questions, you can reply to this email or call us directly.</p>
           
           <p>Best regards,<br>
-          <strong>The creatorit Team</strong></p>
+          <strong>The CreatorIt Team</strong></p>
         </div>
 
         <div class="footer">
-          <p>creatorit - Professional Web Development Services</p>
+          <p>CreatorIt - Professional Web Development Services</p>
           <p>This is an automated response. Please do not reply to this email.</p>
         </div>
       </body>
@@ -252,7 +252,7 @@ export async function sendAutoReply(contact: DatabaseContact): Promise<boolean> 
     const text = `
 Hello ${contact.name},
 
-Thank you for reaching out to creatorit! We've received your inquiry about your ${contact.projectType.toLowerCase()} project.
+Thank you for reaching out to CreatorIt! We've received your inquiry about your ${contact.projectType.toLowerCase()} project.
 
 Here's what happens next:
 - We'll review your project requirements within 2-4 hours
@@ -264,10 +264,10 @@ In the meantime, feel free to check out our recent work and client testimonials 
 If you have any urgent questions, you can reply to this email or call us directly.
 
 Best regards,
-The creatorit Team
+The CreatorIt Team
 
 ---
-creatorit - Professional Web Development Services
+CreatorIt - Professional Web Development Services
 This is an automated response. Please do not reply to this email.
     `;
 
@@ -299,15 +299,15 @@ export async function testEmailConfiguration(): Promise<boolean> {
       return false;
     }
 
-    const fromEmail = process.env.FROM_EMAIL || 'noreply@creatorit.com';
-    const toEmail = process.env.TO_EMAIL || 'contact@creatorit.com';
+    const fromEmail = process.env.FROM_EMAIL || 'noreply@CreatorIt.com';
+    const toEmail = process.env.TO_EMAIL || 'contact@CreatorIt.com';
 
     const result = await resend.emails.send({
       from: fromEmail,
       to: toEmail,
-      subject: 'creatorit Email Configuration Test',
-      html: '<p>This is a test email to verify your creatorit email configuration is working correctly.</p>',
-      text: 'This is a test email to verify your creatorit email configuration is working correctly.',
+      subject: 'CreatorIt Email Configuration Test',
+      html: '<p>This is a test email to verify your CreatorIt email configuration is working correctly.</p>',
+      text: 'This is a test email to verify your CreatorIt email configuration is working correctly.',
     });
 
     console.log('Test email sent successfully:', result.data?.id || 'success');

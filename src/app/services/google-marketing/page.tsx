@@ -28,7 +28,7 @@ export default function GoogleMarketingPage() {
                 We ensure that your business is easy to find and navigate through Google's ecosystem, maximizing traffic and revenue generation through strategic visibility.
               </p>
               <div className="mt-8 p-4 bg-primary-50 border-l-4 border-primary-500 text-primary-900 rounded shadow">
-                <p className="italic mb-2">"creatorit's Google Ads strategy reduced our CPC by 45% while doubling conversions!"</p>
+                <p className="italic mb-2">"CreatorIt's Google Ads strategy reduced our CPC by 45% while doubling conversions!"</p>
                 <p className="font-semibold">— Rachel Kim, Digital Marketing Lead</p>
               </div>
             </div>
@@ -51,7 +51,7 @@ export default function GoogleMarketingPage() {
               <div className="bg-white rounded-apple-lg shadow-apple p-8 transition-shadow hover:shadow-apple-lg">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Creative Solutions</h2>
                 <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                  creatorit offers creative technological solutions for your business online. We build the online presence of companies using the latest technology to boost business and generate both brand recall and revenue.
+                  CreatorIt offers creative technological solutions for your business online. We build the online presence of companies using the latest technology to boost business and generate both brand recall and revenue.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
                   We also help remodel existing websites to make them more attractive and efficient, ensuring best practices, fast loading and cross-browser compatibility.
@@ -61,7 +61,7 @@ export default function GoogleMarketingPage() {
               <div className="bg-white rounded-apple-lg shadow-apple p-8 transition-shadow hover:shadow-apple-lg">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">About Us</h2>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  creatorit has an impressive list of clients on its roster, which pays testimony to the high quality, timeliness and value of our work. We have the expertise to make your communication and transactions on the internet effective.
+                  CreatorIt has an impressive list of clients on its roster, which pays testimony to the high quality, timeliness and value of our work. We have the expertise to make your communication and transactions on the internet effective.
                 </p>
               </div>
 

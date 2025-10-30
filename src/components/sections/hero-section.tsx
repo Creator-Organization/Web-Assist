@@ -98,7 +98,7 @@ export function HeroSection() {
           {/* Main Headline */}
           <motion.div variants={itemVariants}>
             <DisplayText className="mb-6 text-6xl md:text-7xl lg:text-8xl font-bold">
-              <span className="block">creatorit</span>
+              <span className="block">CreatorIt</span>
             </DisplayText>
             <HeadlineText className="mb-6 hero-text-muted font-normal text-2xl md:text-3xl lg:text-4xl">
               Professional Web Development Services

@@ -28,7 +28,7 @@ export default function SEMPage() {
                 We combine paid search advertising with proven optimization techniques to maximize your ROI and drive qualified traffic to your website.
               </p>
               <div className="mt-8 p-4 bg-primary-50 border-l-4 border-primary-500 text-primary-900 rounded shadow">
-                <p className="italic mb-2">"Our SEM campaigns with creatorit generated 5x ROI in the first quarter!"</p>
+                <p className="italic mb-2">"Our SEM campaigns with CreatorIt generated 5x ROI in the first quarter!"</p>
                 <p className="font-semibold">— Mike Chen, E-commerce Director</p>
               </div>
             </div>

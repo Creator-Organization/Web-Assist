@@ -139,7 +139,7 @@ export default function DrupalPage() {
             <div className="order-1 md:order-2">
               <h2 className="text-3xl font-bold mb-4 text-gray-900">Our Drupal Expertise</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                creatorit is an innovator in the open source area, successfully providing Drupal services and solutions to clients worldwide. We leverage open source technologies to assist businesses across various industries.
+                CreatorIt is an innovator in the open source area, successfully providing Drupal services and solutions to clients worldwide. We leverage open source technologies to assist businesses across various industries.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 We provide progressive Drupal solutions including web applications, design services, software development, social media integration and Drupal migration.

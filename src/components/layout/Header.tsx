@@ -46,7 +46,7 @@ export default function Header() {
             {/* FIX: Replaced Next.js Image with standard HTML <img> tag */}
             {/* NOTE: If the logo image itself is dark, it will need to be replaced with a light version */}
             <img
-              src="/images/creatorit-logo2.png"
+              src="/images/CreatorIt-logo2.png"
               alt="Website Logo"
               style={{ width: '140px', height: '70px' }} // Set explicit size to replace width/height props
               className="h-auto w-auto" // Tailwind classes might override inline styles, keep both for compatibility

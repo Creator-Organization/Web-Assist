@@ -14,7 +14,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'creatorit - Professional Web Development Services',
+  title: 'CreatorIt - Professional Web Development Services',
   description: 'Custom website building, maintenance, and consulting using modern full-stack technologies. Security-focused, reliable, and scalable web solutions.',
   keywords: [
     'web development',
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
     'secure websites',
     'responsive design',
   ],
-  authors: [{ name: 'creatorit Team' }],
-  creator: 'creatorit',
-  publisher: 'creatorit',
+  authors: [{ name: 'CreatorIt Team' }],
+  creator: 'CreatorIt',
+  publisher: 'CreatorIt',
   robots: {
     index: true,
     follow: true,
@@ -44,22 +44,22 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://creatorit.com',
-    siteName: 'creatorit',
-    title: 'creatorit - Professional Web Development Services',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://CreatorIt.com',
+    siteName: 'CreatorIt',
+    title: 'CreatorIt - Professional Web Development Services',
     description: 'Custom website building, maintenance, and consulting using modern full-stack technologies.',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'creatorit - Professional Web Development',
+        alt: 'CreatorIt - Professional Web Development',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'creatorit - Professional Web Development Services',
+    title: 'CreatorIt - Professional Web Development Services',
     description: 'Custom website building, maintenance, and consulting using modern full-stack technologies.',
     images: ['/images/og-image.jpg'],
   },

@@ -162,7 +162,7 @@ export default function FAQPage() {
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Email Support</h3>
                 <p className="text-gray-700 mb-4">Send us your questions via email</p>
-                <a href="mailto:info@creatorit.com" className="text-primary-600 font-medium hover:text-primary-700">
+                <a href="mailto:info@CreatorIt.com" className="text-primary-600 font-medium hover:text-primary-700">
                   Email Us →
                 </a>
               </div>

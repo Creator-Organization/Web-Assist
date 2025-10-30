@@ -82,7 +82,7 @@ export default function Footer() {
             <ul className="space-y-3 text-gray-300">
               <li className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-primary-400" />
-                <span>info@creatorit.com</span>
+                <span>info@CreatorIt.com</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-primary-400" />
@@ -97,7 +97,7 @@ export default function Footer() {
 
           {/* About Column */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">About creatorit</h4>
+            <h4 className="text-lg font-semibold mb-4">About CreatorIt</h4>
             <p className="text-gray-300 mb-4 text-sm leading-relaxed">
               Professional web development services delivering custom solutions that drive business growth and digital transformation.
             </p>
@@ -121,7 +121,7 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            © {currentYear} creatorit. All rights reserved.
+            © {currentYear} CreatorIt. All rights reserved.
           </p>
         </div>
       </div>

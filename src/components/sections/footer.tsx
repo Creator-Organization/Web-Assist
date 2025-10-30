@@ -12,7 +12,7 @@ export function Footer() {
           {/* Company Info */}
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold mb-4 gradient-text bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
-              creatorit
+              CreatorIt
             </h3>
             <p className="text-gray-300 mb-6 max-w-md">
               Professional web development services offering custom website building, 
@@ -23,7 +23,7 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-accent-400" />
-                <span className="text-gray-300">contact@creatorit.com</span>
+                <span className="text-gray-300">contact@CreatorIt.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-accent-400" />
@@ -65,7 +65,7 @@ export function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           {/* Copyright */}
           <div className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {currentYear} creatorit. All rights reserved.
+            © {currentYear} CreatorIt. All rights reserved.
           </div>
 
           {/* Social Links */}

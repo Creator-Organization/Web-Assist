@@ -128,7 +128,7 @@ export default function VisionPage() {
             <div className="bg-white rounded-lg p-8 shadow-md">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">About Us</h2>
               <p className="text-gray-700 leading-relaxed">
-                creatorit, as a company has an impressive list of clients on its roster, which pays testimony to the high quality, timeliness and value of our work. We have the expertise to make your communication and transactions on the internet effective.
+                CreatorIt, as a company has an impressive list of clients on its roster, which pays testimony to the high quality, timeliness and value of our work. We have the expertise to make your communication and transactions on the internet effective.
               </p>
             </div>
 

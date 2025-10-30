@@ -80,7 +80,7 @@ export default function ServicesPage() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4 text-gray-900">Complete Digital Solutions</h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              creatorit offers a full range of digital services to help businesses establish and grow their online presence. From marketing to development, we provide end-to-end solutions tailored to your specific needs.
+              CreatorIt offers a full range of digital services to help businesses establish and grow their online presence. From marketing to development, we provide end-to-end solutions tailored to your specific needs.
             </p>
           </div>
         </div>
@@ -132,7 +132,7 @@ export default function ServicesPage() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Why Choose creatorit</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Why Choose CreatorIt</h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white rounded-lg p-6 shadow-md">
                 <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">

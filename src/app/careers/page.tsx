@@ -8,7 +8,7 @@ export default function CareersPage() {
       <section className="relative py-20 hero-gradient text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/10 pointer-events-none z-0" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
-          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Careers at creatorit</h1>
+          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Careers at CreatorIt</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
             Join our team and grow your career with us
           </p>
@@ -46,7 +46,7 @@ export default function CareersPage() {
             <div>
               <h2 className="text-3xl font-bold mb-4 text-gray-900">Work With Us</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Thank you for your interest in creatorit. We offer excellent career opportunities and we hope that you will become a valued member of our team in the future.
+                Thank you for your interest in CreatorIt. We offer excellent career opportunities and we hope that you will become a valued member of our team in the future.
               </p>
               <p className="text-gray-700 leading-relaxed mb-6">
                 We are always looking for talented individuals who are passionate about technology and committed to delivering exceptional results. Whether you're a developer, designer, marketer, or project manager, we'd love to hear from you.
@@ -61,7 +61,7 @@ export default function CareersPage() {
             <div className="flex justify-center">
               <img 
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600"
-                alt="creatorit Team"
+                alt="CreatorIt Team"
                 className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
               />
             </div>
@@ -171,7 +171,7 @@ export default function CareersPage() {
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Send us your resume and let's start the conversation
           </p>
-          <a href="mailto:career@creatorit.com">
+          <a href="mailto:career@CreatorIt.com">
             <button className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-apple text-lg font-semibold transition-all duration-200 transform hover:-translate-y-0.5 shadow-apple hover:shadow-apple-lg">
               Apply Now
             </button>

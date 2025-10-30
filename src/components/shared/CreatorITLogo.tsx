@@ -1,11 +1,11 @@
-// src/components/shared/CreatorITLogo.tsx
+// src/components/shared/CreatorItLogo.tsx
 import Link from 'next/link';
 
-interface CreatorITLogoProps {
+interface CreatorItLogoProps {
   className?: string;
 }
 
-export default function CreatorITLogo({ className = '' }: CreatorITLogoProps) {
+export default function CreatorItLogo({ className = '' }: CreatorItLogoProps) {
   return (
     <Link href="/" className={`flex items-center gap-3 ${className}`}>
       {/* Logo Icon */}

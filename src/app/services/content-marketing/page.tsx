@@ -28,7 +28,7 @@ export default function ContentMarketingPage() {
                 The higher the engagement with your content, the higher revenue it will generate. We ensure that the content is easy to find, valuable, and shareable.
               </p>
               <div className="mt-8 p-4 bg-primary-50 border-l-4 border-primary-500 text-primary-900 rounded shadow">
-                <p className="italic mb-2">"creatorit's content strategy increased our blog traffic by 400% in 6 months!"</p>
+                <p className="italic mb-2">"CreatorIt's content strategy increased our blog traffic by 400% in 6 months!"</p>
                 <p className="font-semibold">— David Martinez, Content Director</p>
               </div>
             </div>
@@ -51,7 +51,7 @@ export default function ContentMarketingPage() {
               <div className="bg-white rounded-apple-lg shadow-apple p-8 transition-shadow hover:shadow-apple-lg">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Creative Solutions</h2>
                 <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                  creatorit offers creative technological solutions for your business online. We build the online presence of companies using the latest technology to boost business and generate both brand recall and revenue.
+                  CreatorIt offers creative technological solutions for your business online. We build the online presence of companies using the latest technology to boost business and generate both brand recall and revenue.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
                   We also help remodel existing content strategies to make them more attractive and efficient. Our streamlined content is useful for the user and designed to maximize engagement.
@@ -61,7 +61,7 @@ export default function ContentMarketingPage() {
               <div className="bg-white rounded-apple-lg shadow-apple p-8 transition-shadow hover:shadow-apple-lg">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">About Our Approach</h2>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  creatorit has an impressive list of clients on its roster, which pays testimony to the high quality, timeliness and value of our work. We have the expertise to make your communication and transactions on the internet effective.
+                  CreatorIt has an impressive list of clients on its roster, which pays testimony to the high quality, timeliness and value of our work. We have the expertise to make your communication and transactions on the internet effective.
                 </p>
               </div>
 

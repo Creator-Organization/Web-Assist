@@ -12,15 +12,15 @@ export interface SEOProps {
 }
 
 export function generateSEO({
-  title = 'creatorit - Professional Web Development Services',
+  title = 'CreatorIt - Professional Web Development Services',
   description = 'Custom website building, maintenance, and consulting using modern full-stack technologies. Security-focused, reliable, and scalable web solutions.',
   keywords = [],
   canonical,
   noindex = false,
   ogImage = '/images/og-image.jpg'
 }: SEOProps = {}): Metadata {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://creatorit.com';
-  const fullTitle = title.includes('creatorit') ? title : `${title} | creatorit`;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://CreatorIt.com';
+  const fullTitle = title.includes('CreatorIt') ? title : `${title} | CreatorIt`;
   
   const defaultKeywords = [
     'web development',
@@ -56,7 +56,7 @@ export function generateSEO({
       type: 'website',
       locale: 'en_US',
       url: canonical || baseUrl,
-      siteName: 'creatorit',
+      siteName: 'CreatorIt',
       title: fullTitle,
       description,
       images: [
@@ -64,7 +64,7 @@ export function generateSEO({
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: 'creatorit - Professional Web Development Services',
+          alt: 'CreatorIt - Professional Web Development Services',
         },
       ],
     },
@@ -82,12 +82,12 @@ export function generateSEO({
 
 // Structured data for business
 export function generateBusinessStructuredData() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://creatorit.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://CreatorIt.com';
   
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'creatorit',
+    name: 'CreatorIt',
     description: 'Professional Web Development Services',
     url: baseUrl,
     logo: `${baseUrl}/images/logo.png`,
@@ -98,8 +98,8 @@ export function generateBusinessStructuredData() {
     },
     sameAs: [
       // Add your social media URLs here
-      // 'https://twitter.com/creatorit',
-      // 'https://linkedin.com/company/creatorit',
+      // 'https://twitter.com/CreatorIt',
+      // 'https://linkedin.com/company/CreatorIt',
     ],
     offers: {
       '@type': 'Offer',
@@ -153,7 +153,7 @@ export function generateTestimonialsStructuredData(testimonials: any[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'creatorit',
+    name: 'CreatorIt',
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: (testimonials.reduce((sum, t) => sum + t.rating, 0) / testimonials.length).toFixed(1),
