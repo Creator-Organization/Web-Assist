@@ -46,7 +46,7 @@ export default function ClientsPage() {
             <div>
               <h2 className="text-3xl font-bold mb-4 text-gray-900">Client Success Stories</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                WebAssist has an impressive list of clients on its roster, which pays testimony to the high quality, timeliness and value of our work. We have worked with businesses ranging from startups to established enterprises across various industries.
+                creatorit has an impressive list of clients on its roster, which pays testimony to the high quality, timeliness and value of our work. We have worked with businesses ranging from startups to established enterprises across various industries.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 Our clients trust us to help them achieve their digital goals and grow their online presence with cutting-edge solutions and dedicated support.
@@ -161,7 +161,7 @@ export default function ClientsPage() {
                     ))}
                   </div>
                 </div>
-                <p className="text-gray-700 mb-4 italic">"WebAssist transformed our online presence completely. Their attention to detail and commitment to excellence is unmatched."</p>
+                <p className="text-gray-700 mb-4 italic">"creatorit transformed our online presence completely. Their attention to detail and commitment to excellence is unmatched."</p>
                 <p className="text-gray-900 font-semibold">Sarah Johnson</p>
                 <p className="text-gray-600">CEO, TechStart Inc.</p>
               </div>
@@ -176,7 +176,7 @@ export default function ClientsPage() {
                     ))}
                   </div>
                 </div>
-                <p className="text-gray-700 mb-4 italic">"Professional, reliable, and always delivers on time. WebAssist has been an invaluable partner in our digital journey."</p>
+                <p className="text-gray-700 mb-4 italic">"Professional, reliable, and always delivers on time. creatorit has been an invaluable partner in our digital journey."</p>
                 <p className="text-gray-900 font-semibold">Michael Chen</p>
                 <p className="text-gray-600">Director, Global Retail Co.</p>
               </div>

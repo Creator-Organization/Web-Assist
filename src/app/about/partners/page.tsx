@@ -10,7 +10,7 @@ export default function PartnersPage() {
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
           <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Partnership Opportunities</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
-            Explore partnership opportunities with WebAssist
+            Explore partnership opportunities with creatorit
           </p>
         </div>
       </section>
@@ -46,7 +46,7 @@ export default function PartnersPage() {
             <div>
               <h2 className="text-3xl font-bold mb-4 text-gray-900">Build Success Together</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                WebAssist welcomes partnership opportunities with businesses and organizations that share our commitment to quality and innovation. We believe in building long-term relationships that benefit all parties involved.
+                creatorit welcomes partnership opportunities with businesses and organizations that share our commitment to quality and innovation. We believe in building long-term relationships that benefit all parties involved.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 Whether you're looking to resell our services, collaborate on projects, or explore strategic alliances, we're open to discussing how we can work together to achieve mutual success.
@@ -106,7 +106,7 @@ export default function PartnersPage() {
                   <Globe className="w-6 h-6 text-primary-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Regional Partners</h3>
-                <p className="text-gray-700">Represent WebAssist in your region and expand our global reach together</p>
+                <p className="text-gray-700">Represent creatorit in your region and expand our global reach together</p>
               </div>
 
               <div className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
@@ -151,7 +151,7 @@ export default function PartnersPage() {
               <div className="bg-white rounded-lg p-8 shadow-md">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Commitment</h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  We are committed to our partners' success. When you partner with WebAssist, you gain access to our expertise, resources, and support network.
+                  We are committed to our partners' success. When you partner with creatorit, you gain access to our expertise, resources, and support network.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
                   Our partnership team works closely with you to ensure mutual growth, providing the tools and assistance needed to succeed in delivering exceptional web solutions to your clients.

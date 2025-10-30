@@ -22,13 +22,13 @@ export default function WebDesignPage() {
             <div className="relative z-10 bg-white p-0 md:p-6 rounded-lg shadow-none">
               <h2 className="text-3xl font-bold mb-4 text-gray-900">Design That Drives Results</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                WebAssist is a dedicated web solution company, whose objective is to enable customer profitability through building web solutions that work. Design should be professional, attractive, mission oriented and convey business message at a single glance.
+                creatorit is a dedicated web solution company, whose objective is to enable customer profitability through building web solutions that work. Design should be professional, attractive, mission oriented and convey business message at a single glance.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Whether you're building your first website or enhancing your current site, WebAssist can help your business succeed online with affordable, professional design services.
+                Whether you're building your first website or enhancing your current site, creatorit can help your business succeed online with affordable, professional design services.
               </p>
               <div className="mt-8 p-4 bg-primary-50 border-l-4 border-primary-500 text-primary-900 rounded shadow">
-                <p className="italic mb-2">"WebAssist transformed our outdated site into a modern masterpiece that tripled our conversions!"</p>
+                <p className="italic mb-2">"creatorit transformed our outdated site into a modern masterpiece that tripled our conversions!"</p>
                 <p className="font-semibold">— Jennifer Lee, E-commerce Owner</p>
               </div>
             </div>

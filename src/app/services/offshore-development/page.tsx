@@ -24,7 +24,7 @@ export default function OffshoreDevelopmentPage() {
                 Our team of innovative and talented developers works in tandem with your needs to produce solutions that leave an impact. We streamline development processes and make them efficient for your organization.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                WebAssist ensures quality standards, fast delivery and takes care of compatibility issues. We ensure that solutions are scalable and maintainable.
+                creatorit ensures quality standards, fast delivery and takes care of compatibility issues. We ensure that solutions are scalable and maintainable.
               </p>
             </div>
             <div className="flex justify-center">

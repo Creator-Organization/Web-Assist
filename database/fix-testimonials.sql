@@ -48,7 +48,7 @@ INSERT INTO testimonials (
     'TechStart Inc', 
     'CEO', 
     5, 
-    'WebAssist delivered our SaaS platform on time and within budget. Their expertise in React and Node.js was evident throughout the project. The team was professional, communicative, and delivered exactly what we needed.',
+    'creatorit delivered our SaaS platform on time and within budget. Their expertise in React and Node.js was evident throughout the project. The team was professional, communicative, and delivered exactly what we needed.',
     'SaaS Platform',
     true,
     1

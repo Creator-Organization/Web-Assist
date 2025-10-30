@@ -30,7 +30,7 @@ export default function SEOServicesPage() {
               </p>
               {/* Testimonial Card */}
               <div className="mt-8 p-4 bg-primary-50 border-l-4 border-primary-500 text-primary-900 rounded shadow">
-                <p className="italic mb-2">"WebAssist boosted our search rankings and doubled our organic traffic in 6 months!"</p>
+                <p className="italic mb-2">"creatorit boosted our search rankings and doubled our organic traffic in 6 months!"</p>
                 <p className="font-semibold">— Jane Doe, CEO of TechStartup</p>
               </div>
             </div>
@@ -53,7 +53,7 @@ export default function SEOServicesPage() {
               <div className="bg-white rounded-apple-lg shadow-apple p-8 transition-shadow hover:shadow-apple-lg">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Expert SEO Solutions</h2>
                 <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                  WebAssist offers quality solutions for SEO Services, Internet marketing, Web Marketing, and search engine optimization strategies. We are a leading Search Engine Optimization company providing affordable SEO services.
+                  creatorit offers quality solutions for SEO Services, Internet marketing, Web Marketing, and search engine optimization strategies. We are a leading Search Engine Optimization company providing affordable SEO services.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
                   Our Search Engine Optimization services are carefully planned by our SEO experts to get the best results from the SEO process.
@@ -71,16 +71,16 @@ export default function SEOServicesPage() {
               <div className="bg-white rounded-apple-lg shadow-apple p-8 transition-shadow hover:shadow-apple-lg">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">White Hat SEO</h2>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Search Engine Optimization may be defined as a set of processes by which certain alterations and modifications are done to the website so that it can achieve higher rankings in search engines, thereby increasing the number of visitors (traffic) to the website. WebAssist strongly believes in white hat SEO or the ethical way of SEO.
+                  Search Engine Optimization may be defined as a set of processes by which certain alterations and modifications are done to the website so that it can achieve higher rankings in search engines, thereby increasing the number of visitors (traffic) to the website. creatorit strongly believes in white hat SEO or the ethical way of SEO.
                 </p>
               </div>
               <div className="bg-white rounded-apple-lg shadow-apple p-8 transition-shadow hover:shadow-apple-lg">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Why Choose Us?</h2>
                 <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                  Your search for an ethical SEO company ends here. WebAssist is a leading professional SEO company which is a renowned service provider of Search Engine Optimization, Search Engine Placement, and Internet Marketing services.
+                  Your search for an ethical SEO company ends here. creatorit is a leading professional SEO company which is a renowned service provider of Search Engine Optimization, Search Engine Placement, and Internet Marketing services.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  WebAssist has a team of SEO consultants, analysts, and experts who give you the perfect strategies that will boost your search engine rankings.
+                  creatorit has a team of SEO consultants, analysts, and experts who give you the perfect strategies that will boost your search engine rankings.
                 </p>
               </div>
             </div>
