@@ -1,10 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Check, Zap, Shield, Clock, Users, Award, ArrowRight, Star } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ClipboardCheck, DollarSign, Code, Search, ServerCog, Wrench } from 'lucide-react';
+import { Check, ArrowRight, Star } from 'lucide-react';
 import Image from 'next/image';
 
 import AgileProcessSection from '../components/AgileProcess/AgileProcessSelection';

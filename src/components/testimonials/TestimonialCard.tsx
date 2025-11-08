@@ -1,48 +1,41 @@
-// src/components/testimonials/TestimonialCard.tsx
-
 'use client';
 
 import { TestimonialCardProps } from '@/types/testimonials';
 import { SimpleStars } from './StarRating';
 import { cn } from '@/lib/utils';
+import React from 'react';
 
-const TestimonialCard: React.FC<TestimonialCardProps> = ({ 
-  testimonial, 
-  className 
-}) => {
+const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, className }) => {
   const {
     clientName,
     clientCompany,
     clientTitle,
-    rating,
-    content,
-    projectType,
-    featured
+    content
   } = testimonial;
 
   // Pastel color variants matching Nextwebi design
   const colorVariants = [
-    { bg: 'bg-pink-50', quote: 'text-pink-600' }, // Light pink/red
-    { bg: 'bg-blue-50', quote: 'text-blue-600' }, // Light blue
-    { bg: 'bg-green-50', quote: 'text-green-600' }, // Light green
-  ];
+    { bg: 'bg-pink-50', quote: 'text-pink-600' },  // Light pink/red
+    { bg: 'bg-blue-50', quote: 'text-blue-600' },  // Light blue
+    { bg: 'bg-green-50', quote: 'text-green-600' } // Light green
+  ] as const;
 
-  // Get color based on index or use a default
-  const colorIndex = Math.abs((clientName?.charCodeAt(0) || 0) % 3);
-  const colors = colorVariants[colorIndex];
+  // Compute color index based on client name
+  const colorIndex = Math.abs((clientName?.charCodeAt(0) || 0) % colorVariants.length);
+  const colors = colorVariants[colorIndex] ?? colorVariants[0]; // ✅ Safe fallback
 
   return (
     <div
       className={cn(
-        "relative rounded-xl shadow-md p-8 hover:shadow-lg transition-all duration-300",
+        'relative rounded-xl shadow-md p-8 hover:shadow-lg transition-all duration-300',
         colors.bg,
         className
       )}
     >
-      {/* Large Quote icon */}
+      {/* Large Quote Icon */}
       <div className="mb-6">
         <svg
-          className={cn("w-16 h-16 font-bold", colors.quote)}
+          className={cn('w-16 h-16 font-bold', colors.quote)}
           fill="currentColor"
           viewBox="0 0 32 32"
         >
@@ -50,14 +43,14 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         </svg>
       </div>
 
-      {/* Content */}
+      {/* Testimonial Content */}
       <div className="mb-6">
         <p className="text-gray-800 leading-relaxed text-base">
           {content}
         </p>
       </div>
 
-      {/* Client info */}
+      {/* Client Info */}
       <div className="space-y-1">
         <div className="flex items-center gap-2 mb-1">
           {clientCompany && (
@@ -79,17 +72,17 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   );
 };
 
-// Compact version for smaller spaces
-export const CompactTestimonialCard: React.FC<TestimonialCardProps> = ({ 
-  testimonial, 
-  className 
+// Compact version for smaller layouts
+export const CompactTestimonialCard: React.FC<TestimonialCardProps> = ({
+  testimonial,
+  className
 }) => {
   const { clientName, clientCompany, rating, content } = testimonial;
 
   return (
     <div
       className={cn(
-        "bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4 hover:shadow-md transition-shadow",
+        'bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4 hover:shadow-md transition-shadow',
         className
       )}
     >

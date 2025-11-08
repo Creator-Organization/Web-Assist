@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Building2, ShoppingCart, Heart, GraduationCap, Briefcase, Home, Cpu, TrendingUp } from 'lucide-react';
+
 
 // --- Client Logos ---
 import swiggyLogo from '../../../Images/clients/client_swiggy.png';
@@ -37,7 +37,7 @@ export default function ClientsPage() {
         </video>
         <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
-          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Our valuable clientele</h1>
+          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Our valuable Clients</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
             Trusted by businesses across various industries
           </p>
@@ -49,9 +49,11 @@ export default function ClientsPage() {
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid md:grid-cols-2 gap-12 items-start max-w-7xl mx-auto">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Our valuable clientele</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Our valuable Clients</h2>
               <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-                Our client count on us for their end to end need of the IT Services and digital marketing & SEO need. As a technology partner we work in a culture to become your IT team. Initiate a discussion with us and lets explore the opportunities together.
+                CreatorIt has an impressive list of clients on its roster, which pays testimony to the high quality, timeliness and value of our work. We have worked with businesses ranging from startups to established enterprises across various industries.
+
+Our clients trust us to help them achieve their digital goals and grow their online presence with cutting-edge solutions and dedicated support.
               </p>
               <a href="/clients">
                 <button className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">

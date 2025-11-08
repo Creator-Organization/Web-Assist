@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Target, Lightbulb, Rocket, Globe, Heart, TrendingUp } from 'lucide-react';
-import visionMissionImage from '../../../Images/vision&Mission.png';
 // Define a consistent size for the Image component
 const IMAGE_WIDTH = 400;
 const IMAGE_HEIGHT = 300; // Use appropriate dimensions for your image's aspect ratio
@@ -67,9 +66,11 @@ export default function VisionPage() {
               </p>
             </div>
             <div className="flex justify-center">
-              <img 
-                src="Web-Assist/Images/vision&Mission.png"
+              <Image
+                src="/Images/vision&Mission.png"
                 alt="Vision and Strategy"
+                width={IMAGE_WIDTH}
+                height={IMAGE_HEIGHT}
                 className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
               />
             </div>
