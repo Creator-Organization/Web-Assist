@@ -6,7 +6,16 @@ export default function CareersPage() {
     <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative py-20 hero-gradient text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/10 pointer-events-none z-0" />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="/Images/video.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
           <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Careers at CreatorIt</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
@@ -52,10 +61,10 @@ export default function CareersPage() {
                 We are always looking for talented individuals who are passionate about technology and committed to delivering exceptional results. Whether you're a developer, designer, marketer, or project manager, we'd love to hear from you.
               </p>
               <div className="bg-primary-50 p-6 rounded-lg border-l-4 border-primary-500">
-                <p className="text-lg text-gray-900 font-semibold mb-2">Submit your resume:</p>
-                <a href="mailto:career@creatorit.com" className="text-lg text-primary-600 hover:text-primary-700 font-medium">
-                  career@creatorit.com
-                </a>
+                <p className="text-lg text-gray-900 font-semibold mb-2">Ready to apply?</p>
+               <a href="mailto:career@creatorit.com" className="text-lg text-primary-600 hover:text-primary-700 font-medium">
+                "Send your application to career@creatorit.com"
+              </a>
               </div>
             </div>
             <div className="flex justify-center">

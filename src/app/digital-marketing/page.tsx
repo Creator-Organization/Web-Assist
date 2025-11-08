@@ -84,7 +84,16 @@ export default function DigitalMarketingPage(): JSX.Element {
     <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative py-20 hero-gradient text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/10 pointer-events-none z-0" />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="/Images/video.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
           <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Digital Marketing Services</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
