@@ -9,20 +9,9 @@ import googleMarketingLogo from '../../../Images/Google_marketing.png';
 import onlineSurveysLogo from '../../../Images/Online_services.png';
 import classifiedServicesLogo from '../../../Images/Classified_Services.png';
 
-// --- Logo Imports ---
-import emailMarketingLogo from '../../../Images/Email_Marketing.png';
-import seoServicesLogo from '../../../Images/seo_services.png';
-import searchEngineMarketingLogo from '../../../Images/search_engine_marketing.png';
-import contentMarketingLogo from '../../../Images/content_marketing.png';
-import googleMarketingLogo from '../../../Images/Google_marketing.png';
-import onlineSurveysLogo from '../../../Images/Online_services.png';
-import classifiedServicesLogo from '../../../Images/Classified_Services.png';
-
 // --- New Image Imports (for the service sections) ---
 import besideEmailMarketing from '../../../Images/Beside_Email_Marketing.png';
-// I'm assuming you wanted to add images for the rest of the services.
-// Please verify the paths for these images:
-import besideSeoServices from '../../../Images/Beside_SEO_Services&_Drupal_Development.png'; // Reusing a path from the first request based on name similarity
+import besideSeoServices from '../../../Images/Beside_SEO_Services&_Drupal_Development.png';
 import besideSearchEngineMarketing from '../../../Images/Beside_Search_Engine_Marketing.png';
 import besideContentMarketing from '../../../Images/Beside_Content_Marketing.png';
 import besideGoogleMarketing from '../../../Images/Beside_Google_Marketing.png';
@@ -41,7 +30,6 @@ export default function DigitalMarketingPage(): JSX.Element {
       description: 'Build customer loyalty and enhance brand recognition through targeted email campaigns that convert subscribers into customers',
       href: '/services/email-marketing',
       icon: <Image src={emailMarketingLogo} alt="Email Marketing" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=800&h=600'
       image: besideEmailMarketing
     },
     {
@@ -49,7 +37,6 @@ export default function DigitalMarketingPage(): JSX.Element {
       description: 'Professional search engine optimization to boost your rankings and increase organic traffic with proven strategies',
       href: '/services/seo',
       icon: <Image src={seoServicesLogo} alt="SEO Services" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600'
       image: besideSeoServices
     },
     {
@@ -57,7 +44,6 @@ export default function DigitalMarketingPage(): JSX.Element {
       description: 'Strategic paid search campaigns with Google Ads and performance-driven marketing for immediate results',
       href: '/services/sem',
       icon: <Image src={searchEngineMarketingLogo} alt="Search Engine Marketing" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600'
       image: besideSearchEngineMarketing
     },
     {
@@ -65,7 +51,6 @@ export default function DigitalMarketingPage(): JSX.Element {
       description: 'Strategic content creation that drives engagement and builds your brand presence across all channels',
       href: '/services/content-marketing',
       icon: <Image src={contentMarketingLogo} alt="Content Marketing" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&h=600'
       image: besideContentMarketing
     },
     {
@@ -73,7 +58,6 @@ export default function DigitalMarketingPage(): JSX.Element {
       description: 'Comprehensive Google marketing including Ads, My Business, and search visibility optimization',
       href: '/services/google-marketing',
       icon: <Image src={googleMarketingLogo} alt="Google Marketing" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&h=600'
       image: besideGoogleMarketing
     },
     {
@@ -81,16 +65,13 @@ export default function DigitalMarketingPage(): JSX.Element {
       description: 'Professional survey creation and market research tools for valuable customer insights and data',
       href: '/services/online-surveys',
       icon: <Image src={onlineSurveysLogo} alt="Online Surveys" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600'
       image: besideOnlineSurveys
     },
     {
       title: 'Classified Services',
       description: 'Professional classified ad posting and directory listing services to expand your reach',
-      icon: <Image src={classifiedServicesLogo} alt="Classified Services" className="w-12 h-12 object-contain" />,
       href: '/services/classifieds',
       icon: <Image src={classifiedServicesLogo} alt="Classified Services" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600'
       image: besideClassifiedServices
     },
   ];
@@ -117,8 +98,6 @@ export default function DigitalMarketingPage(): JSX.Element {
         </div>
       </section>
 
-     
-
       {/* Stats Bar */}
       <section className="py-12 bg-white border-b">
         <div className="container mx-auto px-6 xl:px-16">
@@ -143,8 +122,6 @@ export default function DigitalMarketingPage(): JSX.Element {
         </div>
       </section>
 
-      
-
       {/* Intro Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16">
@@ -156,8 +133,6 @@ export default function DigitalMarketingPage(): JSX.Element {
           </div>
         </div>
       </section>
-
-      
 
       {/* Services with Alternating Images */}
       <section className="py-16 bg-white">
@@ -180,18 +155,16 @@ export default function DigitalMarketingPage(): JSX.Element {
                   </Link>
                 </div>
                 <div className={`flex justify-center ${index % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
-                  {/* UPDATED: Use Next.js Image component for consistency and size control */}
                   <Image
                     src={service.image}
                     alt={service.title}
-                    // Apply explicit width and height for static images (Next.js requirement)
                     width={IMAGE_WIDTH}
                     height={IMAGE_HEIGHT}
                     className="rounded-lg shadow-lg w-full h-auto max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
                     style={{
                       width: '100%',
                       height: 'auto',
-                      maxWidth: '400px', // Replicate your max-width class
+                      maxWidth: '400px',
                       objectFit: 'cover'
                     }}
                   />
@@ -201,8 +174,6 @@ export default function DigitalMarketingPage(): JSX.Element {
           </div>
         </div>
       </section>
-
-      
 
       {/* Why Choose Section */}
       <section className="py-16 bg-gray-50">
@@ -237,8 +208,6 @@ export default function DigitalMarketingPage(): JSX.Element {
           </div>
         </div>
       </section>
-
-    
 
       {/* CTA Section */}
       <section className="bg-white py-16">

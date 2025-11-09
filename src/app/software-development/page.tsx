@@ -5,11 +5,6 @@ import mobileAppLogo from '../../../Images/Mobile_App.png';
 import customSoftwareLogo from '../../../Images/custom_software.png';
 import offshoreDevelopmentLogo from '../../../Images/offshore_development.png';
 
-// --- Logo Imports (as per your original code) ---
-import mobileAppLogo from '../../../Images/Mobile_App.png';
-import customSoftwareLogo from '../../../Images/custom_software.png';
-import offshoreDevelopmentLogo from '../../../Images/offshore_development.png';
-
 // --- New Image Imports (for the service sections) ---
 import mobileAppBesideImage from '../../../Images/Beside_Mobile_App.png';
 import customSoftwareBesideImage from '../../../Images/Beside_Custom_Software.png';
@@ -23,8 +18,6 @@ export default function SoftwareDevelopmentPage(): JSX.Element {
       description: 'iOS and Android app development covering the complete software development lifecycle from concept to deployment',
       href: '/services/mobile-apps',
       icon: <Image src={mobileAppLogo} alt="Mobile App Development" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600'
-      // Replaced 'image' URL with imported local image
       image: mobileAppBesideImage,
     },
     {
@@ -32,8 +25,6 @@ export default function SoftwareDevelopmentPage(): JSX.Element {
       description: 'Tailored software solutions for business process automation, efficiency, and digital transformation',
       href: '/services/custom-software',
       icon: <Image src={customSoftwareLogo} alt="Custom Software Development" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600'
-      // Replaced 'image' URL with imported local image
       image: customSoftwareBesideImage,
     },
     {
@@ -41,8 +32,6 @@ export default function SoftwareDevelopmentPage(): JSX.Element {
       description: 'Dedicated offshore development teams delivering quality solutions with cost-effective collaboration',
       href: '/services/offshore-development',
       icon: <Image src={offshoreDevelopmentLogo} alt="Offshore Development" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600'
-      // Replaced 'image' URL with imported local image
       image: offshoreBesideImage,
     },
   ];
@@ -70,7 +59,6 @@ export default function SoftwareDevelopmentPage(): JSX.Element {
       </section>
 
       {/* Stats Bar */}
-      
       <section className="py-12 bg-white border-b">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto text-center">
@@ -95,7 +83,6 @@ export default function SoftwareDevelopmentPage(): JSX.Element {
       </section>
 
       {/* Intro Section */}
-      
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="max-w-4xl mx-auto text-center">
@@ -108,7 +95,6 @@ export default function SoftwareDevelopmentPage(): JSX.Element {
       </section>
 
       {/* Services with Alternating Images */}
-      
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="max-w-6xl mx-auto space-y-16">
@@ -128,18 +114,16 @@ export default function SoftwareDevelopmentPage(): JSX.Element {
                   </Link>
                 </div>
                 <div className={`flex justify-center ${index % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
-                  {/* Replaced <img> with Next.js <Image> for local assets */}
                   <Image
                     src={service.image}
                     alt={service.title}
-                    // Adding required width/height for static Next.js Image component
                     width={400} 
                     height={300} 
                     className="rounded-lg shadow-lg w-full h-auto max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
                     style={{
                       width: '100%',
                       height: 'auto',
-                      maxWidth: '400px', // Replicate max-width class
+                      maxWidth: '400px',
                       objectFit: 'cover'
                     }}
                   />
@@ -151,7 +135,6 @@ export default function SoftwareDevelopmentPage(): JSX.Element {
       </section>
 
       {/* Why Choose Section */}
-      
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="max-w-6xl mx-auto">
@@ -186,7 +169,6 @@ export default function SoftwareDevelopmentPage(): JSX.Element {
       </section>
 
       {/* CTA Section */}
-      
       <section className="bg-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">Ready to Build Custom Software?</h2>

@@ -6,12 +6,6 @@ import joomlaLogo from '../../../Images/Jompla_development.png';
 import drupalLogo from '../../../Images/drupal.png';
 import magentoLogo from '../../../Images/Magento.png';
 
-// --- Logo Imports (as per your original code) ---
-import wordpressLogo from '../../../Images/wordpress_development.png';
-import joomlaLogo from '../../../Images/Jompla_development.png';
-import drupalLogo from '../../../Images/drupal.png';
-import magentoLogo from '../../../Images/Magento.png';
-
 // --- New Image Imports (for the service sections) ---
 import wordpressBesideImage from '../../../Images/Beside_WordPress Development.png';
 import joomlaBesideImage from '../../../Images/Beside_Joomla_Development.png';
@@ -26,8 +20,6 @@ export default function CMSDevelopmentPage(): JSX.Element {
       description: 'Professional WordPress solutions with custom themes, plugins, and complete content management capabilities',
       href: '/services/wordpress',
       icon: <Image src={wordpressLogo} alt="WordPress Development" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=600'
-      // Replaced 'image' URL with imported local image
       image: wordpressBesideImage,
     },
     {
@@ -35,8 +27,6 @@ export default function CMSDevelopmentPage(): JSX.Element {
       description: 'Professional Joomla CMS development with custom templates and powerful extensions',
       href: '/services/joomla',
       icon: <Image src={joomlaLogo} alt="Joomla Development" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=800&h=600'
-      // Replaced 'image' URL with imported local image
       image: joomlaBesideImage,
     },
     {
@@ -44,8 +34,6 @@ export default function CMSDevelopmentPage(): JSX.Element {
       description: 'Enterprise-level Drupal CMS with custom modules and themes for complex requirements',
       href: '/services/drupal',
       icon: <Image src={drupalLogo} alt="Drupal Development" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600'
-      // Replaced 'image' URL with imported local image
       image: drupalBesideImage,
     },
     {
@@ -53,8 +41,6 @@ export default function CMSDevelopmentPage(): JSX.Element {
       description: 'Powerful Magento e-commerce solutions with complete flexibility and scalability',
       href: '/services/magento',
       icon: <Image src={magentoLogo} alt="Magento Development" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600'
-      // Replaced 'image' URL with imported local image
       image: magentoBesideImage,
     },
   ];
@@ -82,7 +68,6 @@ export default function CMSDevelopmentPage(): JSX.Element {
       </section>
 
       {/* Stats Bar */}
-      
       <section className="py-12 bg-white border-b">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto text-center">
@@ -107,7 +92,6 @@ export default function CMSDevelopmentPage(): JSX.Element {
       </section>
 
       {/* Intro Section */}
-      
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="max-w-4xl mx-auto text-center">
@@ -120,7 +104,6 @@ export default function CMSDevelopmentPage(): JSX.Element {
       </section>
 
       {/* Services with Alternating Images */}
-      
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="max-w-6xl mx-auto space-y-16">
@@ -140,24 +123,17 @@ export default function CMSDevelopmentPage(): JSX.Element {
                   </Link>
                 </div>
                 <div className={`flex justify-center ${index % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
-                  {/* Using Next.js Image component for the local image imports */}
                   <Image
                     src={service.image}
                     alt={service.title}
-                    // Next.js Image requires 'width' and 'height' for static imports, or 'fill'/'sizes'.
-                    // Since you had a className with w-full max-w-[400px], I'll use `fill` and set the parent container's dimensions.
-                    // For simplicity, I'll add objectFit/layout for better compatibility, but usually Next.js handles this better with
-                    // explicit width/height on static imports. I'll stick to a common pattern for local image use in Next.js/Tailwind.
-                    // I'll wrap the image in a container to enforce dimensions while using `fill`.
-                    // A simpler approach for local images is to leverage their automatic size deduction:
+                    width={400}
+                    height={300}
                     className="rounded-lg shadow-lg w-full h-auto max-w-sm transition-transform duration-300 hover:scale-105"
-                    width={400} // Set a placeholder width/height for static imports
-                    height={300} // Adjust these based on the aspect ratio of your actual images
                     style={{
                       width: '100%',
                       height: 'auto',
-                      maxWidth: '400px', // Replicate your max-width class
-                      objectFit: 'cover' // Ensure the image covers the space without distortion
+                      maxWidth: '400px',
+                      objectFit: 'cover'
                     }}
                   />
                 </div>
@@ -168,7 +144,6 @@ export default function CMSDevelopmentPage(): JSX.Element {
       </section>
 
       {/* Why Choose Section */}
-      
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="max-w-6xl mx-auto">
@@ -203,7 +178,6 @@ export default function CMSDevelopmentPage(): JSX.Element {
       </section>
 
       {/* CTA Section */}
-      
       <section className="bg-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">Need a CMS Solution?</h2>

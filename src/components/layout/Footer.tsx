@@ -72,6 +72,8 @@ export default function Footer() {
           <p className="text-gray-400 text-sm">© {currentYear} CreatorIt. All rights reserved.</p>
         </div>
       </div>
+        </div>
+      </div>
     </footer>
   );
 }

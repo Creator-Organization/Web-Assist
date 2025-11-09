@@ -1,4 +1,4 @@
-import { Check, ArrowRight, Star } from 'lucide-react';
+import { Check, ArrowRight, Star, Link } from 'lucide-react';
 
 // FIX: Changed to a const arrow function definition and kept default export to ensure 
 // it is correctly recognized as a React component in various environments.
