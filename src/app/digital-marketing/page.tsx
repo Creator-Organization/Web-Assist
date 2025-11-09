@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { TrendingUp, BarChart } from 'lucide-react';
-
-// --- Logo Imports ---
 import emailMarketingLogo from '../../../Images/Email_Marketing.png';
 import seoServicesLogo from '../../../Images/seo_services.png';
 import searchEngineMarketingLogo from '../../../Images/search_engine_marketing.png';
@@ -13,9 +11,7 @@ import classifiedServicesLogo from '../../../Images/Classified_Services.png';
 
 // --- New Image Imports (for the service sections) ---
 import besideEmailMarketing from '../../../Images/Beside_Email_Marketing.png';
-// I'm assuming you wanted to add images for the rest of the services.
-// Please verify the paths for these images:
-import besideSeoServices from '../../../Images/Beside_SEO_Services_and_Drupal_Development.png'; // Reusing a path from the first request based on name similarity
+import besideSeoServices from '../../../Images/Beside_SEO_Services&_Drupal_Development.png';
 import besideSearchEngineMarketing from '../../../Images/Beside_Search_Engine_Marketing.png';
 import besideContentMarketing from '../../../Images/Beside_Content_Marketing.png';
 import besideGoogleMarketing from '../../../Images/Beside_Google_Marketing.png';
@@ -74,8 +70,8 @@ export default function DigitalMarketingPage(): JSX.Element {
     {
       title: 'Classified Services',
       description: 'Professional classified ad posting and directory listing services to expand your reach',
-      icon: <Image src={classifiedServicesLogo} alt="Classified Services" className="w-12 h-12 object-contain" />,
       href: '/services/classifieds',
+      icon: <Image src={classifiedServicesLogo} alt="Classified Services" className="w-12 h-12 object-contain" />,
       image: besideClassifiedServices
     },
   ];
@@ -102,8 +98,6 @@ export default function DigitalMarketingPage(): JSX.Element {
         </div>
       </section>
 
-     
-
       {/* Stats Bar */}
       <section className="py-12 bg-white border-b">
         <div className="container mx-auto px-6 xl:px-16">
@@ -128,8 +122,6 @@ export default function DigitalMarketingPage(): JSX.Element {
         </div>
       </section>
 
-      
-
       {/* Intro Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16">
@@ -141,8 +133,6 @@ export default function DigitalMarketingPage(): JSX.Element {
           </div>
         </div>
       </section>
-
-      
 
       {/* Services with Alternating Images */}
       <section className="py-16 bg-white">
@@ -165,29 +155,25 @@ export default function DigitalMarketingPage(): JSX.Element {
                   </Link>
                 </div>
                 <div className={`flex justify-center ${index % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
-                  {/* UPDATED: Use Next.js Image component for consistency and size control */}
                   <Image
-  src={service.image}
-  alt={service.title}
-  width={IMAGE_WIDTH}
-  height={IMAGE_HEIGHT}
-  className="rounded-xl shadow-xl w-full h-auto max-w-[600px] md:max-w-full transition-transform duration-300 hover:scale-105"
-  style={{
-    width: '100%',
-    height: 'auto',
-    maxWidth: '600px', // Increased from 400px
-    objectFit: 'cover',
-  }}
-/>
-
+                    src={service.image}
+                    alt={service.title}
+                    width={IMAGE_WIDTH}
+                    height={IMAGE_HEIGHT}
+                    className="rounded-lg shadow-lg w-full h-auto max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      maxWidth: '400px',
+                      objectFit: 'cover'
+                    }}
+                  />
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      
 
       {/* Why Choose Section */}
       <section className="py-16 bg-gray-50">
@@ -222,8 +208,6 @@ export default function DigitalMarketingPage(): JSX.Element {
           </div>
         </div>
       </section>
-
-    
 
       {/* CTA Section */}
       <section className="bg-white py-16">

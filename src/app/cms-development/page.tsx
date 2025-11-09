@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Shield, Zap, Users } from 'lucide-react';
-
-// --- Logo Imports (as per your original code) ---
 import wordpressLogo from '../../../Images/wordpress_development.png';
 import joomlaLogo from '../../../Images/Jompla_development.png';
 import drupalLogo from '../../../Images/drupal.png';
@@ -22,7 +20,6 @@ export default function CMSDevelopmentPage(): JSX.Element {
       description: 'Professional WordPress solutions with custom themes, plugins, and complete content management capabilities',
       href: '/services/wordpress',
       icon: <Image src={wordpressLogo} alt="WordPress Development" className="w-12 h-12 object-contain" />,
-      // Replaced 'image' URL with imported local image
       image: wordpressBesideImage,
     },
     {
@@ -30,7 +27,6 @@ export default function CMSDevelopmentPage(): JSX.Element {
       description: 'Professional Joomla CMS development with custom templates and powerful extensions',
       href: '/services/joomla',
       icon: <Image src={joomlaLogo} alt="Joomla Development" className="w-12 h-12 object-contain" />,
-      // Replaced 'image' URL with imported local image
       image: joomlaBesideImage,
     },
     {
@@ -38,7 +34,6 @@ export default function CMSDevelopmentPage(): JSX.Element {
       description: 'Enterprise-level Drupal CMS with custom modules and themes for complex requirements',
       href: '/services/drupal',
       icon: <Image src={drupalLogo} alt="Drupal Development" className="w-12 h-12 object-contain" />,
-      // Replaced 'image' URL with imported local image
       image: drupalBesideImage,
     },
     {
@@ -46,7 +41,6 @@ export default function CMSDevelopmentPage(): JSX.Element {
       description: 'Powerful Magento e-commerce solutions with complete flexibility and scalability',
       href: '/services/magento',
       icon: <Image src={magentoLogo} alt="Magento Development" className="w-12 h-12 object-contain" />,
-      // Replaced 'image' URL with imported local image
       image: magentoBesideImage,
     },
   ];
@@ -74,7 +68,6 @@ export default function CMSDevelopmentPage(): JSX.Element {
       </section>
 
       {/* Stats Bar */}
-      
       <section className="py-12 bg-white border-b">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto text-center">
@@ -99,7 +92,6 @@ export default function CMSDevelopmentPage(): JSX.Element {
       </section>
 
       {/* Intro Section */}
-      
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="max-w-4xl mx-auto text-center">
@@ -112,7 +104,6 @@ export default function CMSDevelopmentPage(): JSX.Element {
       </section>
 
       {/* Services with Alternating Images */}
-      
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="max-w-6xl mx-auto space-y-16">
@@ -132,21 +123,19 @@ export default function CMSDevelopmentPage(): JSX.Element {
                   </Link>
                 </div>
                 <div className={`flex justify-center ${index % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
-                  {/* Using Next.js Image component for the local image imports */}
                   <Image
-  src={service.image}
-  alt={service.title}
-  width={600} // Increased from 400
-  height={400} // Increased from 300
-  className="rounded-xl shadow-xl w-full h-auto max-w-[600px] md:max-w-full transition-transform duration-300 hover:scale-110"
-  style={{
-    width: '100%',
-    height: 'auto',
-    maxWidth: '600px', // Larger image display
-    objectFit: 'cover',
-  }}
-/>
-
+                    src={service.image}
+                    alt={service.title}
+                    width={400}
+                    height={300}
+                    className="rounded-lg shadow-lg w-full h-auto max-w-sm transition-transform duration-300 hover:scale-105"
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      maxWidth: '400px',
+                      objectFit: 'cover'
+                    }}
+                  />
                 </div>
               </div>
             ))}
@@ -155,7 +144,6 @@ export default function CMSDevelopmentPage(): JSX.Element {
       </section>
 
       {/* Why Choose Section */}
-      
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="max-w-6xl mx-auto">
@@ -190,7 +178,6 @@ export default function CMSDevelopmentPage(): JSX.Element {
       </section>
 
       {/* CTA Section */}
-      
       <section className="bg-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">Need a CMS Solution?</h2>
