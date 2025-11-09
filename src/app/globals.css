@@ -1,0 +1,460 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Apple Design System Variables */
+:root {
+  /* Colors */
+  --color-primary: #7dba14;
+  --color-secondary: #22c55e;
+  --color-accent: #f97316;
+  --color-neutral: #1D1D1F;
+  --color-background: #FFFFFF;
+  --color-background-secondary: #F5F5F7;
+  
+  /* Typography */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 3.75rem;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 16px 64px rgba(0, 0, 0, 0.15);
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  
+  body {
+    @apply bg-white text-gray-900 font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Mobile-specific improvements */
+  @media (max-width: 768px) {
+    body {
+      font-size: 16px; /* Prevent zoom on iOS */
+      line-height: 1.6;
+    }
+
+    /* Improve touch targets */
+    button, a, input, select, textarea {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Better mobile spacing */
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    /* Mobile-optimized text sizes */
+    h1 {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      line-height: 1.3;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      line-height: 1.4;
+    }
+
+    /* Mobile-friendly images */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Prevent horizontal scroll */
+    * {
+      max-width: 100%;
+    }
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+  }
+}
+
+/* Apple Typography System */
+.text-display {
+   font-size: var(--font-size-4xl);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+@media (min-width: 768px) {
+  .text-display {
+    font-size: var(--font-size-6xl);
+  }
+}
+
+.text-headline {
+  font-size: var(--font-size-3xl);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .text-headline {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+.text-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+  .text-title {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+.text-body {
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.text-caption {
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-neutral);
+  opacity: 0.8;
+}
+
+@layer components {
+  /* Apple Button System */
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 text-white font-medium py-3 px-6 rounded-apple transition-all duration-200 shadow-apple hover:shadow-apple-lg transform hover:-translate-y-0.5;
+     min-height: 48px;
+    min-width: 48px;
+  }
+
+  @media (max-width: 768px) {
+    .btn-primary {
+      @apply py-4 px-8 text-base;
+      min-height: 52px;
+      width: 100%;
+    }
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-3 px-6 rounded-apple transition-all duration-200 shadow-apple hover:shadow-apple-lg transform hover:-translate-y-0.5;
+     min-height: 48px;
+    min-width: 48px;
+  }
+
+  @media (max-width: 768px) {
+    .btn-secondary {
+      @apply py-4 px-8 text-base;
+      min-height: 52px;
+      width: 100%;
+    }
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white font-medium py-3 px-6 rounded-apple transition-all duration-200;
+      min-height: 48px;
+    min-width: 48px;
+  }
+
+  @media (max-width: 768px) {
+    .btn-outline {
+      @apply py-4 px-8 text-base;
+      min-height: 52px;
+      width: 100%;
+    }
+  }
+
+  .btn-ghost {
+    @apply text-primary-500 hover:bg-primary-50 py-3 px-6 rounded-apple transition-all duration-200;
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  @media (max-width: 768px) {
+    .btn-ghost {
+      @apply py-4 px-8 text-base;
+      min-height: 52px;
+      width: 100%;
+    }
+  }
+
+  /* Apple Card System */
+  .card-apple {
+    @apply bg-white rounded-apple-lg shadow-apple hover:shadow-apple-lg transition-all duration-300 transform hover:-translate-y-1;
+  }
+
+  .card-apple-flat {
+    @apply bg-background-secondary rounded-apple border border-neutral-200 hover:border-neutral-300 transition-all duration-200;
+  }
+
+  /* Apple Glass Effect */
+  .glass-apple {
+    @apply backdrop-blur-xl bg-white/80 border border-white/20 rounded-apple-lg;
+  }
+
+  /* Form elements - Enhanced for Apple style */
+  .form-input {
+    @apply w-full px-4 py-3 border border-neutral-300 rounded-apple focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200 bg-white;
+  }
+
+  .form-select {
+    @apply w-full px-4 py-3 border border-neutral-300 rounded-apple focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200 bg-white;
+  }
+
+  .form-textarea {
+    @apply w-full px-4 py-3 border border-neutral-300 rounded-apple focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200 bg-white min-h-[120px];
+    resize: vertical;
+  }
+
+  .form-error {
+    @apply text-red-600 text-sm mt-1;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-neutral-700 mb-2;
+  }
+
+  /* Apple Layout System */
+  .container-apple {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-apple {
+    @apply py-12 md:py-16 lg:py-24;
+  }
+
+  .section-apple-sm {
+     @apply py-8 md:py-12 lg:py-16;
+  }
+
+  /* Mobile-first responsive utilities */
+  .mobile-full-width {
+    @apply w-full;
+  }
+
+  .mobile-text-center {
+    @apply text-center;
+  }
+
+  .mobile-padding {
+    @apply px-4 py-8;
+  }
+
+  @media (min-width: 768px) {
+    .mobile-full-width {
+      @apply w-auto;
+    }
+
+    .mobile-padding {
+      @apply px-6 py-12;
+    }
+  }
+
+  /* Legacy card component - updated for Apple style */
+  .card {
+    @apply bg-white rounded-apple-lg shadow-apple border border-neutral-200 p-6;
+  }
+
+  /* Section padding */
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* Apple Focus States */
+  .focus-apple:focus {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+  }
+}
+
+/* Apple Animations */
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-stagger > * {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-stagger > *:nth-child(1) { animation-delay: 0.1s; }
+.animate-stagger > *:nth-child(2) { animation-delay: 0.2s; }
+.animate-stagger > *:nth-child(3) { animation-delay: 0.3s; }
+.animate-stagger > *:nth-child(4) { animation-delay: 0.4s; }
+.animate-stagger > *:nth-child(5) { animation-delay: 0.5s; }
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Text utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Apple Gradient System */
+  .gradient-primary {
+    background: linear-gradient(135deg, #14b8a6 0%, #22c55e 100%);
+  }
+
+  .gradient-secondary {
+    background: linear-gradient(135deg, #22c55e 0%, #f97316 100%);
+  }
+
+  .gradient-accent {
+    background: linear-gradient(135deg, #f97316 0%, #14b8a6 100%);
+  }
+
+  /* Legacy gradient utilities - kept for backward compatibility */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent;
+  }
+
+  .hero-gradient {
+    /* Deep blue hero gradient used across site (matches provided design) */
+    background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #2563eb 100%);
+    color: #ffffff; /* default foreground on hero */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* White rounded overlay panel frequently used on top of hero slides */
+  .hero-panel {
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 1.5rem;
+    box-shadow: 0 12px 40px rgba(3, 10, 34, 0.15);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* Utility to ensure text placed on hero is legible */
+  .hero-text-strong { color: rgba(255,255,255,0.98); }
+  .hero-text-muted { color: rgba(255,255,255,0.85); }
+
+  /* Hero background image blended with the deep-blue gradient (main page) */
+  .hero-bg-image {
+    /* Keep the site's deep-blue color dominant; show the image only very lightly underneath */
+    background-image: linear-gradient(135deg, rgba(30,58,138,0.95) 0%, rgba(29,78,216,0.90) 50%, rgba(37,99,235,0.86) 100%), url('https://images.unsplash.com/photo-1759646827278-27c5733e0cee?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1471');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Use normal blend so the semi-opaque gradient sits on top and mutes the image */
+    background-blend-mode: normal;
+  }
+}
