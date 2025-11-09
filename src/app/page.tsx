@@ -1,4 +1,4 @@
-import { Check, Zap, Shield, Clock, Users, Award, ArrowRight, Star } from 'lucide-react';
+import { Check, ArrowRight, Star } from 'lucide-react';
 
 // FIX: Changed to a const arrow function definition and kept default export to ensure 
 // it is correctly recognized as a React component in various environments.
@@ -157,12 +157,12 @@ const HomePage = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
             {[
-              { image: expertTeamImage, title: 'Expert Team', desc: 'Skilled professionals with 15+ years of industry experience' },
-              { image: qualityWorkImage, title: 'Quality Work', desc: 'High-quality solutions backed by rigorous testing and QA' },
-              { image: onTimeDeliveryImage, title: 'On-Time Delivery', desc: 'Projects completed within agreed timelines, every time' },
-              { image: secureSolutionImage, title: 'Secure Solutions', desc: 'Enterprise-grade security built into every project' },
-              { image: fastPerformanceImage, title: 'Fast Performance', desc: 'Optimized for speed with load times under 2 seconds' },
-              { image: support247Image, title: '24/7 Support', desc: 'Round-the-clock support via email, phone, and chat' }
+              { icon: '👥', title: 'Expert Team', desc: 'Skilled professionals with 15+ years of industry experience' },
+              { icon: '⭐', title: 'Quality Work', desc: 'High-quality solutions backed by rigorous testing and QA' },
+              { icon: '⏰', title: 'On-Time Delivery', desc: 'Projects completed within agreed timelines, every time' },
+              { icon: '🔒', title: 'Secure Solutions', desc: 'Enterprise-grade security built into every project' },
+              { icon: '⚡', title: 'Fast Performance', desc: 'Optimized for speed with load times under 2 seconds' },
+              { icon: '💬', title: '24/7 Support', desc: 'Round-the-clock support via email, phone, and chat' }
             ].map((item, i) => (
               <div 
                 key={i} 
@@ -171,15 +171,9 @@ const HomePage = () => {
                 {/* Animated background gradient on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-0"></div>
                 
-                {/* Image container - fills most of the box */}
+                {/* Icon container - fills most of the box */}
                 <div className="relative z-10 flex-1 p-4 md:p-6 flex items-center justify-center min-h-[200px] md:min-h-[240px] lg:min-h-[280px]">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    width={400}
-                    height={400}
-                    className="w-full h-full max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                  />
+                  <div className="text-8xl group-hover:scale-110 transition-transform duration-500">{item.icon}</div>
                 </div>
                 
                 {/* Text content at bottom */}
@@ -232,7 +226,7 @@ const HomePage = () => {
             <span className="text-sky-600 font-semibold text-sm uppercase tracking-wide">Testimonials</span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 mt-2">What Our Clients Say</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Don't just take our word for it - hear from businesses we've helped succeed
+              Don&apos;t just take our word for it - hear from businesses we&apos;ve helped succeed
             </p>
           </div>
 
@@ -257,10 +251,10 @@ const HomePage = () => {
               <div key={i} className="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-shadow">
                 <div className="flex mb-4">
                   {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="w-5 h-5 text-yellow-400" />
+                    <Star key={j} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
                   ))}
                 </div>
-                <p className="text-gray-700 mb-6 leading-relaxed italic">"{t.text}"</p>
+                <p className="text-gray-700 mb-6 leading-relaxed italic">&quot;{t.text}&quot;</p>
                 <div>
                   <p className="font-bold text-gray-900">{t.name}</p>
                   <p className="text-gray-600 text-sm">{t.role}</p>
@@ -290,8 +284,7 @@ const HomePage = () => {
                 </div>
                 <div className="font-semibold text-gray-900">{tech}</div>
               </div>
-              <div className="font-semibold text-gray-900">OJS</div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -303,7 +296,7 @@ const HomePage = () => {
             Ready to Transform Your Business?
           </h2>
           <p className="text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed text-lg">
-            Let's discuss your project and show you how we can deliver results that exceed your expectations
+            Let&apos;s discuss your project and show you how we can deliver results that exceed your expectations
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/contact">

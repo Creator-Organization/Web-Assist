@@ -12,8 +12,6 @@ import { useIntersectionObserver } from '@/hooks/usePerformance';
 
 const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
   testimonials: propTestimonials,
-  title = "What Our Clients Say",
-  subtitle = "Don't just take our word for it - hear from the businesses we've helped transform their digital presence.",
   maxDisplay = 6,
   showFeaturedOnly = false,
 }) => {
