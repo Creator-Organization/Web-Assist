@@ -1,6 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Layout, Zap, CheckCircle } from 'lucide-react';
+import webDesignLogo from '../../../Images/Web_design.png';
+import webDevelopmentLogo from '../../../Images/web_development.png';
+import interactiveDesignLogo from '../../../Images/Interactive_design.png';
+import ecommerceLogo from '../../../Images/E_Commerce Services.png';
+import logoDesignLogo from '../../../Images/Logo_design.png';
 
 // --- Logo Imports ---
 import webDesignLogo from '../../../Images/Web_design.png';
@@ -28,6 +33,7 @@ export default function WebServicesPage(): JSX.Element {
       description: 'Professional, attractive, and mission-oriented web design that conveys your message at a single glance',
       href: '/services/web-design',
       icon: <Image src={webDesignLogo} alt="Web Design" className="w-12 h-12 object-contain" />,
+      image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600'
       // 🎯 Updated to use the imported image object
       image: besideWebDesign
     },
@@ -36,6 +42,7 @@ export default function WebServicesPage(): JSX.Element {
       description: 'Custom web development with solid coding and strategic features for exceptional performance',
       href: '/services/web-development',
       icon: <Image src={webDevelopmentLogo} alt="Web Development" className="w-12 h-12 object-contain" />,
+      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600'
       // 🎯 Updated to use the imported image object
       image: besideWebDevelopment
     },
@@ -44,6 +51,7 @@ export default function WebServicesPage(): JSX.Element {
       description: 'Modern animations and interactive web experiences that captivate audiences and enhance engagement',
       href: '/services/interactive-design',
       icon: <Image src={interactiveDesignLogo} alt="Interactive Design" className="w-12 h-12 object-contain" />,
+      image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600'
       // 🎯 Updated to use the imported image object
       image: besideInteractiveDesign
     },
@@ -52,6 +60,7 @@ export default function WebServicesPage(): JSX.Element {
       description: 'Complete online store development with superior design and powerful shopping features',
       href: '/services/ecommerce',
       icon: <Image src={ecommerceLogo} alt="E-commerce Services" className="w-12 h-12 object-contain" />,
+      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600'
       // 🎯 Updated to use the imported image object
       image: besideEcommerceServices
     },
@@ -60,6 +69,7 @@ export default function WebServicesPage(): JSX.Element {
       description: 'Professional logo and branding design that creates lasting brand recognition and identity',
       href: '/services/logo-design',
       icon: <Image src={logoDesignLogo} alt="Logo Design" className="w-12 h-12 object-contain" />,
+      image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=600'
       // 🎯 Updated to use the imported image object
       image: besideLogoDesign
     },

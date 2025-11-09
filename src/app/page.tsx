@@ -11,6 +11,34 @@ const HomePage = () => {
         
         <div className="container mx-auto px-4 sm:px-6 xl:px-16 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full mb-6 border border-white/20">
+              <Star className="w-4 h-4 text-yellow-300 fill-yellow-300" />
+              <span className="text-xs sm:text-sm">Trusted by 300+ businesses worldwide</span>
+            </div>
+            
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              Transform Your Digital Presence with 
+              <span className="block text-teal-200 mt-2">Expert Web Solutions</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl mb-10 text-teal-50 leading-relaxed max-w-3xl mx-auto">
+              From strategy to deployment, we build powerful web experiences that drive growth and deliver measurable results
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
+              <Link href="/contact" className="w-full sm:w-auto">
+                <button className="group bg-white text-primary-600 px-6 sm:px-8 py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:-translate-y-0.5 shadow-lg flex items-center justify-center gap-2 w-full">
+                  Start Your Project
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </Link>
+              
+              <Link href="/services" className="w-full sm:w-auto">
+                <button className="bg-primary-700/50 backdrop-blur text-white border-2 border-white/30 px-6 sm:px-8 py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-primary-700/70 transition-all duration-200 w-full">
+                  View Services
+                </button>
+              </Link>
+            </div>
              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full mb-6 border border-white/20 shadow-lg">
                <Star className="w-4 h-4 text-yellow-300 fill-yellow-300" />
                <span className="text-xs sm:text-sm">Trusted by 300+ businesses worldwide</span>

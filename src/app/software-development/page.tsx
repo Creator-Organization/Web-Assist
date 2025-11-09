@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Cpu, Rocket, Shield } from 'lucide-react';
+import mobileAppLogo from '../../../Images/Mobile_App.png';
+import customSoftwareLogo from '../../../Images/custom_software.png';
+import offshoreDevelopmentLogo from '../../../Images/offshore_development.png';
 
 // --- Logo Imports (as per your original code) ---
 import mobileAppLogo from '../../../Images/Mobile_App.png';
@@ -20,6 +23,7 @@ export default function SoftwareDevelopmentPage(): JSX.Element {
       description: 'iOS and Android app development covering the complete software development lifecycle from concept to deployment',
       href: '/services/mobile-apps',
       icon: <Image src={mobileAppLogo} alt="Mobile App Development" className="w-12 h-12 object-contain" />,
+      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600'
       // Replaced 'image' URL with imported local image
       image: mobileAppBesideImage,
     },
@@ -28,6 +32,7 @@ export default function SoftwareDevelopmentPage(): JSX.Element {
       description: 'Tailored software solutions for business process automation, efficiency, and digital transformation',
       href: '/services/custom-software',
       icon: <Image src={customSoftwareLogo} alt="Custom Software Development" className="w-12 h-12 object-contain" />,
+      image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600'
       // Replaced 'image' URL with imported local image
       image: customSoftwareBesideImage,
     },
@@ -36,6 +41,7 @@ export default function SoftwareDevelopmentPage(): JSX.Element {
       description: 'Dedicated offshore development teams delivering quality solutions with cost-effective collaboration',
       href: '/services/offshore-development',
       icon: <Image src={offshoreDevelopmentLogo} alt="Offshore Development" className="w-12 h-12 object-contain" />,
+      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600'
       // Replaced 'image' URL with imported local image
       image: offshoreBesideImage,
     },
