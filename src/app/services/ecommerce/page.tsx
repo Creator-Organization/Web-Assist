@@ -1,111 +1,180 @@
+'use client';
+
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { ShoppingBag, CreditCard, Store, Package, ClipboardList, Smartphone } from 'lucide-react';
 
 export default function EcommercePage() {
   return (
-    <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
-      {/* Hero Section */}
-      <section className="relative py-20 hero-gradient text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/10 pointer-events-none z-0" />
-        <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
-          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">E-commerce Services</h1>
-          <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
-            Complete online store development with superior design that drives customers straight to checkout
-          </p>
-        </div>
-      </section>
+    <main className="min-h-screen w-full bg-gradient-to-b from-blue-50 via-white to-sky-50 text-gray-800 font-inter overflow-x-hidden">
 
-      {/* Image + Text Section */}
-      <section className="py-16 bg-white relative overflow-hidden">
-        <div className="container mx-auto px-6 xl:px-16">
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto relative">
-            <div className="hidden md:block absolute -left-24 top-10 w-64 h-64 bg-primary-200 opacity-20 rounded-full -z-10" />
-            <div className="relative z-10 bg-white p-0 md:p-6 rounded-lg shadow-none">
-              <h2 className="text-3xl font-bold mb-4 text-gray-900">E-commerce Opportunities</h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                With e-commerce booming at a tremendous pace, small businesses have found dimensional gates of growth. E-tailers connect sellers with buyers for a commission, helping them mutually. Many businesses survive purely depending on online marketplaces.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                E-commerce sites provide small scale retailers a space to market their products without physical stores. Small businesses have rocketed after establishing their online presence.
-              </p>
-            </div>
-            <div className="flex justify-center relative z-10">
-              <img 
-                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600"
-                alt="E-commerce Solutions"
-                className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Grid */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-6 xl:px-16">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">E-commerce Services</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                { icon: "M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z", title: "Custom Online Stores", desc: "Fully customized e-commerce platforms tailored to your business" },
-                { icon: "M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z", title: "Shopping Cart Integration", desc: "Seamless cart systems with secure checkout processes" },
-                { icon: "M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z", title: "Payment Gateway Setup", desc: "Multiple payment options and secure transaction processing" },
-                { icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4", title: "Product Management", desc: "Easy-to-use systems for managing inventory and products" },
-                { icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4", title: "Order Management", desc: "Complete order tracking and fulfillment systems" },
-                { icon: "M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z", title: "Mobile Commerce", desc: "Responsive designs optimized for mobile shopping" }
-              ].map(({ icon, title, desc }, i) => (
-                <div key={i} className="bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={icon} />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{title}</h3>
-                  <p className="text-gray-700">{desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Text + Image Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6 xl:px-16">
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <div className="order-2 md:order-1 flex justify-center">
-              <img 
-                src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600"
-                alt="E-commerce Platform"
-                className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
-              />
-            </div>
-            <div className="order-1 md:order-2">
-              <h2 className="text-3xl font-bold mb-4 text-gray-900">Superior Design Approach</h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                CreatorIt understands that e-commerce requires superior design to drive customers straight to checkout. We follow best practices to reach maximum consumer outreach and define your marketing goals.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                We design your e-commerce site from the ground up - everything from content development to final graphic design layout for consistent branding on every page.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4 text-gray-900">Ready to Launch Your Online Store?</h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Let us build a powerful e-commerce platform that drives sales and grows your business
+      {/* 🌟 HERO SECTION */}
+      <section className="relative flex flex-col items-center justify-center text-center py-28 px-6 overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="max-w-4xl z-10"
+        >
+          <h1 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-sky-700 via-blue-600 to-sky-500 bg-clip-text text-transparent leading-tight mb-6 drop-shadow-md">
+            E-commerce Services
+          </h1>
+          <p className="text-lg md:text-xl text-gray-600 mb-10">
+            Complete online store development with superior design that drives customers straight to checkout.
           </p>
           <Link href="/contact">
-            <button className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-apple text-lg font-semibold transition-all duration-200 transform hover:-translate-y-0.5 shadow-apple hover:shadow-apple-lg">
+            <button className="bg-sky-600 hover:bg-sky-700 text-white px-8 py-4 rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
               Start Selling Online
             </button>
           </Link>
+        </motion.div>
+
+        {/* Decorative Glow */}
+        <div className="absolute inset-0 bg-gradient-to-b from-sky-100/40 via-transparent to-blue-50 pointer-events-none" />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.25 }}
+          transition={{ duration: 2 }}
+          className="absolute -top-24 left-1/2 w-[600px] h-[600px] bg-sky-300 rounded-full blur-3xl -translate-x-1/2"
+        />
+      </section>
+
+      {/* 💬 ABOUT SECTION */}
+      <section className="relative py-20 bg-white overflow-hidden">
+        <div className="container mx-auto px-6 xl:px-16">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto relative">
+            <div className="hidden md:block absolute -left-24 top-10 w-64 h-64 bg-sky-200 opacity-20 rounded-full -z-10" />
+
+            <motion.div
+              initial={{ x: -40, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-4xl font-bold mb-6 text-sky-800">E-commerce Opportunities</h2>
+              <p className="text-lg text-gray-700 mb-4 leading-relaxed">
+                With e-commerce booming at a tremendous pace, small businesses have found dimensional gates of growth. E-tailers connect sellers with buyers for a commission, helping them mutually. Many businesses survive purely depending on online marketplaces.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                E-commerce sites provide small scale retailers a space to market their products without physical stores. Small businesses have rocketed after establishing their online presence.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ x: 40, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="flex justify-center"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600"
+                alt="E-commerce Solutions"
+                className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
-    </div>
+
+      {/* 🧩 FEATURES GRID */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6 xl:px-16 max-w-6xl">
+          <h2 className="text-4xl font-bold text-center mb-12 text-sky-800">
+            E-commerce Services
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { icon: Store, title: 'Custom Online Stores', desc: 'Fully customized e-commerce platforms tailored to your business.' },
+              { icon: ShoppingBag, title: 'Shopping Cart Integration', desc: 'Seamless cart systems with secure checkout processes.' },
+              { icon: CreditCard, title: 'Payment Gateway Setup', desc: 'Multiple payment options and secure transaction processing.' },
+              { icon: Package, title: 'Product Management', desc: 'Easy-to-use systems for managing inventory and products.' },
+              { icon: ClipboardList, title: 'Order Management', desc: 'Complete order tracking and fulfillment systems.' },
+              { icon: Smartphone, title: 'Mobile Commerce', desc: 'Responsive designs optimized for mobile shopping.' },
+            ].map(({ icon: Icon, title, desc }, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                className="p-8 bg-gradient-to-br from-white via-sky-50 to-sky-100 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-sky-100"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="p-3 bg-sky-600 text-white rounded-xl shadow-md">
+                    <Icon size={26} />
+                  </div>
+                  <h3 className="text-xl font-semibold text-sky-800">{title}</h3>
+                </div>
+                <p className="text-gray-700 leading-relaxed">{desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 📊 DESIGN APPROACH SECTION */}
+      <section className="py-20 bg-gradient-to-b from-white to-sky-50">
+        <div className="container px-6 xl:px-16 grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600"
+              alt="E-commerce Platform"
+              className="rounded-2xl shadow-2xl w-full transition-transform duration-300 hover:scale-105"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-4xl font-bold mb-6 text-sky-800">Superior Design Approach</h2>
+            <p className="text-lg text-gray-600 mb-4 leading-relaxed">
+              CreatorIt understands that e-commerce requires superior design to drive customers straight to checkout. We follow best practices to reach maximum consumer outreach and define your marketing goals.
+            </p>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              We design your e-commerce site from the ground up — everything from content development to final graphic design layout for consistent branding on every page.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 🚀 CTA SECTION */}
+      <section className="py-24 bg-gradient-to-r from-sky-600 via-blue-600 to-sky-700 text-white text-center relative overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto relative z-10"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">
+            Ready to Launch Your Online Store?
+          </h2>
+          <p className="text-lg md:text-xl text-blue-100 mb-10">
+            Let us build a powerful e-commerce platform that drives sales and grows your business.
+          </p>
+          <Link href="/contact">
+            <button className="bg-white text-sky-700 px-10 py-4 rounded-2xl font-semibold shadow-xl hover:shadow-2xl hover:bg-sky-50 transition-all transform hover:-translate-y-1 duration-300">
+              Start Selling Online
+            </button>
+          </Link>
+        </motion.div>
+
+        {/* Floating Glow */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+          className="absolute -bottom-24 right-0 w-[400px] h-[400px] bg-white/10 rounded-full blur-3xl"
+        />
+      </section>
+    </main>
   );
 }

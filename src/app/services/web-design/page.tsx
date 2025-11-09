@@ -1,176 +1,214 @@
+'use client';
+
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { Palette, Monitor, Globe, ShieldCheck, Layers, Users } from 'lucide-react';
 
 export default function WebDesignPage() {
   return (
-    <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
-      {/* Hero Section */}
-      <section className="relative py-20 hero-gradient text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/10 pointer-events-none z-0" />
-        <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
-          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Web Design</h1>
-          <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
-            Professional, attractive, and mission-oriented web design that conveys your business message at a single glance
-          </p>
-        </div>
-      </section>
+    <main className="min-h-screen w-full bg-gradient-to-b from-blue-50 via-white to-sky-50 text-gray-800 font-inter overflow-x-hidden">
 
-      {/* Image + Text Section */}
-      <section className="py-16 bg-white relative overflow-hidden">
-        <div className="container mx-auto px-6 xl:px-16">
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto relative">
-            <div className="hidden md:block absolute -left-24 top-10 w-64 h-64 bg-primary-200 opacity-20 rounded-full -z-10" />
-            <div className="relative z-10 bg-white p-0 md:p-6 rounded-lg shadow-none">
-              <h2 className="text-3xl font-bold mb-4 text-gray-900">Design That Drives Results</h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                CreatorIt is a dedicated web solution company, whose objective is to enable customer profitability through building web solutions that work. Design should be professional, attractive, mission oriented and convey business message at a single glance.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                Whether you're building your first website or enhancing your current site, CreatorIt can help your business succeed online with affordable, professional design services.
-              </p>
-              <div className="mt-8 p-4 bg-primary-50 border-l-4 border-primary-500 text-primary-900 rounded shadow">
-                <p className="italic mb-2">"CreatorIt transformed our outdated site into a modern masterpiece that tripled our conversions!"</p>
-                <p className="font-semibold">— Jennifer Lee, E-commerce Owner</p>
-              </div>
-            </div>
-            <div className="flex justify-center relative z-10">
-              <img 
-                src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600"
-                alt="Professional Web Design"
-                className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Grid */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-6 xl:px-16">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Complete Web Design Solutions</h2>
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Graphic Design</h3>
-                <p className="text-gray-700">High quality design and layout using modern tools and technologies</p>
-              </div>
-
-              <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Responsive Design</h3>
-                <p className="text-gray-700">Mobile-friendly websites that work perfectly on all devices</p>
-              </div>
-
-              <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Domain & Hosting</h3>
-                <p className="text-gray-700">Complete solutions including domain registration and web hosting</p>
-              </div>
-
-              <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">SEO Optimization</h3>
-                <p className="text-gray-700">Search engine optimized designs for better visibility</p>
-              </div>
-
-              <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">CMS Integration</h3>
-                <p className="text-gray-700">Integration with WordPress and Joomla platforms</p>
-              </div>
-
-              <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Technical Support</h3>
-                <p className="text-gray-700">Ongoing support and maintenance services</p>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-apple-lg shadow-apple p-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Why Choose Our Web Design Team?</h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                {[
-                  { title: "Unique Custom Designs", desc: "Tailored designs that match your brand identity" },
-                  { title: "Commitment & Dedication", desc: "Focused team dedicated to your success" },
-                  { title: "Honest Approach", desc: "Transparent communication throughout the project" },
-                  { title: "Cost-Effective Delivery", desc: "Quality designs within your budget and timeline" }
-                ].map(({ title, desc }, i) => (
-                  <div className="flex items-start" key={i}>
-                    <span className="text-primary-500 mr-3 text-2xl">✓</span>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">{title}</h3>
-                      <p className="text-gray-700">{desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Text + Image Section (Reversed) */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6 xl:px-16">
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <div className="order-2 md:order-1 flex justify-center">
-              <img 
-                src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&h=600"
-                alt="Web Design Process"
-                className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
-              />
-            </div>
-            <div className="order-1 md:order-2">
-              <h2 className="text-3xl font-bold mb-4 text-gray-900">Modern Design Solutions</h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                We provide complete web design solutions including multimedia design, print graphics, online marketing, web promotions, and e-commerce capabilities.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                Our services include converting designs to responsive HTML/CSS with language conversion options, ensuring your website reaches a global audience effectively.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4 text-gray-900">Need Pricing Information?</h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Contact us now to get a free, no-obligation quote today!
+      {/* 🌟 HERO SECTION */}
+      <section className="relative flex flex-col items-center justify-center text-center py-28 px-6 overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="max-w-4xl z-10"
+        >
+          <h1 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-sky-700 via-blue-600 to-sky-500 bg-clip-text text-transparent leading-tight mb-6 drop-shadow-md">
+            Web Design
+          </h1>
+          <p className="text-lg md:text-xl text-gray-600 mb-10">
+            Professional, attractive, and mission-oriented web design that conveys your business message at a single glance.
           </p>
           <Link href="/contact">
-            <button className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-apple text-lg font-semibold transition-all duration-200 transform hover:-translate-y-0.5 shadow-apple hover:shadow-apple-lg">
+            <button className="bg-sky-600 hover:bg-sky-700 text-white px-8 py-4 rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
               Get Free Quote
             </button>
           </Link>
+        </motion.div>
+
+        {/* Decorative Glow */}
+        <div className="absolute inset-0 bg-gradient-to-b from-sky-100/40 via-transparent to-blue-50 pointer-events-none" />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.25 }}
+          transition={{ duration: 2 }}
+          className="absolute -top-24 left-1/2 w-[600px] h-[600px] bg-sky-300 rounded-full blur-3xl -translate-x-1/2"
+        />
+      </section>
+
+      {/* 💬 ABOUT SECTION */}
+      <section className="relative py-20 bg-white overflow-hidden">
+        <div className="container mx-auto px-6 xl:px-16">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto relative">
+            <div className="hidden md:block absolute -left-24 top-10 w-64 h-64 bg-sky-200 opacity-20 rounded-full -z-10" />
+
+            <motion.div
+              initial={{ x: -40, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-4xl font-bold mb-6 text-sky-800">Design That Drives Results</h2>
+              <p className="text-lg text-gray-700 mb-4 leading-relaxed">
+                CreatorIt is a dedicated web solution company, whose objective is to enable customer profitability through building web solutions that work. Design should be professional, attractive, mission oriented and convey business message at a single glance.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Whether you're building your first website or enhancing your current site, CreatorIt can help your business succeed online with affordable, professional design services.
+              </p>
+              <div className="mt-8 bg-sky-50 border-l-4 border-sky-500 p-5 rounded-xl shadow-sm">
+                <p className="italic text-gray-700">
+                  "CreatorIt transformed our outdated site into a modern masterpiece that tripled our conversions!"
+                </p>
+                <p className="font-semibold mt-2 text-sky-700">— Jennifer Lee, E-commerce Owner</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ x: 40, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="flex justify-center"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600"
+                alt="Professional Web Design"
+                className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
-    </div>
+
+      {/* 🧩 FEATURES GRID */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6 xl:px-16 max-w-6xl">
+          <h2 className="text-4xl font-bold text-center mb-12 text-sky-800">
+            Complete Web Design Solutions
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {[
+              { icon: Palette, title: 'Graphic Design', desc: 'High quality design and layout using modern tools and technologies.' },
+              { icon: Monitor, title: 'Responsive Design', desc: 'Mobile-friendly websites that work perfectly on all devices.' },
+              { icon: Globe, title: 'Domain & Hosting', desc: 'Complete solutions including domain registration and web hosting.' },
+              { icon: ShieldCheck, title: 'SEO Optimization', desc: 'Search engine optimized designs for better visibility.' },
+              { icon: Layers, title: 'CMS Integration', desc: 'Integration with WordPress and Joomla platforms.' },
+              { icon: Users, title: 'Technical Support', desc: 'Ongoing support and maintenance services.' },
+            ].map(({ icon: Icon, title, desc }, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                className="p-8 bg-gradient-to-br from-white via-sky-50 to-sky-100 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-sky-100"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="p-3 bg-sky-600 text-white rounded-xl shadow-md">
+                    <Icon size={26} />
+                  </div>
+                  <h3 className="text-xl font-semibold text-sky-800">{title}</h3>
+                </div>
+                <p className="text-gray-700 leading-relaxed">{desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Why Choose Us */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="bg-white rounded-2xl shadow-md p-10 hover:shadow-xl transition-shadow duration-300"
+          >
+            <h2 className="text-3xl font-bold text-center text-sky-800 mb-8">
+              Why Choose Our Web Design Team?
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {[
+                { title: 'Unique Custom Designs', desc: 'Tailored designs that match your brand identity.' },
+                { title: 'Commitment & Dedication', desc: 'Focused team dedicated to your success.' },
+                { title: 'Honest Approach', desc: 'Transparent communication throughout the project.' },
+                { title: 'Cost-Effective Delivery', desc: 'Quality designs within your budget and timeline.' },
+              ].map(({ title, desc }, i) => (
+                <div className="flex items-start" key={i}>
+                  <span className="text-sky-600 mr-3 text-2xl">✓</span>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">{title}</h3>
+                    <p className="text-gray-700">{desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 📊 MODERN DESIGN SECTION */}
+      <section className="py-20 bg-gradient-to-b from-white to-sky-50">
+        <div className="container px-6 xl:px-16 grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&h=600"
+              alt="Web Design Process"
+              className="rounded-2xl shadow-2xl w-full transition-transform duration-300 hover:scale-105"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-4xl font-bold mb-6 text-sky-800">Modern Design Solutions</h2>
+            <p className="text-lg text-gray-600 mb-4 leading-relaxed">
+              We provide complete web design solutions including multimedia design, print graphics, online marketing, web promotions, and e-commerce capabilities.
+            </p>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              Our services include converting designs to responsive HTML/CSS with language conversion options, ensuring your website reaches a global audience effectively.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 🚀 CTA SECTION */}
+      <section className="py-24 bg-gradient-to-r from-sky-600 via-blue-600 to-sky-700 text-white text-center relative overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto relative z-10"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">
+            Need Pricing Information?
+          </h2>
+          <p className="text-lg md:text-xl text-blue-100 mb-10">
+            Contact us now to get a free, no-obligation quote today!
+          </p>
+          <Link href="/contact">
+            <button className="bg-white text-sky-700 px-10 py-4 rounded-2xl font-semibold shadow-xl hover:shadow-2xl hover:bg-sky-50 transition-all transform hover:-translate-y-1 duration-300">
+              Get Free Quote
+            </button>
+          </Link>
+        </motion.div>
+
+        {/* Floating Glow */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+          className="absolute -bottom-24 right-0 w-[400px] h-[400px] bg-white/10 rounded-full blur-3xl"
+        />
+      </section>
+    </main>
   );
 }

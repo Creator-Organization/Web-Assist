@@ -11,8 +11,8 @@ import magentoLogo from '../../../Images/Magento.png';
 // --- New Image Imports (for the service sections) ---
 import wordpressBesideImage from '../../../Images/Beside_WordPress Development.png';
 import joomlaBesideImage from '../../../Images/Beside_Joomla_Development.png';
-import drupalBesideImage from '../../../Images/Beside_SEO_Services&_Drupal_Development.png';
-import magentoBesideImage from '../../../Images/Beside_E-commerce_Services&Magento.png';
+import drupalBesideImage from '../../../Images/Beside_SEO_Services_and_Drupal_Development.png';
+import magentoBesideImage from '../../../Images/Beside_E-commerce_Services_and_Magento.png';
 
 
 export default function CMSDevelopmentPage(): JSX.Element {
@@ -134,24 +134,19 @@ export default function CMSDevelopmentPage(): JSX.Element {
                 <div className={`flex justify-center ${index % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
                   {/* Using Next.js Image component for the local image imports */}
                   <Image
-                    src={service.image}
-                    alt={service.title}
-                    // Next.js Image requires 'width' and 'height' for static imports, or 'fill'/'sizes'.
-                    // Since you had a className with w-full max-w-[400px], I'll use `fill` and set the parent container's dimensions.
-                    // For simplicity, I'll add objectFit/layout for better compatibility, but usually Next.js handles this better with
-                    // explicit width/height on static imports. I'll stick to a common pattern for local image use in Next.js/Tailwind.
-                    // I'll wrap the image in a container to enforce dimensions while using `fill`.
-                    // A simpler approach for local images is to leverage their automatic size deduction:
-                    className="rounded-lg shadow-lg w-full h-auto max-w-sm transition-transform duration-300 hover:scale-105"
-                    width={400} // Set a placeholder width/height for static imports
-                    height={300} // Adjust these based on the aspect ratio of your actual images
-                    style={{
-                      width: '100%',
-                      height: 'auto',
-                      maxWidth: '400px', // Replicate your max-width class
-                      objectFit: 'cover' // Ensure the image covers the space without distortion
-                    }}
-                  />
+  src={service.image}
+  alt={service.title}
+  width={600} // Increased from 400
+  height={400} // Increased from 300
+  className="rounded-xl shadow-xl w-full h-auto max-w-[600px] md:max-w-full transition-transform duration-300 hover:scale-110"
+  style={{
+    width: '100%',
+    height: 'auto',
+    maxWidth: '600px', // Larger image display
+    objectFit: 'cover',
+  }}
+/>
+
                 </div>
               </div>
             ))}

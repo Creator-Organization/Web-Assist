@@ -15,7 +15,7 @@ import classifiedServicesLogo from '../../../Images/Classified_Services.png';
 import besideEmailMarketing from '../../../Images/Beside_Email_Marketing.png';
 // I'm assuming you wanted to add images for the rest of the services.
 // Please verify the paths for these images:
-import besideSeoServices from '../../../Images/Beside_SEO_Services&_Drupal_Development.png'; // Reusing a path from the first request based on name similarity
+import besideSeoServices from '../../../Images/Beside_SEO_Services_and_Drupal_Development.png'; // Reusing a path from the first request based on name similarity
 import besideSearchEngineMarketing from '../../../Images/Beside_Search_Engine_Marketing.png';
 import besideContentMarketing from '../../../Images/Beside_Content_Marketing.png';
 import besideGoogleMarketing from '../../../Images/Beside_Google_Marketing.png';
@@ -25,8 +25,8 @@ import besideClassifiedServices from '../../../Images/Beside_Classified_Services
 
 export default function DigitalMarketingPage(): JSX.Element {
   // Define a common image size for consistency (400x300 for a wide aspect ratio)
-  const IMAGE_WIDTH = 400;
-  const IMAGE_HEIGHT = 300;
+  const IMAGE_WIDTH = 600;
+  const IMAGE_HEIGHT = 400;
     
   const services = [
     {
@@ -167,19 +167,19 @@ export default function DigitalMarketingPage(): JSX.Element {
                 <div className={`flex justify-center ${index % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
                   {/* UPDATED: Use Next.js Image component for consistency and size control */}
                   <Image
-                    src={service.image}
-                    alt={service.title}
-                    // Apply explicit width and height for static images (Next.js requirement)
-                    width={IMAGE_WIDTH}
-                    height={IMAGE_HEIGHT}
-                    className="rounded-lg shadow-lg w-full h-auto max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
-                    style={{
-                      width: '100%',
-                      height: 'auto',
-                      maxWidth: '400px', // Replicate your max-width class
-                      objectFit: 'cover'
-                    }}
-                  />
+  src={service.image}
+  alt={service.title}
+  width={IMAGE_WIDTH}
+  height={IMAGE_HEIGHT}
+  className="rounded-xl shadow-xl w-full h-auto max-w-[600px] md:max-w-full transition-transform duration-300 hover:scale-105"
+  style={{
+    width: '100%',
+    height: 'auto',
+    maxWidth: '600px', // Increased from 400px
+    objectFit: 'cover',
+  }}
+/>
+
                 </div>
               </div>
             ))}

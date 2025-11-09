@@ -1,110 +1,141 @@
+'use client';
+
 import Link from 'next/link';
+import Image from 'next/image';
 import { TrendingUp, Globe, Database, Cpu, Award, Zap, CheckCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+// ✅ Local Image Imports
+import heroImage from '../../../Images/Hero_Services.png';
+import besideSEOServices from '../../../Images/Beside_SEO_Services_and_Drupal_Development.png';
+import besideWebDesign from '../../../Images/Beside_Web_Design.png';
+import besideWordPress from '../../../Images/Beside_WordPress Development.png';
+import besideMobileApp from '../../../Images/Beside_Mobile_App.png';
+
+
 
 export default function ServicesPage() {
   const categories = [
     {
       title: 'Digital Marketing Services',
       description:
-        'Comprehensive digital marketing solutions including SEO, SEM, email marketing, and content strategy',
+        'Boost your brand visibility with our 360° digital marketing — SEO, SEM, email, and content strategies that deliver real results.',
       href: '/digital-marketing',
       services: [
         'Email Marketing',
-        'SEO',
-        'SEM',
-        'Content Marketing',
-        'Google Marketing',
+        'SEO Optimization',
+        'Search Engine Marketing',
+        'Content Strategy',
+        'Google Ads',
         'Online Surveys',
-        'Classifieds',
+        'Classified Promotions',
       ],
       icon: <TrendingUp className="w-8 h-8" />,
-      image:
-        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600',
+      image: besideSEOServices,
     },
     {
       title: 'Web Services',
       description:
-        'Complete web solutions from design to development, creating exceptional online experiences',
+        'From concept to creation, we build high-performing, visually stunning, and user-friendly websites for all industries.',
       href: '/web-services',
       services: [
         'Web Design',
-        'Web Development',
-        'Interactive Design',
-        'E-commerce',
-        'Logo Design',
+        'Full Stack Development',
+        'Interactive UI/UX',
+        'E-commerce Solutions',
+        'Logo & Brand Identity',
       ],
       icon: <Globe className="w-8 h-8" />,
-      image:
-        'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600',
+      image: besideWebDesign,
     },
     {
       title: 'CMS Development',
       description:
-        'Expert content management system development for easy content control',
+        'Empower your content team with robust and flexible CMS platforms customized for performance and scalability.',
       href: '/cms-development',
       services: ['WordPress', 'Joomla', 'Drupal', 'Magento'],
       icon: <Database className="w-8 h-8" />,
-      image:
-        'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=600',
+      image: besideWordPress,
     },
     {
       title: 'Software Development',
       description:
-        'Custom software solutions and mobile applications that drive business innovation',
+        'Tailored software and mobile apps built with precision — driving business efficiency and innovation.',
       href: '/software-development',
       services: ['Mobile Apps', 'Custom Software', 'Offshore Development'],
       icon: <Cpu className="w-8 h-8" />,
-      image:
-        'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600',
+      image: besideMobileApp,
     },
   ];
 
-  // Soft pastel backgrounds for alternating sections
-  const bgColors = ['bg-rose-50', 'bg-green-50', 'bg-indigo-50', 'bg-amber-50'];
-
   return (
-    <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
-      {/* HERO SECTION */}
-      <section className="relative py-20 bg-gradient-to-b from-sky-900 via-sky-800 to-slate-900 text-white overflow-hidden">
-        <div className="container mx-auto px-6 xl:px-16 text-center">
-          <h1 className="text-5xl font-bold mb-4 drop-shadow-lg">Our Services</h1>
-          <p className="text-lg max-w-3xl mx-auto opacity-90">
-            Comprehensive digital solutions to help your business succeed online
-          </p>
+    <div className="min-h-screen w-full bg-gradient-to-b from-sky-50 via-white to-slate-50 overflow-x-hidden font-inter">
+      {/* 🌟 HERO SECTION */}
+      <section className="relative py-28 text-white bg-gradient-to-r from-sky-900 via-sky-800 to-slate-900 overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <Image
+            src={heroImage}
+            alt="Services Hero Background"
+            fill
+            className="object-cover object-center"
+          />
         </div>
+        <motion.div
+          className="relative container mx-auto px-6 xl:px-16 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
+            Our Services
+          </h1>
+          <p className="text-lg md:text-xl max-w-3xl mx-auto opacity-90">
+            Empowering brands with cutting-edge digital solutions that spark
+            growth and transformation.
+          </p>
+        </motion.div>
       </section>
 
-      {/* STATS SECTION */}
-      <section className="py-12 bg-white border-b">
+      {/* 📊 STATS SECTION */}
+      <section className="py-16 bg-white border-b border-gray-100">
         <div className="container mx-auto px-6 xl:px-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center max-w-5xl mx-auto">
-            <div>
-              <div className="text-4xl font-bold text-sky-600 mb-2">25+</div>
-              <div className="text-gray-600">Services Offered</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-sky-600 mb-2">500+</div>
-              <div className="text-gray-600">Projects Completed</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-sky-600 mb-2">98%</div>
-              <div className="text-gray-600">Client Satisfaction</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-sky-600 mb-2">15+</div>
-              <div className="text-gray-600">Years Experience</div>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center max-w-5xl mx-auto">
+            {[
+              { value: '25+', label: 'Services Offered' },
+              { value: '500+', label: 'Projects Completed' },
+              { value: '98%', label: 'Client Satisfaction' },
+              { value: '15+', label: 'Years Experience' },
+            ].map((stat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-5xl font-extrabold text-sky-700 mb-2 drop-shadow-sm">
+                  {stat.value}
+                </div>
+                <div className="text-gray-600 font-medium">{stat.label}</div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* SERVICES SECTION - Nextwebi style */}
-      <section className="py-16">
-        <div className="container mx-auto px-6 xl:px-16 space-y-16">
+      {/* 🧩 SERVICES SECTION */}
+      <section className="py-24">
+        <div className="container mx-auto px-6 xl:px-16 space-y-24">
           {categories.map((category, index) => (
-            <div
+            <motion.div
               key={category.href}
-              className={`rounded-xl shadow-md p-10 md:p-14 ${bgColors[index % bgColors.length]} transition-transform duration-300 hover:shadow-xl`}
+              className={`rounded-3xl shadow-xl p-10 md:p-16 backdrop-blur-lg border border-white/40 ${
+                index % 2 === 0 ? 'bg-sky-50/60' : 'bg-white/60'
+              } transition-all hover:shadow-2xl`}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              viewport={{ once: true }}
             >
               <div
                 className={`grid md:grid-cols-2 gap-12 items-center ${
@@ -113,11 +144,11 @@ export default function ServicesPage() {
               >
                 {/* TEXT SIDE */}
                 <div>
-                  <div className="flex items-center gap-3 mb-5">
-                    <div className="w-12 h-12 bg-sky-100 rounded-xl flex items-center justify-center text-sky-600 shadow-sm">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-14 h-14 bg-sky-100 rounded-2xl flex items-center justify-center text-sky-700 shadow-sm">
                       {category.icon}
                     </div>
-                    <h3 className="text-3xl font-semibold text-sky-900">
+                    <h3 className="text-3xl font-bold text-sky-900">
                       {category.title}
                     </h3>
                   </div>
@@ -131,15 +162,13 @@ export default function ServicesPage() {
                         className="text-gray-800 font-medium hover:text-sky-700 transition-colors flex items-start gap-2"
                       >
                         <span className="text-sky-600 mt-1">▪</span>
-                        <span className="underline decoration-sky-200 hover:decoration-sky-400">
-                          {service}
-                        </span>
+                        {service}
                       </span>
                     ))}
                   </div>
                   <Link
                     href={category.href}
-                    className="inline-flex items-center text-sky-700 font-semibold hover:text-sky-900 transition-colors"
+                    className="inline-flex items-center px-6 py-3 bg-sky-700 text-white font-semibold rounded-lg hover:bg-sky-800 transition-all shadow-md hover:shadow-lg"
                   >
                     Explore Services
                     <svg
@@ -159,60 +188,61 @@ export default function ServicesPage() {
                 </div>
 
                 {/* IMAGE SIDE */}
-                <div className="flex justify-center md:justify-end">
-                  <img
+                <motion.div
+                  className="flex justify-center md:justify-end"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: 'spring', stiffness: 200 }}
+                >
+                  <Image
                     src={category.image}
                     alt={category.title}
-                    className="rounded-xl shadow-lg w-full max-w-[420px] md:max-w-[500px] transition-transform duration-300 hover:scale-105"
+                    className="rounded-2xl shadow-2xl w-full max-w-[450px] md:max-w-[520px] h-auto"
                   />
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
-      {/* WHY CHOOSE CREATORIT */}
-      <section className="bg-gray-50 py-20">
+      {/* 💎 WHY CHOOSE CREATORIT */}
+      <section className="bg-gradient-to-b from-white to-sky-50 py-24 border-t border-gray-100">
         <div className="container mx-auto px-6 xl:px-16 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12">
-            Why Choose CreatorIt
+          <h2 className="text-4xl font-bold text-gray-900 mb-14">
+            Why Choose <span className="text-sky-700">CreatorIt</span>
           </h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all">
-              <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                <Award className="w-6 h-6 text-sky-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Expert Team
-              </h3>
-              <p className="text-gray-700">
-                Experienced professionals dedicated to delivering exceptional
-                results.
-              </p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all">
-              <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                <Zap className="w-6 h-6 text-sky-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Fast Delivery
-              </h3>
-              <p className="text-gray-700">
-                Efficient processes that ensure timely project completion.
-              </p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all">
-              <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                <CheckCircle className="w-6 h-6 text-sky-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Quality Assured
-              </h3>
-              <p className="text-gray-700">
-                Rigorous quality checks to guarantee outstanding outcomes.
-              </p>
-            </div>
+          <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+            {[
+              {
+                icon: <Award className="w-7 h-7 text-sky-600" />,
+                title: 'Expert Team',
+                desc: 'Our professionals bring years of expertise and creativity to deliver perfection.',
+              },
+              {
+                icon: <Zap className="w-7 h-7 text-sky-600" />,
+                title: 'Lightning Fast Delivery',
+                desc: 'We combine efficiency and precision to ensure on-time delivery every time.',
+              },
+              {
+                icon: <CheckCircle className="w-7 h-7 text-sky-600" />,
+                title: 'Guaranteed Quality',
+                desc: 'From design to deployment, every stage is perfected with rigorous QA testing.',
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                className="bg-white rounded-2xl p-8 shadow-md hover:shadow-2xl transition-all"
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="w-14 h-14 bg-sky-100 rounded-xl flex items-center justify-center mb-5 mx-auto">
+                  {item.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600">{item.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

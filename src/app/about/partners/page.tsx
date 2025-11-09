@@ -63,7 +63,7 @@ export default function PartnersPage() {
             </div>
             <div className="flex justify-center">
               <img 
-                src="Web-Assist\Images\Beside_Offshore.png"
+                src="Web-Assist/Images/Beside_Offshore.png"
                 alt="Partnership Collaboration"
                 className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
               />

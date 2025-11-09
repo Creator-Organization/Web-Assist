@@ -124,19 +124,18 @@ export default function SoftwareDevelopmentPage(): JSX.Element {
                 <div className={`flex justify-center ${index % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
                   {/* Replaced <img> with Next.js <Image> for local assets */}
                   <Image
-                    src={service.image}
-                    alt={service.title}
-                    // Adding required width/height for static Next.js Image component
-                    width={400} 
-                    height={300} 
-                    className="rounded-lg shadow-lg w-full h-auto max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
-                    style={{
-                      width: '100%',
-                      height: 'auto',
-                      maxWidth: '400px', // Replicate max-width class
-                      objectFit: 'cover'
-                    }}
-                  />
+  src={service.image}
+  alt={service.title}
+  width={600}  // Increased width
+  height={400} // Increased height
+  className="rounded-xl shadow-xl w-full h-auto max-w-[600px] md:max-w-full transition-transform duration-300 hover:scale-110"
+  style={{
+    width: '100%',
+    height: 'auto',
+    maxWidth: '600px', // Increased from 400px
+    objectFit: 'cover',
+  }}
+/>
                 </div>
               </div>
             ))}

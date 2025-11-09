@@ -107,17 +107,20 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <motion.div 
-          className="text-center max-w-3xl mx-auto mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            What our customers say
-          </h2>
-        </motion.div>
+<motion.div 
+  className="text-center max-w-3xl mx-auto mb-16"
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.6 }}
+>
+  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+    {title}
+  </h2>
+  <p className="text-lg text-gray-600 dark:text-gray-400">
+    {subtitle}
+  </p>
+</motion.div>
 
         {/* Loading State */}
         {loading && (
