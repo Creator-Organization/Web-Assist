@@ -12,8 +12,6 @@ import { useIntersectionObserver } from '@/hooks/usePerformance';
 
 const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
   testimonials: propTestimonials,
-  title = "What Our Clients Say",
-  subtitle = "Don't just take our word for it - hear from the businesses we've helped transform their digital presence.",
   maxDisplay = 6,
   showFeaturedOnly = false,
 }) => {
@@ -103,7 +101,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
   };
 
   return (
-    <section ref={sectionRef} className="py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <section ref={sectionRef} className="py-16 lg:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -114,12 +112,9 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            {title}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            What our customers say
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-            {subtitle}
-          </p>
         </motion.div>
 
         {/* Loading State */}

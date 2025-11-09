@@ -4,8 +4,8 @@ export default function EmailMarketingPage() {
   return (
     <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="bg-primary-600 text-white py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 opacity-80 pointer-events-none z-0" />
+      <section className="relative py-20 hero-gradient text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/10 pointer-events-none z-0" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
           <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Email Marketing</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
@@ -28,7 +28,7 @@ export default function EmailMarketingPage() {
                 We help you create personalized email campaigns that resonate with your subscribers and deliver measurable results for your business.
               </p>
               <div className="mt-8 p-4 bg-primary-50 border-l-4 border-primary-500 text-primary-900 rounded shadow">
-                <p className="italic mb-2">"Our email campaigns now have 3x higher engagement rates thanks to WebAssist!"</p>
+                <p className="italic mb-2">"Our email campaigns now have 3x higher engagement rates thanks to CreatorIt!"</p>
                 <p className="font-semibold">— Sarah Johnson, Marketing Director</p>
               </div>
             </div>

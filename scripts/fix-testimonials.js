@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Fix WebAssist Testimonials Database Setup
+ * Fix creatorit Testimonials Database Setup
  * This script fixes the testimonials table creation issue
  */
 
@@ -66,7 +66,7 @@ async function fixTestimonials() {
 
 // Main execution
 async function main() {
-  console.log('🔧 Fixing WebAssist Testimonials Setup\n');
+  console.log('🔧 Fixing creatorit Testimonials Setup\n');
   
   if (!process.env.DATABASE_URL) {
     console.error('❌ DATABASE_URL not found in environment variables');

@@ -4,8 +4,8 @@ export default function ClassifiedsPage() {
   return (
     <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="bg-primary-600 text-white py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 opacity-80 pointer-events-none z-0" />
+      <section className="relative py-20 hero-gradient text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/10 pointer-events-none z-0" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
           <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Classified Services</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
@@ -28,7 +28,7 @@ export default function ClassifiedsPage() {
                 We provide 100% manual posting with complete detail reports including user credentials so you can modify or delete your ads anytime.
               </p>
               <div className="mt-8 p-4 bg-primary-50 border-l-4 border-primary-500 text-primary-900 rounded shadow">
-                <p className="italic mb-2">"WebAssist's classified posting service brought us 200+ quality leads in the first month!"</p>
+                <p className="italic mb-2">"CreatorIt's classified posting service brought us 200+ quality leads in the first month!"</p>
                 <p className="font-semibold">— Robert Johnson, Sales Manager</p>
               </div>
             </div>
@@ -51,7 +51,7 @@ export default function ClassifiedsPage() {
               <div className="bg-white rounded-apple-lg shadow-apple p-8 transition-shadow hover:shadow-apple-lg">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Manual Posting Service</h2>
                 <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                  We are providing classified posting services with high skilled and expert personnel for ad posting service. WebAssist provides 100% manual posting with no automated ad posting software.
+                  We are providing classified posting services with high skilled and expert personnel for ad posting service. CreatorIt provides 100% manual posting with no automated ad posting software.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
                   We provide only live ads with complete detail reports including user credentials. We post your ads only on high authority and high-traffic classified websites.
@@ -75,7 +75,7 @@ export default function ClassifiedsPage() {
               <div className="bg-white rounded-apple-lg shadow-apple p-8 transition-shadow hover:shadow-apple-lg">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Affordable Pricing</h2>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  WebAssist is a classified advertising service provider at very affordable prices, recognized worldwide as a leading ad posting agency. We offer custom packages designed to fit your budget and business goals.
+                  CreatorIt is a classified advertising service provider at very affordable prices, recognized worldwide as a leading ad posting agency. We offer custom packages designed to fit your budget and business goals.
                 </p>
               </div>
             </div>

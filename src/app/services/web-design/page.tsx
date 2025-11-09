@@ -4,8 +4,8 @@ export default function WebDesignPage() {
   return (
     <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="bg-primary-600 text-white py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 opacity-80 pointer-events-none z-0" />
+      <section className="relative py-20 hero-gradient text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/10 pointer-events-none z-0" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
           <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Web Design</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
@@ -22,13 +22,13 @@ export default function WebDesignPage() {
             <div className="relative z-10 bg-white p-0 md:p-6 rounded-lg shadow-none">
               <h2 className="text-3xl font-bold mb-4 text-gray-900">Design That Drives Results</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                WebAssist is a dedicated web solution company, whose objective is to enable customer profitability through building web solutions that work. Design should be professional, attractive, mission oriented and convey business message at a single glance.
+                CreatorIt is a dedicated web solution company, whose objective is to enable customer profitability through building web solutions that work. Design should be professional, attractive, mission oriented and convey business message at a single glance.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Whether you're building your first website or enhancing your current site, WebAssist can help your business succeed online with affordable, professional design services.
+                Whether you're building your first website or enhancing your current site, CreatorIt can help your business succeed online with affordable, professional design services.
               </p>
               <div className="mt-8 p-4 bg-primary-50 border-l-4 border-primary-500 text-primary-900 rounded shadow">
-                <p className="italic mb-2">"WebAssist transformed our outdated site into a modern masterpiece that tripled our conversions!"</p>
+                <p className="italic mb-2">"CreatorIt transformed our outdated site into a modern masterpiece that tripled our conversions!"</p>
                 <p className="font-semibold">— Jennifer Lee, E-commerce Owner</p>
               </div>
             </div>

@@ -6,7 +6,7 @@ export default function Loading() {
         <div className="mx-auto mb-4 h-12 w-12 animate-spin rounded-full border-4 border-primary-200 border-t-primary-600"></div>
         
         {/* Loading text */}
-        <h2 className="text-xl font-semibold text-gray-700">Loading WebAssist</h2>
+        <h2 className="text-xl font-semibold text-gray-700">Loading CreatorIt</h2>
         <p className="mt-2 text-gray-500">Setting up your experience...</p>
       </div>
     </div>

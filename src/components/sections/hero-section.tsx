@@ -72,7 +72,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background-secondary to-white">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-gradient">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary-500/5 rounded-full blur-3xl animate-float" />
@@ -89,7 +89,7 @@ export function HeroSection() {
         >
           {/* Badge */}
           <motion.div variants={itemVariants} className="mb-8">
-            <div className="inline-flex items-center gap-2 bg-primary-50 text-primary-600 px-4 py-2 rounded-full text-sm font-medium border border-primary-100">
+            <div className="inline-flex items-center gap-2 bg-white/6 text-white px-4 py-2 rounded-full text-sm font-medium border border-white/10">
               <Sparkles size={16} />
               Professional Web Development Services in India
             </div>
@@ -98,9 +98,9 @@ export function HeroSection() {
           {/* Main Headline */}
           <motion.div variants={itemVariants}>
             <DisplayText className="mb-6 text-6xl md:text-7xl lg:text-8xl font-bold">
-              <span className="block">WebAssist</span>
+              <span className="block">CreatorIt</span>
             </DisplayText>
-            <HeadlineText className="mb-6 text-neutral-600 font-normal text-2xl md:text-3xl lg:text-4xl">
+            <HeadlineText className="mb-6 hero-text-muted font-normal text-2xl md:text-3xl lg:text-4xl">
               Professional Web Development Services
             </HeadlineText>
           </motion.div>
@@ -110,7 +110,7 @@ export function HeroSection() {
             variants={itemVariants}
             className="mb-12"
           >
-            <div className="text-2xl md:text-3xl font-semibold mb-4 text-neutral-700">
+            <div className="text-2xl md:text-3xl font-semibold mb-4 hero-text-muted">
               We provide
             </div>
             <div className="h-16 flex items-center justify-center">
@@ -150,7 +150,7 @@ export function HeroSection() {
 
           {/* Feature Highlights */}
           <motion.div variants={itemVariants} className="mb-12">
-            <div className="flex flex-wrap justify-center gap-6 text-neutral-600">
+            <div className="flex flex-wrap justify-center gap-6 hero-text-muted">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-secondary-500 rounded-full" />
                 <span>₹50,000 - ₹5,00,000 Projects</span>
@@ -194,17 +194,17 @@ export function HeroSection() {
           {/* Stats Cards */}
           <motion.div variants={itemVariants}>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <AppleCard variant="glass" padding="md" className="text-center">
+              <AppleCard variant="glass" padding="md" className="text-center hero-panel">
                 <DisplayText className="text-3xl text-primary-600 mb-2">150+</DisplayText>
                 <BodyText className="text-neutral-600">Projects Delivered</BodyText>
               </AppleCard>
               
-              <AppleCard variant="glass" padding="md" className="text-center">
+              <AppleCard variant="glass" padding="md" className="text-center hero-panel">
                 <DisplayText className="text-3xl text-secondary-600 mb-2">98%</DisplayText>
                 <BodyText className="text-neutral-600">Client Satisfaction</BodyText>
               </AppleCard>
               
-              <AppleCard variant="glass" padding="md" className="text-center">
+              <AppleCard variant="glass" padding="md" className="text-center hero-panel">
                 <DisplayText className="text-3xl text-accent-600 mb-2">24hr</DisplayText>
                 <BodyText className="text-neutral-600">Response Time</BodyText>
               </AppleCard>

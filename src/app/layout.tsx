@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
@@ -6,8 +6,15 @@ import Footer from '@/components/layout/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+}
+
 export const metadata: Metadata = {
-  title: 'WebAssist - Professional Web Development Services',
+  title: 'CreatorIt - Professional Web Development Services',
   description: 'Custom website building, maintenance, and consulting using modern full-stack technologies. Security-focused, reliable, and scalable web solutions.',
   viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
   keywords: [
@@ -21,9 +28,9 @@ export const metadata: Metadata = {
     'secure websites',
     'responsive design',
   ],
-  authors: [{ name: 'WebAssist Team' }],
-  creator: 'WebAssist',
-  publisher: 'WebAssist',
+  authors: [{ name: 'CreatorIt Team' }],
+  creator: 'CreatorIt',
+  publisher: 'CreatorIt',
   robots: {
     index: true,
     follow: true,
@@ -38,22 +45,22 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://webassist.com',
-    siteName: 'WebAssist',
-    title: 'WebAssist - Professional Web Development Services',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://CreatorIt.com',
+    siteName: 'CreatorIt',
+    title: 'CreatorIt - Professional Web Development Services',
     description: 'Custom website building, maintenance, and consulting using modern full-stack technologies.',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'WebAssist - Professional Web Development',
+        alt: 'CreatorIt - Professional Web Development',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'WebAssist - Professional Web Development Services',
+    title: 'CreatorIt - Professional Web Development Services',
     description: 'Custom website building, maintenance, and consulting using modern full-stack technologies.',
     images: ['/images/og-image.jpg'],
   },

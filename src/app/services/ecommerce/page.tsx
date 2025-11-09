@@ -4,8 +4,8 @@ export default function EcommercePage() {
   return (
     <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="bg-primary-600 text-white py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 opacity-80 pointer-events-none z-0" />
+      <section className="relative py-20 hero-gradient text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/10 pointer-events-none z-0" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
           <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">E-commerce Services</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
@@ -82,7 +82,7 @@ export default function EcommercePage() {
             <div className="order-1 md:order-2">
               <h2 className="text-3xl font-bold mb-4 text-gray-900">Superior Design Approach</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                WebAssist understands that e-commerce requires superior design to drive customers straight to checkout. We follow best practices to reach maximum consumer outreach and define your marketing goals.
+                CreatorIt understands that e-commerce requires superior design to drive customers straight to checkout. We follow best practices to reach maximum consumer outreach and define your marketing goals.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 We design your e-commerce site from the ground up - everything from content development to final graphic design layout for consistent branding on every page.

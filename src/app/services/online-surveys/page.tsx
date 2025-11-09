@@ -4,8 +4,8 @@ export default function OnlineSurveysPage() {
   return (
     <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="bg-primary-600 text-white py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 opacity-80 pointer-events-none z-0" />
+      <section className="relative py-20 hero-gradient text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/10 pointer-events-none z-0" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
           <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Online Survey Services</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
@@ -28,7 +28,7 @@ export default function OnlineSurveysPage() {
                 We ensure surveys are easy to navigate, mobile-friendly, and optimized for maximum response rates. The higher the engagement with your surveys, the better insights you will generate.
               </p>
               <div className="mt-8 p-4 bg-primary-50 border-l-4 border-primary-500 text-primary-900 rounded shadow">
-                <p className="italic mb-2">"WebAssist's survey platform helped us achieve an 85% response rate!"</p>
+                <p className="italic mb-2">"CreatorIt's survey platform helped us achieve an 85% response rate!"</p>
                 <p className="font-semibold">— Emily Chen, Research Director</p>
               </div>
             </div>
@@ -51,7 +51,7 @@ export default function OnlineSurveysPage() {
               <div className="bg-white rounded-apple-lg shadow-apple p-8 transition-shadow hover:shadow-apple-lg">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Professional Solutions</h2>
                 <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                  WebAssist offers creative technological solutions for your business online. We build survey systems using the latest technology to boost business and generate valuable insights.
+                  CreatorIt offers creative technological solutions for your business online. We build survey systems using the latest technology to boost business and generate valuable insights.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
                   We also help remodel existing survey systems to make them more attractive and efficient, ensuring best practices and cross-browser compatibility.
@@ -61,7 +61,7 @@ export default function OnlineSurveysPage() {
               <div className="bg-white rounded-apple-lg shadow-apple p-8 transition-shadow hover:shadow-apple-lg">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">About Us</h2>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  WebAssist has an impressive list of clients on its roster, which pays testimony to the high quality, timeliness and value of our work. We have the expertise to make your communication and data collection on the internet effective.
+                  CreatorIt has an impressive list of clients on its roster, which pays testimony to the high quality, timeliness and value of our work. We have the expertise to make your communication and data collection on the internet effective.
                 </p>
               </div>
 

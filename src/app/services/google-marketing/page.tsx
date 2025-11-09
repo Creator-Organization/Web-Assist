@@ -4,8 +4,8 @@ export default function GoogleMarketingPage() {
   return (
     <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="bg-primary-600 text-white py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 opacity-80 pointer-events-none z-0" />
+      <section className="relative py-20 hero-gradient text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/10 pointer-events-none z-0" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
           <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Google Marketing</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
@@ -28,7 +28,7 @@ export default function GoogleMarketingPage() {
                 We ensure that your business is easy to find and navigate through Google's ecosystem, maximizing traffic and revenue generation through strategic visibility.
               </p>
               <div className="mt-8 p-4 bg-primary-50 border-l-4 border-primary-500 text-primary-900 rounded shadow">
-                <p className="italic mb-2">"WebAssist's Google Ads strategy reduced our CPC by 45% while doubling conversions!"</p>
+                <p className="italic mb-2">"CreatorIt's Google Ads strategy reduced our CPC by 45% while doubling conversions!"</p>
                 <p className="font-semibold">— Rachel Kim, Digital Marketing Lead</p>
               </div>
             </div>
@@ -51,7 +51,7 @@ export default function GoogleMarketingPage() {
               <div className="bg-white rounded-apple-lg shadow-apple p-8 transition-shadow hover:shadow-apple-lg">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Creative Solutions</h2>
                 <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                  WebAssist offers creative technological solutions for your business online. We build the online presence of companies using the latest technology to boost business and generate both brand recall and revenue.
+                  CreatorIt offers creative technological solutions for your business online. We build the online presence of companies using the latest technology to boost business and generate both brand recall and revenue.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
                   We also help remodel existing websites to make them more attractive and efficient, ensuring best practices, fast loading and cross-browser compatibility.
@@ -61,7 +61,7 @@ export default function GoogleMarketingPage() {
               <div className="bg-white rounded-apple-lg shadow-apple p-8 transition-shadow hover:shadow-apple-lg">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">About Us</h2>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  WebAssist has an impressive list of clients on its roster, which pays testimony to the high quality, timeliness and value of our work. We have the expertise to make your communication and transactions on the internet effective.
+                  CreatorIt has an impressive list of clients on its roster, which pays testimony to the high quality, timeliness and value of our work. We have the expertise to make your communication and transactions on the internet effective.
                 </p>
               </div>
 

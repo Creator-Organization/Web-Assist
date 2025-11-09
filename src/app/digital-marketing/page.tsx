@@ -9,7 +9,32 @@ import googleMarketingLogo from '../../../Images/Google_marketing.png';
 import onlineSurveysLogo from '../../../Images/Online_services.png';
 import classifiedServicesLogo from '../../../Images/Classified_Services.png';
 
-export default function DigitalMarketingPage() {
+// --- Logo Imports ---
+import emailMarketingLogo from '../../../Images/Email_Marketing.png';
+import seoServicesLogo from '../../../Images/seo_services.png';
+import searchEngineMarketingLogo from '../../../Images/search_engine_marketing.png';
+import contentMarketingLogo from '../../../Images/content_marketing.png';
+import googleMarketingLogo from '../../../Images/Google_marketing.png';
+import onlineSurveysLogo from '../../../Images/Online_services.png';
+import classifiedServicesLogo from '../../../Images/Classified_Services.png';
+
+// --- New Image Imports (for the service sections) ---
+import besideEmailMarketing from '../../../Images/Beside_Email_Marketing.png';
+// I'm assuming you wanted to add images for the rest of the services.
+// Please verify the paths for these images:
+import besideSeoServices from '../../../Images/Beside_SEO_Services&_Drupal_Development.png'; // Reusing a path from the first request based on name similarity
+import besideSearchEngineMarketing from '../../../Images/Beside_Search_Engine_Marketing.png';
+import besideContentMarketing from '../../../Images/Beside_Content_Marketing.png';
+import besideGoogleMarketing from '../../../Images/Beside_Google_Marketing.png';
+import besideOnlineSurveys from '../../../Images/Beside_Online_Surveys.png';
+import besideClassifiedServices from '../../../Images/Beside_Classified_Services.png';
+
+
+export default function DigitalMarketingPage(): JSX.Element {
+  // Define a common image size for consistency (400x300 for a wide aspect ratio)
+  const IMAGE_WIDTH = 400;
+  const IMAGE_HEIGHT = 300;
+    
   const services = [
     {
       title: 'Email Marketing',
@@ -17,6 +42,7 @@ export default function DigitalMarketingPage() {
       href: '/services/email-marketing',
       icon: <Image src={emailMarketingLogo} alt="Email Marketing" className="w-12 h-12 object-contain" />,
       image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=800&h=600'
+      image: besideEmailMarketing
     },
     {
       title: 'SEO Services',
@@ -24,6 +50,7 @@ export default function DigitalMarketingPage() {
       href: '/services/seo',
       icon: <Image src={seoServicesLogo} alt="SEO Services" className="w-12 h-12 object-contain" />,
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600'
+      image: besideSeoServices
     },
     {
       title: 'Search Engine Marketing',
@@ -31,6 +58,7 @@ export default function DigitalMarketingPage() {
       href: '/services/sem',
       icon: <Image src={searchEngineMarketingLogo} alt="Search Engine Marketing" className="w-12 h-12 object-contain" />,
       image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600'
+      image: besideSearchEngineMarketing
     },
     {
       title: 'Content Marketing',
@@ -38,6 +66,7 @@ export default function DigitalMarketingPage() {
       href: '/services/content-marketing',
       icon: <Image src={contentMarketingLogo} alt="Content Marketing" className="w-12 h-12 object-contain" />,
       image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&h=600'
+      image: besideContentMarketing
     },
     {
       title: 'Google Marketing',
@@ -45,6 +74,7 @@ export default function DigitalMarketingPage() {
       href: '/services/google-marketing',
       icon: <Image src={googleMarketingLogo} alt="Google Marketing" className="w-12 h-12 object-contain" />,
       image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&h=600'
+      image: besideGoogleMarketing
     },
     {
       title: 'Online Surveys',
@@ -52,21 +82,33 @@ export default function DigitalMarketingPage() {
       href: '/services/online-surveys',
       icon: <Image src={onlineSurveysLogo} alt="Online Surveys" className="w-12 h-12 object-contain" />,
       image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600'
+      image: besideOnlineSurveys
     },
     {
       title: 'Classified Services',
       description: 'Professional classified ad posting and directory listing services to expand your reach',
+      icon: <Image src={classifiedServicesLogo} alt="Classified Services" className="w-12 h-12 object-contain" />,
       href: '/services/classifieds',
       icon: <Image src={classifiedServicesLogo} alt="Classified Services" className="w-12 h-12 object-contain" />,
       image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600'
+      image: besideClassifiedServices
     },
   ];
 
   return (
     <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="bg-primary-600 text-white py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 opacity-80 pointer-events-none z-0" />
+      <section className="relative py-20 hero-gradient text-white overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="/Images/video.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
           <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Digital Marketing Services</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
@@ -74,6 +116,8 @@ export default function DigitalMarketingPage() {
           </p>
         </div>
       </section>
+
+     
 
       {/* Stats Bar */}
       <section className="py-12 bg-white border-b">
@@ -99,6 +143,8 @@ export default function DigitalMarketingPage() {
         </div>
       </section>
 
+      
+
       {/* Intro Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16">
@@ -111,6 +157,8 @@ export default function DigitalMarketingPage() {
         </div>
       </section>
 
+      
+
       {/* Services with Alternating Images */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6 xl:px-16">
@@ -118,23 +166,34 @@ export default function DigitalMarketingPage() {
             {services.map((service, index) => (
               <div key={service.href} className={`grid md:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
                 <div className={`${index % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
+                  {/* Icon rendering */}
                   <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4 text-primary-600">
                     {service.icon}
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
                   <p className="text-gray-700 leading-relaxed mb-6">{service.description}</p>
                   <Link href={service.href} className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors">
-                    Learn More 
+                    Learn More
                     <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </Link>
                 </div>
                 <div className={`flex justify-center ${index % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
-                  <img 
+                  {/* UPDATED: Use Next.js Image component for consistency and size control */}
+                  <Image
                     src={service.image}
                     alt={service.title}
-                    className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
+                    // Apply explicit width and height for static images (Next.js requirement)
+                    width={IMAGE_WIDTH}
+                    height={IMAGE_HEIGHT}
+                    className="rounded-lg shadow-lg w-full h-auto max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      maxWidth: '400px', // Replicate your max-width class
+                      objectFit: 'cover'
+                    }}
                   />
                 </div>
               </div>
@@ -142,6 +201,8 @@ export default function DigitalMarketingPage() {
           </div>
         </div>
       </section>
+
+      
 
       {/* Why Choose Section */}
       <section className="py-16 bg-gray-50">
@@ -176,6 +237,8 @@ export default function DigitalMarketingPage() {
           </div>
         </div>
       </section>
+
+    
 
       {/* CTA Section */}
       <section className="bg-white py-16">

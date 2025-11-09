@@ -192,7 +192,7 @@ export function ContactForm({ className }: ContactFormProps) {
               value={formData.phone}
               onChange={handleChange}
               className="form-input"
-              placeholder="+1 (555) 123-4567"
+              placeholder="+91-9545415111"
               disabled={isSubmitting}
             />
           </div>

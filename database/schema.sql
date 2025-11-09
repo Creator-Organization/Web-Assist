@@ -1,5 +1,5 @@
--- WebAssist Database Schema
--- Create database: webassist_db
+-- creatorit Database Schema
+-- Create database: creatorit_db
 
 -- Enable UUID extension for future use
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
@@ -86,5 +86,5 @@ ORDER BY created_at DESC;
 -- );
 
 -- Grant permissions (adjust as needed for your setup)
--- GRANT ALL PRIVILEGES ON TABLE contacts TO webassist_user;
--- GRANT USAGE, SELECT ON SEQUENCE contacts_id_seq TO webassist_user;
+-- GRANT ALL PRIVILEGES ON TABLE contacts TO creatorit_user;
+-- GRANT USAGE, SELECT ON SEQUENCE contacts_id_seq TO creatorit_user;

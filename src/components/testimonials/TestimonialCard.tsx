@@ -1,46 +1,41 @@
-// src/components/testimonials/TestimonialCard.tsx
-
 'use client';
 
 import { TestimonialCardProps } from '@/types/testimonials';
 import { SimpleStars } from './StarRating';
 import { cn } from '@/lib/utils';
+import React from 'react';
 
-const TestimonialCard: React.FC<TestimonialCardProps> = ({ 
-  testimonial, 
-  className 
-}) => {
+const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, className }) => {
   const {
     clientName,
     clientCompany,
     clientTitle,
-    rating,
-    content,
-    projectType,
-    featured
+    content
   } = testimonial;
+
+  // Pastel color variants matching Nextwebi design
+  const colorVariants = [
+    { bg: 'bg-pink-50', quote: 'text-pink-600' },  // Light pink/red
+    { bg: 'bg-blue-50', quote: 'text-blue-600' },  // Light blue
+    { bg: 'bg-green-50', quote: 'text-green-600' } // Light green
+  ] as const;
+
+  // Compute color index based on client name
+  const colorIndex = Math.abs((clientName?.charCodeAt(0) || 0) % colorVariants.length);
+  const colors = colorVariants[colorIndex] ?? colorVariants[0]; // ✅ Safe fallback
 
   return (
     <div
       className={cn(
-        "relative bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 hover:shadow-lg transition-all duration-300 group",
-        featured && "ring-2 ring-blue-500/20 shadow-md",
+        'relative rounded-xl shadow-md p-8 hover:shadow-lg transition-all duration-300',
+        colors.bg,
         className
       )}
     >
-      {/* Featured badge */}
-      {featured && (
-        <div className="absolute -top-2 -right-2">
-          <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-            ⭐ Featured
-          </div>
-        </div>
-      )}
-
-      {/* Quote icon */}
-      <div className="mb-4">
+      {/* Large Quote Icon */}
+      <div className="mb-6">
         <svg
-          className="w-8 h-8 text-blue-500/20 group-hover:text-blue-500/30 transition-colors"
+          className={cn('w-16 h-16 font-bold', colors.quote)}
           fill="currentColor"
           viewBox="0 0 32 32"
         >
@@ -48,59 +43,46 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         </svg>
       </div>
 
-      {/* Content */}
+      {/* Testimonial Content */}
       <div className="mb-6">
-        <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm md:text-base">
-          "{content}"
+        <p className="text-gray-800 leading-relaxed text-base">
+          {content}
         </p>
       </div>
 
-      {/* Rating */}
-      <div className="mb-4">
-        <SimpleStars rating={rating} className="justify-start" />
-      </div>
-
-      {/* Client info */}
+      {/* Client Info */}
       <div className="space-y-1">
-        <div className="flex items-center justify-between">
-          <h4 className="font-semibold text-gray-900 dark:text-white text-sm md:text-base">
-            {clientName}
-          </h4>
-          {projectType && (
-            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-              {projectType}
+        <div className="flex items-center gap-2 mb-1">
+          {clientCompany && (
+            <span className="font-bold text-gray-900 text-lg">
+              {clientCompany}
             </span>
           )}
         </div>
-        
-        <div className="text-sm text-gray-600 dark:text-gray-400">
-          {clientTitle && (
-            <span className="font-medium">{clientTitle}</span>
+        <div className="text-gray-700">
+          {clientName && (
+            <span className="font-semibold">{clientName}</span>
           )}
-          {clientTitle && <span className="mx-1">·</span>}
-          <span className="font-medium text-blue-600 dark:text-blue-400">
-            {clientCompany}
-          </span>
+          {clientTitle && (
+            <span className="text-gray-600"> - {clientTitle}</span>
+          )}
         </div>
       </div>
-
-      {/* Hover effect overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
     </div>
   );
 };
 
-// Compact version for smaller spaces
-export const CompactTestimonialCard: React.FC<TestimonialCardProps> = ({ 
-  testimonial, 
-  className 
+// Compact version for smaller layouts
+export const CompactTestimonialCard: React.FC<TestimonialCardProps> = ({
+  testimonial,
+  className
 }) => {
   const { clientName, clientCompany, rating, content } = testimonial;
 
   return (
     <div
       className={cn(
-        "bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4 hover:shadow-md transition-shadow",
+        'bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4 hover:shadow-md transition-shadow',
         className
       )}
     >

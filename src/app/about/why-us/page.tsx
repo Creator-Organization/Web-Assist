@@ -5,10 +5,19 @@ export default function WhyUsPage() {
   return (
     <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="bg-primary-600 text-white py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 opacity-80 pointer-events-none z-0" />
+      <section className="relative py-20 hero-gradient text-white overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="/Images/video.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
-          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Why Choose WebAssist?</h1>
+          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Why Choose CreatorIt?</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
             Discover what makes us the right partner for your web development needs
           </p>
@@ -46,7 +55,7 @@ export default function WhyUsPage() {
             <div>
               <h2 className="text-3xl font-bold mb-4 text-gray-900">Excellence in Every Project</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                WebAssist has an impressive list of clients that pays testimony to the high quality, timeliness and value of our work. We have the expertise to make your communication and transactions on the internet effective.
+                CreatorIt has an impressive list of clients that pays testimony to the high quality, timeliness and value of our work. We have the expertise to make your communication and transactions on the internet effective.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 Our criterion of working sets us apart from the crowd of web solution providers. We focus our goals based on client's business strategies and map them according to our work model for greater transparency and timely delivery.
@@ -128,7 +137,7 @@ export default function WhyUsPage() {
             <div className="bg-white rounded-lg p-8 shadow-md">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">About Us</h2>
               <p className="text-gray-700 leading-relaxed">
-                WebAssist, as a company has an impressive list of clients on its roster, which pays testimony to the high quality, timeliness and value of our work. We have the expertise to make your communication and transactions on the internet effective.
+                CreatorIt, as a company has an impressive list of clients on its roster, which pays testimony to the high quality, timeliness and value of our work. We have the expertise to make your communication and transactions on the internet effective.
               </p>
             </div>
 
@@ -147,7 +156,7 @@ export default function WhyUsPage() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">Ready to Work With Us?</h2>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Experience the WebAssist difference in your next project
+            Experience the CreatorIt difference in your next project
           </p>
           <Link href="/contact">
             <button className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-apple text-lg font-semibold transition-all duration-200 transform hover:-translate-y-0.5 shadow-apple hover:shadow-apple-lg">

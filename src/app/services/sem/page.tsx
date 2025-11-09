@@ -4,8 +4,8 @@ export default function SEMPage() {
   return (
     <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="bg-primary-600 text-white py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 opacity-80 pointer-events-none z-0" />
+      <section className="relative py-20 hero-gradient text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/10 pointer-events-none z-0" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
           <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Search Engine Marketing</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
@@ -28,7 +28,7 @@ export default function SEMPage() {
                 We combine paid search advertising with proven optimization techniques to maximize your ROI and drive qualified traffic to your website.
               </p>
               <div className="mt-8 p-4 bg-primary-50 border-l-4 border-primary-500 text-primary-900 rounded shadow">
-                <p className="italic mb-2">"Our SEM campaigns with WebAssist generated 5x ROI in the first quarter!"</p>
+                <p className="italic mb-2">"Our SEM campaigns with CreatorIt generated 5x ROI in the first quarter!"</p>
                 <p className="font-semibold">— Mike Chen, E-commerce Director</p>
               </div>
             </div>

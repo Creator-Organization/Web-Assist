@@ -38,7 +38,7 @@ const nextConfig = {
   // Rate limiting will be handled at API level
   experimental: {
     serverActions: {
-      allowedOrigins: ['localhost:3000', 'webassist.vercel.app'],
+      allowedOrigins: ['localhost:3000', 'creatorit.vercel.app'],
     },
   },
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * WebAssist Testimonials Database Setup Script
+ * creatorit Testimonials Database Setup Script
  * This script sets up the testimonials table and inserts sample data
  */
 
@@ -95,7 +95,7 @@ function checkEnvironmentVariables() {
 
 // Main execution
 async function main() {
-  console.log('🚀 Starting WebAssist Testimonials Setup\n');
+  console.log('🚀 Starting creatorit Testimonials Setup\n');
   
   checkEnvironmentVariables();
   await setupTestimonials();

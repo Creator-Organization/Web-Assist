@@ -1,12 +1,25 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Target, Lightbulb, Rocket, Globe, Heart, TrendingUp } from 'lucide-react';
+// Define a consistent size for the Image component
+const IMAGE_WIDTH = 400;
+const IMAGE_HEIGHT = 300; // Use appropriate dimensions for your image's aspect ratio
 
 export default function VisionPage() {
   return (
     <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="bg-primary-600 text-white py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 opacity-80 pointer-events-none z-0" />
+      <section className="relative py-20 hero-gradient text-white overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="/Images/video.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
           <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Vision & Mission</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
@@ -53,9 +66,11 @@ export default function VisionPage() {
               </p>
             </div>
             <div className="flex justify-center">
-              <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600"
+              <Image
+                src="/Images/vision&Mission.png"
                 alt="Vision and Strategy"
+                width={IMAGE_WIDTH}
+                height={IMAGE_HEIGHT}
                 className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
               />
             </div>
@@ -128,7 +143,7 @@ export default function VisionPage() {
             <div className="bg-white rounded-lg p-8 shadow-md">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">About Us</h2>
               <p className="text-gray-700 leading-relaxed">
-                WebAssist, as a company has an impressive list of clients on its roster, which pays testimony to the high quality, timeliness and value of our work. We have the expertise to make your communication and transactions on the internet effective.
+                CreatorIt, as a company has an impressive list of clients on its roster, which pays testimony to the high quality, timeliness and value of our work. We have the expertise to make your communication and transactions on the internet effective.
               </p>
             </div>
 

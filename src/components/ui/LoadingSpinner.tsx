@@ -85,7 +85,7 @@ export function PageLoading() {
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 to-white">
       <div className="text-center">
         <LoadingSpinner size="xl" />
-        <h2 className="mt-4 text-xl font-semibold text-gray-700">Loading WebAssist</h2>
+        <h2 className="mt-4 text-xl font-semibold text-gray-700">Loading CreatorIt</h2>
         <p className="mt-2 text-gray-500">Setting up your experience...</p>
       </div>
     </div>

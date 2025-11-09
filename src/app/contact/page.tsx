@@ -6,8 +6,17 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="bg-primary-600 text-white py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 opacity-80 pointer-events-none z-0" />
+      <section className="relative py-20 hero-gradient text-white overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="/Images/video.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
           <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Get in Touch</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
@@ -102,8 +111,8 @@ export default function ContactPage() {
                   <Mail className="w-6 h-6 text-primary-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Email Us</h3>
-                <a href="mailto:info@webassist.com" className="text-primary-600 hover:text-primary-700 font-medium">
-                  info@webassist.com
+                <a href="mailto:info@CreatorIt.com" className="text-primary-600 hover:text-primary-700 font-medium">
+                  info@creatorit.com
                 </a>
                 <p className="text-gray-600 text-sm mt-2">We'll respond within 24 hours</p>
               </div>
@@ -114,7 +123,7 @@ export default function ContactPage() {
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Call Us</h3>
                 <a href="tel:+911234567890" className="text-primary-600 hover:text-primary-700 font-medium">
-                  +91 (123) 456-7890
+                  +91 9545415111
                 </a>
                 <p className="text-gray-600 text-sm mt-2">Mon-Fri, 9AM-6PM IST</p>
               </div>
@@ -125,7 +134,7 @@ export default function ContactPage() {
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Visit Us</h3>
                 <p className="text-gray-700 font-medium">
-                  Pimpri, Maharashtra<br />India
+                  73 Pannalal Nagar,Ch.Sambhaji Nagar, India<br />India
                 </p>
                 <p className="text-gray-600 text-sm mt-2">By appointment only</p>
               </div>

@@ -4,8 +4,8 @@ export default function DrupalPage() {
   return (
     <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="bg-primary-600 text-white py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 opacity-80 pointer-events-none z-0" />
+      <section className="relative py-20 hero-gradient text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/10 pointer-events-none z-0" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
           <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Drupal Development</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
@@ -139,7 +139,7 @@ export default function DrupalPage() {
             <div className="order-1 md:order-2">
               <h2 className="text-3xl font-bold mb-4 text-gray-900">Our Drupal Expertise</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                WebAssist is an innovator in the open source area, successfully providing Drupal services and solutions to clients worldwide. We leverage open source technologies to assist businesses across various industries.
+                CreatorIt is an innovator in the open source area, successfully providing Drupal services and solutions to clients worldwide. We leverage open source technologies to assist businesses across various industries.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 We provide progressive Drupal solutions including web applications, design services, software development, social media integration and Drupal migration.
