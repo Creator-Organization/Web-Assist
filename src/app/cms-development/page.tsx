@@ -1,40 +1,53 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Shield, Zap, Users } from 'lucide-react';
+
+// --- Logo Imports (as per your original code) ---
 import wordpressLogo from '../../../Images/wordpress_development.png';
 import joomlaLogo from '../../../Images/Jompla_development.png';
 import drupalLogo from '../../../Images/drupal.png';
 import magentoLogo from '../../../Images/Magento.png';
 
-export default function CMSDevelopmentPage() {
+// --- New Image Imports (for the service sections) ---
+import wordpressBesideImage from '../../../Images/Beside_WordPress Development.png';
+import joomlaBesideImage from '../../../Images/Beside_Joomla_Development.png';
+import drupalBesideImage from '../../../Images/Beside_SEO_Services&_Drupal_Development.png';
+import magentoBesideImage from '../../../Images/Beside_E-commerce_Services&Magento.png';
+
+
+export default function CMSDevelopmentPage(): JSX.Element {
   const services = [
     {
       title: 'WordPress Development',
       description: 'Professional WordPress solutions with custom themes, plugins, and complete content management capabilities',
       href: '/services/wordpress',
       icon: <Image src={wordpressLogo} alt="WordPress Development" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=600'
+      // Replaced 'image' URL with imported local image
+      image: wordpressBesideImage,
     },
     {
       title: 'Joomla Development',
       description: 'Professional Joomla CMS development with custom templates and powerful extensions',
       href: '/services/joomla',
       icon: <Image src={joomlaLogo} alt="Joomla Development" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=800&h=600'
+      // Replaced 'image' URL with imported local image
+      image: joomlaBesideImage,
     },
     {
       title: 'Drupal Development',
       description: 'Enterprise-level Drupal CMS with custom modules and themes for complex requirements',
       href: '/services/drupal',
       icon: <Image src={drupalLogo} alt="Drupal Development" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600'
+      // Replaced 'image' URL with imported local image
+      image: drupalBesideImage,
     },
     {
       title: 'Magento Development',
       description: 'Powerful Magento e-commerce solutions with complete flexibility and scalability',
       href: '/services/magento',
       icon: <Image src={magentoLogo} alt="Magento Development" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600'
+      // Replaced 'image' URL with imported local image
+      image: magentoBesideImage,
     },
   ];
 
@@ -42,7 +55,16 @@ export default function CMSDevelopmentPage() {
     <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative py-20 hero-gradient text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/10 pointer-events-none z-0" />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="/Images/video.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
           <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">CMS Development</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
@@ -52,6 +74,7 @@ export default function CMSDevelopmentPage() {
       </section>
 
       {/* Stats Bar */}
+      
       <section className="py-12 bg-white border-b">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto text-center">
@@ -76,6 +99,7 @@ export default function CMSDevelopmentPage() {
       </section>
 
       {/* Intro Section */}
+      
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="max-w-4xl mx-auto text-center">
@@ -88,6 +112,7 @@ export default function CMSDevelopmentPage() {
       </section>
 
       {/* Services with Alternating Images */}
+      
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="max-w-6xl mx-auto space-y-16">
@@ -100,17 +125,32 @@ export default function CMSDevelopmentPage() {
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
                   <p className="text-gray-700 leading-relaxed mb-6">{service.description}</p>
                   <Link href={service.href} className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors">
-                    Learn More 
+                    Learn More
                     <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </Link>
                 </div>
                 <div className={`flex justify-center ${index % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
-                  <img 
+                  {/* Using Next.js Image component for the local image imports */}
+                  <Image
                     src={service.image}
                     alt={service.title}
-                    className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
+                    // Next.js Image requires 'width' and 'height' for static imports, or 'fill'/'sizes'.
+                    // Since you had a className with w-full max-w-[400px], I'll use `fill` and set the parent container's dimensions.
+                    // For simplicity, I'll add objectFit/layout for better compatibility, but usually Next.js handles this better with
+                    // explicit width/height on static imports. I'll stick to a common pattern for local image use in Next.js/Tailwind.
+                    // I'll wrap the image in a container to enforce dimensions while using `fill`.
+                    // A simpler approach for local images is to leverage their automatic size deduction:
+                    className="rounded-lg shadow-lg w-full h-auto max-w-sm transition-transform duration-300 hover:scale-105"
+                    width={400} // Set a placeholder width/height for static imports
+                    height={300} // Adjust these based on the aspect ratio of your actual images
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      maxWidth: '400px', // Replicate your max-width class
+                      objectFit: 'cover' // Ensure the image covers the space without distortion
+                    }}
                   />
                 </div>
               </div>
@@ -120,6 +160,7 @@ export default function CMSDevelopmentPage() {
       </section>
 
       {/* Why Choose Section */}
+      
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="max-w-6xl mx-auto">
@@ -154,6 +195,7 @@ export default function CMSDevelopmentPage() {
       </section>
 
       {/* CTA Section */}
+      
       <section className="bg-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">Need a CMS Solution?</h2>

@@ -1,32 +1,43 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Cpu, Rocket, Shield } from 'lucide-react';
+
+// --- Logo Imports (as per your original code) ---
 import mobileAppLogo from '../../../Images/Mobile_App.png';
 import customSoftwareLogo from '../../../Images/custom_software.png';
 import offshoreDevelopmentLogo from '../../../Images/offshore_development.png';
 
-export default function SoftwareDevelopmentPage() {
+// --- New Image Imports (for the service sections) ---
+import mobileAppBesideImage from '../../../Images/Beside_Mobile_App.png';
+import customSoftwareBesideImage from '../../../Images/Beside_Custom_Software.png';
+import offshoreBesideImage from '../../../Images/Beside_Offshore.png';
+
+
+export default function SoftwareDevelopmentPage(): JSX.Element {
   const services = [
     {
       title: 'Mobile App Development',
       description: 'iOS and Android app development covering the complete software development lifecycle from concept to deployment',
       href: '/services/mobile-apps',
       icon: <Image src={mobileAppLogo} alt="Mobile App Development" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600'
+      // Replaced 'image' URL with imported local image
+      image: mobileAppBesideImage,
     },
     {
       title: 'Custom Software Development',
       description: 'Tailored software solutions for business process automation, efficiency, and digital transformation',
       href: '/services/custom-software',
       icon: <Image src={customSoftwareLogo} alt="Custom Software Development" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600'
+      // Replaced 'image' URL with imported local image
+      image: customSoftwareBesideImage,
     },
     {
       title: 'Offshore Development',
       description: 'Dedicated offshore development teams delivering quality solutions with cost-effective collaboration',
       href: '/services/offshore-development',
       icon: <Image src={offshoreDevelopmentLogo} alt="Offshore Development" className="w-12 h-12 object-contain" />,
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600'
+      // Replaced 'image' URL with imported local image
+      image: offshoreBesideImage,
     },
   ];
 
@@ -34,7 +45,16 @@ export default function SoftwareDevelopmentPage() {
     <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative py-20 hero-gradient text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/10 pointer-events-none z-0" />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="/Images/video.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
           <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Software Development</h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
@@ -44,6 +64,7 @@ export default function SoftwareDevelopmentPage() {
       </section>
 
       {/* Stats Bar */}
+      
       <section className="py-12 bg-white border-b">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto text-center">
@@ -68,6 +89,7 @@ export default function SoftwareDevelopmentPage() {
       </section>
 
       {/* Intro Section */}
+      
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="max-w-4xl mx-auto text-center">
@@ -80,6 +102,7 @@ export default function SoftwareDevelopmentPage() {
       </section>
 
       {/* Services with Alternating Images */}
+      
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="max-w-6xl mx-auto space-y-16">
@@ -92,17 +115,27 @@ export default function SoftwareDevelopmentPage() {
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
                   <p className="text-gray-700 leading-relaxed mb-6">{service.description}</p>
                   <Link href={service.href} className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors">
-                    Learn More 
+                    Learn More
                     <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </Link>
                 </div>
                 <div className={`flex justify-center ${index % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
-                  <img 
+                  {/* Replaced <img> with Next.js <Image> for local assets */}
+                  <Image
                     src={service.image}
                     alt={service.title}
-                    className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
+                    // Adding required width/height for static Next.js Image component
+                    width={400} 
+                    height={300} 
+                    className="rounded-lg shadow-lg w-full h-auto max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      maxWidth: '400px', // Replicate max-width class
+                      objectFit: 'cover'
+                    }}
                   />
                 </div>
               </div>
@@ -112,6 +145,7 @@ export default function SoftwareDevelopmentPage() {
       </section>
 
       {/* Why Choose Section */}
+      
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="max-w-6xl mx-auto">
@@ -146,6 +180,7 @@ export default function SoftwareDevelopmentPage() {
       </section>
 
       {/* CTA Section */}
+      
       <section className="bg-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">Ready to Build Custom Software?</h2>
