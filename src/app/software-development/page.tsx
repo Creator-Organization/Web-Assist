@@ -52,7 +52,7 @@ export default function SoftwareDevelopmentPage(): JSX.Element {
           playsInline
           className="absolute inset-0 w-full h-full object-cover z-0"
         >
-          <source src="/Images/video.mp4" type="video/mp4" />
+          <source src="/images/video.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
