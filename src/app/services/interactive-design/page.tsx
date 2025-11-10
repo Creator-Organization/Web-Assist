@@ -1,8 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Sparkles, MonitorPlay, Film, MousePointerClick, Palette, Layers } from 'lucide-react';
+
+// ✅ Local image imports
+import InsideInteractiveDesignImage from '../../../../Images/Inside_Interactive_Design.png';
+import BesideCustomSoftwareImage from '../../../../Images/Beside_Custom_Software.png';
 
 export default function InteractiveDesignPage() {
   return (
@@ -45,6 +50,7 @@ export default function InteractiveDesignPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto relative">
             <div className="hidden md:block absolute -left-24 top-10 w-64 h-64 bg-sky-200 opacity-20 rounded-full -z-10" />
 
+            {/* Text Section */}
             <motion.div
               initial={{ x: -40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -53,13 +59,14 @@ export default function InteractiveDesignPage() {
             >
               <h2 className="text-4xl font-bold mb-6 text-sky-800">Engaging Visual Experiences</h2>
               <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                Modern interactive design brings a break from traditional static presentations. It allows rich presentation of concepts through graphics and motion via dynamic tutorials, training courses, and video content.
+                Modern interactive design breaks away from traditional static websites, creating engaging digital experiences. It allows rich presentation of concepts through motion graphics, tutorials, and dynamic visuals that make your content memorable.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Impressive visuals impart a positive impact in people's imagination through dramatic visual effects that urge them to visit your website regularly and become loyal customers.
+                Impressive visuals and dynamic animations leave a lasting impact on your audience, encouraging return visits and building brand loyalty through interactive storytelling.
               </p>
             </motion.div>
 
+            {/* ✅ Local Image 1 */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -67,9 +74,11 @@ export default function InteractiveDesignPage() {
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=600"
-                alt="Interactive Design"
+              <Image
+                src={InsideInteractiveDesignImage}
+                alt="Interactive Design Visualization"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -86,12 +95,12 @@ export default function InteractiveDesignPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: MonitorPlay, title: 'Web Animations', desc: 'Smooth, engaging animations using modern CSS and JavaScript.' },
-              { icon: MousePointerClick, title: 'Interactive Elements', desc: 'Dynamic components that respond to user interactions.' },
-              { icon: Film, title: 'Motion Graphics', desc: 'Eye-catching motion design for presentations and content.' },
-              { icon: Sparkles, title: 'Animated Logos', desc: 'Memorable animated branding that leaves an impression.' },
-              { icon: Layers, title: 'Video Integration', desc: 'Seamless video content and multimedia experiences.' },
-              { icon: Palette, title: 'Interactive Presentations', desc: 'Engaging tutorials and training materials.' },
+              { icon: MonitorPlay, title: 'Web Animations', desc: 'Smooth, engaging animations using modern CSS, JavaScript, and GSAP.' },
+              { icon: MousePointerClick, title: 'Interactive Elements', desc: 'Dynamic components that respond intelligently to user input.' },
+              { icon: Film, title: 'Motion Graphics', desc: 'Visually captivating motion designs for your brand and media content.' },
+              { icon: Sparkles, title: 'Animated Logos', desc: 'Custom animated logo designs that enhance your brand identity.' },
+              { icon: Layers, title: 'Video Integration', desc: 'High-quality video and multimedia integration for your web content.' },
+              { icon: Palette, title: 'Interactive Presentations', desc: 'Training modules and creative experiences that engage audiences.' },
             ].map(({ icon: Icon, title, desc }, i) => (
               <motion.div
                 key={i}
@@ -117,14 +126,17 @@ export default function InteractiveDesignPage() {
       {/* 📊 WHEN TO USE SECTION */}
       <section className="py-20 bg-gradient-to-b from-white to-sky-50">
         <div className="container px-6 xl:px-16 grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          {/* ✅ Local Image 2 */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600"
-              alt="Interactive Web Design"
+            <Image
+              src={BesideCustomSoftwareImage}
+              alt="Interactive Web Design Showcase"
+              width={800}
+              height={600}
               className="rounded-2xl shadow-2xl w-full transition-transform duration-300 hover:scale-105"
             />
           </motion.div>
@@ -136,10 +148,10 @@ export default function InteractiveDesignPage() {
           >
             <h2 className="text-4xl font-bold mb-6 text-sky-800">When to Use Interactive Design</h2>
             <p className="text-lg text-gray-600 mb-4 leading-relaxed">
-              If the primary purpose of the website is to offer artistic or visual effects to visitors (such as a design or arts company), then interactive design is highly recommended.
+              Interactive design is best suited for businesses or brands that prioritize creativity and engagement — such as design studios, media companies, educational platforms, or artistic agencies.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Interactive design creates memorable experiences that set your brand apart and keep visitors engaged with your content.
+              It helps create memorable, emotionally engaging experiences that resonate with visitors and elevate your brand presence online.
             </p>
           </motion.div>
         </div>
@@ -158,7 +170,7 @@ export default function InteractiveDesignPage() {
             Ready to Make Your Website Interactive?
           </h2>
           <p className="text-lg md:text-xl text-blue-100 mb-10">
-            Let us create captivating interactive experiences that engage your audience.
+            Let us create captivating, motion-rich experiences that connect deeply with your audience.
           </p>
           <Link href="/contact">
             <button className="bg-white text-sky-700 px-10 py-4 rounded-2xl font-semibold shadow-xl hover:shadow-2xl hover:bg-sky-50 transition-all transform hover:-translate-y-1 duration-300">

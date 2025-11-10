@@ -1,8 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { HelpCircle, MessageCircle, Clock } from 'lucide-react';
 import { useState } from 'react';
+
+// ✅ Import local image
+import besideImage from '../../../Images/Beside_Search_Engine_Marketing.png';
 
 export default function FAQPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -44,7 +48,7 @@ export default function FAQPage() {
 
   return (
     <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
-      {/* Hero Section */}
+      {/* 🌟 Hero Section */}
       <section className="relative py-20 hero-gradient text-white overflow-hidden">
         <video
           autoPlay
@@ -53,18 +57,21 @@ export default function FAQPage() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover z-0"
         >
+          {/* ✅ Keep the video as it is */}
           <source src="/images/video.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
-          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Frequently Asked Questions</h1>
+          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">
+            Frequently Asked Questions
+          </h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
             Find answers to common questions about our services
           </p>
         </div>
       </section>
 
-      {/* Stats Bar */}
+      {/* 📊 Stats Bar */}
       <section className="py-12 bg-white border-b">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto text-center">
@@ -88,7 +95,7 @@ export default function FAQPage() {
         </div>
       </section>
 
-      {/* Image + Text Section */}
+      {/* 🖼️ Image + Text Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -102,9 +109,12 @@ export default function FAQPage() {
               </p>
             </div>
             <div className="flex justify-center">
-              <img 
-                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=600"
+              {/* ✅ Local image import */}
+              <Image
+                src={besideImage}
                 alt="Customer Support"
+                width={500}
+                height={400}
                 className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
               />
             </div>
@@ -112,14 +122,17 @@ export default function FAQPage() {
         </div>
       </section>
 
-      {/* FAQ Accordion */}
+      {/* 💬 FAQ Accordion */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Common Questions</h2>
             <div className="space-y-4">
               {faqs.map((faq, index) => (
-                <div key={index} className="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div
+                  key={index}
+                  className="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                >
                   <button
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
                     className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-100 transition-colors"
@@ -148,7 +161,7 @@ export default function FAQPage() {
         </div>
       </section>
 
-      {/* Support Options */}
+      {/* 🧭 Support Options */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="max-w-6xl mx-auto">
@@ -191,7 +204,7 @@ export default function FAQPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* 🚀 CTA Section */}
       <section className="bg-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">Still Have Questions?</h2>

@@ -1,6 +1,12 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Target, Lightbulb, Rocket, Globe, Heart, TrendingUp } from 'lucide-react';
+
+// ✅ Import only the image locally
+import visionMissionImage from '../../../../Images/vision_and_Mission.png';
+
 // Define a consistent size for the Image component
 const IMAGE_WIDTH = 400;
 const IMAGE_HEIGHT = 300; // Use appropriate dimensions for your image's aspect ratio
@@ -17,11 +23,14 @@ export default function VisionPage() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover z-0"
         >
+          {/* ✅ Keep video as it is */}
           <source src="/images/video.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
-          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Vision & Mission</h1>
+          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">
+            Vision & Mission
+          </h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
             Our vision for the future and mission to serve our clients
           </p>
@@ -66,8 +75,9 @@ export default function VisionPage() {
               </p>
             </div>
             <div className="flex justify-center">
+              {/* ✅ Local Image Import */}
               <Image
-                src="/Images/vision&Mission.png"
+                src={visionMissionImage}
                 alt="Vision and Strategy"
                 width={IMAGE_WIDTH}
                 height={IMAGE_HEIGHT}
@@ -84,53 +94,22 @@ export default function VisionPage() {
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Our Core Values</h2>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <Target className="w-6 h-6 text-primary-600" />
+              {[
+                { icon: Target, title: 'Our Vision', desc: 'To be the leading provider of innovative web solutions that empower businesses globally' },
+                { icon: Rocket, title: 'Our Mission', desc: 'Deliver cutting-edge technology solutions with transparency, quality, and timely execution' },
+                { icon: Heart, title: 'Our Values', desc: 'Integrity, innovation, and client success drive everything we do' },
+                { icon: Lightbulb, title: 'Innovation First', desc: 'Constantly evolving with the latest technologies and best practices' },
+                { icon: Globe, title: 'Global Reach', desc: 'Serving clients worldwide with localized expertise and support' },
+                { icon: TrendingUp, title: 'Growth Partner', desc: 'We grow when our clients succeed and achieve their business goals' },
+              ].map(({ icon: Icon, title, desc }, i) => (
+                <div key={i} className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
+                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-primary-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{title}</h3>
+                  <p className="text-gray-700">{desc}</p>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Our Vision</h3>
-                <p className="text-gray-700">To be the leading provider of innovative web solutions that empower businesses globally</p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <Rocket className="w-6 h-6 text-primary-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Our Mission</h3>
-                <p className="text-gray-700">Deliver cutting-edge technology solutions with transparency, quality, and timely execution</p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <Heart className="w-6 h-6 text-primary-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Our Values</h3>
-                <p className="text-gray-700">Integrity, innovation, and client success drive everything we do</p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <Lightbulb className="w-6 h-6 text-primary-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Innovation First</h3>
-                <p className="text-gray-700">Constantly evolving with the latest technologies and best practices</p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <Globe className="w-6 h-6 text-primary-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Global Reach</h3>
-                <p className="text-gray-700">Serving clients worldwide with localized expertise and support</p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <TrendingUp className="w-6 h-6 text-primary-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Growth Partner</h3>
-                <p className="text-gray-700">We grow when our clients succeed and achieve their business goals</p>
-              </div>
+              ))}
             </div>
           </div>
         </div>

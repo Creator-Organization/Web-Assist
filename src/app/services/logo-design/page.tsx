@@ -1,8 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ImageIcon, Palette, BookOpen, RefreshCw, Layers, FileText } from 'lucide-react';
+
+// ✅ Correct local image imports
+import BesideLogoDesignImage from '../../../../Images/Beside_Logo_Design.png';
+import BesideInteractiveDesignImage from '../../../../Images/Beside_Interactive_Design.png';
 
 export default function LogoDesignPage() {
   return (
@@ -45,6 +50,7 @@ export default function LogoDesignPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto relative">
             <div className="hidden md:block absolute -left-24 top-10 w-64 h-64 bg-sky-200 opacity-20 rounded-full -z-10" />
 
+            {/* Text Section */}
             <motion.div
               initial={{ x: -40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -61,6 +67,7 @@ export default function LogoDesignPage() {
               </p>
             </motion.div>
 
+            {/* ✅ Local Image 1 */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -68,9 +75,11 @@ export default function LogoDesignPage() {
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=600"
-                alt="Logo Design"
+              <Image
+                src={BesideLogoDesignImage}
+                alt="Logo Design Process"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -81,7 +90,9 @@ export default function LogoDesignPage() {
       {/* 🧩 FEATURES GRID */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16 max-w-6xl">
-          <h2 className="text-3xl font-bold text-center mb-12 text-sky-800">Logo Design Services</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-sky-800">
+            Logo Design Services
+          </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -90,7 +101,7 @@ export default function LogoDesignPage() {
               { icon: RefreshCw, title: "Logo Redesign", desc: "Modernize and refresh existing logos" },
               { icon: Layers, title: "Vector Graphics", desc: "Scalable logos for all media and sizes" },
               { icon: Palette, title: "Multiple Concepts", desc: "Various design options to choose from" },
-              { icon: FileText, title: "File Formats", desc: "All necessary formats for print and digital use" }
+              { icon: FileText, title: "File Formats", desc: "All necessary formats for print and digital use" },
             ].map(({ icon: Icon, title, desc }, i) => (
               <motion.div
                 key={i}
@@ -117,19 +128,24 @@ export default function LogoDesignPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            
+            {/* ✅ Local Image 2 */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               className="order-2 md:order-1 flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600"
+              <Image
+                src={BesideInteractiveDesignImage}
                 alt="Brand Design Process"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
 
+            {/* Text Section */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -157,7 +173,9 @@ export default function LogoDesignPage() {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto relative z-10"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">Ready to Create Your Brand Identity?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">
+            Ready to Create Your Brand Identity?
+          </h2>
           <p className="text-lg md:text-xl text-blue-100 mb-10">
             Let us design a memorable logo that represents your business perfectly
           </p>

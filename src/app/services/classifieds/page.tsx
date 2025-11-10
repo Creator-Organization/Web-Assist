@@ -1,8 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
+// ✅ Local images
+import InsideClassifiedImage from '../../../../Images/Inside_Classified.png';
+import BesideSEOImage from '../../../../Images/Beside_SEO_Services_and_Drupal_Development.png';
 
 export default function ClassifiedsPage() {
   return (
@@ -45,7 +49,7 @@ export default function ClassifiedsPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto relative">
             <div className="hidden md:block absolute -left-24 top-10 w-64 h-64 bg-sky-200 opacity-20 rounded-full -z-10" />
 
-            {/* Text Section */}
+            {/* TEXT SECTION */}
             <motion.div
               initial={{ x: -40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -54,7 +58,8 @@ export default function ClassifiedsPage() {
             >
               <h2 className="text-4xl font-bold mb-6 text-sky-800">Maximum Online Visibility</h2>
               <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                Today 75% of business comes through the internet and online classified services are faster than traditional newspapers. Our expert team works around the clock to ensure your ads get maximum visibility on high-traffic platforms.
+                Today, 75% of business comes through the internet, and online classified services are faster than traditional newspapers. 
+                Our expert team works around the clock to ensure your ads get maximum visibility on high-traffic platforms.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
                 We provide 100% manual posting with complete detail reports including user credentials so you can modify or delete your ads anytime.
@@ -67,7 +72,7 @@ export default function ClassifiedsPage() {
               </div>
             </motion.div>
 
-            {/* Image */}
+            {/* ✅ LOCAL IMAGE 1 */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -75,9 +80,11 @@ export default function ClassifiedsPage() {
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=800&h=600"
+              <Image
+                src={InsideClassifiedImage}
                 alt="Classified Advertising Strategy"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -99,10 +106,11 @@ export default function ClassifiedsPage() {
             >
               <h2 className="text-3xl font-bold text-sky-800 mb-6">Manual Posting Service</h2>
               <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                We are providing classified posting services with high skilled and expert personnel for ad posting service. CreatorIt provides 100% manual posting with no automated ad posting software.
+                We are providing classified posting services with highly skilled experts for manual ad posting. 
+                CreatorIt ensures 100% manual posting without using automated tools.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                We provide only live ads with complete detail reports including user credentials. We post your ads only on high authority and high-traffic classified websites.
+                We provide only live ads with detailed reports including credentials. Your ads are posted only on high-authority, high-traffic websites.
               </p>
             </motion.div>
 
@@ -115,7 +123,8 @@ export default function ClassifiedsPage() {
             >
               <h2 className="text-3xl font-bold text-sky-800 mb-6">Verified Accounts</h2>
               <p className="text-lg text-gray-700 leading-relaxed">
-                We have verified accounts on the world's famous free classified posting websites. If you are interested in our classified posting service and want to get more business through the internet, we have prepared service packages that suit your needs.
+                We maintain verified accounts on the world's top free classified sites. 
+                Our packages are designed to match your goals, delivering real visibility and engagement.
               </p>
             </motion.div>
 
@@ -128,7 +137,8 @@ export default function ClassifiedsPage() {
             >
               <h2 className="text-3xl font-bold text-sky-800 mb-6">Targeted Reach</h2>
               <p className="text-lg text-gray-700 leading-relaxed">
-                We specialize in posting services for targeted cities and countries on major classified platforms. Our strategic approach ensures your ads reach the right audience in the right locations for maximum conversion potential.
+                We specialize in targeted city and country-specific posting on major platforms. 
+                Our strategic approach ensures your ads reach the right audience at the right time.
               </p>
             </motion.div>
 
@@ -141,7 +151,8 @@ export default function ClassifiedsPage() {
             >
               <h2 className="text-3xl font-bold text-sky-800 mb-6">Affordable Pricing</h2>
               <p className="text-lg text-gray-700 leading-relaxed">
-                CreatorIt is a classified advertising service provider at very affordable prices, recognized worldwide as a leading ad posting agency. We offer custom packages designed to fit your budget and business goals.
+                CreatorIt is recognized globally for cost-effective, high-quality classified ad posting. 
+                Our flexible packages fit every business size and budget.
               </p>
             </motion.div>
           </div>
@@ -159,8 +170,8 @@ export default function ClassifiedsPage() {
                 { title: "Manual Ad Posting", desc: "100% manual posting on high-authority classified sites." },
                 { title: "Targeted Campaigns", desc: "City and country-specific ad placement strategies." },
                 { title: "Live Ads Management", desc: "Full access to modify and manage your posted ads." },
-                { title: "Detailed Reporting", desc: "Complete reports with credentials and performance metrics." },
-                { title: "High Traffic Sites", desc: "Posting on popular platforms with maximum visibility." },
+                { title: "Detailed Reporting", desc: "Comprehensive reports with performance analytics." },
+                { title: "High Traffic Sites", desc: "Posting on popular platforms for maximum visibility." },
                 { title: "24/7 Support", desc: "Round-the-clock assistance for your classified campaigns." },
               ].map(({ title, desc }, i) => (
                 <div className="flex items-start" key={i}>
@@ -185,9 +196,12 @@ export default function ClassifiedsPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600"
+            {/* ✅ LOCAL IMAGE 2 */}
+            <Image
+              src={BesideSEOImage}
               alt="Classified Performance Metrics"
+              width={800}
+              height={600}
               className="rounded-2xl shadow-2xl w-full transition-transform duration-300 hover:scale-105"
             />
           </motion.div>
@@ -200,10 +214,10 @@ export default function ClassifiedsPage() {
           >
             <h2 className="text-4xl font-bold mb-6 text-sky-800">Performance Tracking</h2>
             <p className="text-lg text-gray-600 mb-4 leading-relaxed">
-              Monitor your classified ad performance with detailed reports and analytics. Track views, responses, and conversions to measure the effectiveness of your campaigns.
+              Monitor your classified ad performance with detailed reports and analytics. Track views, responses, and conversions to measure success.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Our comprehensive reporting gives you full transparency and control over your classified advertising investments.
+              Our reports give you full transparency and control over every aspect of your classified campaigns.
             </p>
           </motion.div>
         </div>

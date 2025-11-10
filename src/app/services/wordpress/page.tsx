@@ -1,8 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Code2, Settings, ShieldCheck, Globe, Database, Zap } from 'lucide-react';
+
+// ✅ Local image imports (3 levels up from src/app/services/wordpress)
+import BesideWordPressImage from '../../../../Images/Beside_WordPress Development.png';
+import InsideWordPressImage from '../../../../Images/Inside_Content_Marketing_and_Wordpress.png';
 
 export default function WordPressPage() {
   return (
@@ -51,13 +56,15 @@ export default function WordPressPage() {
             >
               <h2 className="text-4xl font-bold mb-6 text-sky-800">World's Most Popular CMS</h2>
               <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                WordPress is the world's most popular content management system, powering over 40% of all websites. Our expert developers create custom WordPress solutions that are secure, scalable, and easy to manage.
+                WordPress is the world's most popular content management system, powering over 40% of all websites. 
+                Our expert developers create custom WordPress solutions that are secure, scalable, and easy to manage.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
                 From simple blogs to complex e-commerce platforms, we build WordPress sites that deliver exceptional performance and user experience.
               </p>
             </motion.div>
 
+            {/* ✅ Local Image 1 */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -65,9 +72,11 @@ export default function WordPressPage() {
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=600"
+              <Image
+                src={BesideWordPressImage}
                 alt="WordPress Development"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -175,15 +184,19 @@ export default function WordPressPage() {
       <section className="py-20 bg-gradient-to-b from-sky-50 to-white">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            
+            {/* ✅ Local Image 2 */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               className="order-2 md:order-1 flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=800&h=600"
+              <Image
+                src={InsideWordPressImage}
                 alt="WordPress Dashboard"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -196,7 +209,8 @@ export default function WordPressPage() {
             >
               <h2 className="text-4xl font-bold mb-6 text-sky-800">Expert WordPress Solutions</h2>
               <p className="text-lg text-gray-600 mb-4 leading-relaxed">
-                Our WordPress development team has years of experience creating custom solutions for businesses of all sizes. We follow WordPress coding standards and best practices to ensure your site is secure, fast, and maintainable.
+                Our WordPress development team has years of experience creating custom solutions for businesses of all sizes. 
+                We follow WordPress coding standards and best practices to ensure your site is secure, fast, and maintainable.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Whether you need a simple blog, corporate website, or complex e-commerce platform, we have the expertise to bring your vision to life.
@@ -215,7 +229,9 @@ export default function WordPressPage() {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto relative z-10"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">Ready to Build with WordPress?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">
+            Ready to Build with WordPress?
+          </h2>
           <p className="text-lg md:text-xl text-blue-100 mb-10">
             Let us create a powerful WordPress website that grows with your business.
           </p>

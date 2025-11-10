@@ -1,8 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Palette, Monitor, Globe, ShieldCheck, Layers, Users } from 'lucide-react';
+
+// ✅ Local image imports
+import BesideWebDesignImage from '../../../../Images/Beside_Web_Design.png';
+import InsideWebDesignImage from '../../../../Images/Inside_Web_Design.png';
 
 export default function WebDesignPage() {
   return (
@@ -53,10 +58,10 @@ export default function WebDesignPage() {
             >
               <h2 className="text-4xl font-bold mb-6 text-sky-800">Design That Drives Results</h2>
               <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                CreatorIt is a dedicated web solution company, whose objective is to enable customer profitability through building web solutions that work. Design should be professional, attractive, mission oriented and convey business message at a single glance.
+                CreatorIt is a dedicated web solution company, whose objective is to enable customer profitability through building web solutions that work. Design should be professional, attractive, mission-oriented, and convey your business message at a single glance.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Whether you're building your first website or enhancing your current site, CreatorIt can help your business succeed online with affordable, professional design services.
+                Whether you're building your first website or enhancing your current one, CreatorIt helps your business succeed online with affordable, professional design services.
               </p>
               <div className="mt-8 bg-sky-50 border-l-4 border-sky-500 p-5 rounded-xl shadow-sm">
                 <p className="italic text-gray-700">
@@ -66,6 +71,7 @@ export default function WebDesignPage() {
               </div>
             </motion.div>
 
+            {/* ✅ Local Image 1 */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -73,9 +79,11 @@ export default function WebDesignPage() {
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600"
+              <Image
+                src={BesideWebDesignImage}
                 alt="Professional Web Design"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -92,7 +100,7 @@ export default function WebDesignPage() {
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {[
-              { icon: Palette, title: 'Graphic Design', desc: 'High quality design and layout using modern tools and technologies.' },
+              { icon: Palette, title: 'Graphic Design', desc: 'High-quality design and layout using modern tools and technologies.' },
               { icon: Monitor, title: 'Responsive Design', desc: 'Mobile-friendly websites that work perfectly on all devices.' },
               { icon: Globe, title: 'Domain & Hosting', desc: 'Complete solutions including domain registration and web hosting.' },
               { icon: ShieldCheck, title: 'SEO Optimization', desc: 'Search engine optimized designs for better visibility.' },
@@ -156,9 +164,12 @@ export default function WebDesignPage() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&h=600"
+            {/* ✅ Local Image 2 */}
+            <Image
+              src={InsideWebDesignImage}
               alt="Web Design Process"
+              width={800}
+              height={600}
               className="rounded-2xl shadow-2xl w-full transition-transform duration-300 hover:scale-105"
             />
           </motion.div>

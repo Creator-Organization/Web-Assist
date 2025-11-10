@@ -1,8 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ShoppingBag, Zap, Layers, Server, DollarSign, Code2 } from 'lucide-react';
+
+// ✅ Local image imports (3 levels up from /magento/page.tsx)
+import BesideMagentoImage from '../../../../Images/Beside_E-commerce_Services_and_Magento.png';
+import InsideMagentoImage from '../../../../Images/Inside_E-Commerce_and_Magento_development.png';
 
 export default function MagentoPage() {
   return (
@@ -29,7 +34,7 @@ export default function MagentoPage() {
           </Link>
         </motion.div>
 
-        {/* Decorative gradient glow */}
+        {/* Decorative Glow */}
         <div className="absolute inset-0 bg-gradient-to-b from-sky-100/40 via-transparent to-blue-50 pointer-events-none" />
         <motion.div
           initial={{ opacity: 0 }}
@@ -43,6 +48,8 @@ export default function MagentoPage() {
       <section className="relative py-20 bg-white overflow-hidden">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+
+            {/* About Text */}
             <motion.div
               initial={{ x: -40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -51,13 +58,14 @@ export default function MagentoPage() {
             >
               <h2 className="text-4xl font-bold mb-6 text-sky-800">Ultimate E-commerce Platform</h2>
               <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                Magento provides modern open-source web solutions with unparalleled control and flexibility. Every e-commerce implementation has to be distinctive as every business succeeds due to its unique qualities.
+                Magento provides modern open-source web solutions with unparalleled control and flexibility. Every e-commerce implementation must be distinctive as each business thrives due to its unique strengths.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Magento has total flexibility and control over content, look and functionality of your online store. It's economical because of its open source nature and customizable to your exact needs.
+                With complete flexibility over content, appearance, and store functionality, Magento helps you design a store that fits your brand and goals perfectly — all while being cost-efficient and scalable.
               </p>
             </motion.div>
 
+            {/* ✅ Local Image 1 */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -65,9 +73,11 @@ export default function MagentoPage() {
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1556742400-b5b7c9c13870?w=800&h=600"
+              <Image
+                src={BesideMagentoImage}
                 alt="Magento E-commerce"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -175,15 +185,19 @@ export default function MagentoPage() {
       <section className="py-20 bg-gradient-to-b from-sky-50 to-white">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            
+            {/* ✅ Local Image 2 */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               className="order-2 md:order-1 flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600"
+              <Image
+                src={InsideMagentoImage}
                 alt="Magento Platform"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -196,10 +210,12 @@ export default function MagentoPage() {
             >
               <h2 className="text-4xl font-bold mb-6 text-sky-800">Our Magento Expertise</h2>
               <p className="text-lg text-gray-600 mb-4 leading-relaxed">
-                Our deep insights in open source technology allow us to provide Magento customization that delivers assured quality and value. We provide full transparency in our dealings with no hidden charges.
+                Our deep insights in open-source technology allow us to provide Magento customization that delivers assured quality and value. 
+                We maintain full transparency and deliver solutions tailored to your unique business model.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Our developers create customized modules, integrate your site with other software and themes, making full use of unique Magento e-commerce services for minimal hassle and maximum profit.
+                Our team builds customized modules, integrates third-party services, and optimizes performance — 
+                ensuring minimal hassle and maximum scalability for your online store.
               </p>
             </motion.div>
           </div>

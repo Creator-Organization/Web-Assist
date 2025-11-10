@@ -1,10 +1,16 @@
+'use client';
+
 import Link from 'next/link';
+import Image from 'next/image';
 import { Users, Award, Clock, Code, Heart, Briefcase, TrendingUp } from 'lucide-react';
+
+// ✅ Import local image
+import careerImage from '../../../Images/Hero_Services.png';
 
 export default function CareersPage() {
   return (
     <div className="min-h-screen w-full bg-gray-50 overflow-x-hidden">
-      {/* Hero Section */}
+      {/* 🌟 Hero Section */}
       <section className="relative py-20 hero-gradient text-white overflow-hidden">
         <video
           autoPlay
@@ -13,18 +19,21 @@ export default function CareersPage() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover z-0"
         >
+          {/* ✅ Keep the video code as-is */}
           <source src="/images/video.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
-          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Careers at CreatorIt</h1>
+          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">
+            Careers at CreatorIt
+          </h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
             Join our team and grow your career with us
           </p>
         </div>
       </section>
 
-      {/* Stats Bar */}
+      {/* 📊 Stats Bar */}
       <section className="py-12 bg-white border-b">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto text-center">
@@ -48,7 +57,7 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Image + Text Section */}
+      {/* 🖼️ Image + Text Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -62,15 +71,22 @@ export default function CareersPage() {
               </p>
               <div className="bg-primary-50 p-6 rounded-lg border-l-4 border-primary-500">
                 <p className="text-lg text-gray-900 font-semibold mb-2">Ready to apply?</p>
-               <a href="mailto:career@creatorit.com" className="text-lg text-primary-600 hover:text-primary-700 font-medium">
-                "Send your application to career@creatorit.com"
-              </a>
+                <a
+                  href="mailto:career@creatorit.com"
+                  className="text-lg text-primary-600 hover:text-primary-700 font-medium"
+                >
+                  Send your application to career@creatorit.com
+                </a>
               </div>
             </div>
+
+            {/* ✅ Local Image */}
             <div className="flex justify-center">
-              <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600"
+              <Image
+                src={careerImage}
                 alt="CreatorIt Team"
+                width={500}
+                height={400}
                 className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
               />
             </div>
@@ -78,65 +94,37 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Benefits Grid */}
+      {/* 💼 Benefits Grid */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">What We Offer</h2>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <TrendingUp className="w-6 h-6 text-primary-600" />
+              {[
+                { icon: TrendingUp, title: 'Growth Opportunities', desc: 'Continuous learning and career advancement with training programs' },
+                { icon: Award, title: 'Competitive Compensation', desc: 'Industry-standard salaries plus performance incentives' },
+                { icon: Clock, title: 'Flexible Work', desc: 'Work-life balance with flexible schedules and remote options' },
+                { icon: Code, title: 'Modern Technology', desc: 'Work with the latest tools and cutting-edge technologies' },
+                { icon: Users, title: 'Great Team Culture', desc: 'Collaborative environment with supportive colleagues' },
+                { icon: Heart, title: 'Health & Wellness', desc: 'Comprehensive health benefits and wellness programs' },
+              ].map(({ icon: Icon, title, desc }, i) => (
+                <div
+                  key={i}
+                  className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow"
+                >
+                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-primary-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{title}</h3>
+                  <p className="text-gray-700">{desc}</p>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Growth Opportunities</h3>
-                <p className="text-gray-700">Continuous learning and career advancement with training programs</p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <Award className="w-6 h-6 text-primary-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Competitive Compensation</h3>
-                <p className="text-gray-700">Industry-standard salaries plus performance incentives</p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <Clock className="w-6 h-6 text-primary-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Flexible Work</h3>
-                <p className="text-gray-700">Work-life balance with flexible schedules and remote options</p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <Code className="w-6 h-6 text-primary-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Modern Technology</h3>
-                <p className="text-gray-700">Work with the latest tools and cutting-edge technologies</p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6 text-primary-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Great Team Culture</h3>
-                <p className="text-gray-700">Collaborative environment with supportive colleagues</p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <Heart className="w-6 h-6 text-primary-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Health & Wellness</h3>
-                <p className="text-gray-700">Comprehensive health benefits and wellness programs</p>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Open Positions */}
+      {/* 🧾 Open Positions */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="max-w-4xl mx-auto">
@@ -147,9 +135,12 @@ export default function CareersPage() {
                 { title: 'UI/UX Designer', dept: 'Design', type: 'Full-time' },
                 { title: 'Digital Marketing Specialist', dept: 'Marketing', type: 'Full-time' },
                 { title: 'Project Manager', dept: 'Operations', type: 'Full-time' },
-                { title: 'DevOps Engineer', dept: 'Engineering', type: 'Contract' }
+                { title: 'DevOps Engineer', dept: 'Engineering', type: 'Contract' },
               ].map((job, i) => (
-                <div key={i} className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow flex items-center justify-between">
+                <div
+                  key={i}
+                  className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow flex items-center justify-between"
+                >
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">{job.title}</h3>
                     <div className="flex gap-4 text-sm text-gray-600">
@@ -163,7 +154,10 @@ export default function CareersPage() {
                       </span>
                     </div>
                   </div>
-                  <Link href="/contact" className="bg-primary-500 hover:bg-primary-600 text-white px-6 py-2 rounded-lg font-semibold transition-colors">
+                  <Link
+                    href="/contact"
+                    className="bg-primary-500 hover:bg-primary-600 text-white px-6 py-2 rounded-lg font-semibold transition-colors"
+                  >
                     Apply
                   </Link>
                 </div>
@@ -173,7 +167,7 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* 🚀 CTA Section */}
       <section className="bg-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">Ready to Join Our Team?</h2>
