@@ -27,11 +27,11 @@ function generateContactNotificationEmail(contact: DatabaseContact): EmailTempla
       <title>New Contact Form Submission</title>
       <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0; }
+        .header { background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0; }
         .content { background: #f8fafc; padding: 20px; border-radius: 0 0 8px 8px; }
         .field { margin-bottom: 15px; }
-        .label { font-weight: bold; color: #1e3a8a; }
-        .value { margin-top: 5px; padding: 8px; background: white; border-left: 4px solid #2563eb; }
+        .label { font-weight: bold; color: #0f766e; }
+        .value { margin-top: 5px; padding: 8px; background: white; border-left: 4px solid #14b8a6; }
         .priority { background: #fef3c7; border-left-color: #f59e0b; }
         .footer { margin-top: 20px; padding-top: 20px; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 14px; }
       </style>
@@ -39,7 +39,7 @@ function generateContactNotificationEmail(contact: DatabaseContact): EmailTempla
     <body>
       <div class="header">
         <h1 style="margin: 0;">New Contact Form Submission</h1>
-        <p style="margin: 10px 0 0 0;">CreatorIt Contact Form</p>
+        <p style="margin: 10px 0 0 0;">CreatorIT Contact Form</p>
       </div>
       
       <div class="content">
@@ -90,7 +90,7 @@ function generateContactNotificationEmail(contact: DatabaseContact): EmailTempla
       </div>
 
       <div class="footer">
-        <p>This email was automatically generated from the CreatorIt contact form.</p>
+        <p>This email was automatically generated from the CreatorIT contact form.</p>
         <p>To respond to this inquiry, reply directly to this email or contact ${contact.name} at ${contact.email}</p>
       </div>
     </body>
@@ -98,7 +98,7 @@ function generateContactNotificationEmail(contact: DatabaseContact): EmailTempla
   `;
 
   const text = `
-New Contact Form Submission - CreatorIt
+New Contact Form Submission - CreatorIT
 
 Contact Information:
 - Name: ${contact.name}
@@ -133,14 +133,24 @@ To respond to this inquiry, contact ${contact.name} at ${contact.email}
 // Send contact form notification email
 export async function sendContactNotification(contact: DatabaseContact): Promise<boolean> {
   try {
+    // Debug: Log all email-related env vars (safely)
+    console.log('🔍 Environment Check:');
+    console.log('- RESEND_API_KEY exists:', !!process.env.RESEND_API_KEY);
+    console.log('- RESEND_API_KEY prefix:', process.env.RESEND_API_KEY?.substring(0, 8));
+    console.log('- FROM_EMAIL:', process.env.FROM_EMAIL);
+    console.log('- TO_EMAIL:', process.env.TO_EMAIL);
+    console.log('- NODE_ENV:', process.env.NODE_ENV);
+
     // Check if Resend is configured
     if (!process.env.RESEND_API_KEY) {
-      console.warn('RESEND_API_KEY not configured. Email notification skipped.');
+      console.error('❌ RESEND_API_KEY not configured. Email notification skipped.');
       return false;
     }
 
     const fromEmail = process.env.FROM_EMAIL || 'onboarding@resend.dev';
     const toEmail = process.env.TO_EMAIL || 'vivekrawal0405@gmail.com';
+
+    console.log('📧 Sending email from:', fromEmail, 'to:', toEmail);
 
     const emailTemplate = generateContactNotificationEmail(contact);
 
@@ -150,9 +160,7 @@ export async function sendContactNotification(contact: DatabaseContact): Promise
       subject: emailTemplate.subject,
       html: emailTemplate.html,
       text: emailTemplate.text,
-      // Add reply-to for easy responses
       reply_to: contact.email,
-      // Add tags for tracking (sanitized for Resend requirements)
       tags: [
         { name: 'type', value: 'contact_form' },
         { 
@@ -174,13 +182,11 @@ export async function sendContactNotification(contact: DatabaseContact): Promise
       ],
     });
 
-    console.log('Email notification sent successfully:', result.data?.id || 'success');
-    return true;
+console.log('✅ Email notification sent successfully:', result.data?.id || 'success');    return true;
 
   } catch (error) {
-    console.error('Failed to send email notification:', error);
+    console.error('❌ Failed to send email notification:', error);
     
-    // Log specific error details for debugging
     if (error instanceof Error) {
       console.error('Error message:', error.message);
       console.error('Error stack:', error.stack);
@@ -200,17 +206,17 @@ export async function sendAutoReply(contact: DatabaseContact): Promise<boolean> 
 
     const fromEmail = process.env.FROM_EMAIL || 'onboarding@resend.dev';
 
-    const subject = 'Thank you for contacting CreatorIt';
+    const subject = 'Thank you for contacting CreatorIT';
     
     const html = `
       <!DOCTYPE html>
       <html>
       <head>
         <meta charset="utf-8">
-        <title>Thank you for contacting CreatorIt</title>
+        <title>Thank you for contacting CreatorIT</title>
         <style>
           body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }
-          .header { background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); color: white; padding: 20px; border-radius: 8px; text-align: center; }
+          .header { background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%); color: white; padding: 20px; border-radius: 8px; text-align: center; }
           .content { margin: 20px 0; }
           .footer { margin-top: 30px; padding-top: 20px; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 14px; }
         </style>
@@ -224,7 +230,7 @@ export async function sendAutoReply(contact: DatabaseContact): Promise<boolean> 
         <div class="content">
           <p>Hello ${contact.name},</p>
           
-          <p>Thank you for reaching out to CreatorIt! We've received your inquiry about your <strong>${contact.projectType.toLowerCase()}</strong> project.</p>
+          <p>Thank you for reaching out to CreatorIT! We've received your inquiry about your <strong>${contact.projectType.toLowerCase()}</strong> project.</p>
           
           <p>Here's what happens next:</p>
           <ul>
@@ -238,12 +244,12 @@ export async function sendAutoReply(contact: DatabaseContact): Promise<boolean> 
           <p>If you have any urgent questions, you can reply to this email or call us directly.</p>
           
           <p>Best regards,<br>
-          <strong>The CreatorIt Team</strong></p>
+          <strong>The CreatorIT Team</strong></p>
         </div>
 
         <div class="footer">
-          <p>CreatorIt - Professional Web Development Services</p>
-          <p>This is an automated response. Please do not reply to this email.</p>
+          <p>CreatorIT - Professional Web Development Services</p>
+          <p><a href="https://www.creatorit.in" style="color: #14b8a6; text-decoration: none;">www.creatorit.in</a></p>
         </div>
       </body>
       </html>
@@ -252,7 +258,7 @@ export async function sendAutoReply(contact: DatabaseContact): Promise<boolean> 
     const text = `
 Hello ${contact.name},
 
-Thank you for reaching out to CreatorIt! We've received your inquiry about your ${contact.projectType.toLowerCase()} project.
+Thank you for reaching out to CreatorIT! We've received your inquiry about your ${contact.projectType.toLowerCase()} project.
 
 Here's what happens next:
 - We'll review your project requirements within 2-4 hours
@@ -264,11 +270,11 @@ In the meantime, feel free to check out our recent work and client testimonials 
 If you have any urgent questions, you can reply to this email or call us directly.
 
 Best regards,
-The CreatorIt Team
+The CreatorIT Team
 
 ---
-CreatorIt - Professional Web Development Services
-This is an automated response. Please do not reply to this email.
+CreatorIT - Professional Web Development Services
+www.creatorit.in
     `;
 
     const result = await resend.emails.send({
@@ -282,11 +288,10 @@ This is an automated response. Please do not reply to this email.
       ],
     });
 
-    console.log('Auto-reply sent successfully:', result.data?.id || 'success');
-    return true;
+console.log('✅ Auto-reply sent successfully:', result.data?.id || 'success');    return true;
 
   } catch (error) {
-    console.error('Failed to send auto-reply:', error);
+    console.error('❌ Failed to send auto-reply:', error);
     return false;
   }
 }
@@ -305,16 +310,15 @@ export async function testEmailConfiguration(): Promise<boolean> {
     const result = await resend.emails.send({
       from: fromEmail,
       to: toEmail,
-      subject: 'CreatorIt Email Configuration Test',
-      html: '<p>This is a test email to verify your CreatorIt email configuration is working correctly.</p>',
-      text: 'This is a test email to verify your CreatorIt email configuration is working correctly.',
+      subject: 'CreatorIT Email Configuration Test',
+      html: '<p>This is a test email to verify your CreatorIT email configuration is working correctly.</p>',
+      text: 'This is a test email to verify your CreatorIT email configuration is working correctly.',
     });
 
-    console.log('Test email sent successfully:', result.data?.id || 'success');
-    return true;
+console.log('✅ Test email sent successfully:', result.data?.id || 'success');    return true;
 
   } catch (error) {
-    console.error('Email configuration test failed:', error);
+    console.error('❌ Email configuration test failed:', error);
     return false;
   }
 }
