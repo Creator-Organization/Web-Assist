@@ -139,8 +139,8 @@ export async function sendContactNotification(contact: DatabaseContact): Promise
       return false;
     }
 
-    const fromEmail = process.env.FROM_EMAIL || 'noreply@CreatorIt.com';
-    const toEmail = process.env.TO_EMAIL || 'contact@CreatorIt.com';
+    const fromEmail = process.env.FROM_EMAIL || 'onboarding@resend.dev';
+    const toEmail = process.env.TO_EMAIL || 'vivekrawal0405@gmail.com';
 
     const emailTemplate = generateContactNotificationEmail(contact);
 
@@ -198,7 +198,7 @@ export async function sendAutoReply(contact: DatabaseContact): Promise<boolean> 
       return false;
     }
 
-    const fromEmail = process.env.FROM_EMAIL || 'noreply@CreatorIt.com';
+    const fromEmail = process.env.FROM_EMAIL || 'onboarding@resend.dev';
 
     const subject = 'Thank you for contacting CreatorIt';
     
@@ -299,8 +299,8 @@ export async function testEmailConfiguration(): Promise<boolean> {
       return false;
     }
 
-    const fromEmail = process.env.FROM_EMAIL || 'noreply@CreatorIt.com';
-    const toEmail = process.env.TO_EMAIL || 'contact@CreatorIt.com';
+    const fromEmail = process.env.FROM_EMAIL || 'onboarding@resend.dev';
+    const toEmail = process.env.TO_EMAIL || 'vivekrawal0405@gmail.com';
 
     const result = await resend.emails.send({
       from: fromEmail,
