@@ -1,7 +1,10 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
+import BesideSEOImage from '../../../../Images/Beside_SEO_Services_and_Drupal_Development.png';
+import InsideEmailSEOImage from '../../../../Images/Inside_Email_and_SEO.png';
 
 export default function EmailMarketingPage() {
   return (
@@ -64,7 +67,7 @@ export default function EmailMarketingPage() {
               </div>
             </motion.div>
 
-            {/* RIGHT IMAGE */}
+            {/* RIGHT IMAGE (LOCAL IMPORT) */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -72,9 +75,11 @@ export default function EmailMarketingPage() {
               transition={{ duration: 0.8 }}
               className="flex justify-center relative z-10"
             >
-              <img
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600"
+              <Image
+                src={BesideSEOImage}
                 alt="Email Marketing Strategy"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -187,9 +192,11 @@ export default function EmailMarketingPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800"
+            <Image
+              src={InsideEmailSEOImage}
               alt="Email Campaign Analytics"
+              width={800}
+              height={600}
               className="rounded-2xl shadow-2xl w-full transition-transform duration-300 hover:scale-105"
             />
           </motion.div>

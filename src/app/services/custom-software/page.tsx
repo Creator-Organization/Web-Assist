@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
   Code2,
@@ -11,6 +12,11 @@ import {
   Layers,
   CheckCircle2,
 } from 'lucide-react';
+
+// ✅ Local image imports
+import BesideOnlineSurveysImage from '../../../../Images/Beside_Online_Surveys.png';
+import InsideSEMGoogleImage from '../../../../Images/Inside_SEM&Google_and_Online_Survey_and_Drupal_Development.png';
+import BesideOffshoreImage from '../../../../Images/Beside_Offshore.png';
 
 export default function CustomSoftwarePage() {
   return (
@@ -51,6 +57,8 @@ export default function CustomSoftwarePage() {
       <section className="relative py-20 bg-white overflow-hidden">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+
+            {/* Text */}
             <motion.div
               initial={{ x: -40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -66,15 +74,19 @@ export default function CustomSoftwarePage() {
               </p>
             </motion.div>
 
+            {/* ✅ Local Image 1 */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600"
+              <Image
+                src={BesideOnlineSurveysImage}
                 alt="Custom Software Development"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -120,15 +132,19 @@ export default function CustomSoftwarePage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 xl:px-16 max-w-6xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
+            
+            {/* ✅ Local Image 2 */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               className="order-2 md:order-1 flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600"
+              <Image
+                src={InsideSEMGoogleImage}
                 alt="Software Solutions"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -160,7 +176,7 @@ export default function CustomSoftwarePage() {
         </div>
       </section>
 
-      {/* 💡 SERVICES GRID — updated with different icons */}
+      {/* 💡 SERVICES GRID */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16 max-w-6xl">
           <h2 className="text-4xl font-bold text-center mb-12 text-sky-800">Our Services</h2>
@@ -212,15 +228,18 @@ export default function CustomSoftwarePage() {
               </p>
             </motion.div>
 
+            {/* ✅ Local Image 3 */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600"
+              <Image
+                src={BesideOffshoreImage}
                 alt="Software Consulting"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>

@@ -1,8 +1,20 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ShoppingBag, CreditCard, Store, Package, ClipboardList, Smartphone } from 'lucide-react';
+import {
+  ShoppingBag,
+  CreditCard,
+  Store,
+  Package,
+  ClipboardList,
+  Smartphone,
+} from 'lucide-react';
+
+// ✅ Correct relative imports (3 levels up from /src/app/services/ecommerce)
+import BesideEcommerceImage from '../../../../Images/Beside_E-commerce_Services_and_Magento.png';
+import InsideEcommerceImage from '../../../../Images/Inside_E-Commerce_and_Magento_development.png';
 
 export default function EcommercePage() {
   return (
@@ -53,13 +65,16 @@ export default function EcommercePage() {
             >
               <h2 className="text-4xl font-bold mb-6 text-sky-800">E-commerce Opportunities</h2>
               <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                With e-commerce booming at a tremendous pace, small businesses have found dimensional gates of growth. E-tailers connect sellers with buyers for a commission, helping them mutually. Many businesses survive purely depending on online marketplaces.
+                With e-commerce booming at a tremendous pace, small businesses have found dimensional gates of growth. 
+                E-tailers connect sellers with buyers for a commission, helping them mutually. Many businesses survive purely depending on online marketplaces.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                E-commerce sites provide small scale retailers a space to market their products without physical stores. Small businesses have rocketed after establishing their online presence.
+                E-commerce sites provide small scale retailers a space to market their products without physical stores. 
+                Small businesses have rocketed after establishing their online presence.
               </p>
             </motion.div>
 
+            {/* ✅ Local Image 1 */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -67,9 +82,11 @@ export default function EcommercePage() {
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600"
+              <Image
+                src={BesideEcommerceImage}
                 alt="E-commerce Solutions"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -117,14 +134,18 @@ export default function EcommercePage() {
       {/* 📊 DESIGN APPROACH SECTION */}
       <section className="py-20 bg-gradient-to-b from-white to-sky-50">
         <div className="container px-6 xl:px-16 grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          
+          {/* ✅ Local Image 2 */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600"
-              alt="E-commerce Platform"
+            <Image
+              src={InsideEcommerceImage}
+              alt="E-commerce Platform Design"
+              width={800}
+              height={600}
               className="rounded-2xl shadow-2xl w-full transition-transform duration-300 hover:scale-105"
             />
           </motion.div>
@@ -136,10 +157,12 @@ export default function EcommercePage() {
           >
             <h2 className="text-4xl font-bold mb-6 text-sky-800">Superior Design Approach</h2>
             <p className="text-lg text-gray-600 mb-4 leading-relaxed">
-              CreatorIt understands that e-commerce requires superior design to drive customers straight to checkout. We follow best practices to reach maximum consumer outreach and define your marketing goals.
+              CreatorIt understands that e-commerce requires superior design to drive customers straight to checkout. 
+              We follow best practices to reach maximum consumer outreach and define your marketing goals.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
-              We design your e-commerce site from the ground up — everything from content development to final graphic design layout for consistent branding on every page.
+              We design your e-commerce site from the ground up — everything from content development to final graphic design layout 
+              for consistent branding on every page.
             </p>
           </motion.div>
         </div>
@@ -167,7 +190,6 @@ export default function EcommercePage() {
           </Link>
         </motion.div>
 
-        {/* Floating Glow */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
         <motion.div
           animate={{ rotate: 360 }}

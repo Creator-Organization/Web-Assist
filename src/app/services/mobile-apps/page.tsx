@@ -1,8 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Smartphone, Layers, Rocket, Globe, CheckCircle2 } from 'lucide-react';
+
+// ✅ Local image imports
+import BesideMobileAppImage from '../../../../Images/Beside_Mobile_App.png';
+import BesideCustomSoftwareImage from '../../../../Images/Beside_Custom_Software.png';
 
 export default function MobileAppsPage() {
   return (
@@ -29,7 +34,7 @@ export default function MobileAppsPage() {
           </Link>
         </motion.div>
 
-        {/* Decorative gradient glow */}
+        {/* Decorative Glow */}
         <div className="absolute inset-0 bg-gradient-to-b from-sky-100/40 via-transparent to-blue-50 pointer-events-none" />
         <motion.div
           initial={{ opacity: 0 }}
@@ -43,6 +48,8 @@ export default function MobileAppsPage() {
       <section className="relative py-20 bg-white overflow-hidden">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+
+            {/* Text */}
             <motion.div
               initial={{ x: -40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -54,10 +61,11 @@ export default function MobileAppsPage() {
                 We offer cutting-edge mobile development solutions that help enterprises communicate seamlessly and process data effortlessly in a fast environment.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Our solutions cover the whole software development cycle — from requirements to deployment, testing and maintenance with a systematic approach.
+                Our solutions cover the entire software development cycle — from requirements to deployment, testing, and maintenance with a systematic approach.
               </p>
             </motion.div>
 
+            {/* ✅ Local Image 1 */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -65,9 +73,11 @@ export default function MobileAppsPage() {
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600"
+              <Image
+                src={BesideMobileAppImage}
                 alt="Mobile App Development"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -170,19 +180,24 @@ export default function MobileAppsPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+
+            {/* ✅ Local Image 2 */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               className="order-2 md:order-1 flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600"
+              <Image
+                src={BesideCustomSoftwareImage}
                 alt="Mobile Development Process"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
 
+            {/* Text */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}

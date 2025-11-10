@@ -1,10 +1,14 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
+// Local image imports (same pattern as EmailMarketingPage)
+import BesideClassifiedImage from '../../../../Images/Beside_Classified_Services.png';
+import InsideEmailSEOImage from '../../../../Images/Inside_Email_and_SEO.png';
 
-export default function SEOServicesPage() {
+export default function SEOServicesPage(): JSX.Element {
   return (
     <main className="min-h-screen w-full bg-gradient-to-b from-blue-50 via-white to-sky-50 text-gray-800 font-inter overflow-x-hidden">
       
@@ -65,6 +69,7 @@ export default function SEOServicesPage() {
               </div>
             </motion.div>
 
+            {/* RIGHT IMAGE (LOCAL IMPORT) */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -72,9 +77,11 @@ export default function SEOServicesPage() {
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800"
+              <Image
+                src={BesideClassifiedImage}
                 alt="SEO Analytics and Strategy"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -187,9 +194,11 @@ export default function SEOServicesPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800"
+            <Image
+              src={InsideEmailSEOImage}
               alt="SEO Performance Results"
+              width={800}
+              height={600}
               className="rounded-2xl shadow-2xl w-full transition-transform duration-300 hover:scale-105"
             />
           </motion.div>

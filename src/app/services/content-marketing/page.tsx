@@ -1,8 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
+// ✅ Local image imports
+import VisionMissionImage from '../../../../Images/vision_and_Mission.png';
+import InsideContentImage from '../../../../Images/Inside_Content_Marketing_and_Wordpress.png';
 
 export default function ContentMarketingPage() {
   return (
@@ -67,7 +71,7 @@ export default function ContentMarketingPage() {
               </div>
             </motion.div>
 
-            {/* Image */}
+            {/* ✅ Local Image 1 */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -75,9 +79,11 @@ export default function ContentMarketingPage() {
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600"
+              <Image
+                src={VisionMissionImage}
                 alt="Content Marketing Strategy"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -185,9 +191,12 @@ export default function ContentMarketingPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&h=600"
+            {/* ✅ Local Image 2 */}
+            <Image
+              src={InsideContentImage}
               alt="Content Performance Analytics"
+              width={800}
+              height={600}
               className="rounded-2xl shadow-2xl w-full transition-transform duration-300 hover:scale-105"
             />
           </motion.div>

@@ -1,8 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
+// ✅ Local image imports
+import BesideGoogleImage from '../../../../Images/Beside_Google_Marketing.png';
+import InsideGoogleImage from '../../../../Images/Inside_SEM&Google_and_Online_Survey_and_Drupal_Development.png';
 
 export default function GoogleMarketingPage() {
   return (
@@ -45,7 +49,7 @@ export default function GoogleMarketingPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto relative">
             <div className="hidden md:block absolute -left-24 top-10 w-64 h-64 bg-sky-200 opacity-20 rounded-full -z-10" />
 
-            {/* Text Section */}
+            {/* LEFT TEXT SECTION */}
             <motion.div
               initial={{ x: -40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -67,7 +71,7 @@ export default function GoogleMarketingPage() {
               </div>
             </motion.div>
 
-            {/* Image */}
+            {/* ✅ LOCAL IMAGE 1 */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -75,9 +79,11 @@ export default function GoogleMarketingPage() {
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=800&h=600"
+              <Image
+                src={BesideGoogleImage}
                 alt="Google Marketing Strategy"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -185,9 +191,12 @@ export default function GoogleMarketingPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600"
+            {/* ✅ LOCAL IMAGE 2 */}
+            <Image
+              src={InsideGoogleImage}
               alt="Google Analytics Dashboard"
+              width={800}
+              height={600}
               className="rounded-2xl shadow-2xl w-full transition-transform duration-300 hover:scale-105"
             />
           </motion.div>

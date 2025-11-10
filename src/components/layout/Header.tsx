@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { Menu, X, ChevronDown, Phone } from 'lucide-react';
+import Image from 'next/image'; // ✅ Added this import for optimized image handling
+import creatorItLogo from '../../../Images/creatorit-logo4.png'; // ✅ Added your local logo path
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -38,15 +40,17 @@ export default function Header() {
   return (
     <header className="bg-white sticky top-0 z-50 shadow-md border-b border-gray-100">
       <div className="container mx-auto px-4 lg:px-12 flex items-center justify-between h-20">
-        {/* Logo */}
+        {/* ✅ Only this logo section is updated */}
         <a href="/" className="flex items-center">
-          <img
-            src="/images/CreatorIt-logo4.png"
+          <Image
+            src={creatorItLogo}
             alt="CreatorIt Logo"
             className="w-28 h-auto"
+            priority
           />
         </a>
 
+        {/* Rest of your code remains EXACTLY the same */}
         {/* Desktop Nav */}
         <nav className="hidden xl:flex items-center space-x-8">
           <NavLink href="/">Home</NavLink>
@@ -132,6 +136,7 @@ export default function Header() {
         </button>
       </div>
 
+      {/* ✅ No UI changes below */}
       {/* Mobile Menu */}
       <div
         className={`xl:hidden fixed top-20 right-0 h-full w-72 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${

@@ -1,8 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Layers, Server, Code2, Database, Globe } from 'lucide-react';
+
+// ✅ Local image imports (3 levels up)
+import InsideDrupalImage from '../../../../Images/Inside_SEM&Google_and_Online_Survey_and_Drupal_Development.png';
+import BesideDrupalImage from '../../../../Images/Beside_SEO_Services_and_Drupal_Development.png';
 
 export default function DrupalPage() {
   return (
@@ -42,6 +47,7 @@ export default function DrupalPage() {
       <section className="relative py-20 bg-white overflow-hidden">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            
             <motion.div
               initial={{ x: -40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -50,13 +56,15 @@ export default function DrupalPage() {
             >
               <h2 className="text-4xl font-bold mb-6 text-sky-800">Enterprise-Grade CMS</h2>
               <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                Drupal is one of the most popular free and open source Content Management Systems built with PHP. It's used to create websites from personal blogs to large political and corporate web portals.
+                Drupal is one of the most popular free and open-source Content Management Systems built with PHP. 
+                It's used to create websites ranging from personal blogs to large political and corporate web portals.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                No programming skills are required for basic website settings and administration, while developers enjoy a unique programming interface for advanced customization.
+                No programming skills are required for basic website setup, while developers can leverage its powerful API for deep customization.
               </p>
             </motion.div>
 
+            {/* ✅ Local Image 1 */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -64,9 +72,11 @@ export default function DrupalPage() {
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600"
+              <Image
+                src={InsideDrupalImage}
                 alt="Drupal Development"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -77,9 +87,7 @@ export default function DrupalPage() {
       {/* 🧩 FEATURES GRID */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16 max-w-6xl">
-          <h2 className="text-4xl font-bold text-center mb-12 text-sky-800">
-            Core Drupal Features
-          </h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-sky-800">Core Drupal Features</h2>
 
           <div className="grid md:grid-cols-2 gap-10">
             {/* Content Management */}
@@ -140,9 +148,7 @@ export default function DrupalPage() {
       {/* 💎 WHY CHOOSE DRUPAL */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 xl:px-16 max-w-6xl">
-          <h2 className="text-4xl font-bold text-center mb-12 text-sky-800">
-            Why Choose Drupal?
-          </h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-sky-800">Why Choose Drupal?</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { title: 'Highly Extensible', desc: 'Modular design allows unlimited customization', icon: Layers },
@@ -174,15 +180,19 @@ export default function DrupalPage() {
       <section className="py-20 bg-gradient-to-b from-sky-50 to-white">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            
+            {/* ✅ Local Image 2 */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               className="order-2 md:order-1 flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600"
+              <Image
+                src={BesideDrupalImage}
                 alt="Drupal Solutions"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -195,10 +205,11 @@ export default function DrupalPage() {
             >
               <h2 className="text-4xl font-bold mb-6 text-sky-800">Our Drupal Expertise</h2>
               <p className="text-lg text-gray-600 mb-4 leading-relaxed">
-                CreatorIt is an innovator in the open source area, successfully providing Drupal services and solutions to clients worldwide. We leverage open source technologies to assist businesses across various industries.
+                CreatorIt is an innovator in the open-source space, providing Drupal services and solutions worldwide. 
+                We leverage open technologies to build scalable and flexible web solutions.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                We provide progressive Drupal solutions including web applications, design services, software development, social media integration and Drupal migration.
+                Our Drupal expertise includes web apps, design, software development, and full-scale Drupal migration.
               </p>
             </motion.div>
           </div>

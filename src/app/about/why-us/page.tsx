@@ -1,5 +1,11 @@
+'use client';
+
 import Link from 'next/link';
+import Image from 'next/image';
 import { CheckCircle, Award, Users, TrendingUp, Shield, Zap } from 'lucide-react';
+
+// ✅ Local image import
+import BesideOffshoreImage from '../../../../Images/Beside_Offshore.png';
 
 export default function WhyUsPage() {
   return (
@@ -13,11 +19,13 @@ export default function WhyUsPage() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover z-0"
         >
-          <source src="/Images/video.mp4" type="video/mp4" />
+          <source src="/images/video.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
         <div className="relative container mx-auto px-6 xl:px-16 z-10 flex flex-col items-center">
-          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">Why Choose CreatorIt?</h1>
+          <h1 className="text-5xl font-bold mb-4 text-center tracking-tight drop-shadow-lg">
+            Why Choose CreatorIt?
+          </h1>
           <p className="text-xl max-w-3xl text-center mb-6 drop-shadow">
             Discover what makes us the right partner for your web development needs
           </p>
@@ -55,16 +63,24 @@ export default function WhyUsPage() {
             <div>
               <h2 className="text-3xl font-bold mb-4 text-gray-900">Excellence in Every Project</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                CreatorIt has an impressive list of clients that pays testimony to the high quality, timeliness and value of our work. We have the expertise to make your communication and transactions on the internet effective.
+                CreatorIt has an impressive list of clients that pays testimony to the high quality,
+                timeliness and value of our work. We have the expertise to make your communication
+                and transactions on the internet effective.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Our criterion of working sets us apart from the crowd of web solution providers. We focus our goals based on client's business strategies and map them according to our work model for greater transparency and timely delivery.
+                Our criterion of working sets us apart from the crowd of web solution providers. We
+                focus our goals based on client's business strategies and map them according to our
+                work model for greater transparency and timely delivery.
               </p>
             </div>
+
+            {/* ✅ Local image used here */}
             <div className="flex justify-center">
-              <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600"
+              <Image
+                src={BesideOffshoreImage}
                 alt="Team Collaboration"
+                width={600}
+                height={450}
                 className="rounded-lg shadow-lg w-full max-w-[400px] md:max-w-full transition-transform duration-300 hover:scale-105"
               />
             </div>
@@ -78,53 +94,25 @@ export default function WhyUsPage() {
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">What Sets Us Apart</h2>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <Award className="w-6 h-6 text-primary-600" />
+              {[
+                { icon: Award, title: 'Custom Solutions', desc: 'Custom website designs that offer the maximum benefit for your business needs and goals' },
+                { icon: Users, title: 'Client-Focused', desc: 'We strive to understand your requirements and work accordingly to meet your expectations' },
+                { icon: TrendingUp, title: 'Latest Technology', desc: 'We use the latest versions of varied software and technologies for optimal results' },
+                { icon: Shield, title: 'Best Practices', desc: 'We ensure best practices, cross-browser compatibility and clean, maintainable code' },
+                { icon: Zap, title: 'Fast Delivery', desc: 'Timely completion of projects with transparent communication throughout' },
+                { icon: CheckCircle, title: 'E-commerce Excellence', desc: 'Best possible design and functionality for your e-commerce website needs' },
+              ].map(({ icon: Icon, title, desc }, i) => (
+                <div
+                  key={i}
+                  className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow"
+                >
+                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-primary-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{title}</h3>
+                  <p className="text-gray-700">{desc}</p>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Custom Solutions</h3>
-                <p className="text-gray-700">Custom website designs that offer the maximum benefit for your business needs and goals</p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6 text-primary-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Client-Focused</h3>
-                <p className="text-gray-700">We strive to understand your requirements and work accordingly to meet your expectations</p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <TrendingUp className="w-6 h-6 text-primary-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Latest Technology</h3>
-                <p className="text-gray-700">We use the latest versions of varied software and technologies for optimal results</p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <Shield className="w-6 h-6 text-primary-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Best Practices</h3>
-                <p className="text-gray-700">We ensure best practices, cross-browser compatibility and clean, maintainable code</p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <Zap className="w-6 h-6 text-primary-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Fast Delivery</h3>
-                <p className="text-gray-700">Timely completion of projects with transparent communication throughout</p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <CheckCircle className="w-6 h-6 text-primary-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">E-commerce Excellence</h3>
-                <p className="text-gray-700">Best possible design and functionality for your e-commerce website needs</p>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -137,14 +125,18 @@ export default function WhyUsPage() {
             <div className="bg-white rounded-lg p-8 shadow-md">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">About Us</h2>
               <p className="text-gray-700 leading-relaxed">
-                CreatorIt, as a company has an impressive list of clients on its roster, which pays testimony to the high quality, timeliness and value of our work. We have the expertise to make your communication and transactions on the internet effective.
+                CreatorIt, as a company has an impressive list of clients on its roster, which pays
+                testimony to the high quality, timeliness and value of our work. We have the
+                expertise to make your communication and transactions on the internet effective.
               </p>
             </div>
 
             <div className="bg-white rounded-lg p-8 shadow-md">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
               <p className="text-gray-700 leading-relaxed">
-                We aspire to offer next generation technology driven web solutions to our clients that makes an ideal component of their business. Our criterion of working sets us apart from the crowd of web solution providers.
+                We aspire to offer next generation technology driven web solutions to our clients
+                that makes an ideal component of their business. Our criterion of working sets us
+                apart from the crowd of web solution providers.
               </p>
             </div>
           </div>

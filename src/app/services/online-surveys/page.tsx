@@ -1,8 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
+// ✅ Local image imports
+import BesideSurveyImage from '../../../../Images/Beside_Online_Surveys.png';
+import InsideSurveyImage from '../../../../Images/Inside_SEM&Google_and_Online_Survey_and_Drupal_Development.png';
 
 export default function OnlineSurveysPage() {
   return (
@@ -67,7 +71,7 @@ export default function OnlineSurveysPage() {
               </div>
             </motion.div>
 
-            {/* Image */}
+            {/* ✅ LOCAL IMAGE 1 */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -75,9 +79,11 @@ export default function OnlineSurveysPage() {
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600"
+              <Image
+                src={BesideSurveyImage}
                 alt="Survey Research and Analytics"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -185,9 +191,12 @@ export default function OnlineSurveysPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600"
+            {/* ✅ LOCAL IMAGE 2 */}
+            <Image
+              src={InsideSurveyImage}
               alt="Survey Data Analytics"
+              width={800}
+              height={600}
               className="rounded-2xl shadow-2xl w-full transition-transform duration-300 hover:scale-105"
             />
           </motion.div>

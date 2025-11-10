@@ -1,8 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Server, Layout, ShieldCheck, Code2, Users, Puzzle } from 'lucide-react';
+
+// ✅ Local image imports (3 levels up)
+import InsideJoomlaImage from '../../../../Images/Inside_Joomla.png';
+import BesideCustomSoftwareImage from '../../../../Images/Beside_Custom_Software.png';
 
 export default function JoomlaPage() {
   return (
@@ -42,6 +47,7 @@ export default function JoomlaPage() {
       <section className="relative py-20 bg-white overflow-hidden">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            
             <motion.div
               initial={{ x: -40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -50,13 +56,15 @@ export default function JoomlaPage() {
             >
               <h2 className="text-4xl font-bold mb-6 text-sky-800">Powerful & Flexible CMS</h2>
               <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                Joomla is one of the most popular content management systems, perfect for customers new to technology who want full control over their website administration. Joomla is used by individuals and corporate organizations for simple installations of intranet and extranet.
+                Joomla is one of the most popular content management systems, perfect for customers new to technology who want full control over their website administration.
+                Joomla is used by individuals and corporate organizations for simple installations of intranet and extranet.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
                 Our dynamic, database-driven designs give you the power to manage your website like a competent programmer, controlling publishing, hosting, and all site activities.
               </p>
             </motion.div>
 
+            {/* ✅ Local Image 1 */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -64,9 +72,11 @@ export default function JoomlaPage() {
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&h=600"
+              <Image
+                src={InsideJoomlaImage}
                 alt="Joomla Development"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -175,15 +185,19 @@ export default function JoomlaPage() {
       <section className="py-20 bg-gradient-to-b from-sky-50 to-white">
         <div className="container mx-auto px-6 xl:px-16">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            
+            {/* ✅ Local Image 2 */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               className="order-2 md:order-1 flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600"
+              <Image
+                src={BesideCustomSoftwareImage}
                 alt="Joomla Features"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -196,7 +210,8 @@ export default function JoomlaPage() {
             >
               <h2 className="text-4xl font-bold mb-6 text-sky-800">Expert Joomla Development</h2>
               <p className="text-lg text-gray-600 mb-4 leading-relaxed">
-                We cater to the needs of individuals with simple websites and large corporate organizations with complex web designs. Our trained professionals manage complex tasks with ease, offering new tools customized to your requirements.
+                We cater to the needs of individuals with simple websites and large corporate organizations with complex web designs.
+                Our trained professionals manage complex tasks with ease, offering new tools customized to your requirements.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
                 A professional Joomla website not only helps achieve business goals but also attracts visitors and markets your brand effectively.

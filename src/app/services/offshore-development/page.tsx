@@ -1,8 +1,14 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Users, Clock, TrendingUp, ShieldCheck, Globe2 } from 'lucide-react';
+
+// ✅ Local image imports
+import BesideOffshoreImage from '../../../../Images/Beside_Offshore.png';
+import FAQImage from '../../../../Images/FAQ.png';
+import InsideOffshoreImage from '../../../../Images/Inside_Offshore.png';
 
 export default function OffshoreDevelopmentPage() {
   return (
@@ -51,22 +57,25 @@ export default function OffshoreDevelopmentPage() {
             >
               <h2 className="text-4xl font-bold mb-6 text-sky-800">Global Development Excellence</h2>
               <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                Our team of innovative and talented developers works in tandem with your needs to produce solutions that leave an impact. We streamline development processes and make them efficient for your organization.
+                Our team of innovative and talented developers works in tandem with your needs to produce impactful solutions. We streamline development processes and make them efficient for your organization.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                CreatorIt ensures quality standards, fast delivery and takes care of compatibility issues. We ensure that solutions are scalable and maintainable.
+                CreatorIt ensures quality standards, fast delivery, and takes care of compatibility issues. We ensure that solutions are scalable and maintainable.
               </p>
             </motion.div>
 
+            {/* ✅ Local Image 1 */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600"
+              <Image
+                src={BesideOffshoreImage}
                 alt="Offshore Development Team"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -113,15 +122,18 @@ export default function OffshoreDevelopmentPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 xl:px-16 max-w-6xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* ✅ Local Image 2 */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               className="order-2 md:order-1 flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=600"
+              <Image
+                src={FAQImage}
                 alt="Remote Team Collaboration"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -137,14 +149,14 @@ export default function OffshoreDevelopmentPage() {
                 We provide dedicated developers who work exclusively on your projects as an extension of your in-house team. Our transparent communication ensures you're always in the loop.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                With our proven track record and impressive client roster, we deliver high quality, timely solutions that drive business value.
+                With our proven track record and impressive client roster, we deliver high-quality, timely solutions that drive business value.
               </p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* 🌍 SERVICES GRID */}
+      {/* 🌍 SERVICES GRID (✅ Re-added) */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6 xl:px-16 max-w-6xl">
           <h2 className="text-4xl font-bold text-center mb-12 text-sky-800">
@@ -180,8 +192,16 @@ export default function OffshoreDevelopmentPage() {
       </section>
 
       {/* 🎯 OUR MISSION */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 xl:px-16 max-w-6xl">
+      <section className="py-20 bg-white relative">
+        {/* ✅ Local Image 3 (as soft background) */}
+        <Image
+          src={InsideOffshoreImage}
+          alt="Global Team Success"
+          fill
+          className="object-cover opacity-10 absolute inset-0 z-0"
+        />
+
+        <div className="container mx-auto px-6 xl:px-16 max-w-6xl relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -190,24 +210,11 @@ export default function OffshoreDevelopmentPage() {
             >
               <h2 className="text-4xl font-bold mb-6 text-sky-800">Our Mission</h2>
               <p className="text-lg text-gray-600 mb-4 leading-relaxed">
-                We aspire to offer next generation technology driven web solutions that make an ideal component of client's business. Our criterion of working sets us apart from the crowd of solution providers.
+                We aspire to offer next-generation technology-driven web solutions that align seamlessly with your business. Our unique approach sets us apart from traditional providers.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                We focus our goals based on client's business strategies and work processes, mapping them according to our work model for greater transparency and timely project completion.
+                We focus on your business goals and processes, aligning them with our agile model for greater transparency and timely completion.
               </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="flex justify-center"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600"
-                alt="Global Team Success"
-                className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
-              />
             </motion.div>
           </div>
         </div>
@@ -245,7 +252,7 @@ export default function OffshoreDevelopmentPage() {
   );
 }
 
-// Placeholder icon for cost-efficiency (since Lucide has no direct dollar icon)
+// 💰 Custom Icon
 const DollarIcon = (props: any) => (
   <svg {...props} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-2.21 0-4 1.343-4 3s1.79 3 4 3 4 1.343 4 3-1.79 3-4 3m0-18v2m0 16v2" />

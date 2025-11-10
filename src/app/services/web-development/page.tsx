@@ -1,8 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Code2, Database, Globe, Rocket, Cpu, Layers } from 'lucide-react';
+
+// ✅ Local image imports
+import BesideWebDevImage from '../../../../Images/Beside_Web_Development.png';
+import InsideWebDevImage from '../../../../Images/Inside_Web_Development.png';
 
 export default function WebDevelopmentPage() {
   return (
@@ -60,6 +65,7 @@ export default function WebDevelopmentPage() {
               </p>
             </motion.div>
 
+            {/* ✅ Local Image 1 */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -67,9 +73,11 @@ export default function WebDevelopmentPage() {
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600"
-                alt="Web Development"
+              <Image
+                src={BesideWebDevImage}
+                alt="Web Development Process"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -122,9 +130,12 @@ export default function WebDevelopmentPage() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600"
+            {/* ✅ Local Image 2 */}
+            <Image
+              src={InsideWebDevImage}
               alt="Code Development"
+              width={800}
+              height={600}
               className="rounded-2xl shadow-2xl w-full transition-transform duration-300 hover:scale-105"
             />
           </motion.div>

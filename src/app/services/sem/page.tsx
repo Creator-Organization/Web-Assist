@@ -1,8 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
+// ✅ Import local images (same style as your EmailMarketingPage)
+import BesideSEOImage from '../../../../Images/Beside_SEO_Services_and_Drupal_Development.png';
+import InsideSEMImage from '../../../../Images/Inside_SEM&Google_and_Online_Survey_and_Drupal_Development.png';
 
 export default function SEMPage() {
   return (
@@ -45,7 +49,7 @@ export default function SEMPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto relative">
             <div className="hidden md:block absolute -left-24 top-10 w-64 h-64 bg-sky-200 opacity-20 rounded-full -z-10" />
 
-            {/* Text Section */}
+            {/* LEFT TEXT */}
             <motion.div
               initial={{ x: -40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -68,7 +72,7 @@ export default function SEMPage() {
               </div>
             </motion.div>
 
-            {/* Image */}
+            {/* ✅ RIGHT IMAGE (LOCAL IMPORT) */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -76,9 +80,11 @@ export default function SEMPage() {
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
-              <img
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600"
+              <Image
+                src={BesideSEOImage}
                 alt="Search Engine Marketing Strategy"
+                width={600}
+                height={450}
                 className="rounded-2xl shadow-2xl w-full max-w-[480px] transition-transform duration-300 hover:scale-105"
               />
             </motion.div>
@@ -184,9 +190,12 @@ export default function SEMPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600"
+            {/* ✅ SECOND LOCAL IMAGE */}
+            <Image
+              src={InsideSEMImage}
               alt="SEM Performance Dashboard"
+              width={800}
+              height={600}
               className="rounded-2xl shadow-2xl w-full transition-transform duration-300 hover:scale-105"
             />
           </motion.div>
