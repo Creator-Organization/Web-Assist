@@ -1,72 +1,104 @@
 export interface ContactFormData {
   name: string;
   email: string;
-  phone?: string;
+  phone: string;
+  countryCode: string;
   company?: string;
-  projectType: string;
-  preferredStack?: string;
-  budgetRange: string;
-  projectDescription: string;
-  timeline: string;
+  subject: string;
+  serviceInterest?: string;
+  budgetRange?: string;
+  message: string;
+  captchaToken: string;
+}
+
+export interface DatabaseContact {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  countryCode: string;
+  company?: string;
+  subject: string;
+  serviceInterest?: string;
+  budgetRange?: string;
+  message: string;
+  isVerified: boolean;
+  captchaScore?: number;
+  ipAddress?: string;
+  userAgent?: string;
+  status: 'new' | 'in_progress' | 'replied' | 'closed' | 'spam';
+  adminNotes?: string;
+  repliedAt?: Date;
+  repliedBy?: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface ContactFormResponse {
   success: boolean;
   message: string;
   errors?: Record<string, string>;
+  contactId?: number;
 }
 
-export interface DatabaseContact extends ContactFormData {
-  id: number;
-  createdAt: Date;
-  status: 'new' | 'contacted' | 'in_progress' | 'completed';
-}
-
-// Dropdown options
-export const PROJECT_TYPES = [
-  'E-commerce Website',
-  'Business Website',
-  'Portfolio Website',
-  'Web Application',
-  'Mobile App',
-  'API Development',
-  'Website Redesign',
-  'Maintenance & Support',
+export const SERVICE_INTERESTS = [
+  'Web Development',
+  'E-commerce Development',
+  'CMS Development',
+  'Software Development',
+  'Digital Marketing',
+  'SEO Services',
+  'Mobile App Development',
+  'UI/UX Design',
   'Other',
 ] as const;
 
 export const BUDGET_RANGES = [
-  'Under ₹5,000',
-  '₹5,000 - ₹15,000',
-  '₹15,000 - ₹50,000',
-  '₹50,000 - ₹100,000',
-  'Over ₹100,000',
+  'Under ₹25,000',
+  '₹25,000 - ₹50,000',
+  '₹50,000 - ₹1,00,000',
+  '₹1,00,000 - ₹2,50,000',
+  'Over ₹2,50,000',
   'Not sure yet',
 ] as const;
 
-export const TIMELINES = [
-  'ASAP (Rush job)',
-  '1-2 weeks',
-  '1 month',
-  '2-3 months',
-  '3-6 months',
-  '6+ months',
-  'Flexible',
+export const COUNTRY_CODES = [
+  { code: '+91', country: 'India', maxLength: 10 },
+  { code: '+1', country: 'USA/Canada', maxLength: 10 },
+  { code: '+44', country: 'UK', maxLength: 10 },
+  { code: '+61', country: 'Australia', maxLength: 9 },
+  { code: '+971', country: 'UAE', maxLength: 9 },
+  { code: '+65', country: 'Singapore', maxLength: 8 },
+  { code: '+60', country: 'Malaysia', maxLength: 10 },
+  { code: '+86', country: 'China', maxLength: 11 },
+  { code: '+81', country: 'Japan', maxLength: 10 },
+  { code: '+49', country: 'Germany', maxLength: 11 },
 ] as const;
 
-export const TECH_STACKS = [
-  'React/Next.js',
-  'Vue.js/Nuxt.js',
-  'Angular',
-  'WordPress',
-  'Shopify',
-  'Custom PHP',
-  'Python/Django',
-  'Ruby on Rails',
-  'No preference',
-] as const;
-
-export type ProjectType = typeof PROJECT_TYPES[number];
+export type ServiceInterest = typeof SERVICE_INTERESTS[number];
 export type BudgetRange = typeof BUDGET_RANGES[number];
-export type Timeline = typeof TIMELINES[number];
-export type TechStack = typeof TECH_STACKS[number];
+export type CountryCode = typeof COUNTRY_CODES[number];
+
+export interface AdminUser {
+  id: number;
+  username: string;
+  email: string;
+  fullName: string;
+  role: 'admin' | 'super_admin';
+  isActive: boolean;
+  lastLogin?: Date;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface AdminLoginData {
+  username: string;
+  password: string;
+}
+
+export interface AdminSession {
+  userId: number;
+  username: string;
+  role: string;
+  expiresAt: Date;
+}
