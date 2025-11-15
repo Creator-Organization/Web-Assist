@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { 
-  Mail, Phone, User, Calendar, Search, 
+  Mail, Phone, Calendar, Search, 
   LogOut, Loader2, MessageSquare, Building,
-  CheckCircle, Clock, X, Filter
+  CheckCircle, X
 } from 'lucide-react';
 import { DatabaseContact } from '@/types/contact';
 

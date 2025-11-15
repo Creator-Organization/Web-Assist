@@ -1,5 +1,5 @@
 import { Pool, PoolClient } from 'pg';
-import { ContactFormData, DatabaseContact, AdminUser, AdminSession } from '@/types/contact';
+import { ContactFormData, DatabaseContact, AdminUser } from '@/types/contact';
 import bcrypt from 'bcryptjs';
 
 const pool = new Pool({
