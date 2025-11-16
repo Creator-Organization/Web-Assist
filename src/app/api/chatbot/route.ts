@@ -113,6 +113,8 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { message, conversationHistory = [], sessionId } = body;
 
+    console.log('[Chatbot] Received message:', { message, sessionId });
+
     if (!message || typeof message !== 'string') {
       return NextResponse.json(
         { success: false, error: 'Message is required' },
@@ -164,24 +166,38 @@ Remember: You represent CreatorIT. Focus exclusively on helping potential client
                       'unknown';
     const userAgent = request.headers.get('user-agent') || 'unknown';
 
-    // Save to database (don't wait for it, run in background)
-    ChatRepository.saveConversation({
+    console.log('[Chatbot] Attempting to save to database...', {
       sessionId: sessionId || `session_${Date.now()}`,
-      userMessage: message,
-      botResponse: reply,
+      hasMessage: !!message,
+      hasReply: !!reply,
       keywords,
-      ipAddress,
-      userAgent,
-    }).catch((error) => {
-      console.error('Failed to save chat conversation:', error);
     });
+
+    // Save to database with proper error logging
+    try {
+      await ChatRepository.saveConversation({
+        sessionId: sessionId || `session_${Date.now()}`,
+        userMessage: message,
+        botResponse: reply,
+        keywords,
+        ipAddress,
+        userAgent,
+      });
+      console.log('[Chatbot] Successfully saved to database');
+    } catch (dbError) {
+      console.error('[Chatbot] Database save failed:', {
+        error: dbError,
+        message: dbError instanceof Error ? dbError.message : 'Unknown error',
+        stack: dbError instanceof Error ? dbError.stack : undefined,
+      });
+    }
 
     return NextResponse.json({
       success: true,
       message: reply,
     });
   } catch (error) {
-    console.error('Chatbot error:', error);
+    console.error('[Chatbot] Error:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to process message' },
       { status: 500 }
