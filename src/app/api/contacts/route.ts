@@ -1,16 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { contactFormSchema, sanitizeFormData } from '@/lib/validations';
 import { ContactRepository } from '@/lib/database';
-import { sendContactNotification } from '@/lib/email';
+import { sendContactNotification, sendUserConfirmation } from '@/lib/email';
 import { ZodError } from 'zod';
 
-// Rate limiting map (in production, use Redis or similar)
 const rateLimit = new Map<string, { count: number; lastReset: number }>();
-const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
-const RATE_LIMIT_MAX_REQUESTS = 3; // 3 requests per minute
+const RATE_LIMIT_WINDOW = 60 * 1000;
+const RATE_LIMIT_MAX_REQUESTS = 3;
 
 function getRateLimitKey(request: NextRequest): string {
-  // Get IP address from various headers
   const forwarded = request.headers.get('x-forwarded-for');
   const realIp = request.headers.get('x-real-ip');
   const ip = forwarded?.split(',')[0] || realIp || 'unknown';
@@ -26,25 +24,48 @@ function checkRateLimit(key: string): boolean {
     return true;
   }
 
-  // Reset counter if window has passed
   if (now - userLimit.lastReset > RATE_LIMIT_WINDOW) {
     rateLimit.set(key, { count: 1, lastReset: now });
     return true;
   }
 
-  // Check if limit exceeded
   if (userLimit.count >= RATE_LIMIT_MAX_REQUESTS) {
     return false;
   }
 
-  // Increment counter
   userLimit.count++;
   return true;
 }
 
+async function verifyCaptcha(token: string): Promise<{ success: boolean; score?: number }> {
+  try {
+    const secret = process.env.RECAPTCHA_SECRET_KEY;
+    if (!secret) {
+      console.warn('RECAPTCHA_SECRET_KEY not configured');
+      return { success: true };
+    }
+
+    const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `secret=${secret}&response=${token}`,
+    });
+
+    const data = await response.json();
+    
+    if (data.success && data.score) {
+      return { success: data.score >= 0.5, score: data.score };
+    }
+
+    return { success: data.success };
+  } catch (error) {
+    console.error('CAPTCHA verification error:', error);
+    return { success: true };
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
-    // Rate limiting
     const rateLimitKey = getRateLimitKey(request);
     if (!checkRateLimit(rateLimitKey)) {
       return NextResponse.json(
@@ -56,32 +77,54 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Parse request body
     const body = await request.json();
 
-    // Validate and sanitize input
+    const captchaToken = body.captchaToken;
+    if (!captchaToken) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: 'CAPTCHA verification required.',
+        },
+        { status: 400 }
+      );
+    }
+
+    const captchaResult = await verifyCaptcha(captchaToken);
+    if (!captchaResult.success) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: 'CAPTCHA verification failed. Please try again.',
+        },
+        { status: 400 }
+      );
+    }
+
     const validatedData = contactFormSchema.parse(body);
     const sanitizedData = sanitizeFormData(validatedData);
 
-    // Check if email already exists (optional - you might want to allow duplicate emails)
-    const emailExists = await ContactRepository.emailExists(sanitizedData.email);
-    if (emailExists) {
-      console.log(`Duplicate email submission: ${sanitizedData.email}`);
-      // You can choose to either reject or allow duplicate emails
-      // For now, we'll allow them but log it
-    }
+    const ipAddress = request.headers.get('x-forwarded-for')?.split(',')[0] || 
+                      request.headers.get('x-real-ip') || 
+                      'unknown';
+    const userAgent = request.headers.get('user-agent') || 'unknown';
 
-    // Save to database
-    const contact = await ContactRepository.create(sanitizedData);
+    const contact = await ContactRepository.create(
+      sanitizedData,
+      captchaResult.score,
+      ipAddress,
+      userAgent
+    );
 
-    // Send email notification (async, don't wait for it)
     sendContactNotification(contact).catch((error) => {
-      console.error('Failed to send email notification:', error);
-      // Don't fail the request if email fails
+      console.error('Failed to send admin notification:', error);
     });
 
-    // Log successful submission
-    console.log(`New contact submission: ${contact.id} - ${contact.email}`);
+    sendUserConfirmation(contact).catch((error) => {
+      console.error('Failed to send user confirmation:', error);
+    });
+
+    console.log(`New contact submission: ${contact.id} - ${contact.email} (Score: ${captchaResult.score || 'N/A'})`);
 
     return NextResponse.json(
       {
@@ -95,7 +138,6 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Contact form submission error:', error);
 
-    // Handle validation errors
     if (error instanceof ZodError) {
       const fieldErrors: Record<string, string> = {};
       error.errors.forEach((err) => {
@@ -115,7 +157,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Handle database errors
     if (error instanceof Error) {
       if (error.message.includes('database') || error.message.includes('connection')) {
         return NextResponse.json(
@@ -128,7 +169,6 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Generic error response
     return NextResponse.json(
       {
         success: false,
@@ -139,22 +179,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// Handle unsupported methods
 export async function GET() {
-  return NextResponse.json(
-    { message: 'Method not allowed' },
-    { status: 405 }
-  );
-}
-
-export async function PUT() {
-  return NextResponse.json(
-    { message: 'Method not allowed' },
-    { status: 405 }
-  );
-}
-
-export async function DELETE() {
   return NextResponse.json(
     { message: 'Method not allowed' },
     { status: 405 }
