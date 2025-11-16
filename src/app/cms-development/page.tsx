@@ -14,7 +14,6 @@ import joomlaBesideImage from '../../../Images/Beside_Joomla_Development.png';
 import drupalBesideImage from '../../../Images/Beside_SEO_Services_and_Drupal_Development.png';
 import magentoBesideImage from '../../../Images/Beside_E-commerce_Services_and_Magento.png';
 
-
 export default function CMSDevelopmentPage(): JSX.Element {
   const services = [
     {

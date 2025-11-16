@@ -3,10 +3,17 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { 
-  Mail, Phone, Calendar, Search, 
-  LogOut, Loader2, MessageSquare, Building,
-  CheckCircle, X
+import {
+  Mail,
+  Phone,
+  Calendar,
+  Search,
+  LogOut,
+  Loader2,
+  MessageSquare,
+  Building,
+  CheckCircle,
+  X,
 } from 'lucide-react';
 import { DatabaseContact } from '@/types/contact';
 
@@ -35,7 +42,7 @@ export default function AdminDashboard() {
       });
 
       const response = await fetch(`/api/admin/contacts?${params}`);
-      
+
       if (response.status === 401) {
         router.push('/admin');
         return;
@@ -127,8 +134,8 @@ export default function AdminDashboard() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-purple-600" />
+      <div className="flex min-h-screen items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-purple-600" />
       </div>
     );
   }
@@ -136,62 +143,79 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
-              <p className="text-sm text-gray-600">CreatorIT Contact Management</p>
+              <h1 className="text-2xl font-bold text-gray-900">
+                Admin Dashboard
+              </h1>
+              <p className="text-sm text-gray-600">
+                CreatorIT Contact Management
+              </p>
             </div>
-            <button
-              onClick={handleLogout}
-              className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
-            >
-              <LogOut className="w-4 h-4" />
-              Logout
-            </button>
+            <div className="flex gap-3">
+              <button
+                onClick={() => router.push('/admin/chats')}
+                className="flex items-center gap-2 rounded-lg bg-purple-600 px-4 py-2 text-white transition-colors hover:bg-purple-700"
+              >
+                <MessageSquare className="h-4 w-4" />
+                Chat Analytics
+              </button>
+              <button
+                onClick={handleLogout}
+                className="flex items-center gap-2 rounded-lg bg-red-600 px-4 py-2 text-white transition-colors hover:bg-red-700"
+              >
+                <LogOut className="h-4 w-4" />
+                Logout
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {stats && (
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">
+          <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-5">
             <StatCard title="Total" value={stats.total} color="blue" />
             <StatCard title="New" value={stats.new} color="blue" />
-            <StatCard title="In Progress" value={stats.inProgress} color="yellow" />
+            <StatCard
+              title="In Progress"
+              value={stats.inProgress}
+              color="yellow"
+            />
             <StatCard title="Replied" value={stats.replied} color="green" />
             <StatCard title="Closed" value={stats.closed} color="gray" />
           </div>
         )}
 
-        <div className="bg-white rounded-lg shadow p-4 mb-6">
+        <div className="mb-6 rounded-lg bg-white p-4 shadow">
           <div className="flex flex-col gap-4">
             {/* Search Bar */}
             <div className="flex gap-2">
-              <div className="flex-1 relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
                 <input
                   type="text"
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
                   onKeyPress={handleSearchKeyPress}
                   placeholder="Search by name, email, or company..."
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full rounded-lg border border-gray-300 py-2 pl-10 pr-4 focus:border-transparent focus:ring-2 focus:ring-purple-500"
                 />
               </div>
               <button
                 onClick={handleSearch}
-                className="px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors flex items-center gap-2"
+                className="flex items-center gap-2 rounded-lg bg-purple-600 px-6 py-2 text-white transition-colors hover:bg-purple-700"
               >
-                <Search className="w-4 h-4" />
+                <Search className="h-4 w-4" />
                 Search
               </button>
               {searchTerm && (
                 <button
                   onClick={clearSearch}
-                  className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg transition-colors flex items-center gap-2"
+                  className="flex items-center gap-2 rounded-lg bg-gray-200 px-4 py-2 text-gray-700 transition-colors hover:bg-gray-300"
                 >
-                  <X className="w-4 h-4" />
+                  <X className="h-4 w-4" />
                   Clear
                 </button>
               )}
@@ -201,7 +225,7 @@ export default function AdminDashboard() {
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => applyFilter('all')}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                   filter === 'all'
                     ? 'bg-purple-600 text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -211,7 +235,7 @@ export default function AdminDashboard() {
               </button>
               <button
                 onClick={() => applyFilter('new')}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                   filter === 'new'
                     ? 'bg-blue-600 text-white'
                     : 'bg-blue-100 text-blue-800 hover:bg-blue-200'
@@ -221,7 +245,7 @@ export default function AdminDashboard() {
               </button>
               <button
                 onClick={() => applyFilter('in_progress')}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                   filter === 'in_progress'
                     ? 'bg-yellow-600 text-white'
                     : 'bg-yellow-100 text-yellow-800 hover:bg-yellow-200'
@@ -231,7 +255,7 @@ export default function AdminDashboard() {
               </button>
               <button
                 onClick={() => applyFilter('replied')}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                   filter === 'replied'
                     ? 'bg-green-600 text-white'
                     : 'bg-green-100 text-green-800 hover:bg-green-200'
@@ -241,7 +265,7 @@ export default function AdminDashboard() {
               </button>
               <button
                 onClick={() => applyFilter('closed')}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                   filter === 'closed'
                     ? 'bg-gray-600 text-white'
                     : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
@@ -251,7 +275,7 @@ export default function AdminDashboard() {
               </button>
               <button
                 onClick={() => applyFilter('spam')}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                   filter === 'spam'
                     ? 'bg-red-600 text-white'
                     : 'bg-red-100 text-red-800 hover:bg-red-200'
@@ -262,9 +286,9 @@ export default function AdminDashboard() {
               {filter !== 'all' && (
                 <button
                   onClick={clearFilter}
-                  className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium"
+                  className="flex items-center gap-2 rounded-lg bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-300"
                 >
-                  <X className="w-4 h-4" />
+                  <X className="h-4 w-4" />
                   Clear Filter
                 </button>
               )}
@@ -274,9 +298,9 @@ export default function AdminDashboard() {
 
         <div className="space-y-4">
           {contacts.map((contact) => (
-            <ContactCard 
-              key={contact.id} 
-              contact={contact} 
+            <ContactCard
+              key={contact.id}
+              contact={contact}
               onStatusChange={updateStatus}
               getStatusColor={getStatusColor}
             />
@@ -284,11 +308,11 @@ export default function AdminDashboard() {
         </div>
 
         {totalPages > 1 && (
-          <div className="flex justify-center gap-2 mt-8">
+          <div className="mt-8 flex justify-center gap-2">
             <button
-              onClick={() => setPage(p => Math.max(1, p - 1))}
+              onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page === 1}
-              className="px-4 py-2 bg-white border border-gray-300 rounded-lg disabled:opacity-50"
+              className="rounded-lg border border-gray-300 bg-white px-4 py-2 disabled:opacity-50"
             >
               Previous
             </button>
@@ -296,9 +320,9 @@ export default function AdminDashboard() {
               Page {page} of {totalPages}
             </span>
             <button
-              onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+              onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
               disabled={page === totalPages}
-              className="px-4 py-2 bg-white border border-gray-300 rounded-lg disabled:opacity-50"
+              className="rounded-lg border border-gray-300 bg-white px-4 py-2 disabled:opacity-50"
             >
               Next
             </button>
@@ -318,12 +342,14 @@ function StatCard({ title, value, color }: any) {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow p-6">
-      <div className={`w-12 h-12 ${colors[color]} rounded-lg mb-4 flex items-center justify-center`}>
-        <Mail className="w-6 h-6 text-white" />
+    <div className="rounded-lg bg-white p-6 shadow">
+      <div
+        className={`h-12 w-12 ${colors[color]} mb-4 flex items-center justify-center rounded-lg`}
+      >
+        <Mail className="h-6 w-6 text-white" />
       </div>
-      <h3 className="text-gray-600 text-sm font-medium">{title}</h3>
-      <p className="text-3xl font-bold text-gray-900 mt-1">{value}</p>
+      <h3 className="text-sm font-medium text-gray-600">{title}</h3>
+      <p className="mt-1 text-3xl font-bold text-gray-900">{value}</p>
     </div>
   );
 }
@@ -332,7 +358,9 @@ function ContactCard({ contact, onStatusChange, getStatusColor }: any) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedTemplate, setSelectedTemplate] = useState('');
   const [isSending, setIsSending] = useState(false);
-  const [sendStatus, setSendStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [sendStatus, setSendStatus] = useState<'idle' | 'success' | 'error'>(
+    'idle'
+  );
 
   const quickReplyTemplates = [
     { value: 'understanding', label: '✅ Understanding Request' },
@@ -365,7 +393,7 @@ function ContactCard({ contact, onStatusChange, getStatusColor }: any) {
         setSendStatus('success');
         setSelectedTemplate('');
         setTimeout(() => setSendStatus('idle'), 3000);
-        
+
         // Refresh the contact list
         window.location.reload();
       } else {
@@ -385,35 +413,41 @@ function ContactCard({ contact, onStatusChange, getStatusColor }: any) {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white rounded-lg shadow hover:shadow-md transition-shadow"
+      className="rounded-lg bg-white shadow transition-shadow hover:shadow-md"
     >
       <div className="p-6">
-        <div className="flex items-start justify-between mb-4">
+        <div className="mb-4 flex items-start justify-between">
           <div className="flex-1">
-            <div className="flex items-center gap-3 mb-2">
-              <h3 className="text-lg font-semibold text-gray-900">{contact.name}</h3>
-              <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(contact.status)}`}>
+            <div className="mb-2 flex items-center gap-3">
+              <h3 className="text-lg font-semibold text-gray-900">
+                {contact.name}
+              </h3>
+              <span
+                className={`rounded-full px-3 py-1 text-xs font-medium ${getStatusColor(contact.status)}`}
+              >
                 {contact.status.replace('_', ' ').toUpperCase()}
               </span>
             </div>
-            <p className="text-sm font-semibold text-purple-600 mb-1">{contact.subject}</p>
+            <p className="mb-1 text-sm font-semibold text-purple-600">
+              {contact.subject}
+            </p>
             <div className="flex flex-wrap gap-4 text-sm text-gray-600">
               <span className="flex items-center gap-1">
-                <Mail className="w-4 h-4" />
+                <Mail className="h-4 w-4" />
                 {contact.email}
               </span>
               <span className="flex items-center gap-1">
-                <Phone className="w-4 h-4" />
+                <Phone className="h-4 w-4" />
                 {contact.countryCode} {contact.phone}
               </span>
               {contact.company && (
                 <span className="flex items-center gap-1">
-                  <Building className="w-4 h-4" />
+                  <Building className="h-4 w-4" />
                   {contact.company}
                 </span>
               )}
               <span className="flex items-center gap-1">
-                <Calendar className="w-4 h-4" />
+                <Calendar className="h-4 w-4" />
                 {new Date(contact.createdAt).toLocaleString()}
               </span>
             </div>
@@ -421,63 +455,81 @@ function ContactCard({ contact, onStatusChange, getStatusColor }: any) {
         </div>
 
         {isExpanded && (
-          <div className="mt-4 pt-4 border-t border-gray-200">
-            <div className="grid gap-3 mb-4">
+          <div className="mt-4 border-t border-gray-200 pt-4">
+            <div className="mb-4 grid gap-3">
               {contact.serviceInterest && (
                 <div>
-                  <span className="text-sm font-medium text-gray-700">Service Interest:</span>
-                  <span className="ml-2 text-sm text-gray-600">{contact.serviceInterest}</span>
+                  <span className="text-sm font-medium text-gray-700">
+                    Service Interest:
+                  </span>
+                  <span className="ml-2 text-sm text-gray-600">
+                    {contact.serviceInterest}
+                  </span>
                 </div>
               )}
               {contact.budgetRange && (
                 <div>
-                  <span className="text-sm font-medium text-gray-700">Budget:</span>
-                  <span className="ml-2 text-sm text-gray-600">{contact.budgetRange}</span>
+                  <span className="text-sm font-medium text-gray-700">
+                    Budget:
+                  </span>
+                  <span className="ml-2 text-sm text-gray-600">
+                    {contact.budgetRange}
+                  </span>
                 </div>
               )}
               <div>
-                <span className="text-sm font-medium text-gray-700">Message:</span>
-                <p className="mt-1 text-sm text-gray-600 whitespace-pre-wrap">{contact.message}</p>
+                <span className="text-sm font-medium text-gray-700">
+                  Message:
+                </span>
+                <p className="mt-1 whitespace-pre-wrap text-sm text-gray-600">
+                  {contact.message}
+                </p>
               </div>
               {contact.captchaScore && (
                 <div>
-                  <span className="text-sm font-medium text-gray-700">CAPTCHA Score:</span>
-                  <span className="ml-2 text-sm text-gray-600">{contact.captchaScore.toFixed(2)}/1.00</span>
+                  <span className="text-sm font-medium text-gray-700">
+                    CAPTCHA Score:
+                  </span>
+                  <span className="ml-2 text-sm text-gray-600">
+                    {contact.captchaScore.toFixed(2)}/1.00
+                  </span>
                 </div>
               )}
             </div>
 
             {/* Status Buttons */}
             <div className="mb-4">
-              <p className="text-sm font-medium text-gray-700 mb-2">Update Status:</p>
+              <p className="mb-2 text-sm font-medium text-gray-700">
+                Update Status:
+              </p>
               <div className="flex flex-wrap gap-2">
                 <button
                   onClick={() => onStatusChange(contact.id, 'new')}
-                  className="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded text-sm"
+                  className="rounded bg-blue-100 px-3 py-1 text-sm text-blue-800 hover:bg-blue-200"
                 >
                   New
                 </button>
                 <button
                   onClick={() => onStatusChange(contact.id, 'in_progress')}
-                  className="px-3 py-1 bg-yellow-100 hover:bg-yellow-200 text-yellow-800 rounded text-sm"
+                  className="rounded bg-yellow-100 px-3 py-1 text-sm text-yellow-800 hover:bg-yellow-200"
                 >
                   In Progress
                 </button>
                 <button
                   onClick={() => onStatusChange(contact.id, 'replied')}
-                  className="px-3 py-1 bg-green-100 hover:bg-green-200 text-green-800 rounded text-sm"
+                  className="rounded bg-green-100 px-3 py-1 text-sm text-green-800 hover:bg-green-200"
                 >
                   Replied
                 </button>
                 <button
                   onClick={() => onStatusChange(contact.id, 'closed')}
-                  className="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded text-sm"
+                  className="rounded bg-gray-100 px-3 py-1 text-sm text-gray-800 hover:bg-gray-200"
                 >
                   Closed
                 </button>
                 <button
                   onClick={() => onStatusChange(contact.id, 'spam')}
-                  className="px-3 py-1 bg-red-100 hover:bg-red-200 text-red-800 rounded text-sm"
+                  className="rounded bg-red-100 px-3 py-1 text-sm text-red-800 hover:bg-red-200"
                 >
                   Spam
                 </button>
@@ -485,14 +537,16 @@ function ContactCard({ contact, onStatusChange, getStatusColor }: any) {
             </div>
 
             {/* Quick Reply Section */}
-            <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-              <p className="text-sm font-medium text-purple-900 mb-3">📧 Quick Reply:</p>
+            <div className="rounded-lg border border-purple-200 bg-purple-50 p-4">
+              <p className="mb-3 text-sm font-medium text-purple-900">
+                📧 Quick Reply:
+              </p>
               <div className="flex gap-2">
                 <select
                   value={selectedTemplate}
                   onChange={(e) => setSelectedTemplate(e.target.value)}
                   disabled={isSending}
-                  className="flex-1 px-3 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
+                  className="flex-1 rounded-lg border border-purple-300 px-3 py-2 text-sm focus:border-transparent focus:ring-2 focus:ring-purple-500"
                 >
                   <option value="">Select a template...</option>
                   {quickReplyTemplates.map((template) => (
@@ -504,34 +558,34 @@ function ContactCard({ contact, onStatusChange, getStatusColor }: any) {
                 <button
                   onClick={handleQuickReply}
                   disabled={!selectedTemplate || isSending}
-                  className={`px-6 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${
+                  className={`flex items-center gap-2 rounded-lg px-6 py-2 text-sm font-medium transition-colors ${
                     !selectedTemplate || isSending
-                      ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                      ? 'cursor-not-allowed bg-gray-300 text-gray-500'
                       : sendStatus === 'success'
-                      ? 'bg-green-600 text-white'
-                      : sendStatus === 'error'
-                      ? 'bg-red-600 text-white'
-                      : 'bg-purple-600 hover:bg-purple-700 text-white'
+                        ? 'bg-green-600 text-white'
+                        : sendStatus === 'error'
+                          ? 'bg-red-600 text-white'
+                          : 'bg-purple-600 text-white hover:bg-purple-700'
                   }`}
                 >
                   {isSending ? (
                     <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <Loader2 className="h-4 w-4 animate-spin" />
                       Sending...
                     </>
                   ) : sendStatus === 'success' ? (
                     <>
-                      <CheckCircle className="w-4 h-4" />
+                      <CheckCircle className="h-4 w-4" />
                       Sent!
                     </>
                   ) : sendStatus === 'error' ? (
                     <>
-                      <X className="w-4 h-4" />
+                      <X className="h-4 w-4" />
                       Failed
                     </>
                   ) : (
                     <>
-                      <MessageSquare className="w-4 h-4" />
+                      <MessageSquare className="h-4 w-4" />
                       Send
                     </>
                   )}
@@ -543,7 +597,7 @@ function ContactCard({ contact, onStatusChange, getStatusColor }: any) {
 
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="mt-4 text-sm text-purple-600 hover:text-purple-700 font-medium"
+          className="mt-4 text-sm font-medium text-purple-600 hover:text-purple-700"
         >
           {isExpanded ? 'Show Less' : 'Show More'}
         </button>
