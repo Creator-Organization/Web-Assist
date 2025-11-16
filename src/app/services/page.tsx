@@ -29,6 +29,8 @@ export default function ServicesPage() {
         'Google Ads',
         'Online Surveys',
         'Classified Promotions',
+        'Youtube Marketing'
+
       ],
       icon: <TrendingUp className="w-8 h-8" />,
       image: besideSEOServices,

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import Image from 'next/image'; // ✅ Added this import for optimized image handling
 import creatorItLogo from '../../../Images/creatorit-logo4.png'; // ✅ Added your local logo path
+import parentLogo from '../../../Images/Creator_Research_Logo.png';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -40,15 +41,30 @@ export default function Header() {
   return (
     <header className="bg-white sticky top-0 z-50 shadow-md border-b border-gray-100">
       <div className="container mx-auto px-4 lg:px-12 flex items-center justify-between h-20">
-        {/* ✅ Only this logo section is updated */}
-        <a href="/" className="flex items-center">
-          <Image
-            src={creatorItLogo}
-            alt="CreatorIt Logo"
-            className="w-28 h-auto"
-            priority
-          />
-        </a>
+       {/* 🔶 Parent + Child Logos Side-by-Side */}
+<div className="flex items-center space-x-4">
+
+  {/* Parent Company Logo */}
+  <a href="/" className="flex items-center">
+    <Image
+      src={parentLogo}
+      alt="Creator Research Logo"
+      className="w-32 h-auto"
+      priority
+    />
+  </a>
+
+  {/* Child Company Logo */}
+  <a href="/" className="flex items-center">
+    <Image
+      src={creatorItLogo}
+      alt="CreatorIt Logo"
+      className="w-28 h-auto"
+      priority
+    />
+  </a>
+
+</div>
 
         {/* Rest of your code remains EXACTLY the same */}
         {/* Desktop Nav */}

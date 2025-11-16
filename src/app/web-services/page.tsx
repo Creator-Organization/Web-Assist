@@ -8,6 +8,9 @@ import webDevelopmentLogo from '../../../Images/web_development.png';
 import interactiveDesignLogo from '../../../Images/Interactive_design.png';
 import ecommerceLogo from '../../../Images/E_Commerce Services.png';
 import logoDesignLogo from '../../../Images/Logo_design.png';
+import domainAndWebLogo from '../../../Images/domain_and_web.png';
+import cloudLogo from '../../../Images/cloud.png';
+import graphicDesignLogo from '../../../Images/graphic_design.png';
 
 // --- New Image Imports (for the service sections) ---
 import besideWebDesign from '../../../Images/Beside_Web_Design.png';
@@ -15,6 +18,9 @@ import besideWebDevelopment from '../../../Images/Beside_Web_Development.png';
 import besideInteractiveDesign from '../../../Images/Beside_Interactive_Design.png';
 import besideEcommerceServices from '../../../Images/Beside_E-commerce_Services_and_Magento.png';
 import besideLogoDesign from '../../../Images/Beside_Logo_Design.png';
+import besideDomainWebHoisting from '../../../Images/Beside_domain_web_hosting.jpg';
+import besideCloudHoisting from '../../../Images/Beside_cloud_hoisting.jpg';
+import besideGraphicDesign from '../../../Images/Beside_graphic_design.jpg';
 
 
 export default function WebServicesPage(): JSX.Element {
@@ -63,6 +69,31 @@ export default function WebServicesPage(): JSX.Element {
       // 🎯 Updated to use the imported image object
       image: besideLogoDesign
     },
+    {
+      title: 'Domain & Web Hosting',
+      description: 'Secure your unique online address and the essential server space needed to make your website visible and accessible to the public.',
+      href: '/services/domain-and-web',
+      icon: <Image src={domainAndWebLogo} alt="Logo Design" className="w-12 h-12 object-contain" />,
+      // 🎯 Updated to use the imported image object
+      image: besideDomainWebHoisting
+    },
+    {
+      title: 'Cloud Hosting',
+      description: 'Power your applications with a flexible network of servers, allowing you to instantly scale resources to handle traffic spikes and ensure high performance.',
+      href: '/services/cloud-hoisting',
+      icon: <Image src={cloudLogo} alt="Logo Design" className="w-12 h-12 object-contain" />,
+      // 🎯 Updated to use the imported image object
+      image: besideCloudHoisting
+    },
+    {
+      title: 'Graphic Design',
+      description: 'Build a powerful brand identity and capture attention with stunning, custom-designed logos, marketing materials, and digital visuals that tell your story.',
+      href: '/services/graphic-design',
+      icon: <Image src={graphicDesignLogo} alt="Logo Design" className="w-12 h-12 object-contain" />,
+      // 🎯 Updated to use the imported image object
+      image: besideGraphicDesign
+    },
+    
   ];
 
   return (
