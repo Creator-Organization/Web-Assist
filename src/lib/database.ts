@@ -499,4 +499,180 @@ process.on('SIGTERM', async () => {
   process.exit(0);
 });
 
+export class ChatRepository {
+  static async saveConversation(data: {
+    sessionId: string;
+    userMessage: string;
+    botResponse: string;
+    keywords?: string[];
+    actionTaken?: string;
+    ipAddress?: string;
+    userAgent?: string;
+  }): Promise<boolean> {
+    let client: PoolClient | null = null;
+    try {
+      client = await getDbClient();
+
+      const query = `
+        INSERT INTO chat_conversations (
+          session_id, user_message, bot_response, keywords, 
+          action_taken, user_ip, user_agent
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7)
+        RETURNING id
+      `;
+
+      const values = [
+        data.sessionId,
+        data.userMessage,
+        data.botResponse,
+        data.keywords || null,
+        data.actionTaken || null,
+        data.ipAddress || null,
+        data.userAgent || null,
+      ];
+
+      await client.query(query, values);
+      return true;
+    } catch (error) {
+      console.error('Error saving chat conversation:', error);
+      return false;
+    } finally {
+      if (client) {
+        client.release();
+      }
+    }
+  }
+
+  static async getChatHistory(
+    page: number = 1,
+    limit: number = 50,
+    filters?: {
+      sessionId?: string;
+      isResolved?: boolean;
+      startDate?: string;
+      endDate?: string;
+    }
+  ): Promise<{ chats: any[]; total: number; totalPages: number }> {
+    let client: PoolClient | null = null;
+    try {
+      client = await getDbClient();
+      const offset = (page - 1) * limit;
+
+      let whereConditions: string[] = [];
+      let queryParams: any[] = [];
+      let paramIndex = 1;
+
+      if (filters?.sessionId) {
+        whereConditions.push(`session_id = $${paramIndex}`);
+        queryParams.push(filters.sessionId);
+        paramIndex++;
+      }
+
+      if (filters?.isResolved !== undefined) {
+        whereConditions.push(`is_resolved = $${paramIndex}`);
+        queryParams.push(filters.isResolved);
+        paramIndex++;
+      }
+
+      if (filters?.startDate) {
+        whereConditions.push(`created_at >= $${paramIndex}`);
+        queryParams.push(filters.startDate);
+        paramIndex++;
+      }
+
+      if (filters?.endDate) {
+        whereConditions.push(`created_at <= $${paramIndex}`);
+        queryParams.push(filters.endDate);
+        paramIndex++;
+      }
+
+      const whereClause = whereConditions.length > 0
+        ? `WHERE ${whereConditions.join(' AND ')}`
+        : '';
+
+      const chatsQuery = `
+        SELECT * FROM chat_conversations
+        ${whereClause}
+        ORDER BY created_at DESC
+        LIMIT $${paramIndex} OFFSET $${paramIndex + 1}
+      `;
+
+      const countQuery = `
+        SELECT COUNT(*) as total FROM chat_conversations ${whereClause}
+      `;
+
+      queryParams.push(limit, offset);
+
+      const [chatsResult, countResult] = await Promise.all([
+        client.query(chatsQuery, queryParams),
+        client.query(countQuery, queryParams.slice(0, -2)),
+      ]);
+
+      const chats = chatsResult.rows;
+      const total = parseInt(countResult.rows[0].total);
+      const totalPages = Math.ceil(total / limit);
+
+      return { chats, total, totalPages };
+    } catch (error) {
+      console.error('Error fetching chat history:', error);
+      throw new Error('Failed to fetch chat history');
+    } finally {
+      if (client) {
+        client.release();
+      }
+    }
+  }
+
+  static async getAnalytics(days: number = 30): Promise<any[]> {
+    let client: PoolClient | null = null;
+    try {
+      client = await getDbClient();
+
+      const query = `
+        SELECT * FROM chat_analytics
+        WHERE date >= CURRENT_DATE - INTERVAL '${days} days'
+        ORDER BY date DESC
+      `;
+
+      const result = await client.query(query);
+      return result.rows;
+    } catch (error) {
+      console.error('Error fetching chat analytics:', error);
+      throw new Error('Failed to fetch analytics');
+    } finally {
+      if (client) {
+        client.release();
+      }
+    }
+  }
+
+  static async updateChatStatus(
+    id: number,
+    isResolved: boolean,
+    adminNotes?: string
+  ): Promise<boolean> {
+    let client: PoolClient | null = null;
+    try {
+      client = await getDbClient();
+
+      const query = `
+        UPDATE chat_conversations
+        SET is_resolved = $1, admin_notes = $2, updated_at = CURRENT_TIMESTAMP
+        WHERE id = $3
+        RETURNING id
+      `;
+
+      const result = await client.query(query, [isResolved, adminNotes || null, id]);
+      return result.rows.length > 0;
+    } catch (error) {
+      console.error('Error updating chat status:', error);
+      return false;
+    } finally {
+      if (client) {
+        client.release();
+      }
+    }
+  }
+}
+
 export default pool;

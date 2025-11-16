@@ -1,19 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   typescript: {
-    // Type checking is handled by separate script
     ignoreBuildErrors: false,
   },
   eslint: {
-    // Temporarily disable ESLint during builds for deployment
     ignoreDuringBuilds: true,
   },
   images: {
-    // Optimize images
     formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 60,
   },
-  // Security headers
   async headers() {
     return [
       {
@@ -35,11 +31,20 @@ const nextConfig = {
       },
     ]
   },
-  // Rate limiting will be handled at API level
   experimental: {
     serverActions: {
       allowedOrigins: ['localhost:3000', 'creatorit.vercel.app'],
     },
+  },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  // Suppress framer-motion warnings
+  webpack: (config) => {
+    config.ignoreWarnings = [
+      { module: /node_modules\/framer-motion/ },
+    ];
+    return config;
   },
 }
 

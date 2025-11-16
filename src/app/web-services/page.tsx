@@ -16,7 +16,6 @@ import besideInteractiveDesign from '../../../Images/Beside_Interactive_Design.p
 import besideEcommerceServices from '../../../Images/Beside_E-commerce_Services_and_Magento.png';
 import besideLogoDesign from '../../../Images/Beside_Logo_Design.png';
 
-
 export default function WebServicesPage(): JSX.Element {
   // Define a common image size for consistency
   const IMAGE_WIDTH = 600;
