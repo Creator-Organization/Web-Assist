@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, X, ChevronDown, Phone } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 
 import creatorItLogo from '../../../Images/Creator_IT_Logo_5.png';
@@ -142,7 +142,7 @@ export default function Header() {
 
                 {/* RIGHT SECTION: ERP Solutions - Now fully clickable */}
                 <a
-                  href="/erp-solutions"
+                  href="/erp"
                   className="p-8 bg-gradient-to-br from-blue-50 to-purple-50 flex flex-col hover:from-blue-100 hover:to-purple-100 transition-all cursor-pointer group/erp rounded-r-xl"
                 >
                   <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-2">
