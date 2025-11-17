@@ -340,7 +340,7 @@ export default function Header() {
                   { href: '/web-services', label: 'Web Services' },
                   { href: '/cms-development', label: 'CMS Development' },
                   { href: '/software-development', label: 'Software Development' },
-                  { href: '/erp-solutions', label: 'ERP Solutions' },
+                  { href: '/erp', label: 'ERP Solutions' },
                 ].map((item, i) => (
                   <NavLink
                     key={i}
