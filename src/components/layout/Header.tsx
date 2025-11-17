@@ -2,9 +2,10 @@
 
 import { useState } from 'react';
 import { Menu, X, ChevronDown, Phone } from 'lucide-react';
-import Image from 'next/image'; // ✅ Added this import for optimized image handling
-import creatorItLogo from '../../../Images/creatorit-logo4.png'; // ✅ Added your local logo path
-import parentLogo from '../../../Images/Creator_Research_Logo.png';
+import Image from 'next/image';
+
+import creatorItLogo from '../../../Images/Creator_IT_Logo_5.png';
+
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -41,33 +42,18 @@ export default function Header() {
   return (
     <header className="bg-white sticky top-0 z-50 shadow-md border-b border-gray-100">
       <div className="container mx-auto px-4 lg:px-12 flex items-center justify-between h-20">
-       {/* 🔶 Parent + Child Logos Side-by-Side */}
-<div className="flex items-center space-x-4">
 
-  {/* Parent Company Logo */}
-  <a href="/" className="flex items-center">
-    <Image
-      src={parentLogo}
-      alt="Creator Research Logo"
-      className="w-32 h-auto"
-      priority
-    />
-  </a>
+        {/* -------------- LOGO SECTION (Left side) ---------------- */}
+        <a href="/" className="flex items-center space-x-2">
+          <Image
+            src={creatorItLogo}
+            alt="CreatorIt Logo"
+            className="w-28 h-auto"
+            priority
+          />
+        </a>
 
-  {/* Child Company Logo */}
-  <a href="/" className="flex items-center">
-    <Image
-      src={creatorItLogo}
-      alt="CreatorIt Logo"
-      className="w-28 h-auto"
-      priority
-    />
-  </a>
-
-</div>
-
-        {/* Rest of your code remains EXACTLY the same */}
-        {/* Desktop Nav */}
+        {/* ------------------ DESKTOP NAVIGATION ------------------ */}
         <nav className="hidden xl:flex items-center space-x-8">
           <NavLink href="/">Home</NavLink>
 
@@ -77,7 +63,9 @@ export default function Header() {
               Services
               <ChevronDown className="ml-1 w-4 h-4" />
             </button>
-            <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+
+            <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg opacity-0 invisible 
+              group-hover:opacity-100 group-hover:visible transition-all duration-200">
               {[
                 { href: '/digital-marketing', label: 'Digital Marketing' },
                 { href: '/web-services', label: 'Web Services' },
@@ -101,7 +89,9 @@ export default function Header() {
               About
               <ChevronDown className="ml-1 w-4 h-4" />
             </button>
-            <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg opacity-0 invisible 
+              group-hover:opacity-100 group-hover:visible transition-all duration-200">
+
               {[
                 { href: '/about/why-us', label: 'Why Us' },
                 { href: '/about/vision', label: 'Vision & Mission' },
@@ -121,9 +111,12 @@ export default function Header() {
 
           <NavLink href="/clients">Clients</NavLink>
           <NavLink href="/careers">Careers</NavLink>
+
+          {/* -------------------- NEW ERP SECTION -------------------- */}
+          <NavLink href="/erp">ERP Solutions</NavLink>
         </nav>
 
-        {/* Right Section */}
+        {/* ------------------ RIGHT SECTION (Desktop) ------------------ */}
         <div className="hidden xl:flex items-center space-x-6">
           <a
             href="/contact"
@@ -143,7 +136,7 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Button */}
+        {/* ------------------ MOBILE MENU BUTTON ------------------ */}
         <button
           onClick={toggleMobileMenu}
           className="xl:hidden text-gray-700 hover:text-blue-600 transition-colors"
@@ -152,31 +145,28 @@ export default function Header() {
         </button>
       </div>
 
-      {/* ✅ No UI changes below */}
-      {/* Mobile Menu */}
+      {/* ------------------ MOBILE MENU ------------------ */}
       <div
-        className={`xl:hidden fixed top-20 right-0 h-full w-72 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${
+        className={`xl:hidden fixed top-20 right-0 h-full w-72 bg-white shadow-2xl transform 
+        transition-transform duration-300 ease-in-out z-50 ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <nav className="flex flex-col p-6 space-y-3">
-          <NavLink href="/" onClick={closeMobileMenu}>
-            Home
-          </NavLink>
+          <NavLink href="/" onClick={closeMobileMenu}>Home</NavLink>
 
-          {/* Services dropdown */}
+          {/* Services */}
           <div>
             <button
               onClick={() => toggleDropdown('services')}
               className="w-full text-left text-gray-800 hover:text-blue-600 flex items-center justify-between font-medium py-2"
             >
               Services
-              <ChevronDown
-                className={`w-4 h-4 transition-transform ${
-                  activeDropdown === 'services' ? 'rotate-180' : ''
-                }`}
-              />
+              <ChevronDown className={`w-4 h-4 transition-transform ${
+                activeDropdown === 'services' ? 'rotate-180' : ''
+              }`} />
             </button>
+
             {activeDropdown === 'services' && (
               <div className="ml-3 mt-2 space-y-2">
                 {[
@@ -198,19 +188,18 @@ export default function Header() {
             )}
           </div>
 
-          {/* About dropdown */}
+          {/* About */}
           <div>
             <button
               onClick={() => toggleDropdown('about')}
               className="w-full text-left text-gray-800 hover:text-blue-600 flex items-center justify-between font-medium py-2"
             >
               About
-              <ChevronDown
-                className={`w-4 h-4 transition-transform ${
-                  activeDropdown === 'about' ? 'rotate-180' : ''
-                }`}
-              />
+              <ChevronDown className={`w-4 h-4 transition-transform ${
+                activeDropdown === 'about' ? 'rotate-180' : ''
+              }`} />
             </button>
+
             {activeDropdown === 'about' && (
               <div className="ml-3 mt-2 space-y-2">
                 {[
@@ -232,15 +221,13 @@ export default function Header() {
             )}
           </div>
 
-          <NavLink href="/clients" onClick={closeMobileMenu}>
-            Clients
-          </NavLink>
-          <NavLink href="/careers" onClick={closeMobileMenu}>
-            Careers
-          </NavLink>
-          <NavLink href="/contact" onClick={closeMobileMenu}>
-            Contact
-          </NavLink>
+          <NavLink href="/clients" onClick={closeMobileMenu}>Clients</NavLink>
+          <NavLink href="/careers" onClick={closeMobileMenu}>Careers</NavLink>
+
+          {/* ------------------ NEW ERP SECTION ------------------ */}
+          <NavLink href="/erp" onClick={closeMobileMenu}>ERP Solutions</NavLink>
+
+          <NavLink href="/contact" onClick={closeMobileMenu}>Contact</NavLink>
         </nav>
       </div>
 

@@ -26,7 +26,7 @@ import besideOnlineSurveys from '../../../Images/Beside_Online_Surveys.png';
 import besideClassifiedServices from '../../../Images/Beside_Classified_Services.png';
 import besideYoutubeMarketing from '../../../Images/Beside_youtube_marketing.jpg';
 import besideVoiceMarketing from '../../../Images/Beside_voice_marketing.jpg';
-import besidewhatsapp_marketing from '../../../Images/Beside_whatsapp_marketing.jpg';
+import besideWhatsappMarketing from '../../../Images/Beside_whatsapp_marketing.jpg';
 
 
 
@@ -104,7 +104,7 @@ export default function DigitalMarketingPage(): JSX.Element {
       description: 'Build direct relationships and drive conversions through personalized, high-engagement messages and automated support on a platform customers trust.',
       icon: <Image src={whatsAppLogo} alt="Classified Services" className="w-12 h-12 object-contain" />,
       href: '/services/whatsApp',
-      image: besidewhatsapp_marketing
+      image: besideWhatsappMarketing
     },
   ];
 
