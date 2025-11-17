@@ -137,3 +137,13 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+create-admin.js
+.vscode/settings.json
+.DS_Store
+public/android-chrome-192x192.png
+.gitignore
+public/android-chrome-512x512.png
+public/apple-touch-icon.png
+public/favicon-16x16.png
+public/favicon-32x32.png
+public/favicon.ico

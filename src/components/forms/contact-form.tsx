@@ -1,10 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
-import { ContactFormData, PROJECT_TYPES, BUDGET_RANGES, TIMELINES, TECH_STACKS } from '@/types/contact';
+import { Send, CheckCircle, AlertCircle, Loader2, Shield } from 'lucide-react';
+import { ContactFormData, SERVICE_INTERESTS, BUDGET_RANGES, COUNTRY_CODES } from '@/types/contact';
+import { validatePhoneNumber } from '@/lib/validations';
 import { cn } from '@/lib/utils';
+
+declare global {
+  interface Window {
+    grecaptcha: any;
+  }
+}
 
 interface ContactFormProps {
   className?: string;
@@ -15,72 +22,111 @@ interface FormErrors {
 }
 
 export function ContactForm({ className }: ContactFormProps) {
-  const [formData, setFormData] = useState<ContactFormData>({
+  const [formData, setFormData] = useState<Partial<ContactFormData>>({
     name: '',
     email: '',
     phone: '',
+    countryCode: '+91',
     company: '',
-    projectType: '' as any,
-    preferredStack: '',
-    budgetRange: '' as any,
-    projectDescription: '',
-    timeline: '' as any,
+    subject: '',
+    serviceInterest: '',
+    budgetRange: '',
+    message: '',
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [submitMessage, setSubmitMessage] = useState('');
+  const [captchaLoaded, setCaptchaLoaded] = useState(false);
 
-  // Handle input changes
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`;
+    script.async = true;
+    script.defer = true;
+    script.onload = () => {
+      setCaptchaLoaded(true);
+    };
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    
-    // Clear error when user starts typing
+
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
+
+    if (name === 'phone' && formData.countryCode) {
+      const isValid = validatePhoneNumber(value, formData.countryCode);
+      if (!isValid && value.length > 0) {
+        const country = COUNTRY_CODES.find(c => c.code === formData.countryCode);
+        setErrors(prev => ({
+          ...prev,
+          phone: `Please enter a valid ${country?.maxLength}-digit phone number for ${country?.country}`
+        }));
+      } else {
+        setErrors(prev => ({ ...prev, phone: '' }));
+      }
+    }
   };
 
-  // Client-side validation
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
-    // Required fields
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
-    if (!formData.email.trim()) newErrors.email = 'Email is required';
-    if (!formData.projectType) newErrors.projectType = 'Project type is required';
-    if (!formData.budgetRange) newErrors.budgetRange = 'Budget range is required';
-    if (!formData.projectDescription.trim()) newErrors.projectDescription = 'Project description is required';
-    if (!formData.timeline) newErrors.timeline = 'Timeline is required';
-
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (formData.email && !emailRegex.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
-    }
-
-    // Name validation
-    if (formData.name && formData.name.length < 2) {
+    if (!formData.name || formData.name.trim().length < 2) {
       newErrors.name = 'Name must be at least 2 characters';
     }
 
-    // Project description validation
-    if (formData.projectDescription && formData.projectDescription.length < 10) {
-      newErrors.projectDescription = 'Please provide more details (at least 10 characters)';
+    if (!formData.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    if (!formData.phone || formData.phone.trim().length === 0) {
+      newErrors.phone = 'Phone number is required';
+    } else if (!validatePhoneNumber(formData.phone, formData.countryCode || '+91')) {
+      const country = COUNTRY_CODES.find(c => c.code === formData.countryCode);
+      newErrors.phone = `Invalid phone number for ${country?.country}`;
+    }
+
+    if (!formData.subject || formData.subject.trim().length < 3) {
+      newErrors.subject = 'Subject must be at least 3 characters';
+    }
+
+    if (!formData.message || formData.message.trim().length < 20) {
+      newErrors.message = 'Message must be at least 20 characters';
     }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  // Handle form submission
+  const getCaptchaToken = async (): Promise<string> => {
+    if (!captchaLoaded || !window.grecaptcha) {
+      throw new Error('CAPTCHA not loaded');
+    }
+
+    return new Promise((resolve, reject) => {
+      window.grecaptcha.ready(() => {
+        window.grecaptcha
+          .execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'contact_form' })
+          .then(resolve)
+          .catch(reject);
+      });
+    });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -89,37 +135,40 @@ export function ContactForm({ className }: ContactFormProps) {
     setSubmitStatus('idle');
 
     try {
+      const captchaToken = await getCaptchaToken();
+
       const response = await fetch('/api/contacts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          captchaToken,
+        }),
       });
 
       const result = await response.json();
 
       if (response.ok && result.success) {
         setSubmitStatus('success');
-        setSubmitMessage('Thank you! We\'ll get back to you within 24 hours.');
-        
-        // Reset form
+        setSubmitMessage('Thank you! We\'ve sent a confirmation email. We\'ll get back to you within 24 hours.');
+
         setFormData({
           name: '',
           email: '',
           phone: '',
+          countryCode: '+91',
           company: '',
-          projectType: '' as any,
-          preferredStack: '',
-          budgetRange: '' as any,
-          projectDescription: '',
-          timeline: '' as any,
+          subject: '',
+          serviceInterest: '',
+          budgetRange: '',
+          message: '',
         });
       } else {
         setSubmitStatus('error');
         setSubmitMessage(result.message || 'Something went wrong. Please try again.');
-        
-        // Handle validation errors from server
+
         if (result.errors) {
           setErrors(result.errors);
         }
@@ -133,14 +182,15 @@ export function ContactForm({ className }: ContactFormProps) {
     }
   };
 
+  const selectedCountry = COUNTRY_CODES.find(c => c.code === formData.countryCode);
+
   return (
     <div className={cn('w-full max-w-2xl mx-auto', className)}>
       <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Name and Email Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="name" className="form-label">
-              Name *
+              Full Name *
             </label>
             <input
               type="text"
@@ -152,7 +202,7 @@ export function ContactForm({ className }: ContactFormProps) {
                 'form-input',
                 errors.name && 'border-red-500 focus:border-red-500 focus:ring-red-500'
               )}
-              placeholder="Your full name"
+              placeholder="John Doe"
               disabled={isSubmitting}
             />
             {errors.name && <p className="form-error">{errors.name}</p>}
@@ -160,7 +210,7 @@ export function ContactForm({ className }: ContactFormProps) {
 
           <div>
             <label htmlFor="email" className="form-label">
-              Email *
+              Email Address *
             </label>
             <input
               type="email"
@@ -172,18 +222,37 @@ export function ContactForm({ className }: ContactFormProps) {
                 'form-input',
                 errors.email && 'border-red-500 focus:border-red-500 focus:ring-red-500'
               )}
-              placeholder="your@email.com"
+              placeholder="john@example.com"
               disabled={isSubmitting}
             />
             {errors.email && <p className="form-error">{errors.email}</p>}
           </div>
         </div>
 
-        {/* Phone and Company Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
+            <label htmlFor="countryCode" className="form-label">
+              Country *
+            </label>
+            <select
+              id="countryCode"
+              name="countryCode"
+              value={formData.countryCode}
+              onChange={handleChange}
+              className="form-select"
+              disabled={isSubmitting}
+            >
+              {COUNTRY_CODES.map((country) => (
+                <option key={country.code} value={country.code}>
+                  {country.code} {country.country}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="md:col-span-2">
             <label htmlFor="phone" className="form-label">
-              Phone
+              Phone Number * {selectedCountry && `(${selectedCountry.maxLength} digits)`}
             </label>
             <input
               type="tel"
@@ -191,15 +260,22 @@ export function ContactForm({ className }: ContactFormProps) {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className="form-input"
-              placeholder="+1 (555) 123-4567"
+              className={cn(
+                'form-input',
+                errors.phone && 'border-red-500 focus:border-red-500 focus:ring-red-500'
+              )}
+              placeholder={selectedCountry?.code === '+91' ? '9876543210' : '1234567890'}
+              maxLength={selectedCountry?.maxLength}
               disabled={isSubmitting}
             />
+            {errors.phone && <p className="form-error">{errors.phone}</p>}
           </div>
+        </div>
 
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="company" className="form-label">
-              Company
+              Company Name
             </label>
             <input
               type="text"
@@ -208,153 +284,124 @@ export function ContactForm({ className }: ContactFormProps) {
               value={formData.company}
               onChange={handleChange}
               className="form-input"
-              placeholder="Your company name"
+              placeholder="Your Company (Optional)"
               disabled={isSubmitting}
             />
           </div>
-        </div>
-
-        {/* Project Type and Budget Range Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label htmlFor="projectType" className="form-label">
-              Project Type *
-            </label>
-            <select
-              id="projectType"
-              name="projectType"
-              value={formData.projectType}
-              onChange={handleChange}
-              className={cn(
-                'form-select',
-                errors.projectType && 'border-red-500 focus:border-red-500 focus:ring-red-500'
-              )}
-              disabled={isSubmitting}
-            >
-              <option value="">Select project type</option>
-              {PROJECT_TYPES.map((type) => (
-                <option key={type} value={type}>
-                  {type}
-                </option>
-              ))}
-            </select>
-            {errors.projectType && <p className="form-error">{errors.projectType}</p>}
-          </div>
 
           <div>
-            <label htmlFor="budgetRange" className="form-label">
-              Budget Range *
+            <label htmlFor="serviceInterest" className="form-label">
+              Service Interest
             </label>
             <select
-              id="budgetRange"
-              name="budgetRange"
-              value={formData.budgetRange}
-              onChange={handleChange}
-              className={cn(
-                'form-select',
-                errors.budgetRange && 'border-red-500 focus:border-red-500 focus:ring-red-500'
-              )}
-              disabled={isSubmitting}
-            >
-              <option value="">Select budget range</option>
-              {BUDGET_RANGES.map((range) => (
-                <option key={range} value={range}>
-                  {range}
-                </option>
-              ))}
-            </select>
-            {errors.budgetRange && <p className="form-error">{errors.budgetRange}</p>}
-          </div>
-        </div>
-
-        {/* Preferred Tech Stack and Timeline Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label htmlFor="preferredStack" className="form-label">
-              Preferred Tech Stack
-            </label>
-            <select
-              id="preferredStack"
-              name="preferredStack"
-              value={formData.preferredStack}
+              id="serviceInterest"
+              name="serviceInterest"
+              value={formData.serviceInterest}
               onChange={handleChange}
               className="form-select"
               disabled={isSubmitting}
             >
-              <option value="">No preference</option>
-              {TECH_STACKS.map((stack) => (
-                <option key={stack} value={stack}>
-                  {stack}
+              <option value="">Select a service</option>
+              {SERVICE_INTERESTS.map((service) => (
+                <option key={service} value={service}>
+                  {service}
                 </option>
               ))}
             </select>
-          </div>
-
-          <div>
-            <label htmlFor="timeline" className="form-label">
-              Timeline *
-            </label>
-            <select
-              id="timeline"
-              name="timeline"
-              value={formData.timeline}
-              onChange={handleChange}
-              className={cn(
-                'form-select',
-                errors.timeline && 'border-red-500 focus:border-red-500 focus:ring-red-500'
-              )}
-              disabled={isSubmitting}
-            >
-              <option value="">Select timeline</option>
-              {TIMELINES.map((time) => (
-                <option key={time} value={time}>
-                  {time}
-                </option>
-              ))}
-            </select>
-            {errors.timeline && <p className="form-error">{errors.timeline}</p>}
           </div>
         </div>
 
-        {/* Project Description */}
         <div>
-          <label htmlFor="projectDescription" className="form-label">
-            Project Description *
+          <label htmlFor="subject" className="form-label">
+            Subject *
           </label>
-          <textarea
-            id="projectDescription"
-            name="projectDescription"
-            value={formData.projectDescription}
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            value={formData.subject}
             onChange={handleChange}
-            rows={5}
             className={cn(
-              'form-textarea',
-              errors.projectDescription && 'border-red-500 focus:border-red-500 focus:ring-red-500'
+              'form-input',
+              errors.subject && 'border-red-500 focus:border-red-500 focus:ring-red-500'
             )}
-            placeholder="Please describe your project requirements, goals, and any specific features you need..."
+            placeholder="What would you like to discuss?"
             disabled={isSubmitting}
           />
-          {errors.projectDescription && <p className="form-error">{errors.projectDescription}</p>}
+          {errors.subject && <p className="form-error">{errors.subject}</p>}
         </div>
 
-        {/* Submit Button */}
+        <div>
+          <label htmlFor="budgetRange" className="form-label">
+            Budget Range
+          </label>
+          <select
+            id="budgetRange"
+            name="budgetRange"
+            value={formData.budgetRange}
+            onChange={handleChange}
+            className="form-select"
+            disabled={isSubmitting}
+          >
+            <option value="">Select budget range</option>
+            {BUDGET_RANGES.map((range) => (
+              <option key={range} value={range}>
+                {range}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div>
+          <label htmlFor="message" className="form-label">
+            Message *
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            rows={6}
+            className={cn(
+              'form-textarea',
+              errors.message && 'border-red-500 focus:border-red-500 focus:ring-red-500'
+            )}
+            placeholder="Tell us about your project or inquiry..."
+            disabled={isSubmitting}
+          />
+          {errors.message && <p className="form-error">{errors.message}</p>}
+          <p className="text-xs text-gray-500 mt-1">
+            {formData.message?.length || 0} / 2000 characters (minimum 20)
+          </p>
+        </div>
+
+        <div className="flex items-center gap-2 text-xs text-gray-500">
+          <Shield className="h-4 w-4" />
+          <span>Protected by reCAPTCHA. Your privacy is important to us.</span>
+        </div>
+
         <div>
           <motion.button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitting || !captchaLoaded}
             className={cn(
               'w-full flex items-center justify-center gap-2 px-6 py-4 rounded-lg font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2',
-              isSubmitting
+              isSubmitting || !captchaLoaded
                 ? 'bg-gray-400 cursor-not-allowed'
                 : submitStatus === 'success'
                 ? 'bg-green-600 hover:bg-green-700 focus:ring-green-500'
                 : 'bg-primary-600 hover:bg-primary-700 focus:ring-primary-500',
               'text-white'
             )}
-            whileHover={!isSubmitting ? { scale: 1.02 } : {}}
-            whileTap={!isSubmitting ? { scale: 0.98 } : {}}
+            whileHover={!isSubmitting && captchaLoaded ? { scale: 1.02 } : {}}
+            whileTap={!isSubmitting && captchaLoaded ? { scale: 0.98 } : {}}
           >
-            {isSubmitting ? (
+            {!captchaLoaded ? (
+              <>
+                <Loader2 className="h-5 w-5 animate-spin" />
+                Loading Security...
+              </>
+            ) : isSubmitting ? (
               <>
                 <Loader2 className="h-5 w-5 animate-spin" />
                 Sending...
@@ -373,7 +420,6 @@ export function ContactForm({ className }: ContactFormProps) {
           </motion.button>
         </div>
 
-        {/* Status Messages */}
         {submitMessage && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -386,9 +432,9 @@ export function ContactForm({ className }: ContactFormProps) {
             )}
           >
             {submitStatus === 'success' ? (
-              <CheckCircle className="h-5 w-5 text-green-600" />
+              <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
             ) : (
-              <AlertCircle className="h-5 w-5 text-red-600" />
+              <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0" />
             )}
             <p className="font-medium">{submitMessage}</p>
           </motion.div>

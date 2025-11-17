@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -11,8 +11,6 @@ import besideSEOServices from '../../../Images/Beside_SEO_Services_and_Drupal_De
 import besideWebDesign from '../../../Images/Beside_Web_Design.png';
 import besideWordPress from '../../../Images/Beside_WordPress Development.png';
 import besideMobileApp from '../../../Images/Beside_Mobile_App.png';
-
-
 
 export default function ServicesPage() {
   const categories = [

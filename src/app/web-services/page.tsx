@@ -22,7 +22,6 @@ import besideDomainWebHoisting from '../../../Images/Beside_domain_web_hosting.j
 import besideCloudHoisting from '../../../Images/Beside_cloud_hoisting.jpg';
 import besideGraphicDesign from '../../../Images/Beside_graphic_design.jpg';
 
-
 export default function WebServicesPage(): JSX.Element {
   // Define a common image size for consistency
   const IMAGE_WIDTH = 600;
