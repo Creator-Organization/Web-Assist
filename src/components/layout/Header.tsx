@@ -1,10 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, X, ChevronDown, Phone, ArrowRight } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import Image from 'next/image';
-import creatorItLogo from '../../../Images/creatorit-logo4.png';
-import parentLogo from '../../../Images/Creator_Research_Logo.png';
+
+import creatorItLogo from '../../../Images/Creator_IT_Logo_5.png';
+
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -41,27 +42,18 @@ export default function Header() {
   return (
     <header className="bg-white sticky top-0 z-50 shadow-md border-b border-gray-100">
       <div className="container mx-auto px-4 lg:px-12 flex items-center justify-between h-20">
-        {/* Logos */}
-        <div className="flex items-center space-x-4">
-          <a href="/" className="flex items-center">
-            <Image
-              src={parentLogo}
-              alt="Creator Research Logo"
-              className="w-32 h-auto"
-              priority
-            />
-          </a>
-          <a href="/" className="flex items-center">
-            <Image
-              src={creatorItLogo}
-              alt="CreatorIt Logo"
-              className="w-28 h-auto"
-              priority
-            />
-          </a>
-        </div>
 
-        {/* Desktop Nav */}
+        {/* -------------- LOGO SECTION (Left side) ---------------- */}
+        <a href="/" className="flex items-center space-x-2">
+          <Image
+            src={creatorItLogo}
+            alt="CreatorIt Logo"
+            className="w-28 h-auto"
+            priority
+          />
+        </a>
+
+        {/* ------------------ DESKTOP NAVIGATION ------------------ */}
         <nav className="hidden xl:flex items-center space-x-8">
           <NavLink href="/">Home</NavLink>
 
@@ -291,7 +283,7 @@ export default function Header() {
           </a>
         </nav>
 
-        {/* Right Section */}
+        {/* ------------------ RIGHT SECTION (Desktop) ------------------ */}
         <div className="hidden xl:flex items-center space-x-6">
           <a
             href="/contact"
@@ -311,7 +303,7 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Button */}
+        {/* ------------------ MOBILE MENU BUTTON ------------------ */}
         <button
           onClick={toggleMobileMenu}
           className="xl:hidden text-gray-700 hover:text-blue-600 transition-colors"
@@ -322,14 +314,13 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`xl:hidden fixed top-20 right-0 h-full w-72 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${
+        className={`xl:hidden fixed top-20 right-0 h-full w-72 bg-white shadow-2xl transform 
+        transition-transform duration-300 ease-in-out z-50 ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <nav className="flex flex-col p-6 space-y-3">
-          <NavLink href="/" onClick={closeMobileMenu}>
-            Home
-          </NavLink>
+          <NavLink href="/" onClick={closeMobileMenu}>Home</NavLink>
 
           <div>
             <button
@@ -337,12 +328,11 @@ export default function Header() {
               className="w-full text-left text-gray-800 hover:text-blue-600 flex items-center justify-between font-medium py-2"
             >
               Services
-              <ChevronDown
-                className={`w-4 h-4 transition-transform ${
-                  activeDropdown === 'services' ? 'rotate-180' : ''
-                }`}
-              />
+              <ChevronDown className={`w-4 h-4 transition-transform ${
+                activeDropdown === 'services' ? 'rotate-180' : ''
+              }`} />
             </button>
+
             {activeDropdown === 'services' && (
               <div className="ml-3 mt-2 space-y-2">
                 {[
@@ -371,12 +361,11 @@ export default function Header() {
               className="w-full text-left text-gray-800 hover:text-blue-600 flex items-center justify-between font-medium py-2"
             >
               About
-              <ChevronDown
-                className={`w-4 h-4 transition-transform ${
-                  activeDropdown === 'about' ? 'rotate-180' : ''
-                }`}
-              />
+              <ChevronDown className={`w-4 h-4 transition-transform ${
+                activeDropdown === 'about' ? 'rotate-180' : ''
+              }`} />
             </button>
+
             {activeDropdown === 'about' && (
               <div className="ml-3 mt-2 space-y-2">
                 {[

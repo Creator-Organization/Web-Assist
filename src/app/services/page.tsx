@@ -27,7 +27,9 @@ export default function ServicesPage() {
         'Google Ads',
         'Online Surveys',
         'Classified Promotions',
-        'Youtube Marketing'
+        'Youtube Marketing',
+        'Voice Marketing',
+        'WhatsApp Marketing'
 
       ],
       icon: <TrendingUp className="w-8 h-8" />,
@@ -44,6 +46,9 @@ export default function ServicesPage() {
         'Interactive UI/UX',
         'E-commerce Solutions',
         'Logo & Brand Identity',
+        'Domain & Web Hoisting',
+        'Cloud Hoisting',
+        'Graphic Design'
       ],
       icon: <Globe className="w-8 h-8" />,
       image: besideWebDesign,
