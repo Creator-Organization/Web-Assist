@@ -31,12 +31,54 @@ import wordpressLogo from '../../Images/stack_logos/WordPress.png';
 import shopifyLogo from '../../Images/stack_logos/Shopify.png';
 import awsLogo from '../../Images/stack_logos/AWS.png';
 
+// === ANIMATION VARIANTS (REUSABLE) ===
+const sectionFadeUp = {
+  offscreen: { opacity: 0, y: 40 },
+  onscreen: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: 'easeOut',
+    },
+  },
+};
+
+const staggerContainer = {
+  offscreen: { opacity: 0 },
+  onscreen: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemFade = {
+  offscreen: { opacity: 0, y: 20 },
+  onscreen: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: 'easeOut' },
+  },
+};
+
+const scaleIn = {
+  offscreen: { opacity: 0, scale: 0.9 },
+  onscreen: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.55, ease: 'easeOut' },
+  },
+};
+
 const HomePage: React.FC = () => {
   return (
     <main className="min-h-screen font-inter bg-white">
-      {/* HERO SECTION (keep as-is, already animated) */}
+      {/* HERO SECTION */}
       <section className="relative bg-gradient-to-b from-sky-900 via-sky-800 to-slate-900 text-white py-12 md:py-16 lg:py-20 overflow-visible">
-        {/* === FULL PURE VIDEO BACKGROUND — NO TRANSPARENCY === */}
+        {/* Video background */}
         <video
           autoPlay
           loop
@@ -47,13 +89,18 @@ const HomePage: React.FC = () => {
           <source src="/images/main_hero.mp4" type="video/mp4" />
         </video>
 
-        {/* === MAIN CONTENT === */}
-        <div className="relative container mx-auto px-4 sm:px-6 xl:px-16 z-10 text-center">
+        {/* Soft gradient overlay for better text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-sky-900/40 to-slate-900/70 z-0" />
+
+        <motion.div
+          className="relative container mx-auto px-4 sm:px-6 xl:px-16 z-10 text-center"
+          initial="offscreen"
+          animate="onscreen"
+          variants={staggerContainer}
+        >
           {/* Badge */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: -10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            variants={scaleIn}
             className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full mb-4 border border-white/20 shadow-xl"
           >
             <Star className="w-4 h-4 text-yellow-300" />
@@ -62,27 +109,28 @@ const HomePage: React.FC = () => {
 
           {/* Heading */}
           <motion.h1
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
+            variants={itemFade}
             className="text-2xl sm:text-4xl md:text-5xl font-extrabold mb-3 leading-tight px-2 drop-shadow-lg"
           >
             Transform Your Digital Presence with
             <motion.span
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.7 }}
-              className="block mt-2 hero-animated-text"
+              variants={itemFade}
+              className="block mt-2 hero-animated-text relative inline-block"
             >
-              Expert Web Solutions
+              <span className="relative z-10">Expert Web Solutions</span>
+              {/* Animated underline */}
+              <motion.span
+                className="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-24 bg-gradient-to-r from-sky-300 to-cyan-300 rounded-full"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ delay: 0.3, duration: 0.6, ease: 'easeOut' }}
+              />
             </motion.span>
           </motion.h1>
 
           {/* Subheading */}
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.6 }}
+            variants={itemFade}
             className="text-base sm:text-lg md:text-xl mb-8 text-blue-100 leading-relaxed max-w-2xl mx-auto px-4 drop-shadow-md"
           >
             From strategy to deployment, we build powerful web experiences that
@@ -91,29 +139,35 @@ const HomePage: React.FC = () => {
 
           {/* CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.45, duration: 0.5 }}
+            variants={itemFade}
             className="flex flex-col sm:flex-row gap-3 justify-center items-center mx-auto px-4"
           >
             <a href="/contact" className="w-full sm:w-auto">
-              <button className="group bg-white text-sky-900 px-5 sm:px-7 py-3 rounded-lg text-sm sm:text-base font-semibold 
-                           hover:bg-gray-100 transition-all duration-200 transform hover:-translate-y-1 
-                           shadow-lg hover:shadow-2xl flex items-center justify-center gap-2 w-full min-h-[44px]">
+              <motion.button
+                whileHover={{ y: -3, scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                className="group bg-white text-sky-900 px-5 sm:px-7 py-3 rounded-lg text-sm sm:text-base font-semibold 
+                           hover:bg-gray-100 transition-all duration-200 
+                           shadow-lg hover:shadow-2xl flex items-center justify-center gap-2 w-full min-h-[44px]"
+              >
                 Start Your Project
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </motion.button>
             </a>
 
             <a href="/services" className="w-full sm:w-auto">
-              <button className="bg-primary-700/20 text-white border-2 border-white/30 px-5 sm:px-7 py-3 rounded-lg 
+              <motion.button
+                whileHover={{ y: -3, scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                className="bg-primary-700/20 text-white border-2 border-white/30 px-5 sm:px-7 py-3 rounded-lg 
                            text-sm sm:text-base font-semibold hover:bg-primary-700/40 
-                           transition-all duration-200 w-full min-h-[44px] shadow-md hover:shadow-xl">
+                           transition-all duration-200 w-full min-h-[44px] shadow-md hover:shadow-xl"
+              >
                 View Services
-              </button>
+              </motion.button>
             </a>
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* Floating Trust Bar */}
         <div className="absolute left-1/2 bottom-[-4.5rem] transform -translate-x-1/2 w-full flex justify-center pointer-events-none z-20">
@@ -121,29 +175,32 @@ const HomePage: React.FC = () => {
             className="w-[94%] sm:w-[85%] lg:w-[70%] bg-white/95 backdrop-blur-xl text-gray-700 rounded-2xl shadow-2xl 
                  py-5 sm:py-6 px-6 sm:px-10 flex flex-wrap justify-center items-center gap-5 sm:gap-8 text-sm 
                  border border-gray-100 pointer-events-auto"
-            animate={{ y: [0, -8, 0] }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: 'easeInOut',
+            initial={{ opacity: 0, y: 40, scale: 0.98 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              scale: 1,
             }}
+            transition={{ duration: 0.7, ease: 'easeOut', delay: 0.6 }}
+            whileHover={{ y: -4 }}
           >
-            <div className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-green-500" />
-              <span className="font-medium">500+ Projects Delivered</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-green-500" />
-              <span className="font-medium">98% Client Satisfaction</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-green-500" />
-              <span className="font-medium">15+ Years Experience</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-green-500" />
-              <span className="font-medium">24/7 Support</span>
-            </div>
+            {[
+              '500+ Projects Delivered',
+              '98% Client Satisfaction',
+              '15+ Years Experience',
+              '24/7 Support',
+            ].map((label, idx) => (
+              <motion.div
+                key={idx}
+                className="flex items-center gap-2"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 + idx * 0.08, duration: 0.35 }}
+              >
+                <Check className="w-5 h-5 text-green-500" />
+                <span className="font-medium">{label}</span>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
@@ -151,21 +208,40 @@ const HomePage: React.FC = () => {
       {/* SERVICES OVERVIEW */}
       <motion.section
         className="py-16 md:py-20 bg-gray-50"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        variants={sectionFadeUp}
+        initial="offscreen"
+        whileInView="onscreen"
         viewport={{ once: true, amount: 0.2 }}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
-          <div className="text-center mb-12 md:mb-16">
-            <span className="text-sky-600 font-semibold text-sm uppercase tracking-wide">What We Offer</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 mt-2">Our Services</h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+          <motion.div
+            className="text-center mb-12 md:mb-16"
+            variants={staggerContainer}
+          >
+            <motion.span
+              className="text-sky-600 font-semibold text-sm uppercase tracking-wide"
+              variants={itemFade}
+            >
+              What We Offer
+            </motion.span>
+            <motion.h2
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 mt-2"
+              variants={itemFade}
+            >
+              Our Services
+            </motion.h2>
+            <motion.p
+              className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto"
+              variants={itemFade}
+            >
               End-to-end digital solutions designed to accelerate your business growth
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto"
+            variants={staggerContainer}
+          >
             {[
               {
                 title: 'Digital Marketing',
@@ -215,13 +291,12 @@ const HomePage: React.FC = () => {
               <motion.a
                 key={i}
                 href={service.link}
-                className={`group bg-gradient-to-b ${service.color} rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 p-6 lg:p-8`}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.12, ease: 'easeOut' }}
-                viewport={{ once: true, amount: 0.2 }}
+                className={`group bg-gradient-to-b ${service.color} rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 p-6 lg:p-8`}
+                variants={itemFade}
+                whileHover={{ y: -6, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <div className="w-12 h-12 lg:w-14 lg:h-14 bg-white rounded-xl flex items-center justify-center mb-4 lg:mb-6 shadow-sm">
+                <div className="w-12 h-12 lg:w-14 lg:h-14 bg-white rounded-xl flex items-center justify-center mb-4 lg:mb-6 shadow-sm group-hover:shadow-md transition-shadow">
                   {service.icon}
                 </div>
                 <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3 group-hover:text-sky-700 transition-colors">
@@ -236,28 +311,47 @@ const HomePage: React.FC = () => {
                 </span>
               </motion.a>
             ))}
-          </div>
+          </motion.div>
         </div>
       </motion.section>
 
       {/* WHY CREATORIT */}
       <motion.section
         className="py-20 bg-white"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        variants={sectionFadeUp}
+        initial="offscreen"
+        whileInView="onscreen"
         viewport={{ once: true, amount: 0.2 }}
       >
         <div className="container mx-auto px-6 xl:px-16">
-          <div className="text-center mb-16">
-            <span className="text-sky-600 font-semibold text-sm uppercase tracking-wide">Why CreatorIt</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 mt-2">What Makes Us Different</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            variants={staggerContainer}
+          >
+            <motion.span
+              className="text-sky-600 font-semibold text-sm uppercase tracking-wide"
+              variants={itemFade}
+            >
+              Why CreatorIt
+            </motion.span>
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 mt-2"
+              variants={itemFade}
+            >
+              What Makes Us Different
+            </motion.h2>
+            <motion.p
+              className="text-xl text-gray-600 max-w-2xl mx-auto"
+              variants={itemFade}
+            >
               We combine expertise, innovation, and dedication to deliver exceptional results
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto"
+            variants={staggerContainer}
+          >
             {[
               { image: expertTeamImage, title: 'Expert Team', desc: 'Skilled professionals with 15+ years of industry experience' },
               { image: qualityWorkImage, title: 'Quality Work', desc: 'High-quality solutions backed by rigorous testing and QA' },
@@ -268,53 +362,77 @@ const HomePage: React.FC = () => {
             ].map((item, i) => (
               <motion.div
                 key={i}
-                className="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.12, ease: 'easeOut' }}
-                viewport={{ once: true, amount: 0.2 }}
+                className="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-2xl transition-all duration-500"
+                variants={itemFade}
+                whileHover={{ y: -8 }}
               >
                 {/* Animated background gradient on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-0"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-0" />
 
-                {/* Image container - fills most of the box */}
+                {/* Image container */}
                 <div className="relative z-10 flex-1 p-4 md:p-6 flex items-center justify-center min-h-[200px] md:min-h-[240px] lg:min-h-[280px]">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    width={400}
-                    height={400}
-                    className="w-full h-full max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                  />
+                  <motion.div
+                    className="w-full h-full"
+                    whileHover={{ scale: 1.06 }}
+                    transition={{ duration: 0.45 }}
+                  >
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      width={400}
+                      height={400}
+                      className="w-full h-full max-w-full max-h-full object-contain"
+                    />
+                  </motion.div>
                 </div>
 
-                {/* Text content at bottom */}
+                {/* Text content */}
                 <div className="relative z-10 bg-white/95 backdrop-blur-sm p-4 md:p-6 pt-2 border-t border-gray-100">
-                  <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-2 group-hover:text-sky-700 transition-colors duration-300">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed text-sm lg:text-base">{item.desc}</p>
+                  <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-2 group-hover:text-sky-700 transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm lg:text-base">
+                    {item.desc}
+                  </p>
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </motion.section>
 
       {/* STATS SECTION */}
       <motion.section
         className="py-16 md:py-20 bg-gradient-to-br from-sky-600 to-sky-700 text-white relative overflow-hidden"
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        variants={sectionFadeUp}
+        initial="offscreen"
+        whileInView="onscreen"
         viewport={{ once: true, amount: 0.25 }}
       >
         <div className="absolute inset-0 opacity-10" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16 relative z-10">
-          <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Trusted by Businesses Worldwide</h2>
-            <p className="text-blue-100 text-base md:text-lg">Delivering results that matter</p>
-          </div>
+          <motion.div
+            className="text-center mb-10 md:mb-12"
+            variants={staggerContainer}
+          >
+            <motion.h2
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+              variants={itemFade}
+            >
+              Trusted by Businesses Worldwide
+            </motion.h2>
+            <motion.p
+              className="text-blue-100 text-base md:text-lg"
+              variants={itemFade}
+            >
+              Delivering results that matter
+            </motion.p>
+          </motion.div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 max-w-5xl mx-auto">
+          <motion.div
+            className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 max-w-5xl mx-auto"
+            variants={staggerContainer}
+          >
             {[
               { num: '500+', label: 'Projects Completed' },
               { num: '98%', label: 'Client Satisfaction' },
@@ -324,37 +442,54 @@ const HomePage: React.FC = () => {
               <motion.div
                 key={i}
                 className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20"
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.12, ease: 'easeOut' }}
-                viewport={{ once: true, amount: 0.2 }}
+                variants={scaleIn}
+                whileHover={{ y: -6, boxShadow: '0 25px 40px rgba(0,0,0,0.25)' }}
               >
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">{stat.num}</div>
                 <div className="text-blue-100 text-sm md:text-base lg:text-lg">{stat.label}</div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </motion.section>
 
       {/* TESTIMONIALS */}
       <motion.section
         className="py-20 bg-gray-50"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        variants={sectionFadeUp}
+        initial="offscreen"
+        whileInView="onscreen"
         viewport={{ once: true, amount: 0.2 }}
       >
         <div className="container mx-auto px-6 xl:px-16">
-          <div className="text-center mb-16">
-            <span className="text-sky-600 font-semibold text-sm uppercase tracking-wide">Testimonials</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 mt-2">What Our Clients Say</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            variants={staggerContainer}
+          >
+            <motion.span
+              className="text-sky-600 font-semibold text-sm uppercase tracking-wide"
+              variants={itemFade}
+            >
+              Testimonials
+            </motion.span>
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 mt-2"
+              variants={itemFade}
+            >
+              What Our Clients Say
+            </motion.h2>
+            <motion.p
+              className="text-xl text-gray-600 max-w-2xl mx-auto"
+              variants={itemFade}
+            >
               Don't just take our word for it - hear from businesses we've helped succeed
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <motion.div
+            className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+            variants={staggerContainer}
+          >
             {[
               {
                 name: 'Sarah Johnson',
@@ -374,11 +509,9 @@ const HomePage: React.FC = () => {
             ].map((t, i) => (
               <motion.div
                 key={i}
-                className="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-shadow"
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.12, ease: 'easeOut' }}
-                viewport={{ once: true, amount: 0.2 }}
+                className="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-shadow border border-gray-100"
+                variants={itemFade}
+                whileHover={{ y: -6, scale: 1.01 }}
               >
                 <div className="flex mb-4">
                   {[...Array(5)].map((_, j) => (
@@ -392,23 +525,36 @@ const HomePage: React.FC = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </motion.section>
 
-      {/* CLIENT LOGOS (placeholder grid) */}
+      {/* CLIENT LOGOS */}
       <motion.section
         className="py-12 bg-gray-50"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        variants={sectionFadeUp}
+        initial="offscreen"
+        whileInView="onscreen"
         viewport={{ once: true, amount: 0.2 }}
       >
         <div className="container mx-auto px-6 xl:px-16 text-center">
-          <h4 className="text-3xl font-bold text-slate-900 mb-6">Our valuable clientele</h4>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8">Our clients count on us for their end to end IT services and digital marketing needs. As a technology partner we work to become your IT team.</p>
+          <motion.h4
+            className="text-3xl font-bold text-slate-900 mb-6"
+            variants={itemFade}
+          >
+            Our valuable clientele
+          </motion.h4>
+          <motion.p
+            className="text-gray-600 max-w-2xl mx-auto mb-8"
+            variants={itemFade}
+          >
+            Our clients count on us for their end to end IT services and digital marketing needs. As a technology partner we work to become your IT team.
+          </motion.p>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center max-w-6xl mx-auto">
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center max-w-6xl mx-auto"
+            variants={staggerContainer}
+          >
             {[
               { src: DefenceLogo, alt: 'Defence' },
               { src: peshwaLogo, alt: 'peshwa' },
@@ -420,10 +566,8 @@ const HomePage: React.FC = () => {
               <motion.div
                 key={i}
                 className="p-4 bg-white rounded-lg shadow-sm border h-24 flex items-center justify-center hover:shadow-md transition-shadow"
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: i * 0.08, ease: 'easeOut' }}
-                viewport={{ once: true, amount: 0.15 }}
+                variants={scaleIn}
+                whileHover={{ y: -4, scale: 1.03 }}
               >
                 <Image
                   src={logo.src}
@@ -434,15 +578,15 @@ const HomePage: React.FC = () => {
                 />
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </motion.section>
 
-      {/* Agile Process Section - keep the component but animate its container */}
+      {/* Agile Process Section */}
       <motion.div
-        initial={{ opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        variants={sectionFadeUp}
+        initial="offscreen"
+        whileInView="onscreen"
         viewport={{ once: true, amount: 0.2 }}
       >
         <AgileProcessSection />
@@ -451,21 +595,35 @@ const HomePage: React.FC = () => {
       {/* TECHNOLOGIES WE MASTER */}
       <motion.section
         className="py-20 bg-white"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        variants={sectionFadeUp}
+        initial="offscreen"
+        whileInView="onscreen"
         viewport={{ once: true, amount: 0.2 }}
       >
         <div className="container mx-auto px-6 xl:px-16 text-center">
-          <span className="text-sky-600 font-semibold text-sm uppercase tracking-wide">Our Stack</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">
+          <motion.span
+            className="text-sky-600 font-semibold text-sm uppercase tracking-wide"
+            variants={itemFade}
+          >
+            Our Stack
+          </motion.span>
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4"
+            variants={itemFade}
+          >
             Technologies We Master
-          </h2>
-          <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p
+            className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto"
+            variants={itemFade}
+          >
             Building with cutting-edge, battle-tested technologies
-          </p>
+          </motion.p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 max-w-5xl mx-auto">
+          <motion.div
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 max-w-5xl mx-auto"
+            variants={staggerContainer}
+          >
             {[
               { logo: reactLogo, name: 'React' },
               { logo: nextjsLogo, name: 'Next.js' },
@@ -476,11 +634,9 @@ const HomePage: React.FC = () => {
             ].map((tech, index) => (
               <motion.div
                 key={index}
-                className="flex flex-col items-center justify-center bg-sky-50 rounded-2xl py-8 px-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100"
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: index * 0.08, ease: 'easeOut' }}
-                viewport={{ once: true, amount: 0.15 }}
+                className="flex flex-col items-center justify-center bg-sky-50 rounded-2xl py-8 px-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100"
+                variants={scaleIn}
+                whileHover={{ y: -6, scale: 1.03 }}
               >
                 <div className="w-20 h-20 flex items-center justify-center mb-4">
                   <Image
@@ -494,34 +650,52 @@ const HomePage: React.FC = () => {
                 <p className="text-gray-900 font-semibold text-lg">{tech.name}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </motion.section>
 
       {/* FINAL CTA */}
       <motion.section
         className="py-20 bg-gradient-to-r from-sky-600 to-sky-700 text-white"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        variants={sectionFadeUp}
+        initial="offscreen"
+        whileInView="onscreen"
         viewport={{ once: true, amount: 0.2 }}
       >
         <div className="container mx-auto px-6 xl:px-16 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold mb-6"
+            variants={itemFade}
+          >
             Ready to Transform Your Business?
-          </h2>
-          <p className="text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed text-lg">
+          </motion.h2>
+          <motion.p
+            className="text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed text-lg"
+            variants={itemFade}
+          >
             Let's discuss your project and show you how we can deliver results that exceed your expectations
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          </motion.p>
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            variants={itemFade}
+          >
             <a href="/contact">
-              <button className="group bg-white text-sky-700 px-10 py-5 rounded-lg text-lg font-bold hover:bg-gray-100 transition-all duration-200 transform hover:-translate-y-0.5 shadow-xl flex items-center gap-2 mx-auto">
+              <motion.button
+                className="group bg-white text-sky-700 px-10 py-5 rounded-lg text-lg font-bold hover:bg-gray-100 transition-all duration-200 transform shadow-xl flex items-center gap-2 mx-auto"
+                whileHover={{ y: -4, scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
                 Start Your Project Now
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </motion.button>
             </a>
-          </div>
-          <p className="text-blue-100 mt-6 text-sm">Free consultation • No commitment required • Response within 24 hours</p>
+          </motion.div>
+          <motion.p
+            className="text-blue-100 mt-6 text-sm"
+            variants={itemFade}
+          >
+            Free consultation • No commitment required • Response within 24 hours
+          </motion.p>
         </div>
       </motion.section>
     </main>
