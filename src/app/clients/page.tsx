@@ -3,12 +3,16 @@ import Image from 'next/image';
 
 
 // --- Client Logos ---
-import swiggyLogo from '../../../Images/clients/client_swiggy.png';
-import kennametalLogo from '../../../Images/clients/client_Kennametal.png';
-import ifbLogo from '../../../Images/clients/client_IFB.png';
-import jainLogo from '../../../Images/clients/client_Jain.png';
-import mylogicLogo from '../../../Images/clients/client_MyLogic.png';
-import adda52Logo from '../../../Images/clients/client_Adda52.png';
+import DefenceLogo from '../../../Images/clients/Defence.png';
+import peshwalLogo from '../../../Images/clients/peshwa.png';
+import OysterLogo from '../../../Images/clients/Oyster.png';
+import MontessoriLogo from '../../../Images/clients/Montessori.png';
+import RNIEPLLogo from '../../../Images/clients/RNIEPL.png';
+import AmbrosiaLogo from '../../../Images/clients/Ambrosia.png';
+import TempleLogo from '../../../Images/clients/Temple.png';
+import JackLogo from '../../../Images/clients/Jack.png';
+import OMITLogo from '../../../Images/clients/OmIT.png';
+import NationalSchoolOfBankingLogo from '../../../Images/clients/NationalScoolOfBanking.png';
 
 // --- Industries We Serve Images ---
 import ecommerceImage from '../../../Images/Industries_We_Serve/E-commerce.jpg';
@@ -45,45 +49,73 @@ export default function ClientsPage() {
       </section>
 
       {/* Text + Logo Grid Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6 xl:px-16">
-          <div className="grid md:grid-cols-2 gap-12 items-start max-w-7xl mx-auto">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Our valuable Clients</h2>
-              <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-                CreatorIt has an impressive list of clients on its roster, which pays testimony to the high quality, timeliness and value of our work. We have worked with businesses ranging from startups to established enterprises across various industries.
+<section className="py-16 bg-white overflow-hidden">
+  <div className="container mx-auto px-6 xl:px-16">
 
-Our clients trust us to help them achieve their digital goals and grow their online presence with cutting-edge solutions and dedicated support.
-              </p>
-              <a href="/clients">
-                <button className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-                  View More Clients
-                </button>
-              </a>
+    {/* CENTERED HEADING */}
+    <h2 className="text-3xl md:text-4xl font-bold mb-10 text-gray-900 text-center">
+      Our valuable Clients
+    </h2>
+
+    {/* 🔥 Animated Logo Slider (Perfect Infinite Loop) */}
+    <div className="relative overflow-hidden mb-12">
+      <div className="flex items-center gap-6 animate-marquee whitespace-nowrap">
+
+        {/* ORIGINAL 10 LOGOS */}
+        {[
+          { logo: DefenceLogo, name: 'Defence' },
+          { logo: peshwalLogo, name: 'peshwa' },
+          { logo: OysterLogo, name: 'Oyster' },
+          { logo: MontessoriLogo, name: 'Montessori' },
+          { logo: RNIEPLLogo, name: 'RNIEPL' },
+          { logo: AmbrosiaLogo, name: 'Ambrosia' },
+          { logo: TempleLogo, name: 'Temple' },
+          { logo: JackLogo, name: 'Jack' },
+          { logo: OMITLogo, name: 'OMIT' },
+          { logo: NationalSchoolOfBankingLogo, name: 'NSOB' },
+        ]
+          // DUPLICATE LIST FOR TRUE INFINITE LOOP
+          .concat([
+            { logo: DefenceLogo, name: 'Defence' },
+            { logo: peshwalLogo, name: 'peshwa' },
+            { logo: OysterLogo, name: 'Oyster' },
+            { logo: MontessoriLogo, name: 'Montessori' },
+            { logo: RNIEPLLogo, name: 'RNIEPL' },
+            { logo: AmbrosiaLogo, name: 'Ambrosia' },
+            { logo: TempleLogo, name: 'Temple' },
+            { logo: JackLogo, name: 'Jack' },
+            { logo: OMITLogo, name: 'OMIT' },
+            { logo: NationalSchoolOfBankingLogo, name: 'NSOB' },
+          ])
+          .map((client, i) => (
+            <div
+              key={i}
+              className="bg-white border border-gray-200 rounded-lg p-6 flex items-center justify-center min-w-[150px] h-32 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+            >
+              <Image
+                src={client.logo}
+                alt={client.name}
+                width={150}
+                height={80}
+                className="max-w-full max-h-full object-contain"
+              />
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-              {[
-                { logo: swiggyLogo, name: 'Swiggy' },
-                { logo: kennametalLogo, name: 'Kennametal' },
-                { logo: ifbLogo, name: 'IFB' },
-                { logo: jainLogo, name: 'Jain' },
-                { logo: mylogicLogo, name: 'MyLogic' },
-                { logo: adda52Logo, name: 'Adda52' }
-              ].map((client, i) => (
-                <div key={i} className="bg-white border border-gray-200 rounded-lg p-6 flex items-center justify-center h-32 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <Image
-                    src={client.logo}
-                    alt={client.name}
-                    width={150}
-                    height={80}
-                    className="max-w-full max-h-full object-contain"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+          ))}
+      </div>
+    </div>
+
+    {/* PARAGRAPH BELOW LOGOS */}
+    <p className="text-gray-700 leading-relaxed text-lg max-w-4xl mx-auto text-center">
+      CreatorIt has an impressive list of clients on its roster, which pays testimony to the
+      high quality, timeliness and value of our work. We have worked with businesses
+      ranging from startups to established enterprises across various industries. <br /><br />
+      Our clients trust us to help them achieve their digital goals and grow their online
+      presence with cutting-edge solutions and dedicated support.
+    </p>
+
+  </div>
+</section>
+
 
       {/* Industries Grid */}
       <section className="py-16 bg-white">

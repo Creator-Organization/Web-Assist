@@ -10,6 +10,9 @@ import contentMarketingLogo from '../../../Images/content_marketing.png';
 import googleMarketingLogo from '../../../Images/Google_marketing.png';
 import onlineSurveysLogo from '../../../Images/Online_services.png';
 import classifiedServicesLogo from '../../../Images/Classified_Services.png';
+import youtubeLogo from '../../../Images/youtube.png';
+
+import whatsAppLogo from '../../../Images/whatsApp.png';
 
 // --- New Image Imports (for the service sections) ---
 import besideEmailMarketing from '../../../Images/Beside_Email_Marketing.png';
@@ -21,6 +24,10 @@ import besideContentMarketing from '../../../Images/Beside_Content_Marketing.png
 import besideGoogleMarketing from '../../../Images/Beside_Google_Marketing.png';
 import besideOnlineSurveys from '../../../Images/Beside_Online_Surveys.png';
 import besideClassifiedServices from '../../../Images/Beside_Classified_Services.png';
+import besideYoutubeMarketing from '../../../Images/Beside_youtube_marketing.jpg';
+import besideVoiceMarketing from '../../../Images/Beside_voice_marketing.jpg';
+import besidewhatsapp_marketing from '../../../Images/Beside_whatsapp_marketing.jpg';
+
 
 
 export default function DigitalMarketingPage(): JSX.Element {
@@ -77,6 +84,27 @@ export default function DigitalMarketingPage(): JSX.Element {
       icon: <Image src={classifiedServicesLogo} alt="Classified Services" className="w-12 h-12 object-contain" />,
       href: '/services/classifieds',
       image: besideClassifiedServices
+    },
+    {
+      title: 'Youtube Marketing',
+      description: 'Grow your brand and showcase your products by creating engaging video content and running targeted ads to reach a massive, active audience.',
+      icon: <Image src={youtubeLogo} alt="Classified Services" className="w-12 h-12 object-contain" />,
+      href: '/services/youtube',
+      image: besideYoutubeMarketing
+    },
+    {
+      title: 'Voice Marketing',
+      description: 'Engage users through smart speakers and voice-enabled devices by optimizing for conversational queries and delivering seamless, hands-free audio experiences.',
+      icon: <Image src={onlineSurveysLogo} alt="Classified Services" className="w-12 h-12 object-contain" />,
+      href: '/services/voice',
+      image: besideVoiceMarketing
+    },
+    {
+      title: 'WhatsApp Marketing',
+      description: 'Build direct relationships and drive conversions through personalized, high-engagement messages and automated support on a platform customers trust.',
+      icon: <Image src={whatsAppLogo} alt="Classified Services" className="w-12 h-12 object-contain" />,
+      href: '/services/whatsApp',
+      image: besidewhatsapp_marketing
     },
   ];
 
