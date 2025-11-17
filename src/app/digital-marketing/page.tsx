@@ -11,7 +11,7 @@ import googleMarketingLogo from '../../../Images/Google_marketing.png';
 import onlineSurveysLogo from '../../../Images/Online_services.png';
 import classifiedServicesLogo from '../../../Images/Classified_Services.png';
 import youtubeLogo from '../../../Images/youtube.png';
-import voiceLogo from '../../../Images/Voice.png';
+
 import whatsAppLogo from '../../../Images/whatsApp.png';
 
 // --- New Image Imports (for the service sections) ---
@@ -95,7 +95,7 @@ export default function DigitalMarketingPage(): JSX.Element {
     {
       title: 'Voice Marketing',
       description: 'Engage users through smart speakers and voice-enabled devices by optimizing for conversational queries and delivering seamless, hands-free audio experiences.',
-      icon: <Image src={voiceLogo} alt="Classified Services" className="w-12 h-12 object-contain" />,
+      icon: <Image src={onlineSurveysLogo} alt="Classified Services" className="w-12 h-12 object-contain" />,
       href: '/services/voice',
       image: besideVoiceMarketing
     },

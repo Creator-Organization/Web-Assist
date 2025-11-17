@@ -1,11 +1,11 @@
 {
-  "name": "Nextwebi - Web Design & Development Company",
-  "short_name": "Nextwebi",
-  "description": "Web Design & Web Application Development Company in Bangalore. Digital transformation, website design, eCommerce, and web application development.",
+  "name": "CreatorIT - Web Development & Digital Marketing",
+  "short_name": "CreatorIT",
+  "description": "Professional web development, digital marketing, CMS development, and ready-to-deploy ERP systems in Aurangabad, Maharashtra.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#1e3a8a",
-  "theme_color": "#2563eb",
+  "background_color": "#ffffff",
+  "theme_color": "#7c3aed",
   "orientation": "portrait-primary",
   "icons": [
     {
